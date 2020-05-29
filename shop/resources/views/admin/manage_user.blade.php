@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">Manage Reg Students</h4>
+                <h4 class="header-line">Manage Reg Users</h4>
             </div>
 
 
@@ -18,7 +18,7 @@
                 <!-- Advanced Tables -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Reg Students
+                        Reg Users
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -37,50 +37,31 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-<!--                                --><?php //$sql = "SELECT * from tblstudents";
-//                                $query = $dbh -> prepare($sql);
-//                                $query->execute();
-//                                $results=$query->fetchAll(PDO::FETCH_OBJ);
-//                                $cnt=1;
-//                                if($query->rowCount() > 0)
-//                                {
-//                                foreach($results as $result)
-//                                {               ?>
+                                @foreach($users as $user)
+                                    @php
+                                        $status = '';
+                                        if ($user->status == 0)  $status = 'Inactive' ;
+
+                                                 $status = 'Active'
+                                    @endphp
                                 <tr class="odd gradeX">
                                     <td class="center">1</td>
-                                    <td class="center">2</td>
-                                    <td class="center">2</td>
-                                    <td class="center">3</td>
-                                    <td class="center">4</td>
-                                    <td class="center">5</td>
-                                    <td class="center">6</td>
-                                    <td class="center">7</td>
+                                    <td class="center">{{$user->id}}</td>
+                                    <td class="center">{{$user->name}}</td>
+                                    <td class="center">{{$user->email}}</td>
+                                    <td class="center">{{$user->phone}}</td>
+                                    <td class="center">{{$user->address}}</td>
+                                    <td class="center">{{$user->created_at}}</td>
+                                    <td class="center"><?php echo $status?></td>
                                     <td class="center">
-                                        <a href="reg-students.php?inid=7" onclick="return confirm('Are you sure you want to block this student?');" >
-                                            <button class="btn btn-danger"> Inactive</button>
-                                        <a href="reg-students.php?id=8" onclick="return confirm('Are you sure you want to active this student?');">
-                                            <button class="btn btn-primary"> Active</button>
-
-
-                                    </td>
-                                </tr> <tr class="odd gradeX">
-                                    <td class="center">1</td>
-                                    <td class="center">2</td>
-                                    <td class="center">2</td>
-                                    <td class="center">3</td>
-                                    <td class="center">4</td>
-                                    <td class="center">5</td>
-                                    <td class="center">6</td>
-                                    <td class="center">7</td>
-                                    <td class="center">
-                                        <a href="reg-students.php?inid=7" onclick="return confirm('Are you sure you want to block this student?');" >
-                                            <button class="btn btn-danger"> Inactive</button>
-                                        <a href="reg-students.php?id=8" onclick="return confirm('Are you sure you want to active this student?');">
-                                            <button class="btn btn-primary"> Active</button>
+                                        <a href="edit-category.php?catid="><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
+                                            <a href="manage-categories.php?del=<?php ;?>" onclick="return confirm('Are you sure you want to delete?');"" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
 
 
                                     </td>
                                 </tr>
+                                @endforeach
+
 
                                 </tbody>
                             </table>
@@ -102,12 +83,4 @@
 <!-- FOOTER SECTION END-->
 <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
 <!-- CORE JQUERY  -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/js/bootstrap.js"></script>
-<!-- DATATABLE SCRIPTS  -->
-<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-<!-- CUSTOM SCRIPTS  -->
-<script src="assets/js/custom.js"></script>
   @endsection

@@ -22,7 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/cate_management', 'CategoryController');
+Route::resource('/product_management', 'ProductController');
 
 Route::resource('/language_management', 'LanguageController');
+Route::resource('/author_management', 'AuthorController');
 Route::resource('/pub_management', 'PublisherController');
 Route::resource('/prf_management', 'PriceFilterController');

@@ -198,7 +198,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="product_management">
                                                 <span class="nav-text">Product</span>
 
                                             </a>
@@ -212,7 +212,7 @@
                                         </li>
                                         
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="author_management">
                                                 <span class="nav-text">Author</span>
 
                                             </a>

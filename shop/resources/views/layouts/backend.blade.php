@@ -219,21 +219,21 @@
                                         </li>
                                         
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="language_management">
                                                 <span class="nav-text">Language</span>
 
                                             </a>
                                         </li>
                                         
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="pub_management">
                                                 <span class="nav-text">Publisher</span>
 
                                             </a>
                                         </li>
                                         
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="prf_management">
                                                 <span class="nav-text">PriceFilter</span>
 
                                             </a>

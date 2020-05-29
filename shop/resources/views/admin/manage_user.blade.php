@@ -1,25 +1,6 @@
+@extends('layouts.backend')
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Online Library Management System | Manage Reg Students</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME STYLE  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- DATATABLE STYLE  -->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
-</head>
-<body>
+  @section('content')
 <!------MENU SECTION START-->
 <?php //include('includes/header.php');?>
 <!-- MENU SECTION END-->
@@ -45,11 +26,12 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Student ID</th>
-                                    <th>Student Name</th>
+                                    <th>User ID</th>
+                                    <th>User Name</th>
                                     <th>Email id </th>
                                     <th>Mobile Number</th>
-                                    <th>Reg Date</th>
+                                    <th>Adress </th>
+                                    <th>Created_at </th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -72,6 +54,7 @@
                                     <td class="center">4</td>
                                     <td class="center">5</td>
                                     <td class="center">6</td>
+                                    <td class="center">7</td>
                                     <td class="center">
                                         <a href="reg-students.php?inid=7" onclick="return confirm('Are you sure you want to block this student?');" >
                                             <button class="btn btn-danger"> Inactive</button>
@@ -88,6 +71,7 @@
                                     <td class="center">4</td>
                                     <td class="center">5</td>
                                     <td class="center">6</td>
+                                    <td class="center">7</td>
                                     <td class="center">
                                         <a href="reg-students.php?inid=7" onclick="return confirm('Are you sure you want to block this student?');" >
                                             <button class="btn btn-danger"> Inactive</button>
@@ -126,5 +110,4 @@
 <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
 <!-- CUSTOM SCRIPTS  -->
 <script src="assets/js/custom.js"></script>
-</body>
-</html>
+  @endsection

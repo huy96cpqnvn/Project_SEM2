@@ -28,3 +28,4 @@ Route::resource('/language_management', 'LanguageController');
 Route::resource('/author_management', 'AuthorController');
 Route::resource('/pub_management', 'PublisherController');
 Route::resource('/prf_management', 'PriceFilterController');
+Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');

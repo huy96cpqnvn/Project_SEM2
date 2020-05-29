@@ -127,7 +127,7 @@
                                     </div>
                                 </ul>
                             </li>
-                            
+
                             <!-- User Management -->
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#user"
@@ -142,7 +142,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="index.html">
+                                            <a class="sidenav-item-link" href="{{route('user_management.index')}}">
                                                 <span class="nav-text">Users</span>
 
                                             </a>
@@ -167,12 +167,12 @@
                                     </div>
                                 </ul>
                             </li>
-                            
+
                             <!-- End User Management -->
-                            
-                            
+
+
                             <!-- Product Management -->
-                            
+
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#product"
                                    aria-expanded="false" aria-controls="product">
@@ -203,42 +203,42 @@
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="analytics.html">
                                                 <span class="nav-text">Product Details</span>
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="author_management">
                                                 <span class="nav-text">Author</span>
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="language_management">
                                                 <span class="nav-text">Language</span>
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="pub_management">
                                                 <span class="nav-text">Publisher</span>
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="prf_management">
                                                 <span class="nav-text">PriceFilter</span>
 
                                             </a>
                                         </li>
-                                        
+
                                         <li >
                                             <a class="sidenav-item-link" href="analytics.html">
                                                 <span class="nav-text">Discount</span>
@@ -249,10 +249,10 @@
                                     </div>
                                 </ul>
                             </li>
-                            
+
                             <!-- End Product -->
-                            
-                            
+
+
 
 
 
@@ -822,14 +822,14 @@
                                 <li class="dropdown user-menu">
                                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                         <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
-                                        <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
+                                        <span class="d-none d-lg-inline-block">{{ Auth::user()['name']}}</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <!-- User image -->
                                         <li class="dropdown-header">
                                             <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
                                             <div class="d-inline-block">
-                                                {{ Auth::user()->name }} <small class="pt-1">{{ Auth::user()->email }}</small>
+                                                {{ Auth::user()['name'] }} <small class="pt-1">{{ Auth::user()['email'] }}</small>
                                             </div>
                                         </li>
 

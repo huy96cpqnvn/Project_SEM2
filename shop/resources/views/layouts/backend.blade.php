@@ -205,7 +205,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="proDetail_management">
                                                 <span class="nav-text">Product Details</span>
 
                                             </a>
@@ -240,7 +240,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="dis_management">
                                                 <span class="nav-text">Discount</span>
 
                                             </a>

@@ -21,6 +21,11 @@
                         Reg Users
                     </div>
                     <a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
+                    <a class="btn btn-success float-right" href="">Active</a>
+                    <a class="btn btn-danger float-right" href="{{route('user_management.add')}}">InActive</a>
+                    <div class="float-left" style="padding-top: 15px ;padding-bottom: 15px" > <input type="text" placeholder="Nhập từ khóa" id="searchValue">
+                                                                                             <input type="button" value="Tìm Kiếm" id="btn-search">
+                    </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">

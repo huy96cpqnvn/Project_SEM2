@@ -7,7 +7,7 @@
             <div class="container white percent100">
                 <div class="col-lg-12">
                     <div class="padder-t2">
-                        <h1>Edit User</h1>
+                        <h1>Add User</h1>
                         <div class="horiz-divider"></div>
                     </div>
                 </div>

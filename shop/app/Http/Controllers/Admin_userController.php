@@ -78,12 +78,13 @@ class Admin_userController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'name' => 'required|max:255|min:3',
             'email' => 'required|max:255|min:3|unique:users',
             'email' => 'required|max:255|min:3|unique:users',
             'phone' => 'required|max:255|min:3|unique:users',
-            'address' => 'required|max:255|min:3|unique:users',
+            'address' => 'required|max:255|min:3',
             'status'=>'required|in:0,1',
 
         ]);
@@ -107,8 +108,12 @@ class Admin_userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id ,Request $request)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        $request->session()->flash('success', 'Post was deleted!');
+        return  redirect()->route('user_management.index');
+
     }
 }

@@ -83,8 +83,8 @@
                                         <label class="control-label pull-right"><h4>Status </h4></label>
                                     </div>
                                     <select class="custom-select" name="status" id="selectBox" onchange="changeFunction();">
-                                        <option value="1" class="btn btn-success">Active  </option>
-                                        <option value="0" class="btn btn-success">InActive</option>
+                                        <option value="1" class="btn btn-success" {{$user->status ==1 ? 'selected' : ''}}>Active  </option>
+                                        <option value="0" class="btn btn-success" {{$user->status ==0 ? 'selected' : ''}}>InActive</option>
 
 
                                     </select>

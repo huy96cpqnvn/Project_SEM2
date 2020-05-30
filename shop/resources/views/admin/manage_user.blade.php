@@ -4,7 +4,7 @@
 <!------MENU SECTION START-->
 <?php //include('includes/header.php');?>
 <!-- MENU SECTION END-->
-<div class="content-wrapper">
+<div class="content-wrapper" style="padding-top: 50px">
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
@@ -60,9 +60,12 @@
                                     <td><a href="" class="btn btn-<?php echo $class?>"><?php echo $status ?></a></td>
                                     <td class="center">
                                          <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
-                                         <a href="manage-categories.php?del=" onclick="return confirm('Are you sure you want to delete?');" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
-
-
+                                             <form action="{{route('user_management.destroy',$user->id)}}" method="POST"
+                                             onsubmit="return confirm('Are you sure you want to delete?');">
+                                                 @csrf
+                                                 @method('delete')
+                                                 <input type="submit" value="Delete" class="btn btn-danger"/>
+                                             </form>
                                     </td>
                                 </tr>
                                 @endforeach

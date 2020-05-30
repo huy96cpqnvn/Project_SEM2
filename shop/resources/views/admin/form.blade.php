@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 
 @section('content')
-
+    @include('template.error')
     <div class="container white">
         <div class="row">
             <div class="container white percent100">
@@ -17,7 +17,9 @@
             <div class="container white">
                 <div class="col-lg-12">
                     <!-- Form -->
-                    <form class="form-horizontal" action=" " method="post" id="contact_form">
+                    <form class="form-horizontal" action="{{route('user_management.update',$user->id)}}" method="post" id="contact_form">
+                        @csrf
+                        @method('put')
                         <fieldset>
                             <!-- Text input-->
                             <!-- Text input-->
@@ -29,7 +31,7 @@
                                     <div class="col-md-4 col-lg-4 inputGroupContainer">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input id="lastname" name="lastname" placeholder="Last Name" class="form-control" type="text">
+                                            <input id="lastname" name="name" placeholder="User Name" class="form-control" type="text" value="{{$user->name}}">
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +45,7 @@
                                     <div class="col-md-4 col-lg-4 inputGroupContainer">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                            <input id="email" name="email" placeholder="E-Mail Address" class="form-control" type="email">
+                                            <input id="email" name="email" placeholder="E-Mail Address" class="form-control" type="email" value="{{$user->email}}">
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +59,7 @@
                                     <div class="col-md-4 col-lg-4 inputGroupContainer">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                            <input id="phone" name="phone" placeholder="Phone" class="form-control" type="text">
+                                            <input id="phone" name="phone" placeholder="Phone" class="form-control" type="text" value="{{$user->phone}}">
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +72,7 @@
                                     <div class="col-md-4 col-lg-4 inputGroupContainer">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-adress"></i></span>
-                                            <input id="phone" name="phone" placeholder="Phone" class="form-control" type="text">
+                                            <input id="address" name="address" placeholder="Adress" class="form-control" type="text" value="{{$user->address}}">
                                         </div>
                                     </div>
                                 </div>
@@ -80,12 +82,12 @@
                                     <div class="col-md-4 col-lg-4">
                                         <label class="control-label pull-right"><h4>Status </h4></label>
                                     </div>
-                                    <div class="col-md-4 col-lg-4 inputGroupContainer">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-status"></i></span>
-                                            <input id="phone" name="phone" placeholder="Phone" class="form-control" type="text">
-                                        </div>
-                                    </div>
+                                    <select class="custom-select" name="status" id="selectBox" onchange="changeFunction();">
+                                        <option value="1" class="btn btn-success">Active  </option>
+                                        <option value="0" class="btn btn-success">InActive</option>
+
+
+                                    </select>
                                 </div>
                             </div>
                             <!-- Text area -->

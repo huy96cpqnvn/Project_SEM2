@@ -37,6 +37,10 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
         <script src="assets/plugins/nprogress/nprogress.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+        <script src = "{{asset('admin/js/my_js.js')}}"></script>
+
     </head>
 
 
@@ -205,7 +209,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="proDetail_management">
                                                 <span class="nav-text">Product Details</span>
 
                                             </a>
@@ -240,7 +244,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="dis_management">
                                                 <span class="nav-text">Discount</span>
 
                                             </a>

@@ -38,7 +38,28 @@ class Admin_userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255|min:3',
+            'email' => 'required|max:255|min:3|unique:users',
+            'email' => 'required|max:255|min:3|unique:users',
+            'phone' => 'required|max:255|min:3|unique:users',
+            'address' => 'required|max:255|min:3',
+            'status'=>'required|in:0,1',
+
+        ]);
+        $user =  new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->status = $request->status;
+        $user->password	 = $request->pass;
+        $user->level	 = $request->level;
+        $user->save();
+
+        $request->session()->flash('sucess','User was updated');
+        return  redirect()->route('user_management.index');
+
     }
 
     /**
@@ -60,7 +81,13 @@ class Admin_userController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $user = User::find($id);
+        $users = User::all();
+        return view('admin.form')->with([
+            'user'=>$user,
+            'users'=>$users
+        ]);
     }
 
     /**
@@ -72,7 +99,28 @@ class Admin_userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => 'required|max:255|min:3',
+            'email' => 'required|max:255|min:3|unique:users',
+            'email' => 'required|max:255|min:3|unique:users',
+            'phone' => 'required|max:255|min:3|unique:users',
+            'address' => 'required|max:255|min:3',
+            'status'=>'required|in:0,1',
+
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->status = $request->status;
+        $user->save();
+
+        $request->session()->flash('sucess','User was updated');
+        return  redirect()->route('user_management.index');
+
     }
 
     /**
@@ -81,8 +129,16 @@ class Admin_userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id ,Request $request)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        $request->session()->flash('success', 'Post was deleted!');
+        return  redirect()->route('user_management.index');
+
+    }
+    public  function add(){
+
+        return view('user.form');
     }
 }

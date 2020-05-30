@@ -41,5 +41,6 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
 
 
 Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
+Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
 Route::resource('/user_management', 'Admin_userController');
 

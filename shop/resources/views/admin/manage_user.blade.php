@@ -40,9 +40,14 @@
                                 @foreach($users as $user)
                                     @php
                                         $status = '';
-                                        if ($user->status == 0)  $status = 'Inactive' ;
+                                        if ($user->status == 0) {
+                                             $status = 'Inactive' ;
+                                             $class = 'danger';
+                                        }else{
+                                        $status = 'Active';
+                                        $class = 'success';
+                                        }
 
-                                                 $status = 'Active'
                                     @endphp
                                 <tr class="odd gradeX">
                                     <td class="center">1</td>
@@ -52,10 +57,10 @@
                                     <td class="center">{{$user->phone}}</td>
                                     <td class="center">{{$user->address}}</td>
                                     <td class="center">{{$user->created_at}}</td>
-                                    <td class="center"><?php echo $status?></td>
+                                    <td><a href="" class="btn btn-<?php echo $class?>"><?php echo $status ?></a></td>
                                     <td class="center">
-                                        <a href="edit-category.php?catid="><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
-                                            <a href="manage-categories.php?del=<?php ;?>" onclick="return confirm('Are you sure you want to delete?');"" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
+                                         <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
+                                         <a href="manage-categories.php?del=" onclick="return confirm('Are you sure you want to delete?');" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
 
 
                                     </td>

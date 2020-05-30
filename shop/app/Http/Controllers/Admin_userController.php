@@ -60,7 +60,8 @@ class Admin_userController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('admin.form');
     }
 
     /**
@@ -72,7 +73,9 @@ class Admin_userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+
+        ]);
     }
 
     /**

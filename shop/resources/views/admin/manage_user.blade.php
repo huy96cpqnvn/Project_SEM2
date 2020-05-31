@@ -21,11 +21,13 @@
                         Reg Users
                     </div>
                     <a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
-                    <a class="btn btn-success float-right" href="{{route('user_management.status',1)}}">Active</a>
-                    <a class="btn btn-danger float-right"  href="{{route('user_management.status',0)}}">InActive</a>
+                    <a class="btn btn-success float-right" href="{{route('user_management.status',1)}}">Active  <span class="badge badge-secondary">@php  echo $countActive @endphp</span></a>
+                    <a class="btn btn-danger float-right"  href="{{route('user_management.status',0)}}">InActive  <span class="badge badge-secondary">@php  echo $countInActive @endphp</span></a>
+                    <a class="btn btn-warning float-right"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">@php  echo $countAll @endphp</span></a>
                     <div class="float-left" style="padding-top: 15px ;padding-bottom: 15px" >
                         <form method="get" action="{{route('admin_userController.process')}}">
                             @csrf
+{{--                            {{$countActive}}--}}
                             <input type="hidden" name="_method" value="put">
                             <div>
                                 <label for="Search">Search:</label>
@@ -52,6 +54,7 @@
                                 <tbody>
                                 @foreach($users as $user)
                                     @php
+
                                         $status = '';
                                         if ($user->status == 0) {
                                              $status = 'Inactive' ;
@@ -70,7 +73,7 @@
                                     <td class="center">{{$user->phone}}</td>
                                     <td class="center">{{$user->address}}</td>
                                     <td class="center">{{$user->created_at}}</td>
-                                    <td><a href="" class="btn btn-<?php echo $class?>"><?php echo $status ?></a></td>
+                                    <td><a href="" class="btn btn-xs  btn-<?php echo $class?>"><?php echo $status ?></a></td>
                                     <td class="center">
                                          <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
                                              <form action="{{route('user_management.destroy',$user->id)}}" method="POST"

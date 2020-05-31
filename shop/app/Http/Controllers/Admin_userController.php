@@ -110,9 +110,8 @@ class Admin_userController extends Controller
 
         $request->validate([
             'name' => 'required|max:255|min:3',
-            'email' => 'required|max:255|min:3|unique:users',
-            'email' => 'required|max:255|min:3|unique:users',
-            'phone' => 'required|max:255|min:3|unique:users',
+            'email' => 'required|max:255|min:3',
+            'phone' => 'required|max:255|min:3',
             'address' => 'required|max:255|min:3',
             'status'=>'required|in:0,1',
 
@@ -163,9 +162,22 @@ class Admin_userController extends Controller
         ]);
     }
     public  function  status($status){
-        $users = User::select()->where('status','=',$status)->get();
+        $countAll = User::all()->count();
+        $countActive = User::select()->where('status','=',1)->get()->count();
+        $countInActive = $countAll- $countActive;
+        if ($status ==1 || $status ==0){
+            $users = User::select()->where('status','=',$status)->get();
+
+        }else {
+            $users = User::all();
+
+        }
+
         return  view('admin.manage_user')->with([
-            'users' =>$users
+            'users' =>$users,
+            'countAll'=>$countAll,
+            'countActive'=>$countActive,
+            'countInActive'=>$countInActive
         ]);
     }
 }

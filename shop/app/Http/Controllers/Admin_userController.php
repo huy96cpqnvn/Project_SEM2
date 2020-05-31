@@ -14,6 +14,9 @@ class Admin_userController extends Controller
      */
     public function __construct(Request $request)
     {
+
+
+
     }
 //    public function search($search){
 //
@@ -162,9 +165,7 @@ class Admin_userController extends Controller
         ]);
     }
     public  function  status($status){
-        $countAll = User::all()->count();
-        $countActive = User::select()->where('status','=',1)->get()->count();
-        $countInActive = $countAll- $countActive;
+
         if ($status ==1 || $status ==0){
             $users = User::select()->where('status','=',$status)->get();
 
@@ -175,9 +176,6 @@ class Admin_userController extends Controller
 
         return  view('admin.manage_user')->with([
             'users' =>$users,
-            'countAll'=>$countAll,
-            'countActive'=>$countActive,
-            'countInActive'=>$countInActive
         ]);
     }
 }

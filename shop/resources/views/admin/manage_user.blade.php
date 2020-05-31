@@ -3,7 +3,11 @@
   @section('content')
 <!------MENU SECTION START-->
 <?php //include('includes/header.php');?>
-<!-- MENU SECTION END-->
+@php
+          use App\User;$countAll = User::all()->count();
+          $countActive = User::select()->where('status','=',1)->get()->count();
+          $countInActive = $countAll- $countActive;
+@endphp
 <div class="content-wrapper" style="padding-top: 50px">
     <div class="container">
         <div class="row pad-botm">
@@ -21,9 +25,9 @@
                         Reg Users
                     </div>
                     <a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
-                    <a class="btn btn-success float-right" href="{{route('user_management.status',1)}}">Active  <span class="badge badge-secondary">@php  echo $countActive @endphp</span></a>
-                    <a class="btn btn-danger float-right"  href="{{route('user_management.status',0)}}">InActive  <span class="badge badge-secondary">@php  echo $countInActive @endphp</span></a>
-                    <a class="btn btn-warning float-right"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">@php  echo $countAll @endphp</span></a>
+                    <a class="btn btn-success float-right" href="{{route('user_management.status',1)}}">Active  <span class="badge badge-secondary">{{$countActive}}</span></a>
+                    <a class="btn btn-danger float-right"  href="{{route('user_management.status',0)}}">InActive  <span class="badge badge-secondary">{{$countInActive}}</span></a>
+                    <a class="btn btn-warning float-right"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">{{$countInActive}}</span></a>
                     <div class="float-left" style="padding-top: 15px ;padding-bottom: 15px" >
                         <form method="get" action="{{route('admin_userController.process')}}">
                             @csrf

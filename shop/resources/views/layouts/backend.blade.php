@@ -159,7 +159,7 @@
 
                                         <li >
                                             <a class="sidenav-item-link" href="analytics.html">
-                                                <span class="nav-text">Analytics</span>
+                                                <span class="nav-text">Mails</span>
 
 
                                             </a>
@@ -255,6 +255,95 @@
                             </li>
 
                             <!-- End Product -->
+                            
+                            
+                            <!-- News Management -->
+
+                            <li  class="has-sub" >
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#news"
+                                   aria-expanded="false" aria-controls="news">
+                                    <i class="mdi mdi-book-open-page-variant"></i>
+                                    <span class="nav-text">News Management</span> <b class="caret"></b>
+                                </a>
+                                <ul  class="collapse"  id="news"
+                                     data-parent="#sidebar-menu">
+                                    <div class="sub-menu">
+
+
+
+                                        <li >
+                                            <a class="sidenav-item-link" href="#">
+                                                <span class="nav-text">Category</span>
+
+                                            </a>
+                                        </li>
+
+
+
+
+
+
+                                        <li >
+                                            <a class="sidenav-item-link" href="#">
+                                                <span class="nav-text">Tags</span>
+
+                                            </a>
+                                        </li>
+
+                                        <li >
+                                            <a class="sidenav-item-link" href="#">
+                                                <span class="nav-text">News</span>
+
+                                            </a>
+                                        </li>
+
+                                        
+
+                                    </div>
+                                </ul>
+                            </li>
+
+                            <!-- End News -->
+                            
+                            
+                            <!-- Orders Management -->
+
+                            <li  class="has-sub" >
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#orders"
+                                   aria-expanded="false" aria-controls="orders">
+                                    <i class="mdi mdi-shopping"></i>
+                                    <span class="nav-text">Orders Management</span> <b class="caret"></b>
+                                </a>
+                                <ul  class="collapse"  id="orders"
+                                     data-parent="#sidebar-menu">
+                                    <div class="sub-menu">
+
+
+
+                                        <li >
+                                            <a class="sidenav-item-link" href="#">
+                                                <span class="nav-text">Orders</span>
+
+                                            </a>
+                                        </li>
+
+
+
+
+
+
+                                        <li >
+                                            <a class="sidenav-item-link" href="#">
+                                                <span class="nav-text">OrderDetails</span>
+
+                                            </a>
+                                        </li>
+
+                                    </div>
+                                </ul>
+                            </li>
+
+                            <!-- End Orders -->
 
 
 

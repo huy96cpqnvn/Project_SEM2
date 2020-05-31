@@ -12,6 +12,13 @@ class Admin_userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(Request $request)
+    {
+    }
+//    public function search($search){
+//
+//    }
+
     public function index()
     {
         $users = User::all();
@@ -38,6 +45,7 @@ class Admin_userController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|max:255|min:3',
             'email' => 'required|max:255|min:3|unique:users',
@@ -79,7 +87,7 @@ class Admin_userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Request $request)
     {
 
         $user = User::find($id);
@@ -131,6 +139,7 @@ class Admin_userController extends Controller
      */
     public function destroy($id ,Request $request)
     {
+
         $user = User::find($id);
         $user->delete();
         $request->session()->flash('success', 'Post was deleted!');
@@ -140,5 +149,23 @@ class Admin_userController extends Controller
     public  function add(){
 
         return view('user.form');
+    }
+    public function search()
+    {
+    }
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+
+        $users = User::select()->where('email','like',"%$search%")->get();
+        return  view('admin.manage_user')->with([
+            'users' =>$users
+        ]);
+    }
+    public  function  status($status){
+        $users = User::select()->where('status','=',$status)->get();
+        return  view('admin.manage_user')->with([
+            'users' =>$users
+        ]);
     }
 }

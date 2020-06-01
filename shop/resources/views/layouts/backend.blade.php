@@ -272,7 +272,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="newscate_management">
                                                 <span class="nav-text">Category</span>
 
                                             </a>
@@ -284,7 +284,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="tag_management">
                                                 <span class="nav-text">Tags</span>
 
                                             </a>

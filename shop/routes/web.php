@@ -41,6 +41,10 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
     Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
 });
 
+Route::resource('/newscate_management', 'NewsCategoryController');
+Route::resource('/tag_management', 'TagController');
+
+
 
 Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
 Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');

@@ -291,7 +291,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="news_management">
+                                            <a class="sidenav-item-link" href="#">
                                                 <span class="nav-text">News</span>
 
                                             </a>

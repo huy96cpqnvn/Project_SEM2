@@ -37,9 +37,10 @@ Route::resource('/dis_management', 'DiscountController');
 
 
 Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login
-    Route::resource('/proDetail_management', 'ProductDetailController');
-    Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
+
 });
+Route::resource('/proDetail_management', 'ProductDetailController');
+Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
 
 Route::resource('/newscate_management', 'NewsCategoryController');
 Route::resource('/tag_management', 'TagController');
@@ -53,3 +54,4 @@ Route::resource('/user_management', 'Admin_userController');
 Route::get('search/{search?}', 'Admin_userController@process')->name('admin_userController.process');
 Route::get('filter_status={status?}', 'Admin_userController@status')->name('user_management.status');
 Route::get('/order', 'OrderController@index')->name('order.index');
+Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');

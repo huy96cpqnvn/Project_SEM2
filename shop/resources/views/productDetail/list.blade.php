@@ -28,11 +28,11 @@
             <td>{{$prd->id}}</td>
             <td>{{$prd->name}}</td>
             <td>{{$prd->review}}</td>
-            <td>{{$prd->product->name}}</td>
-            <td>{{$prd->author->name}}</td>
-            <td>{{$prd->language->name}}</td>
-            <td>{{$prd->publisher->name}}</td>
-            <td>{{$prd->discount->discount}}</td>
+            <td>{{$prd->product['name']}}</td>
+            <td>{{$prd->author['name']}}</td>
+            <td>{{$prd->language['name']}}</td>
+            <td>{{$prd->publisher['name']}}</td>
+            <td>{{$prd->discount['discount']}}</td>
              <td>
                 <span id="status_{{$prd->id}}">
                 {{$prd->status == 1 ? 'Publish' : 'Draff'}}
@@ -52,6 +52,8 @@
                     <input type="submit" value="Delete" />
                 </form>
             </td>
+            <td><a href="{{route('add.cart',['id'=>$prd->id])}}">them vao gio hang</a></td>
+            <td><a href="{{route('add.cart',['id'=>$prd->id])}}">{{$prd->price}}</a></td>
         </tr>
         @endforeach
     </table>
@@ -62,7 +64,7 @@
     function changeStatus(element) {
         var _id = $(element).attr("data-id");
         var _status = $(element).data('status');
-        
+
         var data = {id: _id, status: _status, "_token" : "{{csrf_token()}}"};
 
         $.ajax({

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <title>BookShop</title>
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <!-- GOOGLE FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet"/>
         <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
@@ -255,8 +255,8 @@
                             </li>
 
                             <!-- End Product -->
-                            
-                            
+
+
                             <!-- News Management -->
 
                             <li  class="has-sub" >
@@ -297,15 +297,15 @@
                                             </a>
                                         </li>
 
-                                        
+
 
                                     </div>
                                 </ul>
                             </li>
 
                             <!-- End News -->
-                            
-                            
+
+
                             <!-- Orders Management -->
 
                             <li  class="has-sub" >
@@ -321,7 +321,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="{{route('order.index')}}">
                                                 <span class="nav-text">Orders</span>
 
                                             </a>

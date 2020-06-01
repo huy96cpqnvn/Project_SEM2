@@ -4,7 +4,8 @@
 <!------MENU SECTION START-->
 <?php //include('includes/header.php');?>
 @php
-          use App\User;$countAll = User::all()->count();
+          use App\User;
+          $countAll = User::all()->count();
           $countActive = User::select()->where('status','=',1)->get()->count();
           $countInActive = $countAll- $countActive;
 @endphp
@@ -12,6 +13,8 @@
     <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
+                <div class="float-right"><a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
+                </div>
                 <h4 class="header-line">Manage Reg Users</h4>
             </div>
 
@@ -20,15 +23,16 @@
         <div class="row" style="padding-top: 15px">
             <div class="col-md-12">
                 <!-- Advanced Tables -->
+
                 <div class="panel panel-default">
+
                     <div class="panel-heading">
                         Reg Users
                     </div>
-                    <a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
-                    <a class="btn btn-success float-right" href="{{route('user_management.status',1)}}">Active  <span class="badge badge-secondary">{{$countActive}}</span></a>
-                    <a class="btn btn-danger float-right"  href="{{route('user_management.status',0)}}">InActive  <span class="badge badge-secondary">{{$countInActive}}</span></a>
-                    <a class="btn btn-warning float-right"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">{{$countInActive}}</span></a>
-                    <div class="float-left" style="padding-top: 15px ;padding-bottom: 15px" >
+                    <a class="btn btn-warning float-left"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">{{$countAll}}</span></a>
+                    <a class="btn btn-success float-left" href="{{route('user_management.status',1)}}">Active  <span class="badge badge-secondary">{{$countActive}}</span></a>
+                    <a class="btn btn-danger float-left"  href="{{route('user_management.status',0)}}">InActive  <span class="badge badge-secondary">{{$countInActive}}</span></a>
+                    <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
                         <form method="get" action="{{route('admin_userController.process')}}">
                             @csrf
 {{--                            {{$countActive}}--}}
@@ -45,7 +49,6 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>User ID</th>
                                     <th>User Name</th>
                                     <th>Email id </th>
                                     <th>Mobile Number</th>
@@ -70,7 +73,6 @@
 
                                     @endphp
                                 <tr class="odd gradeX">
-                                    <td class="center">1</td>
                                     <td class="center">{{$user->id}}</td>
                                     <td class="center">{{$user->name}}</td>
                                     <td class="center">{{$user->email}}</td>
@@ -79,12 +81,14 @@
                                     <td class="center">{{$user->created_at}}</td>
                                     <td><a href="" class="btn btn-xs  btn-<?php echo $class?>"><?php echo $status ?></a></td>
                                     <td class="center">
-                                         <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
+                                         <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button>
                                              <form action="{{route('user_management.destroy',$user->id)}}" method="POST"
                                              onsubmit="return confirm('Are you sure you want to delete?');">
                                                  @csrf
                                                  @method('delete')
-                                                 <input type="submit" value="Delete" class="btn btn-danger"/>
+                                                 <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-danger"><i class="fas fa-trash-alt"></i> </button>
+
+{{--                                                     <input type="submit" value="Delete" class="btn btn-danger "><i class="fas fa-trash-alt"></i></input>--}}
                                              </form>
                                     </td>
                                 </tr>

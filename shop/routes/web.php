@@ -36,7 +36,7 @@ Route::resource('/dis_management', 'DiscountController');
 
 
 
-//Route::group(['middleware' => 'auth'], function() { }
+Route::group(['middleware' => 'auth'], function() { }
     Route::resource('/proDetail_management', 'ProductDetailController');
     Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
 

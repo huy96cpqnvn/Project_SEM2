@@ -37,12 +37,14 @@ Route::resource('/dis_management', 'DiscountController');
 
 
 Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login
-    Route::resource('/proDetail_management', 'ProductDetailController');
-    Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
 
-    Route::resource('/news_management', 'NewsController');
-    Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
 });
+// chỗ này cho ra ngoài làm xong hằng cho vài middleware
+Route::resource('/proDetail_management', 'ProductDetailController');
+Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
+
+Route::resource('/news_management', 'NewsController');
+Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
 
 Route::resource('/newscate_management', 'NewsCategoryController');
 Route::resource('/tag_management', 'TagController');

@@ -35,11 +35,6 @@
             <td>{{$prd->language['name']}}</td>
             <td>{{$prd->publisher['name']}}</td>
             <td>{{$prd->discount['discount']}}</td>
-            <td>
-                <span id="type_{{$prd->id}}">
-                {{$prd->type == 1 ? 'Hàng mới về' : 'Hàng sẵn có'}}
-                </span>
-            </td>
              <td>
                 <span id="status_{{$prd->id}}">
                 {{$prd->status == 1 ? 'Publish' : 'Draff'}}
@@ -92,5 +87,3 @@
     }
 </script>
 @endsection
-
-

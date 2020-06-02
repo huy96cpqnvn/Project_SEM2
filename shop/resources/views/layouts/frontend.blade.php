@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Home One || Witter Multipage Responsive Template</title>
+        <title>Home Witter</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon -->
@@ -14,32 +14,32 @@
 
 		<!-- all css here -->
 		<!-- bootstrap v3.3.6 css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 		<!-- animate css -->
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="{{asset('css/animate.css')}}">
 		<!-- jquery-ui.min css -->
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
+        <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}">
 		<!-- meanmenu css -->
-        <link rel="stylesheet" href="css/meanmenu.min.css">
+        <link rel="stylesheet" href="{{asset('css/meanmenu.min.css')}}">
 		<!-- Font-Awesome css -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 		<!-- pe-icon-7-stroke css -->
-        <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+        <link rel="stylesheet" href="{{asset('css/pe-icon-7-stroke.css')}}">
 		<!-- Flaticon css -->
-        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
 		<!-- venobox css -->
-        <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{{asset('venobox/venobox.css')}}" type="text/css" media="screen" />
 		<!-- nivo slider css -->
-		<link rel="stylesheet" href="lib/css/nivo-slider.css" type="text/css" />
-		<link rel="stylesheet" href="lib/css/preview.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="{{asset('lib/css/nivo-slider.css')}}" type="text/css" />
+		<link rel="stylesheet" href="{{asset('lib/css/preview.css')}}" type="text/css" media="screen" />
 		<!-- owl.carousel css -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
 		<!-- style css -->
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="{{asset('style.css')}}">
 		<!-- responsive css -->
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 		<!-- modernizr css -->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-6">
                         <div class="header-logo">
-                            <a href="index.html">
+                            <a href="welcome.html">
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>

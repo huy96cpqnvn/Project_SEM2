@@ -104,6 +104,14 @@
                 <option value="1">public</option>
             </select>
         </div>
+        
+        <div class="form-group">
+            <label for="name">Type</label>
+            <select name="type1" id="type">
+                <option value="0">Hàng sẵn có</option>
+                <option value="1">Hàng mới về</option>
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

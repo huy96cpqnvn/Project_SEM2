@@ -42,10 +42,11 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
 
     Route::resource('/news_management', 'NewsController');
     Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
+
+    Route::resource('/newscate_management', 'NewsCategoryController');
+    Route::resource('/tag_management', 'TagController');
 });
 
-Route::resource('/newscate_management', 'NewsCategoryController');
-Route::resource('/tag_management', 'TagController');
 
 
 Route::resource('/user_management', 'Admin_userController');

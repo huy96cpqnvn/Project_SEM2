@@ -20,6 +20,7 @@
         <th>Language</th>
         <th>Publisher</th>
         <th>Discount</th>
+        <th>Type</th>
         <th>Status</th>
         <th>Action</th>
 
@@ -28,6 +29,7 @@
             <td>{{$prd->id}}</td>
             <td>{{$prd->name}}</td>
             <td>{{$prd->review}}</td>
+
             <td>{{$prd->product['name']}}</td>
             <td>{{$prd->author['name']}}</td>
             <td>{{$prd->language['name']}}</td>
@@ -85,5 +87,3 @@
     }
 </script>
 @endsection
-
-

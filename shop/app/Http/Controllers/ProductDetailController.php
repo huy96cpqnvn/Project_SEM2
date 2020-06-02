@@ -68,6 +68,7 @@ class ProductDetailController extends Controller {
         $prd->price = $request->price1;
         $prd->amount = $request->amount1;
         $prd->status = $request->status1;
+        $prd->type = $request->type1;
 
         $prd->product_id = $request->product_id1;
         $prd->author_id = $request->author_id1;
@@ -155,6 +156,7 @@ class ProductDetailController extends Controller {
         $prd->price = $request->price1;
         $prd->amount = $request->amount1;
         $prd->status = $request->status1;
+        $prd->type = $request->type1;
 
         $prd->product_id = $request->product_id1;
         $prd->author_id = $request->author_id1;

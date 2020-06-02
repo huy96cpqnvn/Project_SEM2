@@ -52,13 +52,12 @@ Route::resource('/newscate_management', 'NewsCategoryController');
 Route::resource('/tag_management', 'TagController');
 
 
-
+Route::resource('/user_management', 'Admin_userController');
 Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
 Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
 Route::get('/user_management/search?nhap=/{search}', 'Admin_userController@search')->name('user_management.search');
-Route::resource('/user_management', 'Admin_userController');
 Route::get('search/{search?}', 'Admin_userController@process')->name('admin_userController.process');
 Route::get('filter_status={status?}', 'Admin_userController@status')->name('user_management.status');
-Route::get('/order', 'OrderController@index')->name('order.index');
-Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
 
+Route::resource('/order', 'OrderController');
+Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');

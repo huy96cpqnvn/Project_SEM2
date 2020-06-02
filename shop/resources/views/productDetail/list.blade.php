@@ -53,7 +53,6 @@
                 </form>
             </td>
             <td><a href="{{route('add.cart',['id'=>$prd->id])}}">them vao gio hang</a></td>
-            <td><a href="{{route('add.cart',['id'=>$prd->id])}}">{{$prd->price}}</a></td>
         </tr>
         @endforeach
     </table>

@@ -864,10 +864,8 @@
                             <ul class="nav navbar-nav">
                                 <!-- Github Link Button -->
                                 <li class="github-link mr-3">
-                                    <a class="btn btn-outline-secondary btn-sm" href="https://github.com/tafcoder/sleek-dashboard" target="_blank">
-                                        <span class="d-none d-md-inline-block mr-2">Source Code</span>
-                                        <i class="mdi mdi-github-circle"></i>
-                                    </a>
+                                <a href="{{route('order.index')}}" title="Giỏ Hàng Ban Có {{Cart::count()}} Mặt Hàng "><i class="fa fa-cart-plus"></i></a>
+
 
                                 </li>
                                 <li class="dropdown notifications-menu">
@@ -947,8 +945,10 @@
                                             <a href="signin.html"> <i class="mdi mdi-logout"></i> Log Out </a>
                                         </li>
                                     </ul>
+
                                 </li>
                             </ul>
+
                         </div>
                     </nav>
 

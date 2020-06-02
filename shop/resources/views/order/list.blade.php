@@ -54,15 +54,15 @@
                                                 <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly">
                                                 <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-up')!!}"><span class="glyphicon glyphicon-plus-sign"></span></a>
                                             </td>
-                                            <td><a href="{!!url('gio-hang/delete/'.$row->rowId)!!}" onclick="return xacnhan('Xóa sản phẩm này ?')" ><span class="glyphicon glyphicon-remove" style="padding:5px; font-size:18px; color:red;"></span></a></td>
+                                            <td><a href="{{route('order.destroy',$row->id)}}" onclick="return confirm('Xóa sản phẩm này ?')" ><span class=" fa fa-remove" style="padding:5px; font-size:18px; color:red;">x</span></a></td>
                                             <td>{!! number_format($row->price) !!} Vnd</td>
                                             <td>{!! number_format($row->qty * $row->price) !!} Vnd</td>
                                         </tr>
                                     @endforeach
                                     <tr>
                                         <td colspan="3"><strong>Tổng cộng :</strong> </td>
-                                        <td>{!!Cart::count()!!}</td>
-                                        <td colspan="2" style="color:red;">{!!Cart::subtotal()!!} Vnd</td>
+                                        <td class="text-center" style="border: red solid 2px">{!!Cart::count()!!}</td>
+                                        <td colspan="4" style="color:red;" class="text-center">{!!Cart::subtotal()!!} Vnd</td>
                                     </tr>
                                     </tbody>
                                 </table>

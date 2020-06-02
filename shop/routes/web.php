@@ -57,4 +57,4 @@ Route::get('filter_status={status?}', 'Admin_userController@status')->name('user
 
 Route::resource('/order', 'OrderController');
 Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
-Route::get('/order', 'OrderController@index')->name('order.index');
+Route::resource('/order', 'OrderController');

@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Cart as Cart;
-use App\Product;
-use App\ProductDetail ;
+
 class OrderController extends Controller
 {
     /**
@@ -16,7 +13,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('order.list');
+        return view('order.index');
     }
 
     /**
@@ -139,4 +136,7 @@ public function addCart($id,Request $request){
         ];
     Cart::add($cart);
     return redirect()->back()->with('success', 'Thêm '.$product['name'].' Vào Giỏ Hàng Thành Công');
-}}
+}
+        //
+
+}

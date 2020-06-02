@@ -110,4 +110,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+<script>
+        CKEDITOR.replace('detail1');
+    </script>
 @endsection

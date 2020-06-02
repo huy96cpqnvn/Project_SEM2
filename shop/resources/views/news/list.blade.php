@@ -62,7 +62,7 @@
                  }).done(function( msg ) {
                      if(msg.status == "OK") {
                          if(_status == 0) {
-                             $("#status_" + _id).html("Publish");
+                             $("#status_" + _id).html("Pushlish");
                              $(element).data('status',1);
                          } else {
                              $("#status_" + _id).html("Draft");

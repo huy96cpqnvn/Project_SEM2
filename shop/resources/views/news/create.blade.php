@@ -17,7 +17,7 @@
         @csrf  <!-- Bảo mật cho dữ liệu, khi dữ liệu đưa lên tự động tạo ra 1 token -->
          <div class="form-group">
             <label for="name">Cover Image</label>
-            <input type="file" class="form-control" id="file" name="file1" placeholder="Enter Title"/>
+            <input type="file" class="form-control" id="file" name="file1" placeholder="Enter Image"/>
         </div>
         <div class="form-group">
             <label for="name">Title</label>
@@ -54,4 +54,7 @@
     </form>
 </div>
 
+<script>
+        CKEDITOR.replace('content1');
+    </script>
 @endsection

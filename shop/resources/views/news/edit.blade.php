@@ -18,7 +18,7 @@
         <input type="hidden" name="_method" value="PUT"/>
          <div class="form-group">
             <label for="name">Cover Image</label>
-            <input type="file" class="form-control" id="file" name="file1" placeholder="Enter Cover"/>
+            <input type="file" class="form-control" id="file" name="file1" placeholder="Enter Image"/>
         </div>
         <div class="form-group">
             <label for="name">Title</label>
@@ -54,4 +54,8 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+
+<script>
+        CKEDITOR.replace('content1');
+    </script>
 @endsection

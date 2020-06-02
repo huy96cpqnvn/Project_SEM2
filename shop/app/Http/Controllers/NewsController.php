@@ -13,9 +13,8 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        //$allPost = Post::all();
         $allNews = News::paginate(3);
         return view('news.list')->with(['allNews' => $allNews]);
     }
@@ -41,7 +40,7 @@ class NewsController extends Controller
     {
         $request->validate(
                 [
-                   'title1' => 'required|max:255|min:3|unique:news,title', ///phải thêm trường 'title' vào sau news, do name=title1 khác với tên trường là title.
+                   'title1' => 'required|max:255|min:3|unique:news,title', ///phải thêm trường 'title' vào sau post, do name=title1 khác với tên trường là title.
                    'summary1' => 'required|max:255|min:3',
                    'content1' => 'required'
                 ]);
@@ -116,7 +115,7 @@ class NewsController extends Controller
         $news->summary = $request->summary1;
         $news->content = $request->content1;
         $news->category_id = $request->category_id1;
-        $news->status = $request->status1;
+        $news->is_active = $request->is_active1;
         
         $file = $request->file1;
         

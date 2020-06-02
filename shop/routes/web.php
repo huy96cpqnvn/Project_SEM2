@@ -57,4 +57,7 @@ Route::get('filter_status={status?}', 'Admin_userController@status')->name('user
 Route::resource('/user_management', 'Admin_userController');
 
 Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
+//Route::get('order/update/{id}/{qty}-{dk}', ['as'  => 'getupdatecart', 'uses' =>'OrderController@update']);
+//Route::get('gio-hang/update/{id}/{qty}-{dk}', ['as'  => 'getupdatecart', 'uses' =>'OrderController@updateCart']);
+Route::put('order/update/{id?}/{qty?}-{dk?}','OrderController@updateCart')->name('order.updateCart');
 Route::resource('order', 'OrderController');

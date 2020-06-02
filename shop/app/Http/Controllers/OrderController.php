@@ -68,11 +68,21 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update()
     {
-        //
-    }
 
+    }
+public  function updateCart($id=null,$qty=null,$dk=null){
+    if ($dk=='up') {
+        $qt = $qty+1;
+        Cart::update($id, $qt);
+    } elseif ($dk=='down') {
+        $qt = $qty-1;
+        Cart::update($id, $qt);
+    } else {
+    }
+    return redirect()->back();
+}
     /**
      * Remove the specified resource from storage.
      *

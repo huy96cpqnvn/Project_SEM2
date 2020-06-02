@@ -30,7 +30,7 @@
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>STT</th>
                                         <th>Hình ảnh</th>
                                         <th>Tên sản phẩm</th>
                                         <th>SL</th>
@@ -40,10 +40,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @php $i=1 ; @endphp
                                     @foreach(Cart::content() as  $key => $row)
                                         <tr>
-                                            <td>{!!$row->id!!}</td>
-                                            <td><img src="{{asset($row->options['img'])}}" alt="dell" width="80" height="50"></td>
+                                            <td>{{$i}}</td>
+                                            <td><img src="{{asset($row->options['img'])}}" alt="{{$row->name}}" width="80" height="50"></td>
                                             <td>{!!$row->name!!}</td>
                                             <td class="text-center">
                                                 @if (($row->qty) >1)
@@ -51,8 +52,26 @@
                                                 @else
                                                     <a href="#"><span class="glyphicon glyphicon-minus"></span></a>
                                                 @endif
-                                                <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly">
-                                                <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-up')!!}"><span class="glyphicon glyphicon-plus-sign"></span></a>
+
+                                                    <form action="{!!url('order/update/'.$row->rowId.'/'.$row->qty.'-up')!!}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="put" />
+                                                        <button class="glyphicon glyphicon-plus-sign" >++</button>
+                                                    </form>
+                                                    <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly">
+                                                    <form action="{!!url('order/update/'.$row->rowId.'/'.$row->qty.'-down')!!}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="_method" value="put" />
+                                                        <button class="glyphicon glyphicon-plus-sign" >--</button>
+                                                    </form>
+{{--                                                    <a href=""><span class="glyphicon glyphicon-minus">tru</span></a>--}}
+
+                                                    {{--                                                    <form  method="post" action="{{route('order.update',$row->id,$row->qty,'-up')}}">--}}
+{{--                                                        @csrf--}}
+{{--                                                        <input type="hidden" name="_method" value="PUT" />--}}
+{{--                                                        <button class="glyphicon glyphicon-plus-sign" >--</button>--}}
+{{--                                                    </form>--}}
+
                                             </td>
                                             <td>
                                                 <form method="post" action="{{route('order.destroy',$row->id)}}">
@@ -64,6 +83,8 @@
                                             <td>{!! number_format($row->price) !!} Vnd</td>
                                             <td>{!! number_format($row->qty * $row->price) !!} Vnd</td>
                                         </tr>
+                                        @php $i++ ; @endphp
+
                                     @endforeach
                                     <tr>
                                         <td colspan="3"><strong>Tổng cộng :</strong> </td>

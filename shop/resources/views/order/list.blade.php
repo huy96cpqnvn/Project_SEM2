@@ -40,10 +40,10 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(Cart::content() as $row)
+                                    @foreach(Cart::content() as  $key => $row)
                                         <tr>
                                             <td>{!!$row->id!!}</td>
-                                            <td><img src="{!!url('public/uploads/products/'.$row->options->img)!!}" alt="dell" width="80" height="50"></td>
+                                            <td><img src="{{asset($row->options['img'])}}" alt="dell" width="80" height="50"></td>
                                             <td>{!!$row->name!!}</td>
                                             <td class="text-center">
                                                 @if (($row->qty) >1)

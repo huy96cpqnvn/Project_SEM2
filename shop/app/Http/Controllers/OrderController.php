@@ -81,9 +81,11 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        dd('xoa');
-        Cart::remove([$id]);
-        redirect()->back();
+        $item = Cart::search(function ($cart, $key) use($id) {
+            return $cart->id == $id;
+        })->first();
+        Cart::remove($item->rowId);
+        return redirect()->back();
 
     }
 

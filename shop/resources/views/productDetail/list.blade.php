@@ -58,6 +58,7 @@
                     <input type="submit" value="Delete" />
                 </form>
             </td>
+            <td><a href="{{route('add.cart',['id'=>$prd->id])}}">them vao gio hang</a></td>
         </tr>
         @endforeach
     </table>
@@ -68,7 +69,7 @@
     function changeStatus(element) {
         var _id = $(element).attr("data-id");
         var _status = $(element).data('status');
-        
+
         var data = {id: _id, status: _status, "_token" : "{{csrf_token()}}"};
 
         $.ajax({

@@ -37,22 +37,26 @@ Route::resource('/dis_management', 'DiscountController');
 
 
 Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login
-    Route::resource('/proDetail_management', 'ProductDetailController');
-    Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
-    
-    Route::resource('/news_management', 'NewsController');
-    Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
+
 });
+// chỗ này cho ra ngoài làm xong hằng cho vài middleware
+Route::resource('/proDetail_management', 'ProductDetailController');
+Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
+
+Route::resource('/news_management', 'NewsController');
+Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
 
 Route::resource('/newscate_management', 'NewsCategoryController');
 Route::resource('/tag_management', 'TagController');
 
 
-
+Route::resource('/user_management', 'Admin_userController');
 Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
 Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
 Route::get('/user_management/search?nhap=/{search}', 'Admin_userController@search')->name('user_management.search');
-Route::resource('/user_management', 'Admin_userController');
 Route::get('search/{search?}', 'Admin_userController@process')->name('admin_userController.process');
 Route::get('filter_status={status?}', 'Admin_userController@status')->name('user_management.status');
-Route::get('/order', 'OrderController@index')->name('order.index');
+
+Route::resource('/order', 'OrderController');
+Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
+Route::resource('/order', 'OrderController');

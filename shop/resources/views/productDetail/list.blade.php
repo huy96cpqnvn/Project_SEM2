@@ -28,11 +28,11 @@
             <td>{{$prd->id}}</td>
             <td>{{$prd->name}}</td>
             <td>{{$prd->review}}</td>
-            <td>{{$prd->product->name}}</td>
-            <td>{{$prd->author->name}}</td>
-            <td>{{$prd->language->name}}</td>
-            <td>{{$prd->publisher->name}}</td>
-            <td>{{$prd->discount->discount}}</td>
+            <td>{{$prd->product['name']}}</td>
+            <td>{{$prd->author['name']}}</td>
+            <td>{{$prd->language['name']}}</td>
+            <td>{{$prd->publisher['name']}}</td>
+            <td>{{$prd->discount['discount']}}</td>
              <td>
                 <span id="status_{{$prd->id}}">
                 {{$prd->status == 1 ? 'Publish' : 'Draff'}}

@@ -40,6 +40,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
         <script src = "{{asset('admin/js/my_js.js')}}"></script>
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
     </head>
 
@@ -291,7 +292,7 @@
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="news_management">
                                                 <span class="nav-text">News</span>
 
                                             </a>
@@ -914,13 +915,13 @@
                                 <!-- User Account -->
                                 <li class="dropdown user-menu">
                                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                        <img src="assets/img/user/user.png" class="user-image" alt="User Image" />
+                                        <img src="{{asset('assets/img/user/user.png')}}" class="user-image" alt="User Image" />
                                         <span class="d-none d-lg-inline-block">{{ Auth::user()['name']}}</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <!-- User image -->
                                         <li class="dropdown-header">
-                                            <img src="assets/img/user/user.png" class="img-circle" alt="User Image" />
+                                            <img src="{{asset('assets/img/user/user.png')}}" class="img-circle" alt="User Image" />
                                             <div class="d-inline-block">
                                                 {{ Auth::user()['name'] }} <small class="pt-1">{{ Auth::user()['email'] }}</small>
                                             </div>

@@ -275,90 +275,22 @@
     <div class="container">
         <div class="row">
             <div class="blog-list indicator-style">
+                @foreach ($new as $item)
                 <div class="col-md-3">
                     <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/1.jpg" alt="">
+                        <a href="#">
+                            <img src="{{$item->cover}}" alt="">
                         </a>
                         <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
+                            <a href="#"><h2>{{$item->title}}</h2></a>
                             <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">LATEST BLOG</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
+                                <span class="blog-date">{{date('d/M/Y h:m:s', strtotime($item->created_at))}}</span>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/2.jpg" alt="">
-                        </a>
-                        <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
-                            <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">ZARIF SUNI</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/3.jpg" alt="">
-                        </a>
-                        <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
-                            <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">ZARIF SUNI</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/4.jpg" alt="">
-                        </a>
-                        <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
-                            <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">ZARIF SUNI</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/1.jpg" alt="">
-                        </a>
-                        <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
-                            <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">ZARIF SUNI</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-blog">
-                        <a href="single-#">
-                            <img src="img/blog/2.jpg" alt="">
-                        </a>
-                        <div class="blog-info text-center">
-                            <a href="#"><h2>Modern Book Reviews</h2></a>
-                            <div class="blog-info-bottom">
-                                <span class="blog-author">BY: <a href="#">ZARIF SUNI</a></span>
-                                <span class="blog-date">19TH JAN 2016</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> 
+                @endforeach
+                 
             </div>
         </div>
     </div>
@@ -366,5 +298,31 @@
 
 
 {{-- END LATEST NEWS --}}
+
+{{-- SUBMITFORM --}}
+
+<div class="newsletter-area text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="newsletter-title">
+                    <h2>SUBSCRIBE OUR NEWSLETTER</h2>
+                    <p>Subscribe here with your email us and get up to date.</p>
+                </div>
+                <div class="letter-box">
+                    <form action="subscribe" method="post" class="search-box">
+                        @csrf
+                        <div>
+                            <input type="text" name="email" placeholder="Subscribe us">
+                            <button type="submit" class="btn btn-search">SUBSCRIBE<span><i class="flaticon-school-1"></i></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- END SUBMITFORM --}}
 
 @endsection('content')

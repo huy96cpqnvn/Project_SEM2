@@ -32,6 +32,7 @@ Route::resource('/author_management', 'AuthorController');
 Route::resource('/pub_management', 'PublisherController');
 Route::resource('/prf_management', 'PriceFilterController');
 Route::resource('/dis_management', 'DiscountController');
+Route::post('subscribe', 'FrontendController@subscribe');
 
 
 

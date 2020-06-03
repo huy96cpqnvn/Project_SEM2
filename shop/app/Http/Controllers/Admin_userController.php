@@ -149,7 +149,6 @@ class Admin_userController extends Controller
 
     }
     public  function add(){
-
         return view('user.form');
     }
     public function search()

@@ -49,13 +49,15 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
 
 
 
-Route::resource('/user_management', 'Admin_userController');
 Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
 Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
 Route::get('/user_management/search?nhap=/{search}', 'Admin_userController@search')->name('user_management.search');
 Route::get('search/{search?}', 'Admin_userController@process')->name('admin_userController.process');
 Route::get('filter_status={status?}', 'Admin_userController@status')->name('user_management.status');
+Route::resource('/user_management', 'Admin_userController');
 
-Route::resource('/order', 'OrderController');
 Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
-Route::resource('/order', 'OrderController');
+//Route::get('order/update/{id}/{qty}-{dk}', ['as'  => 'getupdatecart', 'uses' =>'OrderController@update']);
+//Route::get('gio-hang/update/{id}/{qty}-{dk}', ['as'  => 'getupdatecart', 'uses' =>'OrderController@updateCart']);
+Route::put('order/update/{id?}/{qty?}-{dk?}','OrderController@updateCart')->name('order.updateCart');
+Route::resource('order', 'OrderController');

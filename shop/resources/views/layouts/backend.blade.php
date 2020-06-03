@@ -64,7 +64,7 @@
                 <div id="sidebar" class="sidebar sidebar-with-footer">
                     <!-- Aplication Brand -->
                     <div class="app-brand">
-                        <a href="/index.html">
+                        <a href="{{asset('/')}}">
                             <svg
                                 class="brand-icon"
                                 xmlns="http://www.w3.org/2000/svg"

@@ -42,6 +42,9 @@
         <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
     </head>
     <body>
+        @php
+         use Gloudemans\Shoppingcart\Facades\Cart;  
+        @endphp
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -53,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-6 col-xs-6">
                         <div class="header-logo">
-                            <a href="welcome.html">
+                            <a href="{{asset('/')}}">
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
@@ -92,9 +95,10 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>2</span>
+                                    <span></span>
                                     </a>
                                     <div class="add-to-cart-product">
+
                                         <div class="cart-product">
                                             <div class="cart-product-image">
                                                 <a href="single-product.html">
@@ -114,25 +118,7 @@
                                                 <i class="fa fa-times"></i>
                                             </div>
                                         </div>
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="img/shop/1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
+
                                         <div class="total-cart-price">
                                             <div class="cart-product-line fast-line">
                                                 <span>Shipping</span>
@@ -158,7 +144,7 @@
                         <div class="mainmenu text-center">
                             <nav>
                                 <ul id="nav">
-                                    <li><a href="index.html">HOME</a></li>
+                                    <li><a href="{{asset('/')}}">HOME</a></li>
                                     <li><a href="shop.html">FEATURED</a></li>
                                     <li><a href="shop.html">REVIEW BOOK</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
@@ -190,59 +176,38 @@
                                 <li class="shoping-cart">
                                     <a href="#">
                                         <i class="flaticon-shop"></i>
-                                        <span>2</span>
+                                        <span>{{Cart::count()}}</span>
                                     </a>
                                     <div class="add-to-cart-product">
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="img/shop/1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
-                                        <div class="cart-product">
-                                            <div class="cart-product-image">
-                                                <a href="single-product.html">
-                                                    <img src="img/shop/1.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="cart-product-info">
-                                                <p>
-                                                    <span>1</span>
-                                                    x
-                                                    <a href="single-product.html">East of eden</a>
-                                                </p>
-                                                <a href="single-product.html">S, Orange</a>
-                                                <span class="cart-price">$ 140.00</span>
-                                            </div>
-                                            <div class="cart-product-remove">
-                                                <i class="fa fa-times"></i>
-                                            </div>
-                                        </div>
+                                        @foreach (Cart::content() as $row)
+                                            <div class="cart-product">
+                                                <div class="cart-product-image">
+                                                    <a href="single-product.html">
+                                                        <img src="{{$row->cover}}" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="cart-product-info">
+                                                    <p>
+                                                        <span>{{$row->qty}}</span>
+                                                        x
+                                                        <a href="single-product.html">{{$row->name}}</a>
+                                                    </p>
+                                                    <span class="cart-price">{{$row->price}} Đ</span>
+                                                </div>
+                                                <div class="cart-product-remove">
+                                                    <i class="fa fa-times"></i>
+                                                </div>
+                                            </div> 
+                                        @endforeach
+
                                         <div class="total-cart-price">
-                                            <div class="cart-product-line fast-line">
-                                                <span>Shipping</span>
-                                                <span class="free-shiping">$10.50</span>
-                                            </div>
                                             <div class="cart-product-line">
                                                 <span>Total</span>
-                                                <span class="total">$ 140.00</span>
+                                                <span class="total">{{Cart::subtotal()}}</span>
                                             </div>
                                         </div>
                                         <div class="cart-checkout">
-                                            <a href="checkout.html">
+                                            <a href="order">
                                                 Check out
                                                 <i class="fa fa-chevron-right"></i>
                                             </a>
@@ -264,7 +229,7 @@
 						<div class="mobile-menu">
 							<nav id="dropdown">
 								<ul>
-                                    <li><a href="index.html">HOME</a></li>
+                                    <li><a href="{{asset('/')}}">HOME</a></li>
                                     <li><a href="shop.html">FEATURED</a></li>
                                     <li><a href="shop.html">REVIEW BOOK</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>

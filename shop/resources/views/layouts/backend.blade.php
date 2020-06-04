@@ -865,7 +865,7 @@
                             <ul class="nav navbar-nav">
                                 <!-- Github Link Button -->
                                 <li class="github-link mr-3">
-                                <a href="{{route('order.index')}}" title="Giỏ Hàng Ban Có {{Cart::count()}} Mặt Hàng "><i class="fa fa-cart-plus"></i></a>
+                                <a href="{{route('order_detail.index')}}" title="Giỏ Hàng Ban Có {{Cart::count()}} Mặt Hàng "><i class="fa fa-cart-plus"></i></a>
 
 
                                 </li>

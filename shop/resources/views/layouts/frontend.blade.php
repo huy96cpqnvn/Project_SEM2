@@ -207,7 +207,7 @@
                                             </div>
                                         </div>
                                         <div class="cart-checkout">
-                                            <a href="order">
+                                            <a href="order_detail">
                                                 Kiểm tra giỏ
                                                 <i class="fa fa-chevron-right"></i>
                                             </a>

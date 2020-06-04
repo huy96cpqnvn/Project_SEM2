@@ -46,7 +46,6 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
 
     Route::resource('/newscate_management', 'NewsCategoryController');
     Route::resource('/tag_management', 'TagController');
-    Route::resource('order_detail', 'OrderDetailController');
 
 
 });
@@ -64,8 +63,9 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
 
 
-Route::get('/add_cart/{id}', 'OrderController@addCart')->name('add.cart');
+Route::get('/add_cart/{id}', 'OrderDetailController@addCart')->name('add.cart');
 Route::put('order/update/{id?}/{qty?}-{dk?}','OrderController@updateCart')->name('order.updateCart');
+Route::resource('order_detail', 'OrderDetailController');
 
 
 Route::get('login_admin', 'Admin_userController@getLogin')->name('login.admin');

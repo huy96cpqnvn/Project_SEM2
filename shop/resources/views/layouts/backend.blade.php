@@ -865,7 +865,7 @@
                             <ul class="nav navbar-nav">
                                 <!-- Github Link Button -->
                                 <li class="github-link mr-3">
-                                <a href="{{route('order.index')}}" title="Giỏ Hàng Ban Có {{Cart::count()}} Mặt Hàng "><i class="fa fa-cart-plus"></i></a>
+                                <a href="{{route('order_detail.index')}}" title="Giỏ Hàng Ban Có {{Cart::count()}} Mặt Hàng "><i class="fa fa-cart-plus"></i></a>
 
 
                                 </li>
@@ -943,7 +943,15 @@
                                         </li>
 
                                         <li class="dropdown-footer">
-                                            <a href="login.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                         </li>
                                     </ul>
 

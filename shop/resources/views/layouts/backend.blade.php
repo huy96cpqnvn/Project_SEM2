@@ -322,7 +322,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="{{route('order.index')}}">
+                                            <a class="sidenav-item-link" href="#">
                                                 <span class="nav-text">Orders</span>
 
                                             </a>
@@ -334,7 +334,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="{{route('order_detail.index')}}">
                                                 <span class="nav-text">OrderDetails</span>
 
                                             </a>
@@ -943,7 +943,7 @@
                                         </li>
 
                                         <li class="dropdown-footer">
-                                            <a href="signin.html"> <i class="mdi mdi-logout"></i> Log Out </a>
+                                            <a href="login.html"> <i class="mdi mdi-logout"></i> Log Out </a>
                                         </li>
                                     </ul>
 

@@ -177,4 +177,19 @@ class Admin_userController extends Controller
             'users' =>$users,
         ]);
     }
+    public  function getLogin(){
+        return view('admin.message_for_admin_user');
+    }
+    public  function postLogin(){
+        return view('auth.login');
+    }
+    protected function createCheckLogin(array $data)
+    {
+        return User::create([
+            ‘name’ => $data[‘name’],
+            ‘email’ => $data[‘email’],
+            ‘password’ => bcrypt($data[‘password’]),
+            ‘level’ => $data[‘level’],
+        ]);
+    }
 }

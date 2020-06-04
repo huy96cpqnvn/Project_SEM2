@@ -40,5 +40,5 @@ class FrontendController extends Controller
         Mail::to($s->email)->send(new DemoEmail($objDemo));
     
         return redirect()->back();
-      }
+    }
 }

@@ -10,6 +10,7 @@ use App\News;
 use App\Subscribe;
 use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Mail;
+use App\Category;
 
 class FrontendController extends Controller
 {
@@ -41,4 +42,6 @@ class FrontendController extends Controller
     
         return redirect()->back();
     }
+
+    public function category($id = null){}
 }

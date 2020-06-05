@@ -163,7 +163,7 @@
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">
-                                                        <a href="#" title="Add to Cart">
+                                                        <a href="{{route('add.cart',['id'=>$item->id])}}" title="Add to Cart">
                                                             <i class="fa fa-shopping-cart"></i>
                                                         </a>
                                                     </div>

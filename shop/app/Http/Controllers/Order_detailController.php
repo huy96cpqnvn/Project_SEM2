@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Order_detailController extends Controller
 {
@@ -129,5 +130,15 @@ class Order_detailController extends Controller
         return redirect()->back()->with('success', 'Thêm '.$product['name'].' Vào Giỏ Hàng Thành Công');
     }
     //
+    public function getoder()
+    {
 
+        if (Auth::guest()) {
+            return redirect('login');
+        } else {
+
+            return view ('orderdetails.oder')
+                ->with('slug','Xác nhận');
+        }
+    }
 }

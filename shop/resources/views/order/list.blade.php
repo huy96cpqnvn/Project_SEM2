@@ -141,9 +141,9 @@
                 <div class="panel-body no-padding">
                     <?php
                     $books = DB::table('products')
-                        ->join('categories', 'products.category_id', '=', 'categories.id')
+                       ->join('categories', 'products.category_id', '=', 'categories.id')
                         ->join('product_details', 'product_details.product_id', '=', 'products.id')
-//                        ->where('products.category_id','=','categories.id')
+                        ->where('products.category_id','=',1)
                         ->select('products.*','product_details.*')
                         ->orderBy('products.created_at', 'desc')
                         ->paginate(2);

@@ -136,7 +136,7 @@
 {{--                  @endif--}}
 
                 <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>
-                <a href="{!!url('gio-hang/addcart/'.$row->id)!!}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
+                <a href="{{route('add.cart',['id'=>$row->id])}}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
         @endforeach
 
         </div>

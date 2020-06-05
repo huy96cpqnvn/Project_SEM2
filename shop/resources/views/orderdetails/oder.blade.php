@@ -65,7 +65,7 @@
                 <button type="submit" class="btn btn-primary pull-right"> Đặt hàng (COD)</button>
               </form>
               @else
-              <form action="{!!url('/payment')!!}" method="Post" accept-charset="utf-8">
+              <form action="https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder" method="Post" accept-charset="utf-8">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                   <label for="">
@@ -75,7 +75,7 @@
                   </label>
                 </div>
                   <br>
-                <button type="submit" class="btn btn-danger pull-left"> Thanh toán qua Paypal </button> &nbsp;
+                <button type="submit" class="btn btn-danger pull-left"> Thanh toán qua VNPAY  </button> &nbsp;
               </form>
               @endif
             </div>

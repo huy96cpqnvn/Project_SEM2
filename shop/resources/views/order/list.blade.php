@@ -74,7 +74,7 @@
 
                                             </td>
                                             <td>
-                                                <form method="post" action="{{route('order.destroy',$row->id)}}">
+                                                <form method="post" action="{{route('order_detail.destroy',$row->id)}}">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE" />
                                                     <button class="fa fa-remove">Xóa</button>
@@ -143,7 +143,7 @@
                     $books = DB::table('products')
                         ->join('categories', 'products.category_id', '=', 'categories.id')
                         ->join('product_details', 'product_details.product_id', '=', 'products.id')
-                        ->whereColumn('products.category_id','=','categories.id')
+//                        ->where('products.category_id','=','categories.id')
                         ->select('products.*','product_details.*')
                         ->orderBy('products.created_at', 'desc')
                         ->paginate(2);
@@ -157,7 +157,7 @@
                             <div class="thumbnail mobile">
                                 <div class="bt">
                                     <div class="image-m pull-left">
-                                        <img class="img-responsive" src="" alt="{!!$row->name!!}">
+                                        <img class="img-responsive" src="{{asset('images/'.$row->cover)}}" alt="{!!$row->name!!}">
                                         <div>{!!$row->name!!}---------</div>
                                     </div>
                                     <div class="intro pull-right">

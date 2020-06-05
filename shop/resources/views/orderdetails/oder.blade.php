@@ -28,7 +28,7 @@
                   @foreach(Cart::content() as $row)
                     <tr>
                       <td>{!!$row->id!!}</td>
-                      <td><img src="{!!url('uploads/products/'.$row->options->img)!!}" alt="dell" width="80" height="50"></td>
+                      <td><img src="{{asset($row->options['img'])}}" alt="dell" width="80" height="50"></td>
                       <td>{!!$row->name!!}</td>
                       <td class="text-center">
                           <span>{!!$row->qty!!}</span>
@@ -94,10 +94,10 @@
           $books = DB::table('products')
               ->join('categories', 'products.category_id', '=', 'categories.id')
               ->join('product_details', 'product_details.product_id', '=', 'products.id')
-              ->whereColumn('products.category_id','=','categories.id')
+//              ->where('products.category_id','=','categories.id')
               ->select('products.*','product_details.*')
               ->orderBy('products.created_at', 'desc')
-              ->paginate(2);
+              ->get();
 
 
             ?>
@@ -107,12 +107,12 @@
               <div class="bt">
                 <div class="image-m pull-left">
 {{--                  <img class="img-responsive" src="{!!url('uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">--}}
-                  <img class="img-responsive" src="{!!url('uploads/products/')!!}" alt="{!!$row->name!!}">
+                  <img class="img-responsive" src="{{asset($row->cover)}}" alt="{!!$row->name!!}">
                 </div>
                 <div class="intro pull-right">
                   <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
 {{--                  <li>{!!$row->intro!!}</li>--}}
-                  <span class="label label-info">Khuyễn mãi</span>
+{{--                  <span class="label label-info">Khuyễn mãi</span>--}}
 {{--                  @if ($row->promo1!='')--}}
 {{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>--}}
 {{--                  @elseif($row->promo2!='')--}}

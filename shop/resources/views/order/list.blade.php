@@ -96,6 +96,10 @@
                             </div>
 
                             <div class="col-xs-12 col-sm-12 col-md-12 no-paddng">
+                                @php
+                                use Illuminate\Support\Facades\Auth as Auth;
+                                @endphp
+                                <div></div>
                                 @if(Cart::count() !=0)
                                     @if (Auth::guest())
                                         <div class="input-group">
@@ -136,16 +140,16 @@
                 </div>
                 <div class="panel-body no-padding">
                     <?php
-                    $mobile = DB::table('products')
+                    $books = DB::table('products')
                         ->join('categories', 'products.category_id', '=', 'categories.id')
                         ->join('product_details', 'product_details.product_id', '=', 'products.id')
-//                        ->where('categories.parent_id','=','1')
+                        ->whereColumn('products.category_id','=','categories.id')
                         ->select('products.*','product_details.*')
                         ->orderBy('products.created_at', 'desc')
                         ->paginate(2);
 
                     ?>
-                    @foreach($mobile as $row)
+                    @foreach($books as $row)
 {{--                            <a class="cart_quantity_up" href='{{url("cart?product_id=$row->id&increment=1")}}'> + </a>--}}
 {{--                            <a class="cart_quantity_down" href='{{url("cart?product_id=$row->id&decrease=1")}}'> - </a>--}}
 
@@ -154,19 +158,20 @@
                                 <div class="bt">
                                     <div class="image-m pull-left">
                                         <img class="img-responsive" src="" alt="{!!$row->name!!}">
+                                        <div>{!!$row->name!!}---------</div>
                                     </div>
                                     <div class="intro pull-right">
                                         <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
-                                        <li>{!!$row->review!!}</li>
-                                        <span class="label label-info">Khuyễn mãi</span>
+{{--                                        <li>{!!$row->review!!}</li>--}}
+{{--                                        <span class="label label-info">Khuyễn mãi</span>--}}
 {{--                                        @if ($row->promo1!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{$row->promo1!!}</li>
+{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{$row->promo1!!}</li>--}}
 {{--                                        @elseif($row->promo2!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo2!!}</li>
+{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo2!!}</li>--}}
 {{--                                        @elseif ($row->promo3!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo3!!}</li>
+{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo3!!}</li>--}}
 {{--                                        @endif--}}
-                                        <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>
+{{--                                        <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>--}}
                                     </div><!-- /div introl -->
                                 </div> <!-- /div bt -->
                                 <div class="ct">

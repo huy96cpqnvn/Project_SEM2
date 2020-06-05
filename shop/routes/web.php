@@ -64,9 +64,14 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
 
 Route::get('/add_cart/{id}', 'OrderDetailController@addCart')->name('add.cart');
-Route::put('order/update/{id?}/{qty?}-{dk?}','OrderController@updateCart')->name('order.updateCart');
+Route::put('order/update/{id?}/{qty?}-{dk?}','OrderDetailController@updateCart')->name('order.updateCart');
 Route::resource('order_detail', 'OrderDetailController');
 
 
 Route::get('login_admin', 'Admin_userController@getLogin')->name('login.admin');
 Route::get('message', 'Admin_userController@getLogin')->name('message_for_login');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');

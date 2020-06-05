@@ -43,7 +43,8 @@
     </head>
     <body>
         @php
-         use Gloudemans\Shoppingcart\Facades\Cart;  
+         use Gloudemans\Shoppingcart\Facades\Cart;
+         use App\Category;  
         @endphp
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -57,7 +58,7 @@
                     <div class="col-md-2 col-sm-6 col-xs-6">
                         <div class="header-logo">
                             <a href="{{asset('/')}}">
-                                <img src="img/logo.png" alt="">
+                                <img src="{{asset('img/logo.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -145,22 +146,17 @@
                             <nav>
                                 <ul id="nav">
                                     <li><a href="{{asset('/')}}">HOME</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
+                                    <li><a href="#">CATEGORY</a>
+                                        <ul class="sub-menu">
+                                            @foreach($allCategory as $cate)
+                                                <li><a href="{{asset("category.html/$cate->id")}}">{{$cate->name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
                                     <li><a href="shop.html">REVIEW BOOK</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
                                     <li><a href="#">pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="cart.html">Cart Page</a></li>
-                                            <li><a href="checkout.html">Check Out</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="{{ route('login') }}">Login</a></li>
-                                            <li><a href="my-account.html">My Account</a></li>
-                                            <li><a href="shop.html">Shopping Page</a></li>
-                                            <li><a href="single-product.html">Single Shop Page</a></li>
-                                            <li><a href="wishlist.html">Wishlist Page</a></li>
-                                            <li><a href="404.html">404 Page</a></li>
-                                        </ul>
+                                        
                                     </li>
                                     <li><a href="contact.html">CONTACT</a></li>
                                 </ul>
@@ -246,8 +242,8 @@
 		<div class="slider-area">
 			<div class="bend niceties preview-1">
 				<div id="ensign-nivoslider" class="slides">	
-					<img src="img/slider/1.jpg" alt="" title="#slider-direction-1"  />
-					<img src="img/slider/2.jpg" alt="" title="#slider-direction-2"  />
+					<img src="{{asset('img/slider/1.jpg')}}" alt="" title="#slider-direction-1"  />
+					<img src="{{asset('img/slider/2.jpg')}}" alt="" title="#slider-direction-2"  />
 				</div>
 				<!-- direction 1 -->
 				<div id="slider-direction-1" class="text-center slider-direction">

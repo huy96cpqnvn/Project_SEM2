@@ -11,6 +11,8 @@ use App\Subscribe;
 use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Mail;
 use App\Category;
+use App\Product;
+use DB;
 
 class FrontendController extends Controller
 {
@@ -20,11 +22,13 @@ class FrontendController extends Controller
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(12)->get();
         $comment = Comment::orderBy('created_at', 'DESC')->take(3)->get();
         $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
+        $allCategory = Category::all();
         
 
         return view('welcome')->with(['lsProductdt' => $lsProductdt, 'arrProductdt' => $arrProductdt, 
                                         'saleProductdt' => $saleProductdt, 'comment' => $comment,
-                                        'new' => $new]);
+                                        'new' => $new,
+                                        'allCategory' => $allCategory]);
     }
 
     public function subscribe(Request $request){
@@ -43,5 +47,37 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
-    public function category($id = null){}
+    public function category($id = null, Request $request){
+        if($id != null && $id != ""){
+            $lsProductdt = ProductDetail::where('status', '1')
+                            ->where('product_id', $id)
+                            ->paginate(9);
+      
+          } else {
+            $lsProductdt = ProductDetail::where('status', '1')->paginate(9);
+          }
+
+        $allCategory = Category::all();
+        $allProduct = Product::where('category_id', $id)->get();
+
+        // $data = DB::table('product_details')
+        //                             ->join('products', 'products.id', '=', 'product_details.id')
+        //                             ->join('categories', 'categories.id', '=', 'products.id')
+        //                             ->whereColumn('products.id', '=', 'product_details.id')
+        //                             ->select('categories.id','products.id','product_details.*')
+        //                             ->paginate(9);  
+            $query = ProductDetail::query();
+
+            if ($request->has('categories')) {
+                $query->whereIn('categories.id',explode(',',$request->get('categories')));
+            }
+
+            if ($request->has('products') && $request->has('categories')){
+                $query->whereIn('products.id',explode(',',$request->get('products')));
+            }
+            
+
+
+        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct, 'lsProductdt' => $lsProductdt, 'query' => $query]);
+    }
 }

@@ -120,7 +120,7 @@
 {{--                  @elseif ($row->promo3!='')--}}
 {{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>--}}
 {{--                  @endif--}}
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>
+{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>--}}
                 </div><!-- /div introl -->
               </div> <!-- /div bt -->
               <div class="ct">
@@ -134,37 +134,16 @@
 {{--                  @elseif ($row->promo3!='')--}}
 {{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>--}}
 {{--                  @endif--}}
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>
-                  <span class="label label-warning">Cấu Hình Nổi bật</span>
-                  <li><strong>CPU</strong> : <i> }</i></li>
-                  <li><strong>Màn Hình</strong> : <i></i></li>
-                  <li><strong>Camera</strong> : Trước  <i></i> Sau <i>}</i></li>
-                  <li><strong>HĐH</strong> :<i>  </i> <strong> Bộ nhớ trong</strong> :<i>  </i></li>
-                  <li><strong>Pin</strong> :<i> </i></li>
-                </a>
-              </div>
+
                 <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>
                 <a href="{!!url('gio-hang/addcart/'.$row->id)!!}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
-            </div> <!-- / div thumbnail -->
-          </div>  <!-- /div col-4 -->
         @endforeach
 
         </div>
       </div> <!-- /panel info 2  quản cáo 1          -->
 
     <!-- panel info 2  quản cáo 1          -->
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title text-center">Sự kiện HOT</h3>
-      </div>
-      <div class="panel-body no-padding">
-       <a href="#" title=""><img src="{!!url('images/slides/thumbs/qc1.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('images/slides/thumbs/qc2.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('images/slides/thumbs/qc3.png')!!}" alt="" width="100%" height="100%"> </a>
-        <a href="#" title=""><img src="{!!url('images/slides/thumbs/qc4.png')!!}" alt="" width="100%" height="100%"> </a>
-        <a href="#" title=""><img src="{!!url('images/slides/thumbs/qc5.png')!!}" alt="" width="100%" height="100%"> </a>
-      </div>
-    </div> <!-- /panel info 2  quản cáo 1          -->
+         -->
 
      <!-- fan pages myweb -->
     <div class="panel panel-info">

@@ -46,10 +46,12 @@
                 </table>
               </div>
               {{-- form thong tin khach hang dat hang           --}}
+
               @if ($_GET['paymethod'] =='cod' )
-              <form action="" method="POST" role="form">
-                <legend class="text-left">Xác nhận thông tin khách hàng</legend>
-                {{ csrf_field() }}
+              <form action="#" method="get" role="form">
+                <legend class="text-left">Xác nhận thông tin khách hàng :</legend>
+               @csrf
+                  <input type="hidden" name="_method" value="put" />
                 <div class="form-group">
                   <label for="">
                     - Tên khách hàng : <strong>{{ Auth::user()->name }} </strong> &nbsp;

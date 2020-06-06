@@ -20,6 +20,9 @@ Route::get('/category.html/{id?}/{isCategory?}', 'FrontendController@category');
     return view('welcome');
 });*/
 
+
+Route::get('/dashboard', 'DashboardController@dashboard');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

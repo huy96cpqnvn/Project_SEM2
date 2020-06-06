@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', 'FrontendController@welcom');
-Route::get('/category.html/{id?}', 'FrontendController@category');
+Route::get('/category.html/{id?}/{isCategory?}', 'FrontendController@category');
 
 /*Route::get('/', function () {
     return view('welcome');

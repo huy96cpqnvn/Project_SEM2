@@ -60,24 +60,23 @@ class FrontendController extends Controller
         $allCategory = Category::all();
         $allProduct = Product::where('category_id', $id)->get();
 
-        // $data = DB::table('product_details')
-        //                             ->join('products', 'products.id', '=', 'product_details.id')
-        //                             ->join('categories', 'categories.id', '=', 'products.id')
-        //                             ->whereColumn('products.id', '=', 'product_details.id')
-        //                             ->select('categories.id','products.id','product_details.*')
-        //                             ->paginate(9);  
-            $query = ProductDetail::query();
+        $data = DB::table('product_details')
+                                    ->join('products', 'products.id', '=', 'product_details.id')
+                                    ->join('categories', 'categories.id', '=', 'products.id')
+                                    ->select('categories.id','products.id','product_details.*')
+                                    ->paginate(9);  
+            // $query = ProductDetail::query();
 
-            if ($request->has('categories')) {
-                $query->whereIn('categories.id',explode(',',$request->get('categories')));
-            }
+            // if ($request->has('categories')) {
+            //     $query->whereIn('categories.id',explode(',',$request->get('categories')));
+            // }
 
-            if ($request->has('products') && $request->has('categories')){
-                $query->whereIn('products.id',explode(',',$request->get('products')));
-            }
+            // if ($request->has('products') && $request->has('categories')){
+            //     $query->whereIn('products.id',explode(',',$request->get('products')));
+            // }
             
 
 
-        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct, 'lsProductdt' => $lsProductdt, 'query' => $query]);
+        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct, 'lsProductdt' => $lsProductdt, 'data' => $data]);
     }
 }

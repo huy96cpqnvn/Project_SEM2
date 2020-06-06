@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.category')
 @section('content')
 <div class="shopping-area section-padding">
     <div class="container">
@@ -13,7 +13,7 @@
                                     <li><a href="{{asset("category.html/$cate->id")}}"><i class="fa fa-angle-double-right"></i>{{$cate->name}}</a>
                                         <ul>
                                             @foreach($cate->products as $prod)
-                                                <li><a href="{{asset("category.html/$cate->id/$prod->id")}}">{{$prod->name}}</a></li>
+                                                <li><a href="{{asset("category.html/$cate->id/$prod->id", false)}}">{{$prod->name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -122,7 +122,7 @@
                     <div class="tab-content">
                         <div class="row tab-pane fade in active" id="home">
                             <div class="shop-single-product-area">
-                                 @foreach ($query as $pr)
+                                 @foreach ($data as $pr)
                                     <div class="col-md-4 col-lg-4 hidden-sm">
                                         <div class="single-banner">
                                             <div class="product-wrapper">

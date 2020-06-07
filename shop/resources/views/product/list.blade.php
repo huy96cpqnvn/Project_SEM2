@@ -4,8 +4,7 @@
     <!------MENU SECTION START-->
     <?php //include('includes/header.php');?>
     @php
-        use  \App\Product;
-        $countAll = Product::all()->count();
+        $countAll = \App\Product::all()->count();
     @endphp
     <div class="content-wrapper" style="padding-top: 50px">
         <div class="container">

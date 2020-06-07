@@ -1,38 +1,102 @@
 @extends('layouts.backend')
 
 @section('content')
-<div class="container">
-    <h1>Category Management</h1>
+    <!------MENU SECTION START-->
+    <?php //include('includes/header.php');?>
+    @php
+        use  \App\Product;
+        $countAll = \App\Category::all()->count();
+    @endphp
+    <div class="content-wrapper" style="padding-top: 50px">
+        <div class="container">
+            @include('template.header',['link'=>"cate_management/create",'title'=>'Manage Reg Category'])
+            <div class="row" style="padding-top: 15px">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
 
-    @if(session()->has('success'))
-    <div class="flash-message">
-        <p class="alert alert-success">{{Session::get('success')}}</p>
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            Reg Category
+                        </div>
+                        <a class="btn btn-warning float-left"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">{{$countAll}}</span></a>
+                        <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
+                            <form method="get" action="{{route('admin_userController.process')}}">
+                                @csrf
+                                {{--                            {{$countActive}}--}}
+                                <input type="hidden" name="_method" value="put">
+                                <div>
+                                    <label for="Search">Search:</label>
+                                    <input type="text" name="search">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Name</th>
+                                        <th>Status </th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($lsCategory as $cate)
+                                        @php
+
+                                            $status = '';
+                                            if ($cate->status == 0) {
+                                                 $status = 'Inactive' ;
+                                                 $class = 'danger';
+                                            }else{
+                                            $status = 'Active';
+                                            $class = 'success';
+                                            }
+
+                                        @endphp
+                                    @endforeach
+                                    @php
+                                        $i=1;
+                                    @endphp
+                                    @foreach($lsCategory as $cate)
+                                        <tr>
+                                            <td>{{$cate->id}}</td>
+                                            <td>{{$cate->name}}</td>
+                                            <td  class="btn btn-xs  btn-<?php echo $class?>">{{$status}}</td>
+                                            <td class="center">
+                                                <a href="{{route('cate_management.edit',$cate->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button>
+                                                    <form action="{{route('cate_management.destroy',$cate->id)}}" method="POST"
+                                                          onsubmit="return confirm('Are you sure you want to delete?');">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <a href="{{route('cate_management.destroy',$cate->id)}}"><button class="btn btn-danger"><i class="fas fa-trash-alt"></i> </button>
+
+                                                        {{--                                                     <input type="submit" value="Delete" class="btn btn-danger "><i class="fas fa-trash-alt"></i></input>--}}
+                                                    </form>
+                                            </td>
+                                        </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endforeach
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+
+
+        </div>
     </div>
-    @endif
 
-    <a href="cate_management/create">Add New</a>
-    <table class="table">
-        <th>No.</th>
-        <th>Name</th>
-        <th>Active</th>
-
-        @foreach($lsCategory as $cate)
-        <tr>
-            <td>{{$cate->id}}</td>
-            <td>{{$cate->name}}</td>
-            <td>
-                <a class="button" href="{{route('cate_management.edit',$cate->id)}}">Edit</a>
-                <form method="POST" action="{{ route('cate_management.destroy', $cate->id) }}" onsubmit="confirm('Sure ?')">
-
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    <input type="submit" value="Delete" />
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-</div>
+    <!-- CORE JQUERY  -->
 @endsection
-
-

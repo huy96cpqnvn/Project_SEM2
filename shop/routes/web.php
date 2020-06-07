@@ -63,6 +63,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::post('change/status/{id}', 'Admin_userController@change')->name('user_management.change');
     Route::resource('/user_management', 'Admin_userController');
     Route::resource('order', 'OrderController');
+    Route::get('filter_status={status?}', 'ProductDetailController@status')->name('producdetail.status');
 
 });
 

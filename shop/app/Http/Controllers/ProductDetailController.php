@@ -166,7 +166,7 @@ class ProductDetailController extends Controller {
         $prd->publisher_id = $request->publisher_id1;
 
         $file = $request->file1;
-        
+
         if ($file != null) {
             $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
             $image_name = time() . "_" . $image_name;
@@ -210,5 +210,19 @@ class ProductDetailController extends Controller {
         $request->session()->flash('success', 'ProductDetail was changed');
         return redirect()->route("proDetail_management.index");
     }
+    public function status($status)
+    {
 
+        if ($status == 1 || $status == 0) {
+            $allProduct = ProductDetail::select()->where('status', '=', $status)->get();
+
+        } else {
+            $allProduct = ProductDetail::all();
+
+        }
+
+        return  view('productDetail.create')->with([
+            'allProduct' => $allProduct,
+        ]);
+    }
 }

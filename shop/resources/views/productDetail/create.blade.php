@@ -32,12 +32,12 @@
             <label for="name">Detail</label>
             <textarea rows="6" cols="150" name="detail1"></textarea>
         </div>
-        
+
         <div class="form-group">
             <label for="name">Price</label>
             <input type="text" class="form-control" id="price" name="price1" placeholder="Enter Price"/>
         </div>
-        
+
         <div class="form-group">
             <label for="name">Amount</label>
             <input type="text" class="form-control" id="amount" name="amount1" placeholder="Enter Amount"/>
@@ -78,7 +78,7 @@
                 @endforeach
             </select>
         </div>
-        
+
         <div class="form-group">
             <label for="name">PriceFilter</label>
             <select name="priceFilter_id1" id="priceFilter_id">
@@ -96,7 +96,7 @@
                 @endforeach
             </select>
         </div>
-        
+
         <div class="form-group">
             <label for="name">Status</label>
             <select name="status1" id="status">
@@ -104,7 +104,7 @@
                 <option value="1">public</option>
             </select>
         </div>
-        
+
         <div class="form-group">
             <label for="name">Type</label>
             <select name="type1" id="type">

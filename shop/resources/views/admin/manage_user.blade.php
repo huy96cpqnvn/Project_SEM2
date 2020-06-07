@@ -11,15 +11,7 @@
 @endphp
 <div class="content-wrapper" style="padding-top: 50px">
     <div class="container">
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <div class="float-right"><a class="btn btn-primary float-right" href="{{route('user_management.add')}}">Thêm Mới</a>
-                </div>
-                <h4 class="header-line">Manage Reg Users</h4>
-            </div>
-
-
-        </div>
+        @include('template.header',['link'=>route('user_management.add'),'title'=>'Manage Reg Users'])
         <div class="row" style="padding-top: 15px">
             <div class="col-md-12">
                 <!-- Advanced Tables -->
@@ -110,9 +102,5 @@
     </div>
 </div>
 
-<!-- CONTENT-WRAPPER SECTION END-->
-<!-- --><?php //include('includes/footer.php');?>
-<!-- FOOTER SECTION END-->
-<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
 <!-- CORE JQUERY  -->
   @endsection

@@ -209,6 +209,8 @@
                                             </a>
                                         </li>
 
+
+
                                         <li >
                                             <a class="sidenav-item-link" href="proDetail_management">
                                                 <span class="nav-text">Product Details</span>

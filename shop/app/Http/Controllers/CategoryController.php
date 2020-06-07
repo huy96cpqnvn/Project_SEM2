@@ -38,16 +38,16 @@ class CategoryController extends Controller
     {
         $request->validate(
             [
-                'name1' => 'required|max:255|min:3'     
+                'name1' => 'required|max:255|min:3'
             ]
-               
+
         );
-        
-        
+
+
         $cate = new Category();
         $cate->name = $request->name1;
         $cate->save();
-        
+
         $request->session()->flash('success','Category was successfull');
         return redirect()->route("cate_management.index");
     }
@@ -86,16 +86,16 @@ class CategoryController extends Controller
     {
         $request->validate(
             [
-                'name1' => 'required|max:255|min:3'     
+                'name1' => 'required|max:255|min:3'
             ]
-               
+
         );
-        
-        
+
+
         $cate = Category::find($id);
         $cate->name = $request->name1;
         $cate->save();
-        
+
         $request->session()->flash('success','Category was updated');
         return redirect()->route("cate_management.index");
     }

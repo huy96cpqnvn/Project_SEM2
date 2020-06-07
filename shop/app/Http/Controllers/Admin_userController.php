@@ -206,4 +206,11 @@ class Admin_userController extends Controller
             ‘level’ => $data[‘level’],
         ]);
     }
+    public function change($id,Request $request){
+        $user = User::find($id);
+        $user->status = !$user->status;
+        $user->save();
+        return redirect()->back();
+
+    }
 }

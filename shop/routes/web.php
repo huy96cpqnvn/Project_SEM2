@@ -60,6 +60,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('/user_management/search?nhap=/{search}', 'Admin_userController@search')->name('user_management.search');
     Route::get('search/{search?}', 'Admin_userController@process')->name('admin_userController.process');
     Route::get('filter_status={status?}', 'Admin_userController@status')->name('user_management.status');
+    Route::post('change/status/{id}', 'Admin_userController@change')->name('user_management.change');
     Route::resource('/user_management', 'Admin_userController');
     Route::resource('order', 'OrderController');
 

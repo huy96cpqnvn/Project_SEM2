@@ -18,7 +18,7 @@
                         <div class="panel-heading">
                             Reg Product
                         </div>
-                        <a class="btn btn-warning float-left"  href="{{route('user_management.status',2)}}">All  <span class="badge badge-secondary">{{$countAll}}</span></a>
+                        <button class="btn btn-warning float-left"  ">All  <span class="badge badge-secondary">{{$countAll}}</span></button>
                         <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
                             <form method="get" action="{{route('admin_userController.process')}}">
                                 @csrf
@@ -38,6 +38,7 @@
                                         <th>STT</th>
                                         <th>Name</th>
                                         <th>Category </th>
+                                        <th>Created at </th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -51,6 +52,7 @@
                                             <td>{{$i}}</td>
                                             <td>{{$pro->name}}</td>
                                             <td>{{$pro->category['name']}}</td>
+                                            <td>{{$pro->created_at}}</td>
                                             <td class="center">
                                                 <a href="{{route('product_management.edit',$pro->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button>
                                                     <form action="{{route('product_management.destroy',$pro->id)}}" method="POST"

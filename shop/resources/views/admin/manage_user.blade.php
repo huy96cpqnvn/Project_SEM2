@@ -71,7 +71,13 @@
                                     <td class="center">{{$user->phone}}</td>
                                     <td class="center">{{$user->address}}</td>
                                     <td class="center">{{$user->created_at}}</td>
-                                    <td><a href="" class="btn btn-xs  btn-<?php echo $class?>"><?php echo $status ?></a></td>
+                                    <td>
+                                        <form method="POST" action="{{route('user_management.change',$user->id)}}"
+                                              onsubmit="confirm('Bạn có chắc muốn  thay đổi Status  ? ')">
+                                            @csrf
+                                            <input type="submit" value="{{$status}}" class="btn btn-{{$class}}"/>
+                                        </form>
+                                    </td>
                                     <td class="center">
                                          <a href="{{route('user_management.edit',$user->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button>
                                              <form action="{{route('user_management.destroy',$user->id)}}" method="POST"

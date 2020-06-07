@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class Admin_userController extends Controller
 {
@@ -180,7 +181,20 @@ class Admin_userController extends Controller
     public  function getLogin(){
         return view('admin.message_for_admin_user');
     }
-    public  function postLogin(){
+    public  function postLogin(Request $request)
+    {
+
+//        $arr =   ['email'=>$request->email,
+//            'password'=>$request->password,
+//            ];
+//        if (Auth::attempt($arr)){
+//
+//            dd('tc');
+//        }else{
+//            dd('cd');
+//        }
+
+
         return view('auth.login');
     }
     protected function createCheckLogin(array $data)

@@ -75,7 +75,8 @@ Route::resource('order_detail', 'OrderDetailController');
 Route::get('login_admin', 'Admin_userController@getLogin')->name('login.admin');
 Route::get('message', 'Admin_userController@getLogin')->name('message_for_login');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
+
+Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');

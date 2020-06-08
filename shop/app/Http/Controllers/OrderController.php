@@ -2,12 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\OrderDetail;
 use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
+    public function getdetail($id)
+    {
+        $oder = Order::where('id',$id)->first();
+        $data = DB::table('order_details')
+            ->join('product_details','product_details.id','=','order_details.productDetail_id')
+//            ->groupBy('order_details.id')
+           ->where('order_id',$id)
+            ->get();
+        return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
+    }
+    public function postdetail($id)
+    {
+        $oder = Oders::find($id);
+
+        $oder->status = 1;
+        $oder->save();
+        return redirect('admin/donhang')
+            ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã xác nhận đơn hàng thành công !']);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +38,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('order.list_great');
+        $data = Order::paginate(10);
+        return view('order.list_great')->with(['data'=>$data]);
     }
 
     /**

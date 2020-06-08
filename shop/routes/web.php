@@ -65,6 +65,9 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::resource('order', 'OrderController');
     Route::get('filter_status={status?}', 'ProductDetailController@status')->name('producdetail.status');
 
+    Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])->where('id','[0-9]+');
+    Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');
+
 });
 
 

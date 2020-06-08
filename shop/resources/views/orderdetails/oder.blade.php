@@ -46,7 +46,9 @@
                 </table>
               </div>
               {{-- form thong tin khach hang dat hang           --}}
-
+{{--                @php--}}
+{{--                dd($_GET['paymethod']);--}}
+{{--                @endphp--}}
               @if ($_GET['paymethod'] =='cod' )
               <form action="#" method="get" role="form">
                 <legend class="text-left">Xác nhận thông tin khách hàng :</legend>

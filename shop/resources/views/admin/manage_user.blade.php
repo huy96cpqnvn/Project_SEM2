@@ -51,6 +51,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                $i = 1;
+                                @endphp
                                 @foreach($users as $user)
                                     @php
 
@@ -65,7 +68,7 @@
 
                                     @endphp
                                 <tr class="odd gradeX">
-                                    <td class="center">{{$user->id}}</td>
+                                    <td class="center">{{$i}}</td>
                                     <td class="center">{{$user->name}}</td>
                                     <td class="center">{{$user->email}}</td>
                                     <td class="center">{{$user->phone}}</td>
@@ -90,6 +93,9 @@
                                              </form>
                                     </td>
                                 </tr>
+                                    @php
+                                        $i++;
+                                    @endphp
                                 @endforeach
 
 

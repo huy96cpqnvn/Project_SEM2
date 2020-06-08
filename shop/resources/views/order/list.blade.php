@@ -110,7 +110,7 @@
                                         </div>
                                         <a class="btn btn-large btn-warning pull-right" href="{!!url('/login')!!}" >Tiến hàng thanh toán</a>
                                     @else
-                                        <form action="{!!url('/dat-hang')!!}" method="get" accept-charset="utf-8">
+                                        <form action="{{route('getoder.get')}}" method="get" accept-charset="utf-8">
                                             <div class="input-group">
                                                 <label for="paymethod">Chọn phương thức thanh toán</label>
                                                 <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
@@ -122,6 +122,7 @@
                                             <hr>
                                             <button type="submit" class="btn btn-danger pull-right">Tiến hành thanh toán</button>
                                             <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-left">Tiếp tục mua hàng</a>
+
                                         </form>
                                     @endif
                                 @endif

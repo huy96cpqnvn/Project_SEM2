@@ -11,14 +11,16 @@ use App\Publisher;
 use App\PriceFilter;
 use App\Discount;
 
-class ProductDetailController extends Controller {
+class ProductDetailController extends Controller
+{
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $lsPrd = ProductDetail::paginate(6);
         return view('productDetail.list')->with(['lsProductDetail' => $lsPrd]);
     }
@@ -28,36 +30,38 @@ class ProductDetailController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         $allProduct = Product::all();
         $allAuthor = Author::all();
         $allLanguage = Language::all();
         $allPublisher = Publisher::all();
-        $allPriceFilter = PriceFilter ::all();
+        $allPriceFilter = PriceFilter::all();
         $allDiscount = Discount::all();
         return view('productDetail.create')->with(['allProduct' => $allProduct,
-                    'allAuthor' => $allAuthor,
-                    'allLanguage' => $allLanguage,
-                    'allPublisher' => $allPublisher,
-                    'allPriceFilter' => $allPriceFilter,
-                    'allDiscount' => $allDiscount]);
+            'allAuthor' => $allAuthor,
+            'allLanguage' => $allLanguage,
+            'allPublisher' => $allPublisher,
+            'allPriceFilter' => $allPriceFilter,
+            'allDiscount' => $allDiscount]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate(
-                [
-                    'name1' => 'required|max:255|min:3',
-                    'review1' => 'required|max:255|min:3',
-                    'detail1' => 'required',
-                    'price1' => 'required',
-                    'amount1' => 'required'
-                ]
+            [
+                'name1' => 'required|max:255|min:3',
+                'review1' => 'required|max:255|min:3',
+                'detail1' => 'required',
+                'price1' => 'required',
+                'amount1' => 'required'
+            ]
         );
 
 
@@ -100,52 +104,55 @@ class ProductDetailController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $prd = ProductDetail::find($id);
         $allProduct = Product::all();
         $allAuthor = Author::all();
         $allLanguage = Language::all();
         $allPublisher = Publisher::all();
-        $allPriceFilter = PriceFilter ::all();
+        $allPriceFilter = PriceFilter::all();
         $allDiscount = Discount::all();
         return view('productDetail.edit')->with(['allProduct' => $allProduct,
-                    'allAuthor' => $allAuthor,
-                    'allLanguage' => $allLanguage,
-                    'allPublisher' => $allPublisher,
-                    'allPriceFilter' => $allPriceFilter,
-                    'allDiscount' => $allDiscount,
-                    'prd' => $prd]);
+            'allAuthor' => $allAuthor,
+            'allLanguage' => $allLanguage,
+            'allPublisher' => $allPublisher,
+            'allPriceFilter' => $allPriceFilter,
+            'allDiscount' => $allDiscount,
+            'prd' => $prd]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $request->validate(
-                [
-                    'name1' => 'required|max:255|min:3',
-                    'review1' => 'required|max:255|min:3',
-                    'detail1' => 'required',
-                    'price1' => 'required',
-                    'amount1' => 'required'
-                ]
+            [
+                'name1' => 'required|max:255|min:3',
+                'review1' => 'required|max:255|min:3',
+                'detail1' => 'required',
+                'price1' => 'required',
+                'amount1' => 'required'
+            ]
         );
 
 
@@ -166,7 +173,7 @@ class ProductDetailController extends Controller {
         $prd->publisher_id = $request->publisher_id1;
 
         $file = $request->file1;
-        
+
         if ($file != null) {
             $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
             $image_name = time() . "_" . $image_name;
@@ -189,17 +196,19 @@ class ProductDetailController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request) {
+    public function destroy($id, Request $request)
+    {
         $prd = ProductDetail::find($id);
         $prd->delete();
         $request->session()->flash('success', 'ProductDetail was deleted');
         return redirect()->route("proDetail_management.index");
     }
 
-    public function change($id, Request $request) {
+    public function change($id, Request $request)
+    {
         $prd = ProductDetail::find($id);
         if ($prd->status == 1) {
             $prd->status = 0;
@@ -211,4 +220,19 @@ class ProductDetailController extends Controller {
         return redirect()->route("proDetail_management.index");
     }
 
+    public function status($status)
+    {
+
+        if ($status == 1 || $status == 0) {
+            $lsProductDetail = ProductDetail::select()->where('status', '=', $status)->get();
+
+        } else {
+            $lsProductDetail = ProductDetail::all();
+
+        }
+
+        return view('productDetail.list')->with([
+            'lsProductDetail'=> $lsProductDetail,
+        ]);
+    }
 }

@@ -122,6 +122,7 @@
                                             <hr>
                                             <button type="submit" class="btn btn-danger pull-right">Tiến hành thanh toán</button>
                                             <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-left">Tiếp tục mua hàng</a>
+
                                         </form>
                                     @endif
                                 @endif

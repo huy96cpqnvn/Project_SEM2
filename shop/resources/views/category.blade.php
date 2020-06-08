@@ -103,7 +103,7 @@
                     <div class="shop-tab-list">
                         <div class="shop-tab-pill pull-right">
                             <ul>
-                                <li class="product-size-deatils">
+                                {{-- <li class="product-size-deatils">
                                     <div class="show-label">
                                         <label><i class="fa fa-sort-amount-asc"></i>Sort by : </label>
                                         <select>
@@ -112,11 +112,10 @@
                                             <option value="Price">Price</option>
                                         </select>
                                     </div>
-                                </li>	
-                                <li class="shop-pagination"><a href="#">1</a></li>
-                                <li class="shop-pagination"><a href="#">2</a></li>
-                                <li class="shop-pagination"><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                                </li>	 --}}
+                                <li class="shop-pagination">{{$data->links()}}</li>
                             </ul>
+                            {{-- <div class="shop-pagination">{{$data->links()}}</div> --}}
                         </div>
                     </div>
                     <div class="tab-content">
@@ -154,7 +153,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-
+                                
 
                             </div>
                         </div>
@@ -291,6 +290,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

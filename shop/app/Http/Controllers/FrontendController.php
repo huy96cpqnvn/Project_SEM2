@@ -47,36 +47,32 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
-    public function category($id = null, Request $request){
-        if($id != null && $id != ""){
-            $lsProductdt = ProductDetail::where('status', '1')
-                            ->where('product_id', $id)
-                            ->paginate(9);
+    public function category($id = null){
+        // if($id != null && $id != ""){
+        //     $lsProductdt = ProductDetail::where('status', '1')
+        //                     ->where('product_id', $id)
+        //                     ->paginate(9);
       
-          } else {
-            $lsProductdt = ProductDetail::where('status', '1')->paginate(9);
-          }
+        //   } else {
+        //     $lsProductdt = ProductDetail::where('status', '1')->paginate(9);
+        //   }
 
         $allCategory = Category::all();
         $allProduct = Product::where('category_id', $id)->get();
 
-        $data = DB::table('product_details')
-                                    ->join('products', 'products.id', '=', 'product_details.id')
-                                    ->join('categories', 'categories.id', '=', 'products.id')
-                                    ->select('categories.id','products.id','product_details.*')
-                                    ->paginate(9);  
-            // $query = ProductDetail::query();
+        // $data = DB::table('product_details')
+        //                 ->join('products', 'products.id', '=', 'product_details.product_id')
+        //                 ->join('categories', 'categories.id', '=', 'products.category_id')
+        //                 ->select('product_details.*')
+        //                 ->where('product_id', $id)
+        //                 ->paginate(9);  
+        $data = DB::table(DB::raw('product_details')) 
+        ->select('product_details.*')
+        ->join('products', 'products.id', '=', 'product_details.product_id')
+        ->join('categories', 'categories.id', '=', 'products.category_id')
+        ->where('categories.id', $id)
+        ->paginate(9);
 
-            // if ($request->has('categories')) {
-            //     $query->whereIn('categories.id',explode(',',$request->get('categories')));
-            // }
-
-            // if ($request->has('products') && $request->has('categories')){
-            //     $query->whereIn('products.id',explode(',',$request->get('products')));
-            // }
-            
-
-
-        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct, 'lsProductdt' => $lsProductdt, 'data' => $data]);
+        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data]);
     }
 }

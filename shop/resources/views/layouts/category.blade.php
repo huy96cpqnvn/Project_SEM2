@@ -155,9 +155,7 @@
                                     </li>
                                     <li><a href="shop.html">REVIEW BOOK</a></li>
                                     <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="#">pages</a>
-                                        
-                                    </li>
+                                    <li><a href="#">pages</a></li>
                                     <li><a href="contact.html">CONTACT</a></li>
                                 </ul>
                             </nav>

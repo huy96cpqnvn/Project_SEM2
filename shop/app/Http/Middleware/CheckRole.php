@@ -20,5 +20,6 @@ class CheckRole
             return $next($request);
         }
         else return redirect()->route('login.admin');
+        //else return redirect()->route("welcom");
     }
 }

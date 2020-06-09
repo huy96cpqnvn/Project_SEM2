@@ -47,31 +47,30 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
-    public function category($id = null){
-        // if($id != null && $id != ""){
-        //     $lsProductdt = ProductDetail::where('status', '1')
-        //                     ->where('product_id', $id)
-        //                     ->paginate(9);
-      
-        //   } else {
-        //     $lsProductdt = ProductDetail::where('status', '1')->paginate(9);
-        //   }
+    public function category($id = null, $product_id = null){
 
         $allCategory = Category::all();
         $allProduct = Product::where('category_id', $id)->get();
 
-        // $data = DB::table('product_details')
-        //                 ->join('products', 'products.id', '=', 'product_details.product_id')
-        //                 ->join('categories', 'categories.id', '=', 'products.category_id')
-        //                 ->select('product_details.*')
-        //                 ->where('product_id', $id)
-        //                 ->paginate(9);  
-        $data = DB::table(DB::raw('product_details')) 
-        ->select('product_details.*')
-        ->join('products', 'products.id', '=', 'product_details.product_id')
-        ->join('categories', 'categories.id', '=', 'products.category_id')
-        ->where('categories.id', $id)
-        ->paginate(9);
+        $cate_name = "";
+        $product_name = "";
+        if($product_id != null) {
+            $data = DB::table(DB::raw('product_details')) 
+            ->select('product_details.*')
+            ->join('products', 'products.id', '=', 'product_details.product_id')
+            ->join('categories', 'categories.id', '=', 'products.category_id')
+            ->where('product_details.id', $product_id)
+            ->paginate(9);
+        } else {
+            $data = DB::table(DB::raw('product_details')) 
+            ->select('product_details.*')
+            ->join('products', 'products.id', '=', 'product_details.product_id')
+            ->join('categories', 'categories.id', '=', 'products.category_id')
+            ->where('categories.id', $id)
+            ->paginate(9);
+        }
+
+        
 
         return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data]);
     }

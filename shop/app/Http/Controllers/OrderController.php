@@ -23,13 +23,26 @@ class OrderController extends Controller
     }
     public function postdetail($id)
     {
-        $oder = Oders::find($id);
+        $oder = Order::find($id);
 
         $oder->status = 1;
         $oder->save();
-        return redirect('admin/donhang')
+        return redirect('order')
             ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã xác nhận đơn hàng thành công !']);
 
+    }
+    public function getdel($id)
+    {
+        $oder = Order::where('id',$id)->first();
+        if ($oder->status ==1) {
+            return redirect()->back()
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
+        } else {
+            $oder = Order::find($id);
+            $oder->delete();
+            return redirect('order')
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
+        }
     }
     /**
      * Display a listing of the resource.

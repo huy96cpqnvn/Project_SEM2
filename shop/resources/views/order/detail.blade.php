@@ -72,7 +72,7 @@
 									</thead>
 									<tbody>
 										@foreach($data as $row)
-                                         
+
 											<tr>
 												<td>{!!$row->id!!}</td>
 												<td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>

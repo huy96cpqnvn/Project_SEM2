@@ -22,7 +22,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @elseif (Session()->has('level'))
+                    @elseif (Session()->has('flash_level'))
                         <div class="alert alert-success">
                             <ul>
                                 {!! Session::get('flash_massage') !!}

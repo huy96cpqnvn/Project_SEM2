@@ -60,7 +60,7 @@
 								<table class="table table-hover">
 									<thead>
 										<tr>
-											<th>ID</th>
+											<th>STT</th>
 											<th>Hình ảnh</th>
 											<th>Tên sản phẩm</th>
 											<th>Review</th>
@@ -71,10 +71,13 @@
 										</tr>
 									</thead>
 									<tbody>
+                                    @php
+                                    $i = 0;
+                                    @endphp
 										@foreach($data as $row)
 
 											<tr>
-												<td>{!!$row->id!!}</td>
+												<td>{{$i}}</td>
 												<td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>
 												<td>{!!$row->name!!}</td>
 												<td>{!!$row->review!!}</td>
@@ -92,6 +95,9 @@
 												    <a href="{!!url('admin/donhang/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
 												</td>
 											</tr>
+                                            @php
+                                            $i++;
+                                            @endphp
 										@endforeach
 									</tbody>
 								</table>

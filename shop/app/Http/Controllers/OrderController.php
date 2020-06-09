@@ -15,9 +15,13 @@ class OrderController extends Controller
     {
         $oder = Order::where('id',$id)->first();
         $data = DB::table('order_details')
+            ->select('order_details.id','order_details.orderAmount','product_details.cover','product_details.name',
+                'product_details.review','order_details.price','product_details.status')
             ->join('product_details','product_details.id','=','order_details.productDetail_id')
-//            ->groupBy('order_details.id')
            ->where('order_id',$id)
+            ->groupBy('order_details.id','order_details.orderAmount','product_details.cover',
+                'product_details.name','product_details.review','order_details.price','product_details.status')
+
             ->get();
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }

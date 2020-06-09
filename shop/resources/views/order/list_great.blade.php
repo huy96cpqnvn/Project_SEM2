@@ -46,10 +46,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $i = 0;
+                                @endphp
                                 @foreach($data as $row)
 
                                     <tr>
-                                        <td>{!!$row->id!!}</td>
+                                        <td>{{$i}}</td>
                                         <td>{!!$row->user['name']!!}</td>
                                         <td>{!!$row->user['address']!!}</td>
                                         <td>{!!$row->user['phone']!!}</td>
@@ -68,6 +71,9 @@
                                             <a href="{!!url('admin/donhang/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         </td>
                                     </tr>
+                                    @php
+                                    $i++;
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

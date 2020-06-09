@@ -67,7 +67,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])->where('id','[0-9]+');
     Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');
-    Route::get('admin/donhang/del/{id}',['as'   =>'getdeloder','uses' => 'OrderController@getdel'])->where('id','[0-9]+');
+    Route::get('admin/donhang/del/{id}', 'OrderController@getdel')->where('id','[0-9]+');
 
 });
 

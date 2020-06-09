@@ -34,7 +34,7 @@ class OrderController extends Controller
     public function getdel($id)
     {
         $oder = Order::where('id',$id)->first();
-        if ($oder->status ==1) {
+        if ($oder['status'] ==1) {
             return redirect()->back()
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
         } else {

@@ -23,7 +23,7 @@ Route::get('/category.html/{id?}/{product_id?}', 'FrontendController@category');
 
 Auth::routes();
 Route::post('subscribe', 'FrontendController@subscribe');
-Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login    
+Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login
     Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
 });
 
@@ -35,7 +35,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('filter/status={status?}', 'Admin_userController@status')->name('user_management.status');
     Route::post('change/status/{id}', 'Admin_userController@change')->name('user_management.change');
     Route::resource('/user_management', 'Admin_userController');
-    
+
     Route::get('filter_status={status?}', 'ProductDetailController@status')->name('producdetail.status');
 
     // di chuyen tu tren xuong
@@ -51,7 +51,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('/dashboard', 'DashboardController@dashboard');
 
 
-    // 
+    //
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::resource('/cate_management', 'CategoryController');
@@ -68,12 +68,12 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
 });
 
-    
 
-   
 
+
+Route::get('order/confirm', 'OrderController@confirm')->name('order.confirm');
 Route::resource('order', 'OrderController');
-Route::resource('order_detail', 'OrderDetailController');   
+Route::resource('order_detail', 'OrderDetailController');
 
 Route::get('/add_cart/{id}', 'OrderDetailController@addCart')->name('add.cart');
 Route::put('order/update/{id?}/{qty?}-{dk?}','OrderDetailController@updateCart')->name('order.updateCart');

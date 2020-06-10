@@ -15,13 +15,9 @@ class OrderController extends Controller
     {
         $oder = Order::where('id',$id)->first();
         $data = DB::table('order_details')
-            ->select('order_details.id','order_details.orderAmount','product_details.cover','product_details.name',
-                'product_details.review','order_details.price','product_details.status')
             ->join('product_details','product_details.id','=','order_details.productDetail_id')
            ->where('order_id',$id)
-            ->groupBy('order_details.id','order_details.orderAmount','product_details.cover',
-                'product_details.name','product_details.review','order_details.price','product_details.status')
-
+//            ->groupBy('order_details.id')
             ->get();
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }
@@ -47,6 +43,17 @@ class OrderController extends Controller
             return redirect('order')
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
         }
+    }
+    public function confirm()
+    {
+        $id = $_GET['user_id'];
+        $totalPrice =number_format(floatval($_GET['totalPrice']));
+        $note = $_GET['txtnote'];
+        DB::table('orders')->insert(
+           ['note' => $note ,'date'=>date('Y-m-d H:i:s'),'paymentMethod'=>'COD','status'=>1,'user_id'=>$id,'totalprice'=>$totalPrice]
+        );
+
+        return view('order.confirm');
     }
     /**
      * Display a listing of the resource.

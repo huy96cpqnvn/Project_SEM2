@@ -159,7 +159,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
+                                            <a class="sidenav-item-link" href="mail_management">
                                                 <span class="nav-text">Mails</span>
 
 

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\OrderDetail;
 use App\ProductDetail;
+use DateTime;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -19,6 +21,7 @@ class OrderController extends Controller
            ->where('order_id',$id)
 //            ->groupBy('order_details.id')
             ->get();
+
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }
     public function postdetail($id)
@@ -44,16 +47,46 @@ class OrderController extends Controller
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
         }
     }
-    public function confirm()
+    public function confirm(Request $request)
     {
-        $id = $_GET['user_id'];
-        $totalPrice =number_format(floatval($_GET['totalPrice']));
-        $note = $_GET['txtnote'];
-        DB::table('orders')->insert(
-           ['note' => $note ,'date'=>date('Y-m-d H:i:s'),'paymentMethod'=>'COD','status'=>1,'user_id'=>$id,'totalprice'=>$totalPrice]
-        );
+//        $oder = Order::where('id',$id)->first();
 
-        return view('order.confirm');
+        $id = $_GET['user_id'];
+        $totalPrice =doubleval($_GET['totalPrice']);
+        $note = $_GET['txtnote'];
+        $oder = new Order();
+        $orderDetail = new OrderDetail();
+        $total = 0;
+
+//        DB::table('orders')->insert(
+//           ['note' => $note ,'date'=> new datetime ,'paymentMethod'=>'COD','status'=>1,'user_id'=>$id,'totalprice'=>$totalPrice]
+//        );
+        $oder->user_id=Auth::user()->id;
+        $oder->date =  new datetime;
+        $oder->note = $note;
+        $oder->paymentMethod = 'COD';
+        $oder->status = 0;
+        $oder->totalprice = $totalPrice;
+        $oder->save();
+
+        $od_id = $oder->id;
+        $total = 0;
+        foreach (Cart::content() as $row){
+            $total = $total +( $row->qty *$row->price);
+        }
+        foreach (Cart::content() as $row){
+            $orderDetail->order_id = $od_id;
+            $orderDetail->productDetail_id = $row->id;
+            $orderDetail->orderAmount = $row->qty;
+            $orderDetail->price = $row->price;
+            $orderDetail->created_at = new datetime;
+            $orderDetail->totalprice =doubleval($total);
+            $orderDetail->save();
+        }
+        Cart::destroy();
+        $data = Order::select()->where('user_id','=',$id);
+
+        return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
     }
     /**
      * Display a listing of the resource.

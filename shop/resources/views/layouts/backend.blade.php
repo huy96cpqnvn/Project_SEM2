@@ -106,7 +106,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="dashboard">
+                                            <a class="sidenav-item-link" href="{{asset('dashboard')}}">
                                                 <span class="nav-text">Ecommerce</span>
 
                                             </a>
@@ -159,7 +159,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="mail_management">
+                                            <a class="sidenav-item-link" href="{{asset('mail_management')}}">
                                                 <span class="nav-text">Mails</span>
 
 
@@ -191,7 +191,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="cate_management">
+                                            <a class="sidenav-item-link" href="{{asset('cate_management')}}">
                                                 <span class="nav-text">Category</span>
 
                                             </a>
@@ -203,7 +203,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="product_management">
+                                            <a class="sidenav-item-link" href="{{asset('product_management')}}">
                                                 <span class="nav-text">Product</span>
 
                                             </a>
@@ -212,42 +212,42 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="proDetail_management">
+                                            <a class="sidenav-item-link" href="{{asset('proDetail_management')}}">
                                                 <span class="nav-text">Product Details</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="author_management">
+                                            <a class="sidenav-item-link" href="{{asset('author_management')}}">
                                                 <span class="nav-text">Author</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="language_management">
+                                            <a class="sidenav-item-link" href="{{asset('language_management')}}">
                                                 <span class="nav-text">Language</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="pub_management">
+                                            <a class="sidenav-item-link" href="{{asset('pub_management')}}">
                                                 <span class="nav-text">Publisher</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="prf_management">
+                                            <a class="sidenav-item-link" href="{{asset('prf_management')}}">
                                                 <span class="nav-text">PriceFilter</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="dis_management">
+                                            <a class="sidenav-item-link" href="{{asset('dis_management')}}">
                                                 <span class="nav-text">Discount</span>
 
                                             </a>
@@ -275,7 +275,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="newscate_management">
+                                            <a class="sidenav-item-link" href="{{asset('newscate_management')}}">
                                                 <span class="nav-text">Category</span>
 
                                             </a>
@@ -287,14 +287,14 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="tag_management">
+                                            <a class="sidenav-item-link" href="{{asset('tag_management')}}">
                                                 <span class="nav-text">Tags</span>
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a class="sidenav-item-link" href="news_management">
+                                            <a class="sidenav-item-link" href="{{asset('news_management')}}">
                                                 <span class="nav-text">News</span>
 
                                             </a>
@@ -324,7 +324,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="order">
+                                            <a class="sidenav-item-link" href="{{asset('order')}}">
                                                 <span class="nav-text">Orders</span>
 
                                             </a>

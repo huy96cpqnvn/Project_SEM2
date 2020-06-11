@@ -52,7 +52,7 @@
                                 @foreach($data as $row)
 
                                     <tr>
-                                        <td>{{$i}}</td>
+                                        <td>{{$i+1}}</td>
                                         <td>{!!$row->user['name']!!}</td>
                                         <td>{!!$row->user['address']!!}</td>
                                         <td>{!!$row->user['phone']!!}</td>

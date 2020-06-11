@@ -42,8 +42,9 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>{!!$oder->id!!}</td>
-											<td>{!!$oder->user->name!!}</td>
+
+											<td>{!!$oder['id']!!}</td>
+											<td>{!!$oder->user['name']!!}</td>
 											<td>{!!$oder->user->address!!}</td>
 											<td>{!!$oder->user->phone!!}</td>
 											<td>{!!$oder->created_at!!}</td>
@@ -97,6 +98,7 @@
 											</tr>
                                             @php
                                             $i++;
+
                                             @endphp
 										@endforeach
 									</tbody>

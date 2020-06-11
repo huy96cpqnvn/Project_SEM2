@@ -16,10 +16,10 @@ class OrderController extends Controller
     public function getdetail($id)
     {
         $oder = Order::where('id',$id)->first();
-        $data = DB::table('order_details')
-            ->join('product_details','product_details.id','=','order_details.productDetail_id')
-           ->where('order_id',$id)
-//            ->groupBy('order_details.id')
+        $data = DB::table('product_details')
+            ->join('order_details','product_details.id','=','order_details.productDetail_id')
+            ->where('order_id',$id)
+       //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
 
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
@@ -41,7 +41,7 @@ class OrderController extends Controller
             return redirect()->back()
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
         } else {
-            $oder = Order::find($id);
+            $oder = OrderDetail::find($id);
             $oder->delete();
             return redirect('order')
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
@@ -55,26 +55,28 @@ class OrderController extends Controller
         $totalPrice =doubleval($_GET['totalPrice']);
         $note = $_GET['txtnote'];
         $oder = new Order();
-        $orderDetail = new OrderDetail();
         $total = 0;
 
 //        DB::table('orders')->insert(
 //           ['note' => $note ,'date'=> new datetime ,'paymentMethod'=>'COD','status'=>1,'user_id'=>$id,'totalprice'=>$totalPrice]
 //        );
+        foreach (Cart::content() as $row){
+            $total = $total +( $row->qty *$row->price);
+        }
+
         $oder->user_id=Auth::user()->id;
         $oder->date =  new datetime;
         $oder->note = $note;
         $oder->paymentMethod = 'COD';
         $oder->status = 0;
-        $oder->totalprice = $totalPrice;
+        $oder->totalprice = $total;
         $oder->save();
 
         $od_id = $oder->id;
-        $total = 0;
+//        dd($od_id);
+
         foreach (Cart::content() as $row){
-            $total = $total +( $row->qty *$row->price);
-        }
-        foreach (Cart::content() as $row){
+            $orderDetail = new OrderDetail();
             $orderDetail->order_id = $od_id;
             $orderDetail->productDetail_id = $row->id;
             $orderDetail->orderAmount = $row->qty;

@@ -116,39 +116,22 @@
                 </div>
                 <div class="intro pull-right">
                   <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
-{{--                  <li>{!!$row->intro!!}</li>--}}
-{{--                  <span class="label label-info">Khuyễn mãi</span>--}}
-{{--                  @if ($row->promo1!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>--}}
-{{--                  @elseif($row->promo2!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>--}}
-{{--                  @elseif ($row->promo3!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>--}}
-{{--                  @endif--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>--}}
+
                 </div><!-- /div introl -->
               </div> <!-- /div bt -->
               <div class="ct">
                 <a href="#" title="Chi tiết">
-{{--                <a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}" title="Chi tiết">--}}
                   <span class="label label-info">Ưu đãi khi mua</span>
-{{--                  @if ($row->promo1!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>--}}
-{{--                  @elseif($row->promo2!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>--}}
-{{--                  @elseif ($row->promo3!='')--}}
-{{--                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>--}}
-{{--                  @endif--}}
+
 
                 <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>
                 <a href="{{route('add.cart',['id'=>$row->id])}}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
         @endforeach
 
         </div>
-      </div> <!-- /panel info 2  quản cáo 1          -->
+      </div>
 
-    <!-- panel info 2  quản cáo 1          -->
-         -->
+
 
      <!-- fan pages myweb -->
     <div class="panel panel-info">

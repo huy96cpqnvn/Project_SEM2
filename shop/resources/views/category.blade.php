@@ -1,5 +1,24 @@
-@extends('layouts.category')
+@extends('layouts.frontend')
 @section('content')
+<div class="breadcrumbs-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                   <h2>SHOP LEFT SIDEBAR</h2> 
+                   <ul class="breadcrumbs-list">
+                        <li>
+                            <a title="Return to Home" href="index.html">Home</a>
+                        </li>
+                        <li>SHOP LEFT SIDEBAR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
 <div class="shopping-area section-padding">
     <div class="container">
         <div class="row">

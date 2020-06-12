@@ -31,6 +31,12 @@ class FrontendController extends Controller
                                         'allCategory' => $allCategory]);
     }
 
+    public function single($id){
+        $allCategory = Category::all();
+        $prodetail = ProductDetail::find($id);
+        return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory]);
+      }
+
     public function subscribe(Request $request){
         $s = new Subscribe();
         $s -> email = $request->email;

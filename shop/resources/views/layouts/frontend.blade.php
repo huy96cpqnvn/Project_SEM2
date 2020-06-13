@@ -95,11 +95,11 @@
                                         <li>
                                             <a href="{{ route('login') }}"><i class="flaticon-people"></i></a>
                                         </li>
-                                        @if (Route::has('register'))
+                                        {{-- @if (Route::has('register'))
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                             </li>
-                                        @endif
+                                        @endif --}}
                                     @else
                                         <li class="nav-item dropdown">
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -168,83 +168,8 @@
             </div>
         </div>
         <!--Header Area End-->
-		<!-- Mobile Menu Start -->
-		<div class="mobile-menu-area">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 col-md-12 col-sm-12">
-						<div class="mobile-menu">
-							<nav id="dropdown">
-								<ul>
-                                    <li><a href="{{asset('/')}}">TRANG CHỦ</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
-                                    <li><a href="shop.html">REVIEW BOOK</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="contact.html">CONTACT</a></li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>		
-		<!-- Mobile Menu End -->        
-        <!-- slider Area Start -->
-		<div class="slider-area">
-			<div class="bend niceties preview-1">
-				<div id="ensign-nivoslider" class="slides">	
-					<img src="{{asset('img/slider/1.jpg')}}" alt="" title="#slider-direction-1"  />
-					<img src="{{asset('img/slider/2.jpg')}}" alt="" title="#slider-direction-2"  />
-				</div>
-				<!-- direction 1 -->
-				<div id="slider-direction-1" class="text-center slider-direction">
-					<!-- layer 1 -->
-					<div class="layer-1">
-						<h2 class="title-1">LET’S WRITE IMAGINE</h2>
-					</div>
-					<!-- layer 2 -->
-					<div class="layer-2">
-						<p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-					<!-- layer 3 -->
-					<div class="layer-3">
-						<a href="#" class="title-3">SEE MORE</a>
-					</div>
-					<!-- layer 4 -->
-					<div class="layer-4">
-                        <form action="#" class="title-4">
-                            <input type="text" placeholder="Enter your book title here">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-					</div>
-				</div>
-				<!-- direction 2 -->
-				<div id="slider-direction-2" class="slider-direction">
-					<!-- layer 1 -->
-					<div class="layer-1">
-						<h2 class="title-1">LET’S WRITE IMAGINE</h2>
-					</div>
-					<!-- layer 2 -->
-					<div class="layer-2">
-						<p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-					<!-- layer 3 -->
-					<div class="layer-3">
-						<a href="#" class="title-3">SEE MORE</a>
-					</div>
-					<!-- layer 4 -->
-					<div class="layer-4">
-                        <form action="#" class="title-4">
-                            <input type="text" placeholder="Enter your book title here">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- slider Area End-->    
-		<!-- Online Banner Area Start -->    
-        <!-- Online Banner Area End -->  
+  
+
         @yield('content')         
 		<!-- Footer Area Start -->
 		<footer>

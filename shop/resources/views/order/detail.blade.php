@@ -1,3 +1,6 @@
+@php
+    use App\Order;
+@endphp
 @extends('layouts.backend')
 @section('content')
 <!-- main content - noi dung chinh trong chu -->
@@ -41,8 +44,8 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-
+                                    @if(count($data) >0)
+                                        <tr>
 											<td>{!!$oder['id']!!}</td>
 											<td>{!!$oder->user['name']!!}</td>
 											<td>{!!$oder->user->address!!}</td>
@@ -50,6 +53,13 @@
 											<td>{!!$oder->created_at!!}</td>
 											<td>{!! number_format($oder->totalprice) !!} Vnđ</td>
 										</tr>
+                                    @else
+                                    @php
+                                        $order = Order::find($oder['id']);
+
+                                       $order->delete();
+                                    @endphp
+                                    @endif
 									</tbody>
 								</table>
 							</div>
@@ -100,6 +110,7 @@
                                             $i++;
 
                                             @endphp
+
 										@endforeach
 									</tbody>
 								</table>

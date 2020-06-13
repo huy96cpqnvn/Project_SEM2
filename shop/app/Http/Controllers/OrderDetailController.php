@@ -138,8 +138,7 @@ class OrderDetailController extends Controller
             return redirect()->back()
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
         } else {
-            $oderDetail = OrderDetail::find($id);
-            if ($oderDetail !=null){
+            if ($oder !=null){
                 $oder->delete();
             }
             return redirect('order')

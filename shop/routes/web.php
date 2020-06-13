@@ -59,13 +59,14 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])->where('id','[0-9]+');
     Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');
-    Route::get('admin/donhang/del/{id}', 'OrderController@getdel')->where('id','[0-9]+');
+    Route::get('admin/donhang/deldetail/{id}', 'OrderDetailController@getdelDetail')->where('id','[0-9]+');
+    Route::get('admin/donhang/delorder/{id}', 'OrderController@getdelOrder')->where('id','[0-9]+');
     Route::resource('/language_management', 'LanguageController');
     Route::resource('/author_management', 'AuthorController');
     Route::resource('/pub_management', 'PublisherController');
     Route::resource('/prf_management', 'PriceFilterController');
     Route::resource('/dis_management', 'DiscountController');
-    
+
     Route::resource('/mail_management', 'SubscribeController');
 
 });

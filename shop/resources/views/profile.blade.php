@@ -23,13 +23,13 @@
                                         <h5 class="text-primary font-weight-medium pt-4 mb-2">Name</h5>
                                         <p><span class="mdi mdi-account"></span> {{ Auth::user()['name']}}</p>
 
-                                        <p class="text-primary font-weight-medium pt-4 mb-2">Email</p>
+                                        <h5 class="text-primary font-weight-medium pt-4 mb-2">Email</h5>
                                         <p><span class="mdi mdi-email"></span> {{ Auth::user()['email']}}</p>
 
-                                        <p class="text-primary font-weight-medium pt-4 mb-2">Phone</p>
+                                        <h5 class="text-primary font-weight-medium pt-4 mb-2">Phone</h5>
                                         <p><span class="mdi mdi-phone"></span> {{ Auth::user()['phone']}}</p>
 
-                                        <p class="text-primary font-weight-medium pt-4 mb-2">Address</p>
+                                        <h5 class="text-primary font-weight-medium pt-4 mb-2">Address</h5>
                                         <p><span class="mdi mdi-home"></span> {{ Auth::user()['address']}}</p>
 
                                     </div>

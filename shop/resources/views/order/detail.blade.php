@@ -93,7 +93,7 @@
 													@endif
 												</td>
 												<td>
-												    <a href="{!!url('admin/donhang/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+												    <a href="{!!url('admin/donhang/deldetail/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
 												</td>
 											</tr>
                                             @php

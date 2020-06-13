@@ -34,19 +34,7 @@ class OrderController extends Controller
             ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã xác nhận đơn hàng thành công !']);
 
     }
-    public function getdel($id)
-    {
-        $oder = Order::where('id',$id)->first();
-        if ($oder['status'] ==1) {
-            return redirect()->back()
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
-        } else {
-            $oder = OrderDetail::find($id);
-            $oder->delete();
-            return redirect('order')
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
-        }
-    }
+
     public function confirm(Request $request)
     {
 //        $oder = Order::where('id',$id)->first();
@@ -89,6 +77,11 @@ class OrderController extends Controller
         $data = Order::select()->where('user_id','=',$id);
 
         return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
+    }
+    public function getdelOrder($id){
+        $order = Order::find($id);
+        $order->delete();
+        return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đơn hàng số $id của bạn đã được hủy bỏ !"]);
     }
     /**
      * Display a listing of the resource.

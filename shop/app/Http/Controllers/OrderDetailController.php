@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\OrderDetail;
 use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -130,5 +131,19 @@ class OrderDetailController extends Controller
         return redirect()->back()->with('success', 'Thêm '.$product['name'].' Vào Giỏ Hàng Thành Công');
     }
     //
-
+    public function getdelDetail($id)
+    {
+        $oder = OrderDetail::where('id',$id)->first();
+        if ($oder['status'] ==1) {
+            return redirect()->back()
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
+        } else {
+            $oderDetail = OrderDetail::find($id);
+            if ($oderDetail !=null){
+                $oder->delete();
+            }
+            return redirect('order')
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
+        }
+    }
 }

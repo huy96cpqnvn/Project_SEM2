@@ -407,7 +407,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="profile.html">
+                                            <a href="{{asset('profile')}}">
                                                 <i class="mdi mdi-account"></i> My Profile
                                             </a>
                                         </li>

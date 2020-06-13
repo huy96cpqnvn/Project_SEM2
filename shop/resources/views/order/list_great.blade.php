@@ -42,6 +42,7 @@
                                     <th>Ngày đặt</th>
                                     <th>Thành tiền</th>
                                     <th>Trạng thái</th>
+                                    <th>Ghi Chú</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -50,7 +51,6 @@
                                     $i = 0;
                                 @endphp
                                 @foreach($data as $row)
-                                @if($row != null)
                                     <tr>
                                         <td>{{$i+1}}</td>
                                         <td>{!!$row->user['name']!!}</td>
@@ -66,6 +66,8 @@
                                                 <span style="color:#27ae60;"> Đã xác nhận</span>
                                             @endif
                                         </td>
+                                        <td>{!!$row->note!!}</td>
+
                                         <td>
                                             <a href="{!!url('admin/donhang/detail/'.$row->id)!!}" title="Chi tiết">Chi tiết  </a> &nbsp;
                                             <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
@@ -74,9 +76,7 @@
                                     @php
                                     $i++;
                                     @endphp
-                                @endif
                                 @endforeach
-
                                 </tbody>
                             </table>
                         </div>

@@ -158,12 +158,13 @@ class Admin_userController extends Controller
     public function process(Request $request)
     {
         $search = $request->input('search');
-
-        $users = User::select()->where('email','like',"%$search%")->get();
+        $users = User::select()->where('email','like',"%$search%")->orWhere('name','like',"%$search%")->get();
         return  view('admin.manage_user')->with([
-            'users' =>$users
+            'users' =>$users,
+            'search'=>$search
         ]);
     }
+
     public  function  status($status){
 
         if ($status ==1 || $status ==0){

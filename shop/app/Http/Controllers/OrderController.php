@@ -81,7 +81,7 @@ class OrderController extends Controller
     public function getdelOrder($id){
         $order = Order::find($id);
         $order->delete();
-        return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đơn hàng số $id của bạn đã được hủy bỏ !"]);
+        return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đơn hàng số $id  đã được hủy bỏ !"]);
     }
     /**
      * Display a listing of the resource.

@@ -4,10 +4,13 @@
 <!------MENU SECTION START-->
 <?php //include('includes/header.php');?>
 @php
+          use App\Helpers\Hightlight;
           use App\User;
+
           $countAll = User::all()->count();
           $countActive = User::select()->where('status','=',1)->get()->count();
           $countInActive = $countAll- $countActive;
+
 @endphp
 <div class="content-wrapper" style="padding-top: 50px">
     <div class="container">
@@ -31,7 +34,7 @@
                             <input type="hidden" name="_method" value="put">
                             <div>
                                 <label for="Search">Search:</label>
-                                <input type="text" name="search">
+                                <input type="text" name="search" placeholder="email or name"/>
                             </div>
                         </form>
                     </div>
@@ -41,7 +44,7 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>User Name</th>
+                                    <th>Name</th>
                                     <th>Email id </th>
                                     <th>Mobile Number</th>
                                     <th>Adress </th>
@@ -53,6 +56,7 @@
                                 <tbody>
                                 @php
                                 $i = 1;
+
                                 @endphp
                                 @foreach($users as $user)
                                     @php
@@ -69,8 +73,17 @@
                                     @endphp
                                 <tr class="odd gradeX">
                                     <td class="center">{{$i}}</td>
-                                    <td class="center">{{$user->name}}</td>
-                                    <td class="center">{{$user->email}}</td>
+                                    @php
+                                        $email = '';
+                                        if (isset($search)){
+                                        $email =  Hightlight::show($search,$user->email);
+                                        $name =  Hightlight::show($search,$user->name);
+                                      }
+
+
+                                    @endphp
+                                    <td class="center">{!! $name !!}</td>
+                                    <td class="center">{!!$email!!}</td>
                                     <td class="center">{{$user->phone}}</td>
                                     <td class="center">{{$user->address}}</td>
                                     <td class="center">{{$user->created_at}}</td>

@@ -12,7 +12,7 @@
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
                         </li>
-                        <li>Product Details</li>
+                        <li>{{$prodetail->name}}</li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="one">
                             <a class="venobox" href="#" data-gall="gallery" title="">
-                                <img src="{{$prodetail->cover}}" alt="">
+                                <img src="{{asset($prodetail->cover)}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -38,29 +38,19 @@
             </div>
             <div class="col-md-6 col-sm-5">
                 <div class="single-product-details">
-                    <div class="list-pro-rating">
-                        <i class="fa fa-star icolor"></i>
-                        <i class="fa fa-star icolor"></i>
-                        <i class="fa fa-star icolor"></i>
-                        <i class="fa fa-star icolor"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <h2>Cold mountain</h2>
-                    <div class="availability">
-                        <span>In stock</span>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                    <h2>{{$prodetail->name}}</h2>
+                    <p>{{$prodetail->detail}}</p>
                     <div class="single-product-price">
-                        <h2>$49.66</h2>
+                        <h2>{{$prodetail->price}} Đ</h2>
                     </div>
                     <div class="product-attributes clearfix">
                         <span class="pull-left" id="quantity-wanted-p">
-                            <span class="dec qtybutton">-</span>
-                            <input type="text" value="1" class="cart-plus-minus-box">
-                            <span class="inc qtybutton">+</span>	
+                            {{-- @foreach(Cart::content() as $row)
+                            <span>{!!$row->qty!!}</span>
+                            @endforeach --}}
                         </span>
                         <span>
-                            <a class="cart-btn btn-default" href="cart.html">
+                            <a class="cart-btn btn-default" href="{{route('add.cart',['id'=>$prodetail->id])}}">
                                 <i class="flaticon-shop"></i>
                                 Add to cart
                             </a>

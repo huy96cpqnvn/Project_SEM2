@@ -31,7 +31,14 @@ class FrontendController extends Controller
                                         'allCategory' => $allCategory]);
     }
 
-    public function single($id){
+    public function single($id, $qty = null, $dk = null){
+        if ($dk=='up') {
+            $qt = $qty+1;
+            Cart::update($id, $qt);
+        } elseif ($dk=='down') {
+            $qt = $qty-1;
+            Cart::update($id, $qt);
+        }
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory]);
@@ -75,8 +82,6 @@ class FrontendController extends Controller
             ->where('categories.id', $id)
             ->paginate(9);
         }
-
-        
 
         return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data]);
     }

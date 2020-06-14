@@ -154,7 +154,7 @@
                                             </div>
                                         </div>
                                         <div class="cart-checkout">
-                                            <a href="order_detail">
+                                            <a href="{{asset('order_detail')}}">
                                                 Kiểm tra giỏ
                                                 <i class="fa fa-chevron-right"></i>
                                             </a>

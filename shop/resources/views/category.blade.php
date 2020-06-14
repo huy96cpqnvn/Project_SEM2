@@ -8,9 +8,9 @@
                    <h2>SHOP LEFT SIDEBAR</h2> 
                    <ul class="breadcrumbs-list">
                         <li>
-                            <a title="Return to Home" href="index.html">Home</a>
+                            <a title="Return to Home" href="{{asset('/')}}">Home</a>
                         </li>
-                        <li>SHOP LEFT SIDEBAR</li>
+                        <li></li>
                     </ul>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                                     <div class="col-md-4 col-lg-4 hidden-sm">
                                         <div class="single-banner">
                                             <div class="product-wrapper">
-                                                <a href="#" class="single-banner-image-wrapper">
+                                                <a href="single.html/{{$pr->id}}" class="single-banner-image-wrapper">
                                                     <img alt="" src="{{$pr->cover}}">
                                                     <div class="price">{{$pr->price}}</div>
                                                     <p>{{$pr->review}}</p>
@@ -159,14 +159,7 @@
                                             </div>
                                             <div class="banner-bottom text-center">
                                                 <div class="banner-bottom-title">
-                                                    <a href="#">East of eden</a>
-                                                </div>
-                                                <div class="rating-icon">
-                                                    <i class="fa fa-star icolor"></i>
-                                                    <i class="fa fa-star icolor"></i>
-                                                    <i class="fa fa-star icolor"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+                                                    <a href="single.html/{{$pr->id}}">{{$pr->name}}</a>
                                                 </div>
                                             </div>
                                         </div>

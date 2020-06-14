@@ -34,7 +34,7 @@
                             <input type="hidden" name="_method" value="put">
                             <div>
                                 <label for="Search">Search:</label>
-                                <input type="text" name="search" placeholder="email or name"/>
+                                <input type="text" name="search" placeholder="Email or Name"/>
                             </div>
                         </form>
                     </div>
@@ -74,16 +74,15 @@
                                 <tr class="odd gradeX">
                                     <td class="center">{{$i}}</td>
                                     @php
-                                        $email = '';
                                         if (isset($search)){
-                                        $email =  Hightlight::show($search,$user->email);
-                                        $name =  Hightlight::show($search,$user->name);
+                                        $user->email =  Hightlight::show($search,$user->email);
+                                        $user->name =  Hightlight::show($search,$user->name);
                                       }
 
 
                                     @endphp
-                                    <td class="center">{!! $name !!}</td>
-                                    <td class="center">{!!$email!!}</td>
+                                    <td class="center">{!!$user->name!!}</td>
+                                    <td class="center">{!!$user->email!!}</td>
                                     <td class="center">{{$user->phone}}</td>
                                     <td class="center">{{$user->address}}</td>
                                     <td class="center">{{$user->created_at}}</td>

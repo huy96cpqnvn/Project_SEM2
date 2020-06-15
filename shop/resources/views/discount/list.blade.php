@@ -1,38 +1,85 @@
 @extends('layouts.backend')
 
 @section('content')
-<div class="container">
-    <h1>Discount Management</h1>
+    <!------MENU SECTION START-->
+    <?php //include('includes/header.php');?>
+    @php
+        $countAll = \App\Discount::all()->count();
+    @endphp
+    <div class="content-wrapper" style="padding-top: 50px">
+        <div class="container">
+            @include('template.header',['link'=>"dis_management/create",'title'=>'Manage Reg Discount'])
+            <div class="row" style="padding-top: 15px">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
 
-    @if(session()->has('success'))
-    <div class="flash-message">
-        <p class="alert alert-success">{{Session::get('success')}}</p>
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            Reg Discount
+                        </div>
+                        <button class="btn btn-warning float-left" >All  <span class="badge badge-secondary">{{$countAll}}</span></button>
+                        <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
+                            <form method="get" action="{{route('admin_userController.process')}}">
+                                @csrf
+                                {{--                            {{$countActive}}--}}
+                                <input type="hidden" name="_method" value="put">
+                                <div>
+                                    <label for="Search">Search:</label>
+                                    <input type="text" name="search">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Name</th>
+                                        <th>Active</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @php
+                                        $i=1;
+                                    @endphp
+
+                                    @foreach($lsDiscount as $dis)
+                                        <tr>
+                                            <td>{{$dis->id}}</td>
+                                            <td>{{$dis->discount}}</td>
+                                            <td>
+                                                <a class="button" href="{{route('dis_management.edit',$dis->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
+                                                <form method="POST" action="{{ route('dis_management.destroy', $dis->id) }}" onsubmit="confirm('Sure ?')">
+
+                                                    @csrf
+                                                    <input type="hidden" name="_method" value="DELETE"/>
+                                                    {{--                                                    <input type="submit" value="Delete" />--}}
+                                                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
+                                    @endforeach
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+
+
+        </div>
     </div>
-    @endif
 
-    <a href="dis_management/create">Add New</a>
-    <table class="table">
-        <th>No.</th>
-        <th>Discount</th>
-        <th>Active</th>
-
-        @foreach($lsDiscount as $dis)
-        <tr>
-            <td>{{$dis->id}}</td>
-            <td>{{$dis->discount}}</td>
-            <td>
-                <a class="button" href="{{route('dis_management.edit',$dis->id)}}">Edit</a>
-                <form method="POST" action="{{ route('dis_management.destroy', $dis->id) }}" onsubmit="confirm('Sure ?')">
-
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    <input type="submit" value="Delete" />
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-</div>
+    <!-- CORE JQUERY  -->
 @endsection
-
-

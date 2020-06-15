@@ -4,6 +4,7 @@
     <!------MENU SECTION START-->
     <?php //include('includes/header.php');?>
     @php
+    use App\Helpers\Hightlight;
         $countAll = \App\ProductDetail::all()->count();
         $countActive = \App\ProductDetail::select()->where('status','=',1)->get()->count();
         $countInActive = $countAll- $countActive;
@@ -29,13 +30,13 @@
                         <a class="btn btn-success float-left" href="{{route('producdetail.status',1)}}">Active  <span class="badge badge-secondary">{{$countActive}}</span></a>
                         <a class="btn btn-danger float-left"  href="{{route('producdetail.status',0)}}">InActive  <span class="badge badge-secondary">{{$countInActive}}</span></a>
                         <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
-                            <form method="get" action="{{route('admin_userController.process')}}">
+                            <form method="get" action="{{route('proDetail_management.process')}}">
                                 @csrf
                                 {{--                            {{$countActive}}--}}
                                 <input type="hidden" name="_method" value="put">
                                 <div>
                                     <label for="Search">Search:</label>
-                                    <input type="text" name="search">
+                                    <input type="text" name="search" placeholder="Name">
                                 </div>
                             </form>
                         </div>
@@ -76,7 +77,15 @@
                                         @endphp
                                         <tr class="odd gradeX">
                                             <td>{{$prd->id}}</td>
-                                            <td>{{$prd->name}}</td>
+                                            
+                                            @php
+                                        if (isset($search)){
+                                        $prd->name =  Hightlight::show($search,$prd->name);
+                                        }
+
+                                        @endphp
+                                            
+                                            <td>{!!$prd->name!!}</td>
                                             <td>{{$prd->review}}</td>
                                             <td>{{$prd->product['name']}}</td>
                                             <td>{{$prd->author['name']}}</td>

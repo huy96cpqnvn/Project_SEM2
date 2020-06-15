@@ -42,7 +42,8 @@ Route::group(['middleware'=>'CheckRole'],function (){
     // di chuyen tu tren xuong
     Route::resource('/proDetail_management', 'ProductDetailController');
     Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
-
+    Route::get('prd_search/{search?}', 'ProductDetailController@process')->name('proDetail_management.process');
+    
     Route::resource('/news_management', 'NewsController');
     Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
 
@@ -56,7 +57,10 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::resource('/cate_management', 'CategoryController');
+    Route::get('cate_search/{search?}', 'CategoryController@process')->name('cate_management.process');
+    
     Route::resource('/product_management', 'ProductController');
+    Route::get('pro_search/{search?}', 'ProductController@process')->name('product_management.process');
 
     Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])->where('id','[0-9]+');
     Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');

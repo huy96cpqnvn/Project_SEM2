@@ -235,4 +235,15 @@ class ProductDetailController extends Controller
             'lsProductDetail'=> $lsProductDetail,
         ]);
     }
+    
+     public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsPrd = ProductDetail::select()->where('name','like',"%$search%")->get();
+        return  view('productDetail.list')->with([
+            'lsProductDetail' =>$lsPrd,
+            'search'=>$search
+        ]);
+    }
+    
 }

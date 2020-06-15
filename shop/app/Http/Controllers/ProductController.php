@@ -118,4 +118,15 @@ class ProductController extends Controller
         $request->session()->flash('success','Product was deleted');
         return redirect()->route("product_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsPro = Product::select()->where('name','like',"%$search%")->get();
+        return  view('product.list')->with([
+            'lsProduct' =>$lsPro,
+            'search'=>$search
+        ]);
+    }
+    
 }

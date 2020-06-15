@@ -113,4 +113,15 @@ class CategoryController extends Controller
         $request->session()->flash('success','Category was deleted');
         return redirect()->route("cate_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsCate = Category::select()->where('name','like',"%$search%")->get();
+        return  view('category.list')->with([
+            'lsCategory' =>$lsCate,
+            'search'=>$search
+        ]);
+    }
+    
 }

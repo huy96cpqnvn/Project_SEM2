@@ -75,7 +75,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body pt-0">
+                    <div class="card-body pt-0 slim-scroll">
                         <table class="table ">
                             <thead>
                             <th>Customer</th>
@@ -88,7 +88,7 @@
                                     <td >
                                         <div class="media">
                                             <div class="media-image mr-3 rounded-circle">
-                                                <a href="user_management"><img class="rounded-circle w-45" src="assets/img/user/avatar.jpg" alt="customer image"></a>
+                                                <a href="user_management"><img class="rounded-circle w-45" src="{{asset($user->cover)}}" alt="customer image"></a>
                                             </div>
                                             <div class="media-body align-self-center">
                                                 <a href="user_management">

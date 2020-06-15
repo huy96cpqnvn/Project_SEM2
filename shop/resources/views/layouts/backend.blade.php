@@ -412,15 +412,15 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="email-inbox.html">
-                                                <i class="mdi mdi-email"></i> Message
+                                            <a href="{{asset('order')}}">
+                                                <i class="mdi mdi-bank-transfer"></i>History
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
+                                            <a href="{{asset('order_detail')}}"> <i class="mdi mdi-shopify"></i> Details of Order </a>
                                         </li>
                                         <li>
-                                            <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                                            <a href="{{asset('dashboard')}}"> <i class="mdi mdi-ballot"></i> Dashboard </a>
                                         </li>
 
                                         <li class="dropdown-footer">

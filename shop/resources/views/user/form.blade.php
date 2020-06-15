@@ -176,7 +176,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="mdi mdi-home"></i>
+                                                <i class="mdi mdi-google-photos"></i>
                                             </span>
                                         </div>
                                         <input type="file" class="form-control" id="file" name="file" placeholder="Enter Image"/>

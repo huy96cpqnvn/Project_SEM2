@@ -18,7 +18,7 @@
                         <div class="panel-heading">
                             Reg Product
                         </div>
-                        <button class="btn btn-warning float-left"  ">All  <span class="badge badge-secondary">{{$countAll}}</span></button>
+                        <button class="btn btn-warning float-left"  >All  <span class="badge badge-secondary">{{$countAll}}</span></button>
                         <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
                             <form method="get" action="{{route('admin_userController.process')}}">
                                 @csrf

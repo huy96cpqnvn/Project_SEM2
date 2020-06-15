@@ -67,6 +67,18 @@ class Admin_userController extends Controller
         $user->status = $request->status;
         $user->password	 = $request->pass;
         $user->level	 = $request->level;
+        
+        $file = $request->file;
+        $upload_image = '';
+        if ($file != null) {
+            $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
+            $image_name = time() . "_" . $image_name;
+            $image_public_path = public_path("images");
+            $file->move($image_public_path, $image_name);
+            $upload_image = "images/" . $image_name;
+        }
+        $user->cover = $upload_image;
+        
         $user->save();
 
         $request->session()->flash('sucess','User was updated');
@@ -127,6 +139,17 @@ class Admin_userController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->status = $request->status;
+        $file = $request->file;
+
+        if ($file != null) {
+            $image_name = $file->getClientOriginalName() . "." . $file->getClientOriginalExtension();
+            $image_name = time() . "_" . $image_name;
+            $image_public_path = public_path("images");
+            $file->move($image_public_path, $image_name);
+            $upload_image = "images/" . $image_name;
+            $user->cover = $upload_image;
+        }
+        
         $user->save();
 
         $request->session()->flash('sucess','User was updated');

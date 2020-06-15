@@ -45,7 +45,7 @@
                                 @endphp
 
 
-                                <form class="form-horizontal" action="{{route('profile.update',$user->id)}}" method="post" id="contact_form">
+                                <form class="form-horizontal" action="{{route('profile.update',$user->id)}}" method="post" id="contact_form" enctype="multipart/form-data">
                                     @csrf
                                     @method('put')
                                     <fieldset>
@@ -130,6 +130,27 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-4">
+                                    <label class="control-label pull-right"><h4>Avatar</h4></label>
+                                </div>
+                                <div class="col-md-4 col-lg-8 inputGroupContainer">
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-home"></i>
+                                            </span>
+                                        </div>
+                                        <input type="file" class="form-control" id="file" name="file" placeholder="Enter Image"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                                        
                                         <!-- Success message -->
                                         <!-- Button -->
                                         <div class="form-group">
@@ -147,12 +168,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 order-lg-1 text-center">
-                        <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                        <img src="{{ Auth::user()['cover']}}" class="mx-auto img-fluid img-circle d-block" alt="avatar">
                         <h6 class="mt-2 text-dark">{{ Auth::user()['name']}}</h6>
-                        <label class="custom-file">
-                            <input type="file" id="file" class="custom-file-input">
-                            <span class="custom-file-control">Choose file</span>
-                        </label>
                     </div>
                 </div>
             </div>

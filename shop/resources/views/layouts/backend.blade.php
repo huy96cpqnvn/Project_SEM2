@@ -394,13 +394,13 @@
                                 <!-- User Account -->
                                 <li class="dropdown user-menu">
                                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                        <img src="{{asset('assets/img/user/user.png')}}" class="user-image" alt="User Image" />
+                                        <img src="{{asset(Auth::user()['cover'])}}" class="user-image" alt="User Image" />
                                         <span class="d-none d-lg-inline-block">{{ Auth::user()['name']}}</span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <!-- User image -->
                                         <li class="dropdown-header">
-                                            <img src="{{asset('assets/img/user/user.png')}}" class="img-circle" alt="User Image" />
+                                            <img src="{{asset(Auth::user()['cover'])}}" class="img-circle" alt="User Image" />
                                             <div class="d-inline-block">
                                                 {{ Auth::user()['name'] }} <small class="pt-1">{{ Auth::user()['email'] }}</small>
                                             </div>

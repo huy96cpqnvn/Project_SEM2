@@ -108,9 +108,10 @@ class FrontendController extends Controller
             ->where('categories.id', $id)
             ->paginate(9);
         }
-
+//        $data->where('categories.id','>','1');
 
         return view('category')->with(['allCategory' => $allCategory,'curentProdut'=>$curentProdut,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
+
     }
     // public function abc($id = null, $product_id = null){
 
@@ -129,5 +130,37 @@ class FrontendController extends Controller
         $allCategory = Category::all();
         return view('about')->with(['allCategory' => $allCategory]);
     }
+    public function filterPriceCate($id = null, $product_id = null ,Request $request){
 
+        $price = $request->price;
+        $cate = $request->category;
+        $filterPrice = PriceFilter::all();
+        $allCategory = Category::select()->where('name',$cate);
+        $curentCate = Category::find($id);
+        $curentProdut = Product::find($product_id);
+
+        $allProduct = Product::where('category_id', $id)->get();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+        $cate_name = "";
+        $product_name = "";
+        if($product_id != null) {
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('product_details.id', $product_id)
+                ->paginate(9);
+        } else {
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('categories.id', $id)
+                ->paginate(9);
+        }
+//        $data->where('categories.id','>','1');
+
+        return view('category')->with(['allCategory' => $allCategory,'curentProdut'=>$curentProdut,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
+
+    }
 }

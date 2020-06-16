@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@welcom')->name('welcom');
 Route::get('/category.html/{id?}/{product_id?}', 'FrontendController@category');
+Route::get('/filter}', 'FrontendController@filterPriceCate')->name('filter.price');
 
 
 Route::get('/single.html/{id}', 'FrontendController@single');
@@ -48,7 +49,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::resource('/proDetail_management', 'ProductDetailController');
     Route::post('/proDetail_management/change/{id}', 'ProductDetailController@change')->name('proDetail_management.change');
     Route::get('prd_search/{search?}', 'ProductDetailController@process')->name('proDetail_management.process');
-    
+
     Route::resource('/news_management', 'NewsController');
     Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
     Route::get('news_search/{search?}', 'NewsController@process')->name('news_management.process');
@@ -56,7 +57,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/newscate_management', 'NewsCategoryController');
     Route::get('newscate_search/{search?}', 'NewsCategoryController@process')->name('newscate_management.process');
-    
+
     Route::resource('/tag_management', 'TagController');
     Route::get('tag_search/{search?}', 'TagController@process')->name('tag_management.process');
 
@@ -68,7 +69,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/cate_management', 'CategoryController');
     Route::get('cate_search/{search?}', 'CategoryController@process')->name('cate_management.process');
-    
+
     Route::resource('/product_management', 'ProductController');
     Route::get('pro_search/{search?}', 'ProductController@process')->name('product_management.process');
 
@@ -78,13 +79,13 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('admin/donhang/delorder/{id}', 'OrderController@getdelOrder')->where('id','[0-9]+');
     Route::resource('/language_management', 'LanguageController');
     Route::get('lang_search/{search?}', 'LanguageController@process')->name('language_management.process');
-    
+
     Route::resource('/author_management', 'AuthorController');
     Route::get('aut_search/{search?}', 'AuthorController@process')->name('author_management.process');
-    
+
     Route::resource('/pub_management', 'PublisherController');
     Route::get('pub_search/{search?}', 'PublisherController@process')->name('publisher_management.process');
-    
+
     Route::resource('/prf_management', 'PriceFilterController');
     Route::get('prf_search/{search?}', 'PriceFilterController@process')->name('prf_management.process');
 

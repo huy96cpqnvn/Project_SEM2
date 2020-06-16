@@ -75,8 +75,8 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="shop.html">NEW</a></li>
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li><a href="#">NEW</a></li>
+                                    <li><a href="{{asset('/about')}}">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>                        
@@ -198,11 +198,11 @@
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Information</h2>
 		                        <ul class="footer-list">
-		                            <li><a href="about.html">About Us</a></li>
-		                            <li><a href="#">Delivery Information</a></li>
-		                            <li><a href="#">Privacy & Policy</a></li>
-		                            <li><a href="#">Terms & Conditions</a></li>
-		                            <li><a href="#">Manufactures</a></li>
+		                            <li><a href="{{asset('/about')}}">About Us</a></li>
+		                            <li><a href="{{asset('/about')}}">Delivery Information</a></li>
+		                            <li><a href="{{asset('/about')}}">Privacy & Policy</a></li>
+		                            <li><a href="{{asset('/about')}}">Terms & Conditions</a></li>
+		                            <li><a href="{{asset('/about')}}">Manufactures</a></li>
 		                        </ul>
 		                    </div>
 		                </div>

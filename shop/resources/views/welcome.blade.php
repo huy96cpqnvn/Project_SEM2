@@ -100,7 +100,7 @@
                     <div class="shop-info-content">
                         <h2>FREE SHIPPING</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
-                        <a href="#">READ MORE</a>
+                        <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                     <div class="shop-info-content">
                         <h2>FREE SHIPPING</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
-                        <a href="#">READ MORE</a>
+                        <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                     <div class="shop-info-content">
                         <h2>FREE SHIPPING</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
-                        <a href="#">READ MORE</a>
+                        <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>
             </div>
@@ -270,27 +270,27 @@
 <div class="counter-area section-padding text-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="single-counter wow" data-wow-duration="1.5s" data-wow-delay=".3s">
                     <div class="counter-info">
                         <span class="fcount">
-                            <span class="counter">3725</span>
+                            <span class="counter">{{$lsProduct->count()}}</span>
                         </span>
                         <h3>BOOKS READ</h3>								
                     </div>
                 </div>		                
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="single-counter wow" data-wow-duration="1.5s" data-wow-delay=".3s">
                     <div class="counter-info">
                         <span class="fcount">
-                            <span class="counter">950</span>
+                            <span class="counter">{{$lsUser->count()}}</span>
                         </span>
                         <h3>ONLINE USERS</h3>								
                     </div>
                 </div>		                
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            {{-- <div class="col-md-3 col-sm-3 col-xs-6">
                 <div class="single-counter wow" data-wow-duration="1.5s" data-wow-delay=".3s">
                     <div class="counter-info">
                         <span class="fcount">
@@ -299,14 +299,14 @@
                         <h3>BEST AUTHORS</h3>								
                     </div>
                 </div>		                
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-6">
+            </div> --}}
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="single-counter wow" data-wow-duration="1.5s" data-wow-delay=".3s">
                     <div class="counter-info">
                         <span class="fcount">
-                            <span class="counter">62</span>
+                            <span class="counter">{{$lsOrder->count()}}</span>
                         </span>
-                        <h3>AWARDS</h3>								
+                        <h3>ORDER</h3>								
                     </div>
                 </div>		                
             </div>

@@ -88,12 +88,6 @@ class FrontendController extends Controller
         $allCategory = Category::all();
         $curentCate = Category::find($id);
 
-
-
-
-
-        
-
         $allProduct = Product::where('category_id', $id)->get();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";

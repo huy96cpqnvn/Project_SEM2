@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'FrontendController@welcom')->name('welcom');
 Route::get('/category.html/{id?}/{product_id?}', 'FrontendController@category');
+
+
 Route::get('/single.html/{id}', 'FrontendController@single');
+// Route::resource('/cart', 'OrderDetailController');
 Route::get('/about', 'FrontendController@about');
 
 

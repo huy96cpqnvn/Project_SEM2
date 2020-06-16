@@ -52,7 +52,7 @@
                                                 <option value="2">50 - 200k</option>
                                                 <option value="3"> > 200k</option>
                                             </select>
-                                            <select name="category" id="22">
+                                            <select name="category" id="22" >
                                                 <option value="Category">Category</option>
                                                 <option value="Văn học">Văn học</option>
                                                 <option value="Kinh tế">Kinh tế</option>

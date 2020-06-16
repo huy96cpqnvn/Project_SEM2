@@ -143,7 +143,15 @@ class FrontendController extends Controller
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
-        if ($price ==0){
+        if ($price ==0 ){
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('categories.name',$cate)
+                ->paginate(9);
+        }
+        if ($price ==0 && $cate == 'Category'){
             $data = DB::table(DB::raw('product_details'))
                 ->select('product_details.*')
                 ->join('products', 'products.id', '=', 'product_details.product_id')

@@ -88,15 +88,6 @@
         </div>
         
         <div class="form-group">
-            <label for="name">PriceFilter</label>
-            <select name="priceFilter_id1" id="priceFilter_id">
-                @foreach($allPriceFilter as $prf)
-                <option value="{{$prf->id}}">{{$prf->name}}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="form-group">
             <label for="name">Status</label>
             <select name="status1" id="status">
                 <option value="0">draff</option>
@@ -104,13 +95,7 @@
             </select>
         </div>
         
-        <div class="form-group">
-            <label for="name">Type</label>
-            <select name="type1" id="type">
-                <option value="0">Hàng sẵn có</option>
-                <option value="1">Hàng mới về</option>
-            </select>
-        </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

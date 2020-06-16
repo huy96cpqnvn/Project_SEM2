@@ -135,7 +135,7 @@ class FrontendController extends Controller
         $price = $request->price;
         $cate = $request->category;
         $filterPrice = PriceFilter::all();
-        $allCategory = Category::select()->where('name',$cate);
+        $allCategory = Category::all();
         $curentCate = Category::find($id);
         $curentProdut = Product::find($product_id);
 
@@ -143,24 +143,45 @@ class FrontendController extends Controller
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
-        if($product_id != null) {
+        if ($price ==0){
             $data = DB::table(DB::raw('product_details'))
                 ->select('product_details.*')
                 ->join('products', 'products.id', '=', 'product_details.product_id')
                 ->join('categories', 'categories.id', '=', 'products.category_id')
-                ->where('product_details.id', $product_id)
-                ->paginate(9);
-        } else {
-            $data = DB::table(DB::raw('product_details'))
-                ->select('product_details.*')
-                ->join('products', 'products.id', '=', 'product_details.product_id')
-                ->join('categories', 'categories.id', '=', 'products.category_id')
-                ->where('categories.id', $id)
                 ->paginate(9);
         }
-//        $data->where('categories.id','>','1');
+        if ($price ==1){
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('categories.name',$cate)
+                ->where('product_details.price','<=','50000')
+                ->paginate(9);
+        }
+           if ($price ==2){
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('categories.name',$cate)
+                ->where('product_details.price','<=','20000')
+                ->where('product_details.price','>','20000')
+                ->paginate(9);
+        }
+        $product_name = "";
+        if ($price ==3){
+            $data = DB::table(DB::raw('product_details'))
+                ->select('product_details.*')
+                ->join('products', 'products.id', '=', 'product_details.product_id')
+                ->join('categories', 'categories.id', '=', 'products.category_id')
+                ->where('categories.name',$cate)
+                ->where('product_details.price','>','200000')
+                ->paginate(9);
+        }
+
+//        dd($data->toArray());
 
         return view('category')->with(['allCategory' => $allCategory,'curentProdut'=>$curentProdut,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
-
     }
 }

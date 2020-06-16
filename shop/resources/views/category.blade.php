@@ -61,7 +61,7 @@
 
                                         </div>
 
-                                        <div style="margin-top: 20px">
+                                        <div style="margin-top: 20px ;text-align: center" >
                                             <button class="btn btn-default" type="submit">Filter</button>
                                         </div>
 

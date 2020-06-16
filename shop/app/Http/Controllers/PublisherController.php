@@ -113,4 +113,15 @@ class PublisherController extends Controller
         $request->session()->flash('success','Publisher was deleted');
         return redirect()->route("pub_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsPub = Publisher::select()->where('name','like',"%$search%")->get();
+        return  view('publisher.list')->with([
+            'lsPublisher' =>$lsPub,
+            'search'=>$search
+        ]);
+    }
+    
 }

@@ -117,4 +117,15 @@ class AuthorController extends Controller
         $request->session()->flash('success','Author was deleted');
         return redirect()->route("aut_management.index");
     }
+    
+     public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsAuthor = Author::select()->where('name','like',"%$search%")->get();
+        return  view('author.list')->with([
+            'lsAuthor' =>$lsAuthor,
+            'search'=>$search
+        ]);
+    }
+    
 }

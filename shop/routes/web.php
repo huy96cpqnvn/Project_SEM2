@@ -67,9 +67,16 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('admin/donhang/deldetail/{id}', 'OrderDetailController@getdelDetail')->where('id','[0-9]+');
     Route::get('admin/donhang/delorder/{id}', 'OrderController@getdelOrder')->where('id','[0-9]+');
     Route::resource('/language_management', 'LanguageController');
+    Route::get('lang_search/{search?}', 'LanguageController@process')->name('language_management.process');
+    
     Route::resource('/author_management', 'AuthorController');
+    Route::get('aut_search/{search?}', 'AuthorController@process')->name('author_management.process');
+    
     Route::resource('/pub_management', 'PublisherController');
+    Route::get('pub_search/{search?}', 'PublisherController@process')->name('publisher_management.process');
+    
     Route::resource('/prf_management', 'PriceFilterController');
+    Route::get('prf_search/{search?}', 'PriceFilterController@process')->name('prf_management.process');
 
     Route::resource('/mail_management', 'SubscribeController');
 

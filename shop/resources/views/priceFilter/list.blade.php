@@ -4,6 +4,7 @@
     <!------MENU SECTION START-->
     <?php //include('includes/header.php');?>
     @php
+    use App\Helpers\Hightlight;
         $countAll = \App\PriceFilter::all()->count();
     @endphp
     <div class="content-wrapper" style="padding-top: 50px">
@@ -20,13 +21,13 @@
                         </div>
                         <button class="btn btn-warning float-left" >All  <span class="badge badge-secondary">{{$countAll}}</span></button>
                         <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
-                            <form method="get" action="{{route('admin_userController.process')}}">
+                            <form method="get" action="{{route('prf_management.process')}}">
                                 @csrf
                                 {{--                            {{$countActive}}--}}
                                 <input type="hidden" name="_method" value="put">
                                 <div>
                                     <label for="Search">Search:</label>
-                                    <input type="text" name="search">
+                                    <input type="text" name="search" placeholder="Name">
                                 </div>
                             </form>
                         </div>
@@ -48,7 +49,13 @@
                                     @foreach($lsPriceFilter as $prf)
                                         <tr>
                                             <td>{{$prf->id}}</td>
-                                            <td>{{$prf->name}}</td>
+                                             @php
+                                        if (isset($search)){
+                                        $prf->name =  Hightlight::show($search,$prf->name);
+                                        }
+
+                                        @endphp
+                                            <td>{!!$prf->name!!}</td>
                                             <td>
                                                 <a class="button" href="{{route('prf_management.edit',$prf->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button></a>
                                                 <form method="POST" action="{{ route('prf_management.destroy', $prf->id) }}" onsubmit="confirm('Sure ?')">

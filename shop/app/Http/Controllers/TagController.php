@@ -113,4 +113,16 @@ class TagController extends Controller
         $request->session()->flash('success','Tag was deleted');
         return redirect()->route("tag_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsTag = Tag::select()->where('name','like',"%$search%")->get();
+        return  view('tag.list')->with([
+            'lsTag' =>$lsTag,
+            'search'=>$search
+        ]);
+    }
+    
+    
 }

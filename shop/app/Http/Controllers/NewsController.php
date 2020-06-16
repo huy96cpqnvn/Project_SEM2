@@ -15,8 +15,8 @@ class NewsController extends Controller
      */
      public function index()
     {
-        $allNews = News::paginate(3);
-        return view('news.list')->with(['allNews' => $allNews]);
+        $lsNews = News::paginate(6);
+        return view('news.list')->with(['lsNews' => $lsNews]);
     }
 
     /**
@@ -161,4 +161,31 @@ class NewsController extends Controller
         $request->session()->flash('success','News was changed');
         return redirect()->route("news_management.index");
     }
+    
+    public function status($status)
+    {
+
+        if ($status == 1 || $status == 0) {
+            $lsNews = News::select()->where('status', '=', $status)->get();
+
+        } else {
+            $lsNews = News::all();
+
+        }
+
+        return view('news.list')->with([
+            'lsNews'=> $lsNews,
+        ]);
+    }
+    
+     public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsNews = News::select()->where('title','like',"%$search%")->get();
+        return  view('news.list')->with([
+            'lsNews' =>$lsNews,
+            'search'=>$search
+        ]);
+    }
+    
 }

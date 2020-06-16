@@ -14,7 +14,7 @@ class NewsCategoryController extends Controller
      */
    public function index()
     {
-        $lsCate = NewsCategory::all();
+        $lsCate = NewsCategory::paginate(6);
         return view('newsCategory.list')->with(['lsCategory' => $lsCate]);
     }
 
@@ -113,4 +113,15 @@ class NewsCategoryController extends Controller
         $request->session()->flash('success','NewsCategory was deleted');
         return redirect()->route("newscate_management.index");
     }
+    
+     public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsCate = NewsCategory::select()->where('name','like',"%$search%")->get();
+        return  view('newscategory.list')->with([
+            'lsCategory' =>$lsCate,
+            'search'=>$search
+        ]);
+    }
+    
 }

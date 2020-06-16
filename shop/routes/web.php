@@ -46,9 +46,14 @@ Route::group(['middleware'=>'CheckRole'],function (){
     
     Route::resource('/news_management', 'NewsController');
     Route::post('/news_management/change/{id}', 'NewsController@change')->name('news_management.change');
+    Route::get('news_search/{search?}', 'NewsController@process')->name('news_management.process');
+    Route::get('filternews_status={status?}', 'NewsController@status')->name('news.status');
 
     Route::resource('/newscate_management', 'NewsCategoryController');
+    Route::get('newscate_search/{search?}', 'NewsCategoryController@process')->name('newscate_management.process');
+    
     Route::resource('/tag_management', 'TagController');
+    Route::get('tag_search/{search?}', 'TagController@process')->name('tag_management.process');
 
     Route::get('/dashboard', 'DashboardController@dashboard');
 

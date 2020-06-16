@@ -1,78 +1,133 @@
 @extends('layouts.backend')
 
 @section('content')
-<div class="container">
-    <h1>News Management</h1>
+<!------MENU SECTION START-->
+<?php //include('includes/header.php');?>
+@php
+use App\Helpers\Hightlight;
+$countAll = \App\News::all()->count();
+$countActive = \App\News::select()->where('status','=',1)->get()->count();
+$countInActive = $countAll- $countActive;
+@endphp
+<div class="content-wrapper" style="padding-top: 50px">
+    <div class="container">
+        @if(session()->has('success'))
+        <div class="flash-message">
+            <p class="alert alert-success">{{Session::get('success')}}</p>
+        </div>
+        @endif
+        @include('template.header',['link'=>'news_management/create','title'=>'News Management'])
+        <div class="row" style="padding-top: 15px">
+            <div class="col-md-12">
+                <!-- Advanced Tables -->
 
-    @if(session()->has('success'))
-    <div class="flash-message">
-        <p class="alert alert-success">{{Session::get('success')}}</p>
-    </div>
-    @endif
+                <div class="panel panel-default">
 
-    <a href="news_management/create">Add New</a>
-    <table class="table">
-        <th>No.</th>
-        <th>Title</th>
-        <th>Summary</th>
-        <th>Category</th>
-        <th>Status</th>
-        <th>Action</th>
+                    <div class="panel-heading">
+                        Reg News
+                    </div>
+                    <a class="btn btn-warning float-left"  href="{{route('news.status',2)}}">All  <span class="badge badge-secondary">{{$countAll}}</span></a>
+                    <a class="btn btn-success float-left" href="{{route('news.status',1)}}">Active  <span class="badge badge-secondary">{{$countActive}}</span></a>
+                    <a class="btn btn-danger float-left"  href="{{route('news.status',0)}}">InActive  <span class="badge badge-secondary">{{$countInActive}}</span></a>
+                    <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
+                        <form method="get" action="{{route('news_management.process')}}">
+                            @csrf
+                            {{--                            {{$countActive}}--}}
+                            <input type="hidden" name="_method" value="put">
+                            <div>
+                                <label for="Search">Search:</label>
+                                <input type="text" name="search" placeholder="Name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Title</th>
+                                        <th>Summary</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                    $i = 1;
+                                    @endphp
+                                    @foreach($lsNews as $news)
+                                    @php
 
-        @foreach($allNews as $news)
-        <tr>
-            <td>{{$news->id}}</td>
-            <td>{{$news->title}}</td>
-            <td>{{$news->summary}}</td>
-            <td>{{$news->category->name}}</td>
-            <td>
-                <span id="status_{{$news->id}}">
-                {{$news->status == 1 ? 'Publish' : 'Draff'}}
-                </span>
-                <form method="POST" action="{{ route('news_management.change', $news->id) }}"
-                      onsubmit="confirm('Sure ? ')">
-                    @csrf
-                    <input type="submit" value="Change" />
-                </form>
-            </td>
-            <td>
-                <a class="button" href="{{route('news_management.edit',$news->id)}}">Edit</a>
-                <form method="POST" action="{{ route('news_management.destroy', $news->id) }}" onsubmit="confirm('Sure ?')">
+                                    $status = '';
+                                    if ($news->status == 0) {
+                                    $status = 'Inactive' ;
+                                    $class = 'danger';
+                                    }else{
+                                    $status = 'Active';
+                                    $class = 'success';
+                                    }
 
-                    @csrf
-                    <input type="hidden" name="_method" value="DELETE"/>
-                    <input type="submit" value="Delete" />
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-    {{$allNews->links()}}
-</div>
-<script>
-    function changeStatus(element) {
-        var _id = $(element).attr("data-id");
-        var _status = $(element).data('status');
-        
-        var data = {id: _id, status: _status, "_token" : "{{csrf_token()}}"};
-        $.ajax({
-                     type:'POST',
-                     url:'news_management/changeStatus',
-                     data: data
-                 }).done(function( msg ) {
-                     if(msg.status == "OK") {
-                         if(_status == 0) {
-                             $("#status_" + _id).html("Pushlish");
-                             $(element).data('status',1);
-                         } else {
-                             $("#status_" + _id).html("Draft");
-                             $(element).data('status',0);
-                         }
-                     }
-                   alert(msg.msg);
-                 });
-    }
-</script>
-@endsection
+                                    @endphp
+                                    <tr class="odd gradeX">
+                                        <td>{{$news->id}}</td>
+
+                                        @php
+                                        if (isset($search)){
+                                        $news->title =  Hightlight::show($search,$news->title);
+                                        }
+
+                                        @endphp
+
+                                        <td>{!!$news->title!!}</td>
+                                        <td>{{$news->summary}}</td>
+                                        <td>{{$news->category->name}}</td>
+                                        <td>
+                                            <form method="POST" action="{{route('news_management.change',$news->id)}}"
+                                                  onsubmit="confirm('Bạn có chắc muốn  thay đổi Status  ? ')">
+                                                @csrf
+                                                <input type="submit" value="{{$status}}" class="btn btn-{{$class}}"/>
+                                            </form>
+                                        </td>
+                                        <td class="center">
+                                            <a href="{{route('news_management.edit',$news->id)}}"><button class="btn btn-primary"><i class="fa fa-edit "></i></button>
+                                                <form action="{{route('news_management.destroy',$news->id)}}" method="POST"
+                                                      onsubmit="return confirm('Are you sure you want to delete?');">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <a href="{{route('news_management.destroy',$news->id)}}"><button class="btn btn-danger"><i class="fas fa-trash-alt"></i> </button>
+
+                                                        {{--                                                     <input type="submit" value="Delete" class="btn btn-danger "><i class="fas fa-trash-alt"></i></input>--}}
+                                                        </form>
+                                                        </td>
+                                                        </tr>
+                                                        @php
+                                                        $i++;
+                                                        @endphp
+                                                        @endforeach
+
+
+                                                        </tbody>
+                                                        </table>
+                                                        </div>
+
+                                                        </div>
+             
+                                                        </div>
+                                                        <!--End Advanced Tables -->
+                                                        </div>
+                                                        </div>
+
+
+
+                                                        </div>
+                                                        </div>
+
+                                                        <!-- CORE JQUERY  -->
+                                                        @endsection
+
+
+
 
 

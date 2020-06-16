@@ -63,7 +63,7 @@
                         </div>
                     </div>
                                      
-                    <div class="col-md-9 col-sm-12 hidden-xs">
+                    <div class="col-md-7 col-sm-12 hidden-xs">
                         <div class="mainmenu text-center">
                             <nav>
                                 <ul id="nav">
@@ -75,17 +75,13 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="shop.html">REVIEW BOOK</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="#">pages</a>
-                                        
-                                    </li>
+                                    <li><a href="shop.html">NEW</a></li>
                                     <li><a href="contact.html">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>                        
                     </div>
-                    <div class="col-md-1 hidden-sm">
+                    <div class="col-md-3 hidden-sm">
                         <div class="header-right">
                             <ul>
                                 <li>
@@ -198,7 +194,7 @@
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 col-sm-4">
+		                <div class="col-md-3 col-sm-4">
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Information</h2>
 		                        <ul class="footer-list">
@@ -210,7 +206,7 @@
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 hidden-sm">
+		                <div class="col-md-3 hidden-sm">
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">My Account</h2>
 		                        <ul class="footer-list">
@@ -220,7 +216,7 @@
 		                        </ul>
 		                    </div>
 		                </div>
-		                <div class="col-md-2 hidden-sm">
+		                {{-- <div class="col-md-2 hidden-sm">
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">Shop</h2>
 		                        <ul class="footer-list">
@@ -231,14 +227,15 @@
 		                            <li><a href="#">Group Sales</a></li>
 		                        </ul>
 		                    </div>
-		                </div>
+		                </div> --}}
 		                <div class="col-md-3 col-sm-8">
 		                    <div class="single-footer footer-newsletter">
 		                        <h2 class="footer-title">Our Newsletter</h2>
 		                        <p>Consectetur adipisicing elit se do eiusm od tempor incididunt ut labore et dolore magnas aliqua.</p>
-		                        <form action="#" method="post">
+		                        <form action="subscribe" method="post">
+                                    @csrf
 		                            <div>
-		                                <input type="text" placeholder="email address">
+		                                <input type="text" name="email" placeholder="email address">
 		                            </div>
 		                            <button class="btn btn-search btn-small" type="submit">SUBSCRIBE</button>
 		                            <i class="flaticon-networking"></i>
@@ -355,35 +352,35 @@
         <!--End of Quickview Product-->			
 		<!-- all js here -->
 		<!-- jquery latest version -->
-        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="{{asset('js/vendor/jquery-1.12.0.min.js')}}"></script>
 		<!-- bootstrap js -->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
 		<!-- owl.carousel js -->
-        <script src="js/owl.carousel.min.js"></script>
+        <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 		<!-- jquery-ui js -->
-        <script src="js/jquery-ui.min.js"></script>
+        <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 		<!-- jquery Counterup js -->
-        <script src="js/jquery.counterup.min.js"></script>
-        <script src="js/waypoints.min.js"></script>	
+        <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
+        <script src="{{asset('js/waypoints.min.js')}}"></script>	
 		<!-- jquery countdown js -->
-        <script src="js/jquery.countdown.min.js"></script>
+        <script src="{{asset('js/jquery.countdown.min.js')}}"></script>
 		<!-- jquery countdown js -->
-        <script type="text/javascript" src="venobox/venobox.min.js"></script>
+        <script type="{{asset('text/javascript" src="venobox/venobox.min.js')}}"></script>
 		<!-- jquery Meanmenu js -->
-        <script src="js/jquery.meanmenu.js"></script>
+        <script src="{{asset('js/jquery.meanmenu.js')}}"></script>
 		<!-- wow js -->
-        <script src="js/wow.min.js"></script>	
+        <script src="{{asset('js/wow.min.js')}}"></script>	
 		<script>
 			new WOW().init();
 		</script>
 		<!-- scrollUp JS -->		
-        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
 		<!-- plugins js -->
-        <script src="js/plugins.js"></script>
+        <script src="{{asset('js/plugins.js')}}"></script>
 		<!-- Nivo slider js -->
-		<script src="lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
-		<script src="lib/home.js" type="text/javascript"></script>
+		<script src="{{asset('lib/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
+		<script src="{{asset('lib/home.js')}}" type="text/javascript"></script>
 		<!-- main js -->
-        <script src="js/main.js"></script>
+        <script src="{{asset('js/main.js')}}"></script>
     </body>
 </html>

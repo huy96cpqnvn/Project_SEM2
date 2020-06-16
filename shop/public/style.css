@@ -190,7 +190,7 @@ body {
 .header-right ul li a span {
   background: #32b5f3 none repeat scroll 0 0;
   border-radius: 50%;
-  bottom: -4px;
+  bottom: 2px;
   color: #ffffff;
   font-size: 12px;
   height: 19px;
@@ -205,6 +205,16 @@ body {
   font-size: 20px;
   position: relative;
 }
+
+.header-right li.nav-item a {
+	margin-right: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+
+}
+
+
+
 .cart-product {
   border-top: 1px solid #cccccc;
   font-weight: normal;

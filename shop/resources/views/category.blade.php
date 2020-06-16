@@ -39,7 +39,7 @@
                                 @endforeach
                             </ul>
                         </aside> 
-                        <aside class="widget shop-filter">
+                        {{-- <aside class="widget shop-filter">
                             <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
                             <div class="info-widget">
                                 <div class="price-filter">
@@ -53,10 +53,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </aside>                            
+                        </aside>                             --}}
                     </div>
                     <div class="shop-widget-bottom">
-                        <aside class="widget widget-tag">
+                        {{-- <aside class="widget widget-tag">
                             <h2 class="sidebar-title">POPULAR TAG</h2>
                             <ul class="tag-list">
                                 <li>
@@ -78,42 +78,22 @@
                                     <a href="#">author</a>
                                 </li>
                             </ul>
-                        </aside>
+                        </aside> --}}
                         <aside class="widget widget-seller">
                             <h2 class="sidebar-title">TOP SELLERS</h2>
-                            <div class="single-seller">
-                                <div class="seller-img">
-                                    <img src="img/shop/1.jpg" alt="" />
-                                </div>
-                                <div class="seller-details">
-                                    <a href="shop.html"><h5>Cold mountain</h5></a>
-                                    <h5>$ 50.00</h5>
-                                    <ul>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-seller">
-                                <div class="seller-img">
-                                    <img src="img/shop/2.jpg" alt="" />
-                                </div>
-                                <div class="seller-details">
-                                    <a href=""><h5>The historian</h5></a>
-                                    <h5>$ 50.00</h5>
-                                    <ul>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                        <li><i class="fa fa-star icolor"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </aside>
+                                @foreach ($saleProductdt as $item)
+                                    <div class="single-seller">
+                                        <div class="seller-img">
+                                            <img src="{{$item->cover}}" alt="" />
+                                        </div>
+                                        <div class="seller-details">
+                                            <a href="{{asset("single.html/$item->id")}}"><h5>{{$item->name}}</h5></a>
+                                            <h5>{{$item->price}} Đ</h5>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            
+                         </aside>
                     </div>
                 </div>
             </div>
@@ -144,7 +124,7 @@
                                     <div class="col-md-4 col-lg-4 hidden-sm">
                                         <div class="single-banner">
                                             <div class="product-wrapper">
-                                                <a href="single.html/{{$pr->id}}" class="single-banner-image-wrapper">
+                                                <a href="{{asset("single.html/$pr->id")}}" class="single-banner-image-wrapper">
                                                     <img alt="" src="{{$pr->cover}}">
                                                     <div class="price">{{$pr->price}}</div>
                                                     <p>{{$pr->review}}</p>
@@ -159,7 +139,7 @@
                                             </div>
                                             <div class="banner-bottom text-center">
                                                 <div class="banner-bottom-title">
-                                                    <a href="single.html/{{$pr->id}}">{{$pr->name}}</a>
+                                                    <a href="{{asset("single.html/$pr->id")}}">{{$pr->name}}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,138 +149,7 @@
 
                             </div>
                         </div>
-                        <div id="menu1" class="tab-pane fade">
-                            <div class="row">
-                                <div class="single-shop-product">
-                                    <div class="col-xs-12 col-sm-5 col-md-4">
-                                        <div class="left-item">
-                                            <a href="single-product.html" title="East of eden">
-                                                <img src="img/featured/1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-7 col-md-8">
-                                        <div class="deal-product-content">
-                                            <h4>
-                                                <a href="single-product.html" title="East of eden">East of eden</a>
-                                            </h4>
-                                            <div class="product-price">
-                                                <span class="new-price">$ 140.00</span>
-                                                <span class="old-price">$ 120.00</span>
-                                            </div>
-                                            <div class="list-rating-icon">
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                            <div class="availability">
-                                                <span>In stock</span>
-                                                <span><a href="cart.html">Add to cart</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-shop-product">
-                                    <div class="col-xs-12 col-sm-5 col-md-4">
-                                        <div class="left-item">
-                                            <a href="single-product.html" title="People of the book">
-                                                <img src="img/featured/2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-7 col-md-8">
-                                        <div class="deal-product-content">
-                                            <h4>
-                                                <a href="single-product.html" title="People of the book">People of the book</a>
-                                            </h4>
-                                            <div class="product-price">
-                                                <span class="new-price">$ 140.00</span>
-                                                <span class="old-price">$ 120.00</span>
-                                            </div>
-                                            <div class="list-rating-icon">
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                            <div class="availability">
-                                                <span>In stock</span>
-                                                <span><a href="cart.html">Add to cart</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-shop-product">
-                                    <div class="col-xs-12 col-sm-5 col-md-4">
-                                        <div class="left-item">
-                                            <a href="single-product.html" title="The secret letter">
-                                                <img src="img/featured/3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-7 col-md-8">
-                                        <div class="deal-product-content">
-                                            <h4>
-                                                <a href="single-product.html" title="The secret letter">The secret letter</a>
-                                            </h4>
-                                            <div class="product-price">
-                                                <span class="new-price">$ 140.00</span>
-                                                <span class="old-price">$ 120.00</span>
-                                            </div>
-                                            <div class="list-rating-icon">
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                            <div class="availability">
-                                                <span>In stock</span>
-                                                <span><a href="cart.html">Add to cart</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-shop-product">
-                                    <div class="col-xs-12 col-sm-5 col-md-4">
-                                        <div class="left-item">
-                                            <a href="single-product.html" title="Lone some dove">
-                                                <img src="img/featured/4.jpg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-7 col-md-8">
-                                        <div class="deal-product-content">
-                                            <h4>
-                                                <a href="single-product.html" title="Lone some dove">Lone some dove</a>
-                                            </h4>
-                                            <div class="product-price">
-                                                <span class="new-price">$ 140.00</span>
-                                                <span class="old-price">$ 120.00</span>
-                                            </div>
-                                            <div class="list-rating-icon">
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star icolor"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
-                                            <div class="availability">
-                                                <span>In stock</span>
-                                                <span><a href="cart.html">Add to cart</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                 </div>

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Category;
 use App\Product;
 use DB;
+use App\OrderDetail;
+use App\PriceFilter;
 
 class FrontendController extends Controller
 {
@@ -31,18 +33,23 @@ class FrontendController extends Controller
                                         'allCategory' => $allCategory]);
     }
 
-    public function single($id, $qty = null, $dk = null){
-        if ($dk=='up') {
-            $qt = $qty+1;
-            Cart::update($id, $qt);
-        } elseif ($dk=='down') {
-            $qt = $qty-1;
-            Cart::update($id, $qt);
-        }
+
+
+    public function single($id){
+        // if ($dk=='up') {
+        //     $qt = $qty+1;
+        //     Cart::update($id, $qt);
+        // } elseif ($dk=='down') {
+        //     $qt = $qty-1;
+        //     Cart::update($id, $qt);
+        // }
+        $prorelate = ProductDetail::where('product_id', $id)->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
-        return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory]);
+        return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate]);
       }
+
+
 
     public function subscribe(Request $request){
         $s = new Subscribe();
@@ -60,11 +67,14 @@ class FrontendController extends Controller
         return redirect()->back();
     }
 
+
+
+
     public function category($id = null, $product_id = null){
 
         $allCategory = Category::all();
         $allProduct = Product::where('category_id', $id)->get();
-
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
         if($product_id != null) {
@@ -83,6 +93,8 @@ class FrontendController extends Controller
             ->paginate(9);
         }
 
-        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data]);
+        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
     }
+
+
 }

@@ -15,6 +15,8 @@ use App\Product;
 use DB;
 use App\OrderDetail;
 use App\PriceFilter;
+use App\Order;
+use App\User;
 
 class FrontendController extends Controller
 {
@@ -25,12 +27,21 @@ class FrontendController extends Controller
         $comment = Comment::orderBy('created_at', 'DESC')->take(3)->get();
         $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
+
+        $lsUser = User::all();
+        $lsProduct = ProductDetail::all();
+        $lsNews = News::all();
+        $lsOrder = Order::all();
         
 
         return view('welcome')->with(['lsProductdt' => $lsProductdt, 'arrProductdt' => $arrProductdt, 
                                         'saleProductdt' => $saleProductdt, 'comment' => $comment,
                                         'new' => $new,
-                                        'allCategory' => $allCategory]);
+                                        'allCategory' => $allCategory,
+                                        'lsUser' => $lsUser,
+                                        'lsProduct' => $lsProduct,
+                                        'lsNews' => $lsNews,
+                                        'lsOrder' => $lsOrder]);
     }
 
 
@@ -96,5 +107,10 @@ class FrontendController extends Controller
         return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
     }
 
+
+    public function about(){
+        $allCategory = Category::all();
+        return view('about')->with(['allCategory' => $allCategory]);
+    }
 
 }

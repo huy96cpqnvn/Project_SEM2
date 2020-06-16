@@ -127,7 +127,6 @@
                                                 <a href="{{asset("single.html/$pr->id")}}" class="single-banner-image-wrapper">
                                                     <img alt="" src="{{$pr->cover}}">
                                                     <div class="price">{{$pr->price}}</div>
-                                                    <p>{{$pr->review}}</p>
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">

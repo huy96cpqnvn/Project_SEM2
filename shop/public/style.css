@@ -105,6 +105,15 @@ body {
 /*----------------------------------------*/
 /*  2.	Header Area CSS
 /*----------------------------------------*/
+
+.header-area {
+  position: fixed;
+  width: 100%;
+  z-index: 99999999;
+  background: #fff;
+  box-shadow: 0px 1px 6px 0px #ccc;
+}
+
 .header-logo > a {
   display: block;
   padding: 25px 0;
@@ -375,6 +384,9 @@ body {
 /*----------------------------------------*/
 /*  3.	Slider Area CSS
 /*----------------------------------------*/
+.slider-area {
+  padding-top: 97px;
+}
 .layer-1 h2.title-1 {
   animation: 0.8s ease-in-out 1s normal backwards 1 running fadeInLeft;
   font-size: 80px;
@@ -1314,7 +1326,8 @@ p.form-row-phone {
 .data-table thead th {
   background-color: #32B5F3;
   border-right: 1px solid #eaeeef;
-  color: #ffffff;
+  color: #ffff
+  ff;
   font-size: 12px;
   font-weight: 500;
   padding: 5px;
@@ -1361,6 +1374,16 @@ p.form-row-phone {
   vertical-align: top;
 }
 
+.pagination {
+  margin: 0;
+}
+
+
+
+
+.shop-single-product-area > div .single-banner {
+  min-height: 330px;
+}
 /*----------------------------------------*/
 /*  15.	Contact Us CSS
 /*----------------------------------------*/
@@ -1507,8 +1530,21 @@ p.form-row-phone {
   text-transform: uppercase;
 }
 .sidebar-menu > li {
-  line-height: 1;
+  line-height: 1.5;
   padding: 19px 0;
+}
+
+.sidebar-menu > li > a{
+  font-weight: 600;
+}
+
+.sidebar-menu > li > ul {
+  padding-left:20px;
+}
+
+.sidebar-menu > li > ul > li{
+  padding: 5px 0;
+
 }
 .widget-categories {
   margin-bottom: 37px;

@@ -89,6 +89,7 @@ $countAll = \App\NewsCategory::all()->count();
 
                     </div>
                 </div>
+{{--                {{$lsCategory->links()}}--}}
                 <!--End Advanced Tables -->
             </div>
         </div>

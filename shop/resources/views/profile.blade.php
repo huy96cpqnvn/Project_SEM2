@@ -130,7 +130,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4">
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                                        
+
                                         <!-- Success message -->
                                         <!-- Button -->
                                         <div class="form-group">

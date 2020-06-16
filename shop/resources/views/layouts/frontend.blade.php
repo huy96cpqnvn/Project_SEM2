@@ -44,7 +44,7 @@
     <body>
         @php
          use Gloudemans\Shoppingcart\Facades\Cart;
-         use App\Category;  
+         use App\Category;
         @endphp
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -62,7 +62,7 @@
                             </a>
                         </div>
                     </div>
-                                     
+
                     <div class="col-md-7 col-sm-12 hidden-xs">
                         <div class="mainmenu text-center">
                             <nav>
@@ -79,7 +79,7 @@
                                     <li><a href="{{asset('/about')}}">CONTACT</a></li>
                                 </ul>
                             </nav>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="col-md-3 hidden-sm">
                         <div class="header-right">
@@ -101,14 +101,14 @@
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                             </a>
-            
+
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
                                                 </a>
-            
+
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
                                                 </form>
@@ -140,7 +140,7 @@
                                                 <div class="cart-product-remove">
                                                     <i class="fa fa-times"></i>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         @endforeach
 
                                         <div class="total-cart-price">
@@ -164,9 +164,9 @@
             </div>
         </div>
         <!--Header Area End-->
-  
 
-        @yield('content')         
+
+        @yield('content')
 		<!-- Footer Area Start -->
 		<footer>
 		    <div class="footer-top-area">
@@ -349,7 +349,7 @@
                 </div>
             </div>
         </div>
-        <!--End of Quickview Product-->			
+        <!--End of Quickview Product-->
 		<!-- all js here -->
 		<!-- jquery latest version -->
         <script src="{{asset('js/vendor/jquery-1.12.0.min.js')}}"></script>
@@ -361,7 +361,7 @@
         <script src="{{asset('js/jquery-ui.min.js')}}"></script>
 		<!-- jquery Counterup js -->
         <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
-        <script src="{{asset('js/waypoints.min.js')}}"></script>	
+        <script src="{{asset('js/waypoints.min.js')}}"></script>
 		<!-- jquery countdown js -->
         <script src="{{asset('js/jquery.countdown.min.js')}}"></script>
 		<!-- jquery countdown js -->
@@ -369,11 +369,11 @@
 		<!-- jquery Meanmenu js -->
         <script src="{{asset('js/jquery.meanmenu.js')}}"></script>
 		<!-- wow js -->
-        <script src="{{asset('js/wow.min.js')}}"></script>	
+        <script src="{{asset('js/wow.min.js')}}"></script>
 		<script>
 			new WOW().init();
 		</script>
-		<!-- scrollUp JS -->		
+		<!-- scrollUp JS -->
         <script src="{{asset('js/jquery.scrollUp.min.js')}}"></script>
 		<!-- plugins js -->
         <script src="{{asset('js/plugins.js')}}"></script>

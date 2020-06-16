@@ -212,7 +212,7 @@
 		                        <ul class="footer-list">
 		                            <li><a href="my-account.html">My Account</a></li>
 		                            <li><a href="{{ route('login') }}">Login</a></li>
-		                            <li><a href="order_detail">My Cart</a></li>
+		                            {{-- <li><a href="order_detail">My Cart</a></li> --}}
 		                        </ul>
 		                    </div>
 		                </div>
@@ -240,7 +240,7 @@
 		                            <button class="btn btn-search btn-small" type="submit">SUBSCRIBE</button>
 		                            <i class="flaticon-networking"></i>
 		                        </form>
-		                        <ul class="social-icon">
+		                        {{-- <ul class="social-icon">
 		                            <li>
 		                                <a href="#">
 		                                    <i class="flaticon-social"></i>
@@ -261,7 +261,7 @@
 		                                    <i class="flaticon-video"></i>
 		                                </a>
 		                            </li>
-		                        </ul>
+		                        </ul> --}}
 		                    </div>
 		                </div>
 		                <div class="col-md-2 col-sm-4 visible-sm">

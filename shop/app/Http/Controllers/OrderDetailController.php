@@ -111,11 +111,8 @@ class OrderDetailController extends Controller
         }else{
             $qty =1 ;
         }
-        if ($product['discount_id'] >0){
-            $price = $product['discount_id'];
-        }else{
-            $price = $product['price'];
-        }
+        $price = $product['price']-$product['price'] *$product['discount'];
+
         $cart[] = [
             'id'=>$id,
             'name'=>$product['name'],

@@ -10,6 +10,13 @@
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
                         </li>
+                       <li>
+                            {{$curentCate->name}}
+                        </li> <li>
+                           @if(isset($curentProdut))
+                            {{$curentProdut->name}}
+                           @endif
+                        </li>
                         <li></li>
                     </ul>
                 </div>

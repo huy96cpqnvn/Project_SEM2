@@ -10,7 +10,14 @@
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
                         </li>
-                        <li></li>
+                        <li>
+                            <a href="">{{$curentCate->name}}</a>
+                            
+                        </li>
+                        {{-- @foreach($cate->products as $prod)
+                                                <li><a href="{{asset("category.html/$cate->id/$prod->id", false)}}">{{$prod->name}}</a></li>
+                        @endforeach --}}
+                    
                     </ul>
                 </div>
             </div>
@@ -39,21 +46,15 @@
                                 @endforeach
                             </ul>
                         </aside> 
-                        {{-- <aside class="widget shop-filter">
+                        <aside class="widget shop-filter">
                             <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
-                            <div class="info-widget">
-                                <div class="price-filter">
-                                    <div id="slider-range"></div>
-                                    <div class="price-slider-amount">
-                                        <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                                        <div class="widget-buttom">
-                                            <input type="submit"  value="Filter"/>  
-                                            <input type="reset" value="CLEAR" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>                             --}}
+                            <ul class="sidebar-menu">
+                                {{-- @foreach($filterPrice as $item)
+                                    <li><a href="{{asset("abc.html/$item->id")}}"><i class="fa fa-angle-double-right"></i>{{$item->name}}</a>
+                                    </li>
+                                @endforeach --}}
+                            </ul>
+                        </aside>                            
                     </div>
                     <div class="shop-widget-bottom">
                         {{-- <aside class="widget widget-tag">
@@ -121,6 +122,10 @@
                         <div class="row tab-pane fade in active" id="home">
                             <div class="shop-single-product-area">
                                  @foreach ($data as $pr)
+                                 {{-- @php
+                                                                    dd($pr->product->name)
+  
+                                 @endphp --}}
                                     <div class="col-md-4 col-lg-4 hidden-sm">
                                         <div class="single-banner">
                                             <div class="product-wrapper">
@@ -156,5 +161,4 @@
         </div>
     </div>
 </div>
-
 @endsection('content')

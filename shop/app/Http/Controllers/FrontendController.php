@@ -83,7 +83,13 @@ class FrontendController extends Controller
 
     public function category($id = null, $product_id = null){
 
+      
+        $filterPrice = PriceFilter::all();
         $allCategory = Category::all();
+        $curentCate = Category::find($id);
+
+
+
         $allProduct = Product::where('category_id', $id)->get();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
@@ -104,8 +110,20 @@ class FrontendController extends Controller
             ->paginate(9);
         }
 
-        return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
+
+        return view('category')->with(['allCategory' => $allCategory,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
     }
+    // public function abc($id = null, $product_id = null){
+
+    //     $filterPrice = PriceFilter::all();
+
+    //     $allCategory = Category::all();
+    //     $allProduct = Product::where('category_id', $id)->get();
+    //     $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+    //     $data = ProductDetail::where('priceFilter_id', $id)->paginate(9);
+
+    //     return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt, 'filterPrice' => $filterPrice]);
+    // }
 
 
     public function about(){

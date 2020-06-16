@@ -187,6 +187,35 @@ class FrontendController extends Controller
                 ->where('product_details.price','>','200000')
                 ->paginate(9);
         }
+        if ($cate =='Category'){
+            if ($price ==1){
+                $data = DB::table(DB::raw('product_details'))
+                    ->select('product_details.*')
+                    ->join('products', 'products.id', '=', 'product_details.product_id')
+                    ->join('categories', 'categories.id', '=', 'products.category_id')
+                    ->where('product_details.price','<=','50000')
+                    ->paginate(9);
+            }
+             if ($price ==2){
+                $data = DB::table(DB::raw('product_details'))
+                    ->select('product_details.*')
+                    ->join('products', 'products.id', '=', 'product_details.product_id')
+                    ->join('categories', 'categories.id', '=', 'products.category_id')
+                    ->where('product_details.price','>','50000')
+                    ->where('product_details.price','<=','200000')
+                    ->paginate(9);
+            }
+             if ($price ==3){
+                $data = DB::table(DB::raw('product_details'))
+                    ->select('product_details.*')
+                    ->join('products', 'products.id', '=', 'product_details.product_id')
+                    ->join('categories', 'categories.id', '=', 'products.category_id')
+                    ->where('product_details.price','>','200000')
+                    ->paginate(9);
+            }
+
+
+        }
 
 //        dd($data->toArray());
 

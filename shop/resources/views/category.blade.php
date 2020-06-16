@@ -48,7 +48,7 @@
                                         <div style="text-align: center">
                                             <select name="price" id="11">
                                                 <option value="0">Price</option>
-                                                <option value="1">0 - 50k</option>
+                                                <option value="1" >0 - 50k</option>
                                                 <option value="2">50 - 200k</option>
                                                 <option value="3"> > 200k</option>
                                             </select>

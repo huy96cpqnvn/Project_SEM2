@@ -32,9 +32,9 @@ class FrontendController extends Controller
         $lsProduct = ProductDetail::all();
         $lsNews = News::all();
         $lsOrder = Order::all();
-        
 
-        return view('welcome')->with(['lsProductdt' => $lsProductdt, 'arrProductdt' => $arrProductdt, 
+
+        return view('welcome')->with(['lsProductdt' => $lsProductdt, 'arrProductdt' => $arrProductdt,
                                         'saleProductdt' => $saleProductdt, 'comment' => $comment,
                                         'new' => $new,
                                         'allCategory' => $allCategory,
@@ -72,9 +72,9 @@ class FrontendController extends Controller
         // $objDemo->demo_two = 'Demo Two Value';
         $objDemo->sender = 'Shop Write';
         $objDemo->receiver = $s -> email;
-    
+
         Mail::to($s->email)->send(new DemoEmail($objDemo));
-    
+
         return redirect()->back();
     }
 
@@ -83,24 +83,25 @@ class FrontendController extends Controller
 
     public function category($id = null, $product_id = null){
 
-      
+
         $filterPrice = PriceFilter::all();
         $allCategory = Category::all();
         $curentCate = Category::find($id);
+        $curentProdut = Product::find($product_id);
 
         $allProduct = Product::where('category_id', $id)->get();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
         if($product_id != null) {
-            $data = DB::table(DB::raw('product_details')) 
+            $data = DB::table(DB::raw('product_details'))
             ->select('product_details.*')
             ->join('products', 'products.id', '=', 'product_details.product_id')
             ->join('categories', 'categories.id', '=', 'products.category_id')
             ->where('product_details.id', $product_id)
             ->paginate(9);
         } else {
-            $data = DB::table(DB::raw('product_details')) 
+            $data = DB::table(DB::raw('product_details'))
             ->select('product_details.*')
             ->join('products', 'products.id', '=', 'product_details.product_id')
             ->join('categories', 'categories.id', '=', 'products.category_id')
@@ -109,7 +110,7 @@ class FrontendController extends Controller
         }
 
 
-        return view('category')->with(['allCategory' => $allCategory,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
+        return view('category')->with(['allCategory' => $allCategory,'curentProdut'=>$curentProdut,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
     }
     // public function abc($id = null, $product_id = null){
 

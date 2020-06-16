@@ -305,7 +305,7 @@
                             <!-- Orders Management -->
 
                             <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#orders"
+                                <a class="sidenav-item-link" href="{{asset('order')}}"
                                    aria-expanded="false" aria-controls="orders">
                                     <i class="mdi mdi-shopping"></i>
                                     <span class="nav-text">Orders Management</span> <b class="caret"></b>
@@ -316,25 +316,12 @@
 
 
 
-                                        <li >
-                                            <a class="sidenav-item-link" href="{{asset('order')}}">
-                                                <span class="nav-text">Orders</span>
+{{--                                        <li >--}}
+{{--                                            <a class="sidenav-item-link" href="{{asset('order')}}">--}}
+{{--                                                <span class="nav-text">Orders</span>--}}
 
-                                            </a>
-                                        </li>
-
-
-
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="{{route('order_detail.index')}}">
-                                                <span class="nav-text">OrderDetails</span>
-
-                                            </a>
-                                        </li>
-
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                     </div>
                                 </ul>
                             </li>

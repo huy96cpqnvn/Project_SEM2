@@ -14,7 +14,7 @@ class NewsCategoryController extends Controller
      */
    public function index()
     {
-        $lsCate = NewsCategory::paginate(6);
+        $lsCate = NewsCategory::paginate(1);
         return view('newsCategory.list')->with(['lsCategory' => $lsCate]);
     }
 
@@ -38,16 +38,16 @@ class NewsCategoryController extends Controller
     {
         $request->validate(
             [
-                'name1' => 'required|max:255|min:3'     
+                'name1' => 'required|max:255|min:3'
             ]
-               
+
         );
-        
-        
+
+
         $cate = new NewsCategory();
         $cate->name = $request->name1;
         $cate->save();
-        
+
         $request->session()->flash('success','NewsCategory was successfull');
         return redirect()->route("newscate_management.index");
     }
@@ -86,16 +86,16 @@ class NewsCategoryController extends Controller
     {
         $request->validate(
             [
-                'name1' => 'required|max:255|min:3'     
+                'name1' => 'required|max:255|min:3'
             ]
-               
+
         );
-        
-        
+
+
         $cate = NewsCategory::find($id);
         $cate->name = $request->name1;
         $cate->save();
-        
+
         $request->session()->flash('success','NewsCategory was updated');
         return redirect()->route("newscate_management.index");
     }
@@ -113,7 +113,7 @@ class NewsCategoryController extends Controller
         $request->session()->flash('success','NewsCategory was deleted');
         return redirect()->route("newscate_management.index");
     }
-    
+
      public function process(Request $request)
     {
         $search = $request->input('search');
@@ -123,5 +123,5 @@ class NewsCategoryController extends Controller
             'search'=>$search
         ]);
     }
-    
+
 }

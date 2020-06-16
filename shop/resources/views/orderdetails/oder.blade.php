@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.backend')
 @section('content')
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title">

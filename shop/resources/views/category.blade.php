@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumbs">
-                   <h2>SHOP LEFT SIDEBAR</h2> 
+                   <h2>SHOP LEFT SIDEBAR</h2>
                    <ul class="breadcrumbs-list">
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 
 <div class="shopping-area section-padding">
@@ -38,7 +38,7 @@
                                     </li>
                                 @endforeach
                             </ul>
-                        </aside> 
+                        </aside>
                         {{-- <aside class="widget shop-filter">
                             <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
                             <div class="info-widget">
@@ -47,7 +47,7 @@
                                     <div class="price-slider-amount">
                                         <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
                                         <div class="widget-buttom">
-                                            <input type="submit"  value="Filter"/>  
+                                            <input type="submit"  value="Filter"/>
                                             <input type="reset" value="CLEAR" />
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                            
+
                          </aside>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                                         <div class="single-banner">
                                             <div class="product-wrapper">
                                                 <a href="{{asset("single.html/$pr->id")}}" class="single-banner-image-wrapper">
-                                                    <img alt="" src="{{$pr->cover}}">
+                                                    <img alt="" src="{{asset($pr->cover)}}">
                                                     <div class="price">{{$pr->price}}</div>
                                                 </a>
                                                 <div class="product-description">
@@ -144,11 +144,11 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                
+
 
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>

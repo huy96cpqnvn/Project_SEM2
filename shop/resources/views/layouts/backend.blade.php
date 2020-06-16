@@ -112,23 +112,6 @@
                                             </a>
                                         </li>
 
-
-
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="analytics.html">
-                                                <span class="nav-text">Analytics</span>
-
-                                                <span class="badge badge-success">new</span>
-
-                                            </a>
-                                        </li>
-
-
-
-
                                     </div>
                                 </ul>
                             </li>
@@ -235,13 +218,6 @@
                                         <li >
                                             <a class="sidenav-item-link" href="{{asset('pub_management')}}">
                                                 <span class="nav-text">Publisher</span>
-
-                                            </a>
-                                        </li>
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="{{asset('prf_management')}}">
-                                                <span class="nav-text">PriceFilter</span>
 
                                             </a>
                                         </li>
@@ -430,21 +406,9 @@
 
                 <footer class="footer mt-auto">
                     <div class="copyright bg-white">
-                        <p>
-                            &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
-                            <a
-                                class="text-primary"
-                                href="http://www.iamabdus.com/"
-                                target="_blank"
-                                >Abdus</a
-                            >.
-                        </p>
+                        
                     </div>
-                    <script>
-                        var d = new Date();
-                        var year = d.getFullYear();
-                        document.getElementById("copy-year").innerHTML = year;
-                    </script>
+                   
                 </footer>
 
             </div>

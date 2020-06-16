@@ -46,15 +46,14 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th> Name</th>
+                                        <th>Name</th>
                                         <th>Review  </th>
                                         <th>Product </th>
                                         <th>Author </th>
-                                        <th>Languge </th>
+                                        <th>Language </th>
                                         <th>Publisher</th>
                                         <th>Discount</th>
-                                        <th>Type</th>
-                                        <th>Satus</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -92,11 +91,6 @@
                                             <td>{{$prd->language['name']}}</td>
                                             <td>{{$prd->publisher['name']}}</td>
                                             <td>{{$prd->discount}}</td>
-                                            <td>
-                                            <span id="type_{{$prd->id}}">
-                                                {{$prd->type == 1 ? 'Hàng mới về' : 'Hàng sẵn có'}}
-                                            </span>
-                                            </td>
                                             <td>
                                                 <form method="POST" action="{{route('proDetail_management.change',$prd->id)}}"
                                                       onsubmit="confirm('Bạn có chắc muốn  thay đổi Status  ? ')">

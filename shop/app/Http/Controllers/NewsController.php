@@ -115,7 +115,7 @@ class NewsController extends Controller
         $news->summary = $request->summary1;
         $news->content = $request->content1;
         $news->category_id = $request->category_id1;
-        $news->is_active = $request->is_active1;
+        $news->status = $request->status1;
         
         $file = $request->file1;
         

@@ -113,4 +113,15 @@ class LanguageController extends Controller
         $request->session()->flash('success','Language was deleted');
         return redirect()->route("language_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsLang = Language::select()->where('name','like',"%$search%")->get();
+        return  view('language.list')->with([
+            'lsLanguage' =>$lsLang,
+            'search'=>$search
+        ]);
+    }
+    
 }

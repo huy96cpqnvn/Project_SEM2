@@ -113,4 +113,15 @@ class PriceFilterController extends Controller
         $request->session()->flash('success','PriceFilter was deleted');
         return redirect()->route("prf_management.index");
     }
+    
+    public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsPriceFilter = PriceFilter::select()->where('name','like',"%$search%")->get();
+        return  view('priceFilter.list')->with([
+            'lsPriceFilter' =>$lsPriceFilter,
+            'search'=>$search
+        ]);
+    }
+    
 }

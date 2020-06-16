@@ -70,7 +70,6 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::resource('/author_management', 'AuthorController');
     Route::resource('/pub_management', 'PublisherController');
     Route::resource('/prf_management', 'PriceFilterController');
-    Route::resource('/dis_management', 'DiscountController');
 
     Route::resource('/mail_management', 'SubscribeController');
 

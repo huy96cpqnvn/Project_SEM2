@@ -45,6 +45,11 @@
             <label for="name">Amount</label>
             <input type="text" class="form-control" id="amount" name="amount1" placeholder="Enter Amount" value="{{$prd->amount}}"/>
         </div>
+        
+        <div class="form-group">
+            <label for="name">Discount</label>
+            <input type="text" class="form-control" id="discount" name="discount1" placeholder="Enter Discount" value="{{$prd->discount}}"/>
+        </div>
 
         <div class="form-group">
             <label for="name">Product</label>
@@ -91,15 +96,6 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="name">Discount</label>
-            <select name="discount_id1" id="discount_id">
-                @foreach($allDiscount as $dis)
-                <option value="{{$dis->id}}">{{$dis->discount}}</option>
-                @endforeach
-            </select>
-        </div>
-        
         <div class="form-group">
             <label for="name">Status</label>
             <select name="status1" id="status">

@@ -246,13 +246,6 @@
                                             </a>
                                         </li>
 
-                                        <li >
-                                            <a class="sidenav-item-link" href="{{asset('dis_management')}}">
-                                                <span class="nav-text">Discount</span>
-
-                                            </a>
-                                        </li>
-
                                     </div>
                                 </ul>
                             </li>

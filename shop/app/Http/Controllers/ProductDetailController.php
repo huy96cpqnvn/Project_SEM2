@@ -9,7 +9,7 @@ use App\Author;
 use App\Language;
 use App\Publisher;
 use App\PriceFilter;
-use App\Discount;
+
 
 class ProductDetailController extends Controller
 {
@@ -37,13 +37,12 @@ class ProductDetailController extends Controller
         $allLanguage = Language::all();
         $allPublisher = Publisher::all();
         $allPriceFilter = PriceFilter::all();
-        $allDiscount = Discount::all();
+
         return view('productDetail.create')->with(['allProduct' => $allProduct,
             'allAuthor' => $allAuthor,
             'allLanguage' => $allLanguage,
             'allPublisher' => $allPublisher,
-            'allPriceFilter' => $allPriceFilter,
-            'allDiscount' => $allDiscount]);
+            'allPriceFilter' => $allPriceFilter]);
     }
 
     /**
@@ -78,7 +77,7 @@ class ProductDetailController extends Controller
         $prd->author_id = $request->author_id1;
         $prd->language_id = $request->language_id1;
         $prd->priceFilter_id = $request->priceFilter_id1;
-        $prd->discount_id = $request->discount_id1;
+        $prd->discount = $request->discount1;
         $prd->publisher_id = $request->publisher_id1;
 
         $file = $request->file1;
@@ -126,13 +125,12 @@ class ProductDetailController extends Controller
         $allLanguage = Language::all();
         $allPublisher = Publisher::all();
         $allPriceFilter = PriceFilter::all();
-        $allDiscount = Discount::all();
+        
         return view('productDetail.edit')->with(['allProduct' => $allProduct,
             'allAuthor' => $allAuthor,
             'allLanguage' => $allLanguage,
             'allPublisher' => $allPublisher,
             'allPriceFilter' => $allPriceFilter,
-            'allDiscount' => $allDiscount,
             'prd' => $prd]);
     }
 
@@ -169,7 +167,7 @@ class ProductDetailController extends Controller
         $prd->author_id = $request->author_id1;
         $prd->language_id = $request->language_id1;
         $prd->priceFilter_id = $request->priceFilter_id1;
-        $prd->discount_id = $request->discount_id1;
+        $prd->discount= $request->discount1;
         $prd->publisher_id = $request->publisher_id1;
 
         $file = $request->file1;

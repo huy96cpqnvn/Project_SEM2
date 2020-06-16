@@ -42,6 +42,11 @@
             <label for="name">Amount</label>
             <input type="text" class="form-control" id="amount" name="amount1" placeholder="Enter Amount"/>
         </div>
+        
+        <div class="form-group">
+            <label for="name">Discount</label>
+            <input type="text" class="form-control" id="discount" name="discount1" placeholder="Enter Discount"/>
+        </div>
 
         <div class="form-group">
             <label for="name">Product</label>
@@ -84,15 +89,6 @@
             <select name="priceFilter_id1" id="priceFilter_id">
                 @foreach($allPriceFilter as $prf)
                 <option value="{{$prf->id}}">{{$prf->name}}</option>
-                @endforeach
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="name">Discount</label>
-            <select name="discount_id1" id="discount_id">
-                @foreach($allDiscount as $dis)
-                <option value="{{$dis->id}}">{{$dis->discount}}</option>
                 @endforeach
             </select>
         </div>

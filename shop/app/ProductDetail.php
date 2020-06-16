@@ -26,10 +26,6 @@ class ProductDetail extends Model
         return $this->belongsTo('App\Publisher');
     }
 
-    public function discount() {
-        return $this->belongsTo('App\Discount');
-    }
-
     public function comments() {
         return $this->hasMany('App\Comment');
     }

@@ -91,7 +91,7 @@
                                             <td>{{$prd->author['name']}}</td>
                                             <td>{{$prd->language['name']}}</td>
                                             <td>{{$prd->publisher['name']}}</td>
-                                            <td>{{$prd->discount['discount']}}</td>
+                                            <td>{{$prd->discount}}</td>
                                             <td>
                                             <span id="type_{{$prd->id}}">
                                                 {{$prd->type == 1 ? 'Hàng mới về' : 'Hàng sẵn có'}}

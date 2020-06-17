@@ -22,6 +22,10 @@ Route::get('/single.html/{id}', 'FrontendController@single');
 // Route::resource('/cart', 'OrderDetailController');
 Route::get('/about', 'FrontendController@about');
 
+Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');
+Route::get('/contact', 'FrontendController@contact');
+Route::post('post_message','FrontendController@post_message');
+
 
 
 
@@ -93,6 +97,9 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/mail_management', 'SubscribeController');
 
+    Route::resource('/mes_management', 'MessageController');
+    Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');
+
 });
 
 
@@ -111,5 +118,6 @@ Route::get('message', 'Admin_userController@getLogin')->name('message_for_login'
 Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
 
 Route::resource('profile', 'ProfileController');
+
 
 Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');

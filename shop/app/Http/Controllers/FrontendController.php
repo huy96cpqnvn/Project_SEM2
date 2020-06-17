@@ -19,6 +19,7 @@ use App\Order;
 use App\User;
 use App\NewsCategory;
 use App\Author;
+use App\Message;
 
 class FrontendController extends Controller {
 
@@ -200,6 +201,21 @@ class FrontendController extends Controller {
         $search = $request->search;
         $lsProduct = ProductDetail::where('status', '1')->where('name', 'like', '%' . $search . '%')->paginate(9);
         return view('search')->with(['lsProduct' => $lsProduct, 'allCategory' => $allCategory, 'search' => $search]);
+    }
+    
+    public function contact() {
+        $allCategory = Category::all();
+        return view('contact')->with(['allCategory' => $allCategory]);
+    }
+    
+    public function post_message(Request $request) {
+        $message = new \App\Message();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->phone = $request->phone;
+        $message->content = $request->content;
+        $message->save();
+        return redirect()->back();
     }
 
 

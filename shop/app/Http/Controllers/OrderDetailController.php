@@ -128,18 +128,18 @@ class OrderDetailController extends Controller
         return redirect()->back()->with('success', 'Thêm '.$product['name'].' Vào Giỏ Hàng Thành Công');
     }
     //
-    public function getdelDetail($id)
+    public function getdelDetail($idDetai ,$oderStatus)
     {
-        $oder = OrderDetail::where('id',$id)->first();
-        if ($oder['status'] ==1) {
+        $oder = OrderDetail::where('id',$idDetai)->first();
+        if ($oder['status'] ==1 || $oderStatus ==1) {
             return redirect()->back()
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy đơn hàng số: '.$id.' vì đã được xác nhận!']);
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy sản phẩm số: '.$idDetai.' vì đã được xác nhận!']);
         } else {
             if ($oder !=null){
                 $oder->delete();
             }
             return redirect('order')
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$id.' !']);
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
         }
 
     }

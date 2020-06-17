@@ -140,7 +140,7 @@
         <h3 class="panel-title">Fans Pages</h3>
       </div>
       <div class="panel-body">
-        Hãy <a href="#" title="">Like</a> facebook của MyWeb để cập nhật tin mới nhất
+        Hãy <a href="#" title="">Like</a> facebook của Chúng tôi để cập nhật tin mới nhất
       </div>
     </div> <!-- /fan pages myweb -->
   </div>

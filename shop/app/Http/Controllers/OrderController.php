@@ -77,9 +77,13 @@ class OrderController extends Controller
         return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
     }
     public function getdelOrder($id){
+
         $order = Order::find($id);
-        $order->delete();
-        return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đơn hàng số $id  đã được hủy bỏ !"]);
+        if ($order['status'] ==1){
+            return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Không thể hủy  đơn hàng số: $id vì đã được xác nhận!'"]);
+
+        }else         $order->delete();
+
     }
     /**
      * Display a listing of the resource.

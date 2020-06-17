@@ -103,7 +103,7 @@
 													@endif
 												</td>
 												<td>
-												    <a href="{!!url('admin/donhang/deldetail/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+												    <a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
 												</td>
 											</tr>
                                             @php
@@ -119,7 +119,8 @@
                     @if($oder['status'] ==0)
 					<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
                     @else
-                        <input type="button" class="btn btn-primary" value="Đã thanh toán"></input>
+                        <input type="button" class="btn btn-primary" value="Đã xác nhận"></input>
+                        <a href="{{ url()->previous() }}" class="btn btn-info">Quay Về </a>
                     @endif
                 </form>
 			</div>

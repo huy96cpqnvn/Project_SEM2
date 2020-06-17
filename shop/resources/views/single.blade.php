@@ -40,6 +40,10 @@
                 <div class="single-product-details">
                     <h2>{{$prodetail->name}}</h2>
                     <p>{{$prodetail->review}}</p>
+                    <p>
+                        <b>Tác giả:</b> {{$prodetail->author->name}}
+                    </p>
+                    <p><b>Nhà sản xuất:</b> {{$prodetail->publisher->name}}</p>    
                     <div class="single-product-price">
                         <h2>Giá : {{$prodetail->price}} Đ</h2>
                     </div>
@@ -85,7 +89,7 @@
                     <div class="p-details-tab">
                         <ul class="p-details-nav-tab" role="tablist">
                             <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Description</a></li>
-                            <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li>
+                            {{-- <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li> --}}
                             {{-- <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Tab</a></li> --}}
                         </ul>
                     </div>
@@ -94,9 +98,9 @@
                         <div role="tabpanel" class="tab-pane active" id="more-info">
                             <p>{{$prodetail->detail}}</p>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="data">
+                        {{-- <div role="tabpanel" class="tab-pane" id="data">
                             <p>{{$prodetail->review}}</p>
-                        </div>
+                        </div> --}}
                         {{-- <div role="tabpanel" class="tab-pane" id="reviews">
                             <div id="product-comments-block-tab">
                                 <a href="#" class="comment-btn"><span>Be the first to write your review!</span></a>

@@ -17,6 +17,8 @@ use App\OrderDetail;
 use App\PriceFilter;
 use App\Order;
 use App\User;
+use App\NewsCategory;
+use App\Author;
 
 class FrontendController extends Controller {
 
@@ -27,7 +29,7 @@ class FrontendController extends Controller {
         $comment = Comment::orderBy('created_at', 'DESC')->take(3)->get();
         $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
-
+        $allNewcate = NewsCategory::all();
         $lsUser = User::all();
         $lsProduct = ProductDetail::all();
         $lsNews = News::all();
@@ -41,12 +43,15 @@ class FrontendController extends Controller {
                     'lsUser' => $lsUser,
                     'lsProduct' => $lsProduct,
                     'lsNews' => $lsNews,
-                    'lsOrder' => $lsOrder]);
+                    'lsOrder' => $lsOrder,
+                    'allNewcate' => $allNewcate]);
     }
 
     public function single($id) {
+        
+        $data = 
+        $prorelate = ProductDetail::where('product_id', $id)->take(6)->get();
 
-        $prorelate = ProductDetail::where('product_id', $id)->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate]);
@@ -196,5 +201,6 @@ class FrontendController extends Controller {
         $lsProduct = ProductDetail::where('status', '1')->where('name', 'like', '%' . $search . '%')->paginate(9);
         return view('search')->with(['lsProduct' => $lsProduct, 'allCategory' => $allCategory, 'search' => $search]);
     }
+
 
 }

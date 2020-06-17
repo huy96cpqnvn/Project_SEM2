@@ -23,6 +23,8 @@ Route::get('/single.html/{id}', 'FrontendController@single');
 Route::get('/about', 'FrontendController@about');
 
 
+
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/

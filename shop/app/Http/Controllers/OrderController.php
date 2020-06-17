@@ -50,7 +50,6 @@ class OrderController extends Controller
         foreach (Cart::content() as $row){
             $total = $total +( $row->qty *$row->price);
         }
-
         $oder->user_id=Auth::user()->id;
         $oder->date =  new datetime;
         $oder->note = $note;

@@ -9,6 +9,7 @@
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
 				<li class="active">Chi tiết đơn hàng </li>
+
 			</ol>
 		</div><!--/.row-->
 		<div class="row">
@@ -63,9 +64,27 @@
 									</tbody>
 								</table>
 							</div>
-						<div class="panel-heading">
-							Chi tiết sản phẩm trong đơn đặt hàng
-						</div>
+                            <div style="float: center">
+                                @php
+                                    $valueStatus = $oder['status'];
+                                    if ($valueStatus == 0){
+                                        $curentStatus = 'Chưa xác nhận';
+                                    }elseif ($valueStatus == 1){
+                                        $curentStatus = "Đã xác nhận";
+                                    }elseif ($valueStatus == 2){
+                                        $curentStatus = "Đang  chuyển hàng";
+                                    }elseif ($valueStatus == 3){
+                                        $curentStatus = "Đã Thanh Toán";
+                                    }elseif ($valueStatus == 4){
+                                        $curentStatus = "Bị từ chối";
+                                    }
+
+                                @endphp
+
+                                <input type="button" class="btn btn-primary" value="{{$curentStatus}}"/>
+
+                            </div>
+
 						<div class="panel-body" style="font-size: 12px;">
 							<div class="table-responsive">
 								<table class="table table-hover">
@@ -119,8 +138,17 @@
                     @if($oder['status'] ==0)
 					<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
                     @else
-                        <input type="button" class="btn btn-primary" value="Đã xác nhận"></input>
-                        <a href="{{ url()->previous() }}" class="btn btn-info">Quay Về </a>
+                        <form action="{{route('changestatus.order')}}" method="get">
+                            @csrf
+                            <select name="selectStatus" id="" class="dropdown">
+                                <option value="2">Change Status</option>
+                                <option value="3">Đang Chuyển Hàng</option>
+                                <option value="4">Đã Thanh Toán</option>
+                                <option value="5">Bị Từ Chối</option>
+
+                            </select>
+                        </form>
+                        <a href="{{ url()->previous() }}" class="btn btn-info" >Quay Về </a>
                     @endif
                 </form>
 			</div>

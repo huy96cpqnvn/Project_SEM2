@@ -131,10 +131,11 @@ class OrderDetailController extends Controller
     public function getdelDetail($idDetai ,$oderStatus)
     {
         $oder = OrderDetail::where('id',$idDetai)->first();
-        if ($oder['status'] ==1 || $oderStatus ==1) {
+        if ( $oderStatus ==1) {
             return redirect()->back()
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy sản phẩm số  $idDetai vì đã được xác nhận!']);
-        } else {
+        }
+        if ( $oderStatus ==0) {
             if ($oder !=null){
                 $oder->delete();
             }

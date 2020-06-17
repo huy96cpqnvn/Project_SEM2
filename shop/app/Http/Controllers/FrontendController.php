@@ -89,7 +89,7 @@ class FrontendController extends Controller
             ->select('product_details.*')
             ->join('products', 'products.id', '=', 'product_details.product_id')
             ->join('categories', 'categories.id', '=', 'products.category_id')
-            ->where('product_details.id', $product_id)
+            ->where('products.id', $product_id)
             ->paginate(9);
         } else {
             $data = DB::table(DB::raw('product_details'))

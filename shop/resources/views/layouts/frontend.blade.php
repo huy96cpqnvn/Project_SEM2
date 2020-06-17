@@ -140,7 +140,7 @@
                                                     <span class="cart-price">{{$row->price}} Đ</span>
                                                 </div>
                                                 <div class="cart-product-remove">
-                                                    <a href="" @php Cart::destroy() @endphp><i class="fa fa-times"></i></a>
+                                                    {{-- <a href="" @php Cart::destroy() @endphp><i class="fa fa-times"></i></a> --}}
                                                  </div>
                                             </div>
                                         @endforeach
@@ -176,7 +176,7 @@
 		            <div class="row">
 		                <div class="col-md-3 col-sm-8">
 		                    <div class="footer-left">
-		                        <a href="index.html">
+		                        <a href="{{asset('/')}}">
 		                            <img src="img/logo-2.png" alt="">
 		                        </a>
 		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
@@ -201,10 +201,10 @@
 		                        <h2 class="footer-title">Information</h2>
 		                        <ul class="footer-list">
 		                            <li><a href="{{asset('/about')}}">About Us</a></li>
-		                            <li><a href="{{asset('/about')}}">Delivery Information</a></li>
-		                            <li><a href="{{asset('/about')}}">Privacy & Policy</a></li>
-		                            <li><a href="{{asset('/about')}}">Terms & Conditions</a></li>
-		                            <li><a href="{{asset('/about')}}">Manufactures</a></li>
+		                            <li><a href="{{asset('/about/#van_chuyen')}}">Delivery Information</a></li>
+		                            <li><a href="{{asset('/about/#chinh_sach')}}">Privacy & Policy</a></li>
+		                            <li><a href="{{asset('/about/#thanh_toan')}}">Payment Methods</a></li>
+		                            <li><a href="{{asset('/about/#hang_hoa')}}">Manufactures</a></li>
 		                        </ul>
 		                    </div>
 		                </div>
@@ -212,8 +212,8 @@
 		                    <div class="single-footer">
 		                        <h2 class="footer-title">My Account</h2>
 		                        <ul class="footer-list">
-		                            <li><a href="my-account.html">My Account</a></li>
-		                            <li><a href="{{ route('login') }}">Login</a></li>
+		                            <li><a href="{{asset('profile')}}">My Account</a></li>
+		                            <li><a href="{{route('login') }}">Login</a></li>
 		                            {{-- <li><a href="order_detail">My Cart</a></li> --}}
 		                        </ul>
 		                    </div>
@@ -286,7 +286,7 @@
 		            <div class="row">
 		                <div class="col-md-6">
                             <div class="footer-bottom-left pull-left">
-                                <p>Copyright &copy; 2016 <span><a href="#">DevItems</a></span>. All Right Reserved.</p>
+                                <p>Copyright &copy; 2020 <span><a href="#">T2-T1904E</a></span>. All Right Reserved.</p>
                             </div>
 		                </div>
 		                <div class="col-md-6">
@@ -299,58 +299,7 @@
 		    </div>
 		</footer>
 		<!-- Footer Area End -->
-        <!--Quickview Product Start -->
-        <div id="quickview-wrapper">
-            <!-- Modal -->
-            <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-product">
-                                <div class="product-images">
-                                    <div class="main-image images">
-                                        <img alt="" src="img/quick-view.jpg">
-                                    </div>
-                                </div>
-                                <div class="product-info">
-                                    <h1>Frame Princes Cut Diamond</h1>
-                                    <div class="price-box">
-                                        <p class="s-price"><span class="special-price"><span class="amount">$280.00</span></span></p>
-                                    </div>
-                                    <a href="product-details.html" class="see-all">See all features</a>
-                                    <div class="quick-add-to-cart">
-                                        <form method="post" class="cart">
-                                            <div class="numbers-row">
-                                                <input type="number" id="french-hens" value="3">
-                                            </div>
-                                            <button class="single_add_to_cart_button" type="submit">Add to cart</button>
-                                        </form>
-                                    </div>
-                                    <div class="quick-desc">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.
-                                    </div>
-                                    <div class="social-sharing">
-                                        <div class="widget widget_socialsharing_widget">
-                                            <h3 class="widget-title-modal">Share this product</h3>
-                                            <ul class="social-icons">
-                                                <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
-                                                <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div><!-- .product-info -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!--End of Quickview Product-->
 		<!-- all js here -->
 		<!-- jquery latest version -->

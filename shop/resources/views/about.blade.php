@@ -21,11 +21,13 @@
 			</div>
 		</div> 
 		<!-- Breadcrumbs Area Start --> 
-		<!-- About Us Area Start -->
-		<div class="about-us-area section-padding">
+        <!-- About Us Area Start -->
+ 		<div class="about-us-area section-padding">
 		    <div class="container">
+                
                 <div class="row">
                     <h2>GIỚI THIỆU WRITER</h2>
+                    
                     <div class="about-top-inner">
 
                         <div class="col-md-6">
@@ -40,18 +42,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="hang_hoa"></div>
                         <div class="col-md-6">
                             <div class="about-image">
                                 <img src="img/about/1.jpg" alt="">
                             </div>
                         </div>
                     </div>
+                    
                     <div class="about-bottom-inner">
                         <div class="col-md-6">
                             <div class="about-image">
                                 <img src="img/about/2.jpg" alt="">
                             </div>
                         </div>
+                        
                         <div class="col-md-6">
                             <div class="about-inner">
                                 <div class="about-title">
@@ -81,6 +86,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="van_chuyen"></div>
                         <div class="col-md-6">
                             <div class="about-image">
                                 <img src="img/about/3.jpg" alt="">
@@ -93,6 +99,7 @@
                                 <img src="img/about/4.jpg" alt="">
                             </div>
                         </div>
+                        <div id="thanh_toan"></div>
                         <div class="col-md-6">
                             <div class="about-inner">
                                 <div class="about-title">
@@ -122,6 +129,7 @@
                                </div>
                            </div>
                        </div>
+                       <div id="chinh_sach"></div>
                        <div class="col-md-6">
                            <div class="about-image">
                                <img src="img/about/5.jpg" alt="">

@@ -156,9 +156,9 @@
                                 <li role="presentation" class="first-item active">
                                     <a href="#arrival" aria-controls="arrival" role="tab" data-toggle="tab">New Arrival</a>
                                 </li>
-                                <li role="presentation">
+                                {{-- <li role="presentation">
                                     <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">BEST SELLERS</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>         
                     </div>
@@ -199,7 +199,7 @@
 
 
                         {{-- TAB SALE --}}
-                        <div role="tabpanel" class="tab-pane fade" id="sale">
+                        {{-- <div role="tabpanel" class="tab-pane fade" id="sale">
                             <div class="featured-product-list indicator-style">
                                 @foreach($saleProductdt->chunk(2) as $items)
                                 <div class="single-p-banner">
@@ -235,7 +235,7 @@
                                 </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>             
             </div>

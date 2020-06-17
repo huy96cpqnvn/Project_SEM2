@@ -39,12 +39,14 @@
 		<!-- responsive css -->
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 		<!-- modernizr css -->
-        <script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+		<script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
+		<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
     </head>
     <body>
         @php
          use Gloudemans\Shoppingcart\Facades\Cart;
-         use App\Category;
+		 use App\Category;
+
         @endphp
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -76,7 +78,8 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li><a href="#">NEW</a></li>
+									<li><a href="#">NEW</a>
+									</li>
                                     <li><a href="{{asset('/about')}}">ABOUT</a></li>
                                     <li><a href="{{asset('/contact')}}">CONTACT</a></li>
                                 </ul>

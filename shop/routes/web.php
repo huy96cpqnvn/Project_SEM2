@@ -27,6 +27,8 @@ Route::get('/contact', 'FrontendController@contact');
 Route::post('post_message','FrontendController@post_message');
 
 
+
+
 /*Route::get('/', function () {
     return view('welcome');
 });*/

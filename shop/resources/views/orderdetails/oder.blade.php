@@ -36,6 +36,7 @@
                       <td>{!!$row->price!!} Vnd</td>
                       <td>{!!$row->qty * $row->price!!} Vnd</td>
                     </tr>
+
                   @endforeach
                     <tr>
                       <td colspan="3"><strong>Tổng cộng :</strong> </td>

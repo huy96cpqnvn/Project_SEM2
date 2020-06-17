@@ -108,3 +108,5 @@ Route::get('message', 'Admin_userController@getLogin')->name('message_for_login'
 Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
 
 Route::resource('profile', 'ProfileController');
+
+Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');

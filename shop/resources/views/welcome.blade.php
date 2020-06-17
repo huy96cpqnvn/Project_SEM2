@@ -18,10 +18,6 @@
             <div class="layer-2">
                 <p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <!-- layer 3 -->
-            <div class="layer-3">
-                <a href="#" class="title-3">SEE MORE</a>
-            </div>
             <!-- layer 4 -->
             <div class="layer-4">
                 <form action="#" class="title-4">
@@ -39,10 +35,6 @@
             <!-- layer 2 -->
             <div class="layer-2">
                 <p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <!-- layer 3 -->
-            <div class="layer-3">
-                <a href="#" class="title-3">SEE MORE</a>
             </div>
             <!-- layer 4 -->
             <div class="layer-4">

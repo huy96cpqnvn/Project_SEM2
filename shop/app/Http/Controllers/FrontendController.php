@@ -203,6 +203,11 @@ class FrontendController extends Controller {
         return view('search')->with(['lsProduct' => $lsProduct, 'allCategory' => $allCategory, 'search' => $search]);
     }
     
+    public function contact() {
+        $allCategory = Category::all();
+        return view('contact')->with(['allCategory' => $allCategory]);
+    }
+    
     public function post_message(Request $request) {
         $message = new \App\Message();
         $message->name = $request->name;

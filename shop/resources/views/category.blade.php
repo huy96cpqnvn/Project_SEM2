@@ -5,7 +5,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumbs">
-                   <h2>SHOP LEFT SIDEBAR</h2>
+                    @if(isset($curentProdut))
+                        <h2>{{$curentProdut->name}}</h2>
+                    @elseif(isset($curentCate))
+                        <h2>{{$curentCate->name}}</h2>
+                    @endif
+                   
                    <ul class="breadcrumbs-list">
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
@@ -15,8 +20,8 @@
                         </li>
                            @if(isset($curentProdut))
                            <li>
-                            {{$curentProdut->name}}
-                        </li>
+                                {{$curentProdut->name}}
+                            </li>
                            @endif
  
                     </ul>

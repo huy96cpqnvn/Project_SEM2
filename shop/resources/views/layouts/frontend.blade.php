@@ -52,6 +52,7 @@
 
         <!-- Add your site or application content here -->
         <!--Header Area Start-->
+
         <div class="header-area">
             <div class="container">
                 <div class="row">
@@ -139,8 +140,8 @@
                                                     <span class="cart-price">{{$row->price}} Đ</span>
                                                 </div>
                                                 <div class="cart-product-remove">
-                                                    <i class="fa fa-times"></i>
-                                                </div>
+                                                    <a href="" @php Cart::destroy() @endphp><i class="fa fa-times"></i></a>
+                                                 </div>
                                             </div>
                                         @endforeach
 

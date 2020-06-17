@@ -1,6 +1,22 @@
 @extends('layouts.frontend')
 @section('content')
 
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@elseif (Session()->has('flash_level'))
+<div class="alert alert-success">
+    <ul>
+        {!! Session::get('flash_massage') !!}
+    </ul>
+</div>
+@endif
+
 <!-- slider Area Start -->
 <div class="slider-area">
     <div class="bend niceties preview-1">
@@ -92,7 +108,7 @@
                         <i class="flaticon-transport"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>PHƯƠNG THỨC VẬN CHUYỂN</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
@@ -104,7 +120,7 @@
                         <i class="flaticon-money"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>Phương thức thanh toán</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
@@ -116,7 +132,7 @@
                         <i class="flaticon-school"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>CHÍNH SÁCH ĐỔI / TRẢ</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
@@ -142,9 +158,9 @@
                                 <li role="presentation" class="first-item active">
                                     <a href="#arrival" aria-controls="arrival" role="tab" data-toggle="tab">New Arrival</a>
                                 </li>
-                                <li role="presentation">
+                                {{-- <li role="presentation">
                                     <a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">BEST SELLERS</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>         
                     </div>
@@ -185,7 +201,7 @@
 
 
                         {{-- TAB SALE --}}
-                        <div role="tabpanel" class="tab-pane fade" id="sale">
+                        {{-- <div role="tabpanel" class="tab-pane fade" id="sale">
                             <div class="featured-product-list indicator-style">
                                 @foreach($saleProductdt->chunk(2) as $items)
                                 <div class="single-p-banner">
@@ -221,7 +237,7 @@
                                 </div>
                                 @endforeach
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>             
             </div>

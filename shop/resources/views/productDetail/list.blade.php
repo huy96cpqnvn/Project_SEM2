@@ -76,14 +76,14 @@
                                         @endphp
                                         <tr class="odd gradeX">
                                             <td>{{$prd->id}}</td>
-                                            
+
                                             @php
                                         if (isset($search)){
                                         $prd->name =  Hightlight::show($search,$prd->name);
                                         }
 
                                         @endphp
-                                            
+
                                             <td>{!!$prd->name!!}</td>
                                             <td>{{$prd->review}}</td>
                                             <td>{{$prd->product['name']}}</td>

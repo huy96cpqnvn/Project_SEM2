@@ -106,6 +106,10 @@ body {
 /*  2.	Header Area CSS
 /*----------------------------------------*/
 
+.dropdown-menu {
+  top:66%;
+}
+
 .header-area {
   position: fixed;
   width: 100%;
@@ -219,6 +223,7 @@ body {
 	margin-right: 16px;
     padding-right: 16px;
     font-size: 14px;
+    padding-left:15px;
 
 }
 

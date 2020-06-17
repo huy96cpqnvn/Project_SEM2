@@ -108,7 +108,6 @@
 											</tr>
                                             @php
                                             $i++;
-                                            $status = '';
                                             @endphp
 
 										@endforeach
@@ -117,9 +116,12 @@
 							</div>
 						</div>
 					</div>
-
+                    @if($oder['status'] ==0)
 					<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
-				</form>
+                    @else
+                        <input type="button" class="btn btn-primary" value="Đã thanh toán"></input>
+                    @endif
+                </form>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->

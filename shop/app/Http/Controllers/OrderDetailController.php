@@ -139,7 +139,8 @@ class OrderDetailController extends Controller
                 $oder->delete();
             }
             return redirect('order')
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ đơn hàng số:  '.$id.' !']);
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$id.' !']);
         }
+
     }
 }

@@ -1,6 +1,22 @@
 @extends('layouts.frontend')
 @section('content')
 
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@elseif (Session()->has('flash_level'))
+<div class="alert alert-success">
+    <ul>
+        {!! Session::get('flash_massage') !!}
+    </ul>
+</div>
+@endif
+
 <!-- slider Area Start -->
 <div class="slider-area">
     <div class="bend niceties preview-1">
@@ -90,7 +106,7 @@
                         <i class="flaticon-transport"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>PHƯƠNG THỨC VẬN CHUYỂN</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
@@ -102,7 +118,7 @@
                         <i class="flaticon-money"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>Phương thức thanh toán</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
@@ -114,7 +130,7 @@
                         <i class="flaticon-school"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>FREE SHIPPING</h2>
+                        <h2>CHÍNH SÁCH ĐỔI / TRẢ</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>

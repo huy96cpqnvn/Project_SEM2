@@ -394,11 +394,15 @@ body {
   line-height: 1;
   margin: 0;
   text-transform: uppercase;
+  color: #32b5f3;
+  text-shadow: 3px 3px 0px #fff;
 }
 .layer-2 p.title-2 {
   animation: 0.8s ease-in-out 1.9s normal backwards 1 running zoomInDown;
-  font-size: 14px;
+  font-size: 16px;
   padding: 25px 37% 35px;
+  color: #fff;
+  
 }
 .layer-3 a.title-3 {
   animation: 0.8s ease-in-out 1.5s normal backwards 1 running fadeInRight;
@@ -421,6 +425,7 @@ body {
   padding-left: 20px;
   position: relative;
   width: 40%;
+  box-shadow: 1px 0px 16px 0px #32b5f3;
 }
 .layer-4 {
   margin-top: 77px;
@@ -456,11 +461,15 @@ body {
 .price {
   font-size: 16px;
   position: absolute;
-  right: 15px;
-  top: 18px;
+  right: -50px !important;
+  top: -13px !important;
+  padding: 40px 45px 8px;
+  background: #32b5f3;
+  transform: rotate(45deg);
 }
 .price span {
   font-size: 16px;
+
 }
 .single-banner > a , .product-image > a  , .product-tabs a , .left-item > a , .tag-list a  , .check-out-area .panel-default > .panel-heading h4.panel-title a , .single-team-member > a , .footer-left > a , .single-blog > a{
   display: block;
@@ -638,6 +647,7 @@ body {
   margin-top: 30px;
   position: relative;
   transition: all 0.4s ease 0s;
+  overflow: hidden;
 }
 .featured-product-list .banner-bottom > a , .shop-single-product-area .banner-bottom > a {
   font-size: 14px;
@@ -716,6 +726,7 @@ body {
 }
 .product-wrapper {
   position: relative;
+  overflow: hidden;
 }
 .single-banner-image-wrapper {
   display: block;

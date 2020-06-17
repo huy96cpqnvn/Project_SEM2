@@ -12,12 +12,13 @@
                         </li>
                        <li>
                             {{$curentCate['name']}}
-                        </li> <li>
-                           @if(isset($curentProdut))
-                            {{$curentProdut->name}}
-                           @endif
                         </li>
-                        <li></li>
+                           @if(isset($curentProdut))
+                           <li>
+                            {{$curentProdut->name}}
+                        </li>
+                           @endif
+ 
                     </ul>
                 </div>
             </div>
@@ -44,46 +45,42 @@
                                         </ul>
                                     </li>
                                 @endforeach
-                                    <form action="{{route('filter.price')}}" @method('get') @csrf>
-                                        <div style="text-align: center">
-                                            <select name="price" id="11">
-                                                <option value="0">Price</option>
-                                                <option value="1" >0 - 50k</option>
-                                                <option value="2">50 - 200k</option>
-                                                <option value="3"> > 200k</option>
-                                            </select>
-                                            <select name="category" id="22" >
-                                                <option value="Category">Category</option>
-                                                <option value="Văn học">Văn học</option>
-                                                <option value="Kinh tế">Kinh tế</option>
-                                                <option value="Kĩ năng sống"> Kĩ năng sống</option>
-                                            </select>
 
-                                        </div>
-
-                                        <div style="margin-top: 20px ;text-align: center" >
-                                            <button class="btn btn-default" type="submit">Filter</button>
-                                        </div>
-
-                                    </form>
 
                             </ul>
                         </aside>
-                        {{-- <aside class="widget shop-filter">
+                        <aside class="widget shop-filter">
                             <h2 class="sidebar-title text-center">PRICE SLIDER</h2>
                             <div class="info-widget">
                                 <div class="price-filter">
-                                    <div id="slider-range"></div>
                                     <div class="price-slider-amount">
-                                        <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                                        <div class="widget-buttom">
-                                            <input type="submit"  value="Filter"/>
-                                            <input type="reset" value="CLEAR" />
-                                        </div>
+                                        <form action="{{route('filter.price')}}" method="get" > 
+                                            @csrf
+                                            <div style="text-align: center">
+                                                <select name="price" id="11">
+                                                    <option value="0">Price</option>
+                                                    <option value="1" >0 - 50k</option>
+                                                    <option value="2">50 - 200k</option>
+                                                    <option value="3"> > 200k</option>
+                                                </select>
+                                                <select name="category" id="22" >
+                                                    <option value="Category">Category</option>
+                                                    <option value="Văn học">Văn học</option>
+                                                    <option value="Kinh tế">Kinh tế</option>
+                                                    <option value="Kĩ năng sống"> Kĩ năng sống</option>
+                                                </select>
+    
+                                            </div>
+    
+                                            <div class="widget-buttom" style="margin-top: 20px ;text-align: center" >
+                                                <button class="btn btn-default" type="submit">Filter</button>
+                                            </div>
+    
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                        </aside>                             --}}
+                        </aside>                            
                     </div>
                     <div class="shop-widget-bottom">
                         {{-- <aside class="widget widget-tag">
@@ -109,7 +106,7 @@
                                 </li>
                             </ul>
                         </aside> --}}
-                        <aside class="widget widget-seller">
+                        {{-- <aside class="widget widget-seller">
                             <h2 class="sidebar-title">TOP SELLERS</h2>
                                 @foreach ($saleProductdt as $item)
                                     <div class="single-seller">
@@ -123,7 +120,7 @@
                                     </div>
                                 @endforeach
 
-                         </aside>
+                         </aside> --}}
                     </div>
                 </div>
             </div>

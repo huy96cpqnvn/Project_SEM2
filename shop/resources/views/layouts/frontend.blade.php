@@ -76,7 +76,8 @@
                                         </ul>
                                     </li>
                                     <li><a href="#">NEW</a></li>
-                                    <li><a href="{{asset('/about')}}">CONTACT</a></li>
+                                    <li><a href="{{asset('/about')}}">ABOUT</a></li>
+                                    <li><a href="#">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>

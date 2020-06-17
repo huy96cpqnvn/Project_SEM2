@@ -47,13 +47,7 @@ class FrontendController extends Controller
 
 
     public function single($id){
-        // if ($dk=='up') {
-        //     $qt = $qty+1;
-        //     Cart::update($id, $qt);
-        // } elseif ($dk=='down') {
-        //     $qt = $qty-1;
-        //     Cart::update($id, $qt);
-        // }
+
         $prorelate = ProductDetail::where('product_id', $id)->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
@@ -68,8 +62,6 @@ class FrontendController extends Controller
         $s -> save();
     // Gửi mail
         $objDemo = new \stdClass();
-        // $objDemo->demo_one = 'Demo One Value';
-        // $objDemo->demo_two = 'Demo Two Value';
         $objDemo->sender = 'Shop Write';
         $objDemo->receiver = $s -> email;
 
@@ -84,7 +76,6 @@ class FrontendController extends Controller
     public function category($id = null, $product_id = null){
 
 
-        $filterPrice = PriceFilter::all();
         $allCategory = Category::all();
         $curentCate = Category::find($id);
         $curentProdut = Product::find($product_id);
@@ -108,33 +99,22 @@ class FrontendController extends Controller
             ->where('categories.id', $id)
             ->paginate(9);
         }
-//        $data->where('categories.id','>','1');
 
         return view('category')->with(['allCategory' => $allCategory,'curentProdut'=>$curentProdut,'curentCate'=>$curentCate, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt]);
 
     }
-    // public function abc($id = null, $product_id = null){
-
-    //     $filterPrice = PriceFilter::all();
-
-    //     $allCategory = Category::all();
-    //     $allProduct = Product::where('category_id', $id)->get();
-    //     $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
-    //     $data = ProductDetail::where('priceFilter_id', $id)->paginate(9);
-
-    //     return view('category')->with(['allCategory' => $allCategory, 'allProduct' => $allProduct,  'data' => $data, 'saleProductdt' => $saleProductdt, 'filterPrice' => $filterPrice]);
-    // }
 
 
     public function about(){
         $allCategory = Category::all();
         return view('about')->with(['allCategory' => $allCategory]);
     }
+
+
     public function filterPriceCate($id = null, $product_id = null ,Request $request){
 
         $price = $request->price;
         $cate = $request->category;
-        $filterPrice = PriceFilter::all();
         $allCategory = Category::all();
         $curentCate = Category::find($id);
         $curentProdut = Product::find($product_id);

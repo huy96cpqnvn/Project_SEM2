@@ -41,14 +41,9 @@
                     <h2>{{$prodetail->name}}</h2>
                     <p>{{$prodetail->review}}</p>
                     <div class="single-product-price">
-                        <h2>{{$prodetail->price}} Đ</h2>
+                        <h2>Giá : {{$prodetail->price}} Đ</h2>
                     </div>
                     <div class="product-attributes clearfix">
-                        <span class="pull-left" id="quantity-wanted-p">
-                            {{-- @foreach(Cart::content() as $row)
-                            <span>{!!$row->qty!!}</span>
-                            @endforeach --}}
-                        </span>
                         <span>
                             <a class="cart-btn btn-default" href="{{route('add.cart',['id'=>$prodetail->id])}}">
                                 <i class="flaticon-shop"></i>
@@ -126,7 +121,7 @@
                         <div class="single-banner">
                             <div class="product-wrapper">
                                 <a href="{{asset("single.html/$item->id")}}" class="single-banner-image-wrapper">
-                                    <img alt="" src="{{$item->cover}}">
+                                    <img alt="" src="{{asset("$item->cover")}}">
                                     <div class="price"><span>{{$item->price}}</span> Đ</div>
                                     {{-- <div class="rating-icon">
                                         <i class="fa fa-star icolor"></i>

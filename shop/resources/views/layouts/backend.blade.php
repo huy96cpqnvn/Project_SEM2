@@ -150,6 +150,13 @@
                                         </li>
 
 
+                                         <li >
+                                            <a class="sidenav-item-link" href="{{asset('mes_management')}}">
+                                                <span class="nav-text">Message</span>
+
+
+                                            </a>
+                                        </li>
 
 
                                     </div>

@@ -96,6 +96,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('prf_search/{search?}', 'PriceFilterController@process')->name('prf_management.process');
 
     Route::resource('/mail_management', 'SubscribeController');
+    Route::get('mail_search/{search?}', 'SubscribeController@process')->name('mail_management.process');
 
     Route::resource('/mes_management', 'MessageController');
     Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');

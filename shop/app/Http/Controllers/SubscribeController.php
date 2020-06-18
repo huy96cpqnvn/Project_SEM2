@@ -113,4 +113,15 @@ class SubscribeController extends Controller
         $request->session()->flash('success','Mail was deleted');
         return redirect()->route("mail_management.index");
     }
+    
+     public function process(Request $request)
+    {
+        $search = $request->input('search');
+        $lsMail = Subscribe::select()->where('email','like',"%$search%")->get();
+        return  view('mails.list')->with([
+            'lsMail' =>$lsMail,
+            'search'=>$search
+        ]);
+    }
+    
 }

@@ -166,6 +166,7 @@ class OrderController extends Controller
 
     } public function changeStatus($order_id , Request $request )
     {
+
         $status = $request->selectStatus;
     $oder = Order::where('id',$order_id)->first();
     $oder->status = $status;

@@ -83,19 +83,7 @@
                                 @endphp
 
                                 <input type="button" class="btn btn-primary" value="{{$curentStatus}}"/>
-                                <div >
-                                    <form action="{{route('changestatus.order',$oder['id'])}}" method="get">
-                                        @csrf
-                                        <label for="selectStatus">Choose Status:</label>
-                                        <select name="selectStatus" id="" class="dropdown" >
-                                            <option value="3">Đang Chuyển Hàng</option>
-                                            <option value="4">Đã Thanh Toán</option>
-                                            <option value="5">Bị Từ Chối</option>
 
-                                        </select>
-                                        <button type="submit" class="btn btn-success">Update</button>
-                                    </form>
-                                </div>
 
                             </div>
 
@@ -162,6 +150,20 @@
                     @if($oder['status'] !=0)
 
                     @endif
+                <div >
+                    <form action="{{route('changestatus.order',$oder['id'])}}" method="get">
+                        @csrf
+                        <label for="selectStatus">Choose Status:</label>
+                        <select name="selectStatus" id="" class="dropdown" >
+                            <option value="3">Đang Chuyển Hàng</option>
+                            <option value="4">Đã Thanh Toán</option>
+                            <option value="5">Bị Từ Chối</option>
+
+                        </select>
+
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </form>
+                </div>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->

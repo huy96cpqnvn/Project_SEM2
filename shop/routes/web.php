@@ -106,7 +106,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
 
 Route::get('order/confirm', 'OrderController@confirm')->name('order.confirm');
-Route::get('order/change_status', 'OrderController@changeStatus')->name('changestatus.order');
+Route::get('order/change_status/{order_id}', 'OrderController@changeStatus')->name('changestatus.order');
 Route::resource('order', 'OrderController');
 Route::resource('order_detail', 'OrderDetailController');
 

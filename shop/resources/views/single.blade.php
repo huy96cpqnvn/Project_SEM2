@@ -96,7 +96,7 @@
                     <div class="clearfix"></div>
                     <div class="tab-content review">
                         <div role="tabpanel" class="tab-pane active" id="more-info">
-                            <p>{{$prodetail->detail}}</p>
+                            <p><?php echo $prodetail->detail; ?></p>
                         </div>
                         {{-- <div role="tabpanel" class="tab-pane" id="data">
                             <p>{{$prodetail->review}}</p>

@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <label for="name">Detail</label>
-            <textarea rows="6" cols="150" name="detail1"></textarea>
+            <textarea rows="6" cols="150" name="detail1" id="editor"></textarea>
         </div>
 
         <div class="form-group">
@@ -97,6 +97,6 @@
     </form>
 </div>
 <script>
-        CKEDITOR.replace('detail1');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

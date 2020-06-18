@@ -40,7 +40,8 @@
         <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 		<!-- modernizr css -->
 		<script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
-		<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+		<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+                
     </head>
     <body>
         @php

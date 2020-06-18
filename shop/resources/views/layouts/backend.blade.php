@@ -40,7 +40,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
         <script src = "{{asset('admin/js/my_js.js')}}"></script>
-        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+        <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 
     </head>
 

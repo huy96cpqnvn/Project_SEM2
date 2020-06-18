@@ -19,9 +19,12 @@
         </div>
         <div class="form-group">
             <label for="name">Profile</label>
-            <textarea rows="6" cols="150" name="detail1" placeholder="Enter Author Detail"></textarea>
+            <textarea rows="6" cols="150" name="detail1" placeholder="Enter Author Detail" id="editor"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
+<script>
+        CKEDITOR.replace('editor');
+    </script>
 @endsection

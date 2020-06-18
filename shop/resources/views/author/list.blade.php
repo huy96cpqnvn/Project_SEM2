@@ -27,7 +27,7 @@ $countAll = \App\Author::all()->count();
                             <input type="hidden" name="_method" value="put">
                             <div>
                                 <label for="Search">Search:</label>
-                                <input type="text" name="search">
+                                <input type="text" name="search" placeholder="Name">
                             </div>
                         </form>
                     </div>

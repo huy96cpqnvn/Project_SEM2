@@ -164,9 +164,18 @@ class OrderController extends Controller
     public function destroy($id)
     {
 
-    } public function changeStatus()
+    } public function changeStatus($order_id , Request $request )
     {
-
+        $status = $request->selectStatus;
+    $oder = Order::where('id',$order_id)->first();
+    $oder->status = $status;
+    $oder->save();
+    $data = DB::table('product_details')
+        ->join('order_details','product_details.id','=','order_details.productDetail_id')
+        ->where('order_id',$order_id)
+        //   ->groupBy('order_details.id','order_details.productDetail_id')
+        ->get();
+    return view('order.detail')->with(['data'=>$data,'oder'=>$oder,'curentStatus'=>$status]);
     }
 
 

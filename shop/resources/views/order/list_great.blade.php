@@ -62,8 +62,14 @@
                                         <td>
                                             @if($row->status ==0)
                                                 <span style="color:#d35400;">Chưa xác nhận</span>
-                                            @else
+                                            @elseif($row->status ==1)
                                                 <span style="color:#27ae60;"> Đã xác nhận</span>
+                                            @elseif($row->status ==3)
+                                                <span style="color:#27ae60;"> Đang chuyển hàng</span>
+                                            @elseif($row->status ==4)
+                                                <span style="color:#27ae60;"> Đã thanh toán </span>
+                                            @elseif($row->status ==5)
+                                                <span style="color:#27ae60;">Bị từ chối</span>
                                             @endif
                                         </td>
                                         <td>{!!$row->note!!}</td>

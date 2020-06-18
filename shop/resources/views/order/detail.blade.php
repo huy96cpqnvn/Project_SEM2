@@ -68,7 +68,7 @@
 							</div>
                             <div style="float: center">
                                 @php
-                                if ($oder['status'] ==0){
+                                use App\ProductDetail;if ($oder['status'] ==0){
                                         $curentStatus ='Chưa xác nhận' ;
                                   }elseif ($oder['status'] ==1){
                                         $curentStatus ='Đã xác nhận' ;
@@ -76,6 +76,7 @@
                                         $curentStatus ='Đang chuyển hàng ' ;
                                   }elseif ($oder['status'] ==4){
                                         $curentStatus ='Đã thanh toán ' ;
+
                                   }elseif ($oder['status'] ==5){
                                         $curentStatus ='Bị từ chối ' ;
                                   }
@@ -130,7 +131,29 @@
                                             @php
                                             $i++;
                                             @endphp
+                                        @if($curentStatus =='Đã thanh toán ')
+                                            @php
+                                            $prodetai =  ProductDetail::find($row->id);
+                                            dd( $row);
+                                             $prodetai->amount = $prodetai->amount -   $row->orderAmount;
+                                            /*  $prodetai->name = $row->name;
+                                             $prodetai->product_id = $row->id;
+                                             $prodetai->cover = $row->cover;
+                                             $prodetai->review = $row->review;
+                                             $prodetai->detail = $row->detail;
+                                             $prodetai->price = $row->price;
+                                             $prodetai->status = $row->status;
+                                             $prodetai->author_id = $row->author_id;
+                                             $prodetai->language_id = $row->language_id;
+                                             $prodetai->priceFilter_id = $row->priceFilter_id;
+                                             $prodetai->publisher_id = $row->publisher_id;
+                                             $prodetai->user_id = $row->user_id;
+                                             $prodetai->discount = $row->discount;
+                                             $prodetai->type = $row->type; */
 
+                                            $prodetai->save();
+                                            @endphp
+                                        @endif
 										@endforeach
 									</tbody>
 								</table>

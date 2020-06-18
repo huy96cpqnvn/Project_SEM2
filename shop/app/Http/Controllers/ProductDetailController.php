@@ -20,7 +20,7 @@ class ProductDetailController extends Controller
      */
     public function index()
     {
-        $lsPrd = ProductDetail::paginate(6);
+        $lsPrd = ProductDetail::all();
         return view('productDetail.list')->with(['lsProductDetail' => $lsPrd]);
     }
 

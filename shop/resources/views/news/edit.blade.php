@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="name">Content</label>
-            <textarea rows="6" cols="150" name="content1">{{$news->content}}</textarea>
+            <textarea rows="6" cols="150" name="content1" id="editor">{{$news->content}}</textarea>
         </div>
         <div class="form-group">
             <label for="name">Category</label>
@@ -56,6 +56,6 @@
 </div>
 
 <script>
-        CKEDITOR.replace('content1');
+        CKEDITOR.replace('editor');
     </script>
 @endsection

@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
      public function index()
     {
-        $lsNews = News::paginate(6);
+        $lsNews = News::all();
         return view('news.list')->with(['lsNews' => $lsNews]);
     }
 

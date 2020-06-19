@@ -46,6 +46,12 @@
                     <p><b>Nhà sản xuất:</b> {{$prodetail->publisher->name}}</p>    
                     <div class="single-product-price">
                         <h2>Giá : {{$prodetail->price}} Đ</h2>
+                        <span>{{$prodetail->discount}}%</span>
+                        <br>
+                        @if (isset($total))
+                        <h2 class="count">Giá: {{$price = $total}} Đ</h2>
+                            
+                        @endif
                     </div>
                     <div class="product-attributes clearfix">
                         <span>
@@ -55,42 +61,19 @@
                             </a>
                         </span>
                     </div>
-                    {{-- <div class="add-to-wishlist">
-                        <a class="wish-btn" href="cart.html">
-                            <i class="fa fa-heart-o"></i>
-                            ADD TO WISHLIST
-                        </a>
-                    </div>
                     <div class="single-product-categories">
                         <label>Categories:</label>
-                        <span>e-book, biological, business</span>
+                        <span>{{$prodetail->product->name}}</span>
                     </div>
-                    <div class="social-share">
-                        <label>Share: </label>
-                        <ul class="social-share-icon">
-                            <li><a href="https://www.facebook.com/"><i class="flaticon-social"></i></a></li>
-                            <li><a href="#"><i class="flaticon-social-1"></i></a></li>
-                            <li><a href="#"><i class="flaticon-social-2"></i></a></li>
-                        </ul> 
-                    </div> --}}
-                    {{-- <div id="product-comments-block-extra">
-                        <ul class="comments-advices">
-                            <li>
-                                <p>{{$prodetail->review}}</p>
-                            </li>
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="p-details-tab-content">
                     <div class="p-details-tab">
                         <ul class="p-details-nav-tab" role="tablist">
                             <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Description</a></li>
-                            {{-- <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Review</a></li> --}}
-                            {{-- <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Tab</a></li> --}}
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -98,14 +81,6 @@
                         <div role="tabpanel" class="tab-pane active" id="more-info">
                             <p><?php echo $prodetail->detail; ?></p>
                         </div>
-                        {{-- <div role="tabpanel" class="tab-pane" id="data">
-                            <p>{{$prodetail->review}}</p>
-                        </div> --}}
-                        {{-- <div role="tabpanel" class="tab-pane" id="reviews">
-                            <div id="product-comments-block-tab">
-                                <a href="#" class="comment-btn"><span>Be the first to write your review!</span></a>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -127,25 +102,12 @@
                                 <a href="{{asset("single.html/$item->id")}}" class="single-banner-image-wrapper">
                                     <img alt="" src="{{asset("$item->cover")}}">
                                     <div class="price"><span>{{$item->price}}</span> Đ</div>
-                                    {{-- <div class="rating-icon">
-                                        <i class="fa fa-star icolor"></i>
-                                        <i class="fa fa-star icolor"></i>
-                                        <i class="fa fa-star icolor"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div> --}}
                                 </a>
                                 <div class="product-description">
                                     <div class="functional-buttons">
                                         <a href="{{route('add.cart',['id'=>$item->id])}}" title="Add to Cart">
                                             <i class="fa fa-shopping-cart"></i>
                                         </a>
-                                        {{-- <a href="#" title="Add to Wishlist">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                        <a href="#" title="Quick view" data-toggle="modal" data-target="#productModal">
-                                            <i class="fa fa-compress"></i>
-                                        </a> --}}
                                     </div>
                                 </div>
                             </div>

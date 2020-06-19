@@ -48,14 +48,20 @@ class FrontendController extends Controller {
                     'allNewcate' => $allNewcate]);
     }
 
-    public function single($id) {
+    public function single($id, $discount = null) {
         
-        $data = 
+        
         $prorelate = ProductDetail::where('product_id', $id)->take(6)->get();
 
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
-        return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate]);
+        $total = null;
+
+        if($prodetail->discount > 0){
+            $total = $prodetail->price - (($prodetail->discount * $prodetail->price)/ 100);
+        }
+            
+        return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate, 'total' => $total]);
     }
 
     public function subscribe(Request $request) {

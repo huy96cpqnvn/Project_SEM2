@@ -198,46 +198,6 @@
                                 @endforeach
                             </div>
                         </div>
-
-
-                        {{-- TAB SALE --}}
-                        {{-- <div role="tabpanel" class="tab-pane fade" id="sale">
-                            <div class="featured-product-list indicator-style">
-                                @foreach($saleProductdt->chunk(2) as $items)
-                                <div class="single-p-banner">
-                                    @foreach($items as $item)
-                                    <div class="col-md-3">
-                                        <div class="single-banner">
-                                            <div class="product-wrapper">
-                                                <a href="single.html/{{$item->id}}" class="single-banner-image-wrapper">
-                                                <img alt="" src="{{$item->cover}}">
-                                                    <div class="price">{{$item->price}}<span>Đ</span></div>
-                                                    <div class="rating-icon">
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star icolor"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </a>
-                                                <div class="product-description">
-                                                    <div class="functional-buttons">
-                                                        <a href="{{route('add.cart',['id'=>$item->id])}}" title="Add to Cart">
-                                                            <i class="fa fa-shopping-cart"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="banner-bottom text-center">
-                                                <a href="single.html/{{$item->id}}">{{$item->name}}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                @endforeach
-                            </div>
-                        </div> --}}
                     </div>
                 </div>             
             </div>

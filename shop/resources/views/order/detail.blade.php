@@ -131,27 +131,13 @@
                                             @php
                                             $i++;
                                             @endphp
-                                        @if($curentStatus =='Đã thanh toán ')
+                                        @if($oder['status'] ==4)
                                             @php
                                             $prodetai =  ProductDetail::find($row->id);
-                                            dd( $row);
-                                             $prodetai->amount = $prodetai->amount -   $row->orderAmount;
-                                            /*  $prodetai->name = $row->name;
-                                             $prodetai->product_id = $row->id;
-                                             $prodetai->cover = $row->cover;
-                                             $prodetai->review = $row->review;
-                                             $prodetai->detail = $row->detail;
-                                             $prodetai->price = $row->price;
-                                             $prodetai->status = $row->status;
-                                             $prodetai->author_id = $row->author_id;
-                                             $prodetai->language_id = $row->language_id;
-                                             $prodetai->priceFilter_id = $row->priceFilter_id;
-                                             $prodetai->publisher_id = $row->publisher_id;
-                                             $prodetai->user_id = $row->user_id;
-                                             $prodetai->discount = $row->discount;
-                                             $prodetai->type = $row->type; */
-
+                                            if ( $prodetai != null){
+                                            $prodetai['amount'] =  $prodetai['amount'] -   $row->orderAmount;
                                             $prodetai->save();
+                                            }
                                             @endphp
                                         @endif
 										@endforeach

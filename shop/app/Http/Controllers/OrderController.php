@@ -16,8 +16,8 @@ class OrderController extends Controller
     public function getdetail($id)
     {
         $oder = Order::where('id',$id)->first();
-        $data = DB::table('product_details')
-            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
+        $data = DB::table('order_details')
+            ->join('product_details','order_details.productDetail_id','=', 'product_details.id')
             ->where('order_id',$id)
        //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();

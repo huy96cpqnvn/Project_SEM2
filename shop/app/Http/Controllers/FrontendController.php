@@ -51,10 +51,12 @@ class FrontendController extends Controller {
     public function single($id, $discount = null) {
 
 
-        $prorelate = ProductDetail::where('product_id', $id)->take(6)->get();
+        
 
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
+        $pro = $prodetail->product_id;
+        $prorelate = ProductDetail::where('product_id', $pro)->take(6)->get();
         $total = null;
 
         if($prodetail->discount > 0){

@@ -50,11 +50,12 @@ class FrontendController extends Controller {
 
     public function single($id) {
         
-        $data = 
-        $prorelate = ProductDetail::where('product_id', $id)->take(6)->get();
+        $prodetail = ProductDetail::find($id);
+        $pro = $prodetail->product_id;
+        $prorelate = ProductDetail::where('product_id', $pro)->take(6)->get();
 
         $allCategory = Category::all();
-        $prodetail = ProductDetail::find($id);
+        
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate]);
     }
 

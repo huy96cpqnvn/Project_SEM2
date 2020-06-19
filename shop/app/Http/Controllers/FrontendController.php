@@ -49,8 +49,8 @@ class FrontendController extends Controller {
     }
 
     public function single($id, $discount = null) {
-        
-        
+
+
         $prorelate = ProductDetail::where('product_id', $id)->take(6)->get();
 
         $allCategory = Category::all();
@@ -60,7 +60,7 @@ class FrontendController extends Controller {
         if($prodetail->discount > 0){
             $total = $prodetail->price - (($prodetail->discount * $prodetail->price)/ 100);
         }
-            
+
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate, 'total' => $total]);
     }
 
@@ -208,12 +208,12 @@ class FrontendController extends Controller {
         $lsProduct = ProductDetail::where('status', '1')->where('name', 'like', '%' . $search . '%')->paginate(9);
         return view('search')->with(['lsProduct' => $lsProduct, 'allCategory' => $allCategory, 'search' => $search]);
     }
-    
+
     public function contact() {
         $allCategory = Category::all();
         return view('contact')->with(['allCategory' => $allCategory]);
     }
-    
+
     public function post_message(Request $request) {
         $message = new \App\Message();
         $message->name = $request->name;

@@ -51,13 +51,13 @@ class FrontendController extends Controller {
     public function single($id, $discount = null) {
 
 
-        
+
 
         $allCategory = Category::all();
         $prodetail = ProductDetail::find($id);
         $pro = $prodetail->product_id;
         $prorelate = ProductDetail::where('product_id', $pro)->take(6)->get();
-        
+
         $total = null;
 
         if($prodetail->discount > 0){
@@ -66,7 +66,7 @@ class FrontendController extends Controller {
 
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate, 'total' => $total]);
     }
-    
+
 
     public function detail_comment(Request $request) {
         $comment = new \App\Comment();
@@ -94,7 +94,6 @@ class FrontendController extends Controller {
     }
 
     public function category($id = null, $product_id = null) {
-
 
         $allCategory = Category::all();
         $curentCate = Category::find($id);
@@ -129,7 +128,6 @@ class FrontendController extends Controller {
     }
 
     public function filterPriceCate($id = null, $product_id = null, Request $request) {
-
         $price = $request->price;
         $cate = $request->category;
         $allCategory = Category::all();
@@ -140,7 +138,7 @@ class FrontendController extends Controller {
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
-        if ($price == 0) {
+        if ($price == 0 && $cate != 'Category') {
             $data = DB::table(DB::raw('product_details'))
                     ->select('product_details.*')
                     ->join('products', 'products.id', '=', 'product_details.product_id')
@@ -154,8 +152,10 @@ class FrontendController extends Controller {
                     ->join('products', 'products.id', '=', 'product_details.product_id')
                     ->join('categories', 'categories.id', '=', 'products.category_id')
                     ->paginate(9);
+//            dd($data->toArray());
+
         }
-        if ($price == 1) {
+        if ($price == 1 && $cate != 'Category') {
             $data = DB::table(DB::raw('product_details'))
                     ->select('product_details.*')
                     ->join('products', 'products.id', '=', 'product_details.product_id')
@@ -164,18 +164,18 @@ class FrontendController extends Controller {
                     ->where('product_details.price', '<=', '50000')
                     ->paginate(9);
         }
-        if ($price == 2) {
+        if ($price == 2 && $cate != 'Category' ) {
             $data = DB::table(DB::raw('product_details'))
                     ->select('product_details.*')
                     ->join('products', 'products.id', '=', 'product_details.product_id')
                     ->join('categories', 'categories.id', '=', 'products.category_id')
                     ->where('categories.name', $cate)
-                    ->where('product_details.price', '<=', '20000')
-                    ->where('product_details.price', '>', '20000')
+                    ->where('product_details.price', '<=', '200000')
+                    ->where('product_details.price', '>', '50000')
                     ->paginate(9);
         }
         $product_name = "";
-        if ($price == 3) {
+        if ($price == 3 && $cate != 'Category') {
             $data = DB::table(DB::raw('product_details'))
                     ->select('product_details.*')
                     ->join('products', 'products.id', '=', 'product_details.product_id')
@@ -184,7 +184,7 @@ class FrontendController extends Controller {
                     ->where('product_details.price', '>', '200000')
                     ->paginate(9);
         }
-        if ($cate == 'Category') {
+        if ($cate == 'Category' && $price != 0 ) {
             if ($price == 1) {
                 $data = DB::table(DB::raw('product_details'))
                         ->select('product_details.*')
@@ -212,7 +212,6 @@ class FrontendController extends Controller {
             }
         }
 
-//        dd($data->toArray());
 
         return view('category')->with(['allCategory' => $allCategory, 'curentProdut' => $curentProdut, 'curentCate' => $curentCate, 'allProduct' => $allProduct, 'data' => $data, 'saleProductdt' => $saleProductdt]);
     }

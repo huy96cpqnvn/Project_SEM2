@@ -27,7 +27,7 @@ class ProductDetail extends Model
     }
 
     public function comments() {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Comment','productDetails_id','id');
     }
 
     public function user() {

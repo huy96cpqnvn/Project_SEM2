@@ -94,7 +94,7 @@
                                         </div>
 
                                         <select name="level" id="" class="form-control">
-                                            <option value="User">User</option>
+                                            <option value="user">User</option>
                                         </select>
 
                                     </div>
@@ -165,7 +165,7 @@
 
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4">
@@ -185,7 +185,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Text area -->
                         <!-- Success message -->
                         <!-- Button -->

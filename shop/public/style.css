@@ -1788,6 +1788,29 @@ ul.product-tabs {
   font-weight: 600;
   text-transform: capitalize;
 }
+
+
+.single-product-details .single-product-price h2:nth-child(2) {
+  color:#ff0000;
+  margin-right: 10px;
+}
+.single-product-details .single-product-price h2:nth-child(3) {
+  color:#ccc;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.single-product-details .sal {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background: #ff0000;
+  width: 90px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
 .single-product-price > h2 {
   display: inline-block;
   margin-bottom: 40px;

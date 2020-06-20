@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'FrontendController@welcom')->name('welcom');
 Route::get('/category.html/{id?}/{product_id?}', 'FrontendController@category');
 Route::get('/filter_price}', 'FrontendController@filterPriceCate')->name('filter.price');
+Route::post('detail_comment', 'FrontendController@detail_comment');
 
 
 Route::get('/single.html/{id}', 'FrontendController@single');

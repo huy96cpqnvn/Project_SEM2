@@ -87,46 +87,6 @@
                             </div>
                         </aside>                            
                     </div>
-                    <div class="shop-widget-bottom">
-                        {{-- <aside class="widget widget-tag">
-                            <h2 class="sidebar-title">POPULAR TAG</h2>
-                            <ul class="tag-list">
-                                <li>
-                                    <a href="#">e-book</a>
-                                </li>
-                                <li>
-                                    <a href="#">writer</a>
-                                </li>
-                                <li>
-                                    <a href="#">book’s</a>
-                                </li>
-                                <li>
-                                    <a href="#">eassy</a>
-                                </li>
-                                <li>
-                                    <a href="#">nice</a>
-                                </li>
-                                <li>
-                                    <a href="#">author</a>
-                                </li>
-                            </ul>
-                        </aside> --}}
-                        {{-- <aside class="widget widget-seller">
-                            <h2 class="sidebar-title">TOP SELLERS</h2>
-                                @foreach ($saleProductdt as $item)
-                                    <div class="single-seller">
-                                        <div class="seller-img">
-                                            <img src="{{$item->cover}}" alt="" />
-                                        </div>
-                                        <div class="seller-details">
-                                            <a href="{{asset("single.html/$item->id")}}"><h5>{{$item->name}}</h5></a>
-                                            <h5>{{$item->price}} Đ</h5>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                         </aside> --}}
-                    </div>
                 </div>
             </div>
             <div class="col-md-9 col-sm-9 col-xs-12">

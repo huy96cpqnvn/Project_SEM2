@@ -24,9 +24,9 @@ use App\Message;
 class FrontendController extends Controller {
 
     public function welcom() {
-        $lsProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(3)->get();
-        $arrProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(12)->get();
-        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(12)->get();
+        $lsProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(3)->get();
+        $arrProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
         $comment = Comment::orderBy('created_at', 'DESC')->take(3)->get();
         $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
@@ -57,6 +57,7 @@ class FrontendController extends Controller {
         $prodetail = ProductDetail::find($id);
         $pro = $prodetail->product_id;
         $prorelate = ProductDetail::where('product_id', $pro)->take(6)->get();
+        
         $total = null;
 
         if($prodetail->discount > 0){
@@ -65,6 +66,18 @@ class FrontendController extends Controller {
 
         return view('single')->with(['prodetail' => $prodetail, 'allCategory' => $allCategory, 'prorelate' => $prorelate, 'total' => $total]);
     }
+    
+
+    public function detail_comment(Request $request) {
+        $comment = new \App\Comment();
+        $comment->productDetails_id = $request->productDetails_id;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->content = $request->content;
+        $comment->save();
+        return redirect()->back();
+      }
+
 
     public function subscribe(Request $request) {
         $s = new Subscribe();
@@ -225,6 +238,8 @@ class FrontendController extends Controller {
         $message->save();
         return redirect()->back();
     }
+
+
 
 
 }

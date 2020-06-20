@@ -82,7 +82,7 @@
                         <a href="single.html/{{$prodetail->id}}">
                             <img src="{{$prodetail->cover}}" alt="">
                         </a>
-                        <div class="price"><span>{{$prodetail->price}} Đ</div>
+                        <div class="price"><span>{{$prodetail->price}}</div>
                         <div class="banner-bottom text-center">
                             <a href="single.html/{{$prodetail->id}}">{{$prodetail->name}}</a>
                         </div>

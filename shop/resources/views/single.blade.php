@@ -43,15 +43,15 @@
                     <p>
                         <b>Tác giả:</b> {{$prodetail->author->name}}
                     </p>
-                    <p><b>Nhà sản xuất:</b> {{$prodetail->publisher->name}}</p>    
+                    <p><b>Nhà sản xuất:</b> {{$prodetail->publisher->name}}</p>
+                    <span class="sal">Sale : {{$prodetail->discount}}%</span>    
                     <div class="single-product-price">
-                        <h2>Giá : {{$prodetail->price}} Đ</h2>
-                        <span>{{$prodetail->discount}}%</span>
-                        <br>
+                        <b>Giá : </b>
                         @if (isset($total))
-                        <h2 class="count">Giá: {{$price = $total}} Đ</h2>
-                            
+                            <h2 class="first">{{$price = $total}} đ</h2>
                         @endif
+                        <h2 class="last first">{{$prodetail->price}} đ</h2>
+                        
                     </div>
                     <div class="product-attributes clearfix">
                         <span>
@@ -74,6 +74,7 @@
                     <div class="p-details-tab">
                         <ul class="p-details-nav-tab" role="tablist">
                             <li role="presentation" class="active"><a href="#more-info" aria-controls="more-info" role="tab" data-toggle="tab">Description</a></li>
+                            <li role="presentation"><a href="#data" aria-controls="data" role="tab" data-toggle="tab">Comment</a></li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -81,7 +82,48 @@
                         <div role="tabpanel" class="tab-pane active" id="more-info">
                             <p><?php echo $prodetail->detail; ?></p>
                         </div>
+                        <div role="tabpanel" class="tab-pane" id="data">
+                            {!!$prodetail->content!!}
+                           <div id="product-comments-block-tab">
+                                @foreach($prodetail->comments as $comment)
+                                    <li class="comment">
+                                    <div class="comment-body">
+                                        <h3>{{$comment->name}}</h3>
+                                        <div class="meta">{{$comment->created_at}}</div>
+                                        <div>
+                                            {{$comment->content}}
+                                        </div>
+                                    </div>
+                                    </li>
+                                @endforeach
+                            </div>
+    
+                            <div class="comment-form-wrap pt-5">
+                                <h3 class="mb-5">Leave a comment</h3>
+                                <form action="{{asset('detail_comment')}}" class="p-5 bg-light" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="productDetails_id" value="{{$prodetail->id}}"/>
+                                  <div class="form-group">
+                                    <label for="name">Name *</label>
+                                    <input type="text" class="form-control" id="name" name="name">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="message">Content</label>
+                                    <textarea name="content" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                  </div>
+                                  <div class="form-group">
+                                    <input type="submit" value="Comment" class="btn btn-primary">
+                                  </div>
+                                </form>
+                            </div>
+                            
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div> 

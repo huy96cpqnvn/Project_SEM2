@@ -106,7 +106,6 @@
                                 </li>	 --}}
                                 <li class="shop-pagination">{{$data->links()}}</li>
                             </ul>
-                            {{-- <div class="shop-pagination">{{$data->links()}}</div> --}}
                         </div>
                     </div>
                     <div class="tab-content">

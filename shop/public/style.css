@@ -1757,6 +1757,12 @@ p.form-row-phone {
 /*----------------------------------------*/
 /*  18.	Single Product Page CSS
 /*----------------------------------------*/
+.comment-list .comment {
+  margin-bottom: 20px;
+  display: block;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 10px;
+}
 .single-product-image-inner .vbox-item > img {
   border: 1px solid #dddddd;
 }

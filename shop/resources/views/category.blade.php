@@ -10,7 +10,7 @@
                     @elseif(isset($curentCate))
                         <h2>{{$curentCate->name}}</h2>
                     @endif
-                   
+
                    <ul class="breadcrumbs-list">
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
@@ -23,7 +23,7 @@
                                 {{$curentProdut->name}}
                             </li>
                            @endif
- 
+
                     </ul>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                             <div class="info-widget">
                                 <div class="price-filter">
                                     <div class="price-slider-amount">
-                                        <form action="{{route('filter.price')}}" method="get" > 
+                                        <form action="{{route('filter.price')}}" method="get" >
                                             @csrf
                                             <div style="text-align: center">
                                                 <select name="price" id="11">
@@ -73,19 +73,23 @@
                                                     <option value="Văn học">Văn học</option>
                                                     <option value="Kinh tế">Kinh tế</option>
                                                     <option value="Kĩ năng sống"> Kĩ năng sống</option>
+                                                    <option value="Nuôi Dạy Con"> Nuôi Dạy Con</option>
+                                                    <option value="Nữ Công Gia Chánh">Nữ Công Gia Chánh</option>
+                                                    <option value="Từ Điển">Từ Điển</option>
+                                                    <option value="Giáo Trình">Giáo Trình</option>
                                                 </select>
-    
+
                                             </div>
-    
+
                                             <div class="widget-buttom" style="margin-top: 20px ;text-align: center" >
                                                 <button class="btn btn-default" type="submit">Filter</button>
                                             </div>
-    
+
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </aside>                            
+                        </aside>
                     </div>
                 </div>
             </div>
@@ -134,6 +138,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                 @endforeach
 
 

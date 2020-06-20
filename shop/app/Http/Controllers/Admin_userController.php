@@ -53,7 +53,7 @@ class Admin_userController extends Controller
         $request->validate([
             'name' => 'required|max:255|min:3',
             'email' => 'required|max:255|min:3|unique:users',
-            'email' => 'required|max:255|min:3|unique:users',
+            'pass' => 'required|max:255|min:6',
             'phone' => 'required|max:255|min:3|unique:users',
             'address' => 'required|max:255|min:3',
             'status'=>'required|in:0,1',
@@ -65,9 +65,9 @@ class Admin_userController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->status = $request->status;
-        $user->password	 = $request->pass;
+        $user->password	 = bcrypt($request->pass);
         $user->level	 = $request->level;
-        
+
         $file = $request->file;
         $upload_image = '';
         if ($file != null) {
@@ -78,7 +78,7 @@ class Admin_userController extends Controller
             $upload_image = "images/" . $image_name;
         }
         $user->cover = $upload_image;
-        
+
         $user->save();
 
         $request->session()->flash('sucess','User was updated');
@@ -149,7 +149,7 @@ class Admin_userController extends Controller
             $upload_image = "images/" . $image_name;
             $user->cover = $upload_image;
         }
-        
+
         $user->save();
 
         $request->session()->flash('sucess','User was updated');

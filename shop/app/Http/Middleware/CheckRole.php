@@ -18,6 +18,8 @@ class CheckRole
     {
         if (Auth::check() && Auth::user()->level == 'admin') {
             return $next($request);
+        }elseif (Auth::check() && Auth::user()->level == 'user'){
+            return redirect('');
         }
         else return redirect()->route('login.admin');
         //else return redirect()->route("welcom");

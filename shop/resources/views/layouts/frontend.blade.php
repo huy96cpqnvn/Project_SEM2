@@ -41,7 +41,7 @@
 		<!-- modernizr css -->
 		<script src="{{asset('js/vendor/modernizr-2.8.3.min.js')}}"></script>
 		<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-                
+
     </head>
     <body>
         @php
@@ -79,8 +79,8 @@
                                             @endforeach
                                         </ul>
                                     </li>
-									<li><a href="#">NEW</a>
-									</li>
+									                  <li><a href="{{asset("news.html")}}">NEWS</a>
+									                  </li>
                                     <li><a href="{{asset('/about')}}">ABOUT</a></li>
                                     <li><a href="{{asset('/contact')}}">CONTACT</a></li>
                                 </ul>

@@ -7,6 +7,7 @@ use App\ProductDetail;
 use App\Comment;
 use Gloudemans\Shoppingcart\Cart;
 use App\News;
+use App\Tag;
 use App\Subscribe;
 use App\Mail\DemoEmail;
 use Illuminate\Support\Facades\Mail;
@@ -238,7 +239,30 @@ class FrontendController extends Controller {
         return redirect()->back();
     }
 
+    public function news($id = null){
+        $allCategory = Category::all();
+        $allNews = News::all();
+        $allNewsCategory = NewsCategory::all();
 
+        $allTag = Tag::all();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+
+        $data = DB::table(DB::raw('news'))
+        ->select('news.*')
+        ->join('news_categories', 'news_categories.id', '=', 'news.category_id')
+        ->where('news_categories.id', $id)
+        ->paginate(9);
+
+
+        return view('news')->with(['allCategory' => $allCategory, 'allNews' => $allNews, 'allNewsCategory' => $allNewsCategory,'allTag' => $allTag,'saleProductdt' => $saleProductdt,  'data' => $data]);
+    }
+
+    public function snew($id) {
+
+        $allNews = News::all();
+        $allCategory = Category::all();
+        return view('snew')->with(['allNews' => $allNews, 'allCategory' => $allCategory]);
+    }
 
 
 }

@@ -22,6 +22,8 @@ Route::post('detail_comment', 'FrontendController@detail_comment');
 Route::get('/single.html/{id}', 'FrontendController@single');
 // Route::resource('/cart', 'OrderDetailController');
 Route::get('/about', 'FrontendController@about');
+Route::get('/news.html/{id?}/', 'FrontendController@news');
+Route::get('/snew.html/{id}', 'FrontendController@snew');
 
 Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');
 Route::get('/contact', 'FrontendController@contact');

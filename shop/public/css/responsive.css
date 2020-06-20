@@ -14,10 +14,10 @@
 @media (min-width: 992px) and (max-width: 1169px) {
 .mainmenu nav ul#nav li a {
   padding: 30px 7px;
-}	
+}
 .mainmenu nav ul#nav li {
   margin: 0 0 0 10px;
-}    
+}
 .header-logo > a {
   padding: 20px 0;
 }
@@ -67,7 +67,7 @@
 }
 .about-title > h2 {
   margin-bottom: 10px;
-}   
+}
 .about-content > p:first-child {
   margin-bottom: 10px;
 }
@@ -76,62 +76,62 @@
 }
 .product-tabs li a img {
   width: 130px;
-} 
+}
 .product-tabs li {
   margin-right: 20px;
   margin-top: 20px;
-}    
+}
 .single-product-details > p , .single-product-price > h2 , .add-to-wishlist {
   margin-bottom: 30px;
 }
 .collapse-title {
   font-size: 15px;
-}    
+}
 .collapse-sub-title {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 25px;
-}    
-    
 }
 
- 
+}
+
+
 /* Tablet desktop :768px. */
 @media (min-width: 768px) and (max-width: 991px) {
 .mainmenu nav ul#nav li a {
   padding: 20px 10px;
-}    
+}
 .mainmenu nav ul#nav li {
   margin: 0 0 0 5px;
-} 
+}
 .header-logo > a {
   padding: 20px 0;
-}    
+}
 .header-right li {
   padding: 20px 4px;
-}    
+}
 .layer-1 h2.title-1 {
   font-size: 50px;
-}    
+}
 .layer-2 p.title-2 {
   padding: 25px 13% 35px;
-}    
+}
 .nivo-caption {
   top: 50px;
-}  
+}
 .layer-4 {
   margin-top: 30px;
-}    
+}
 .layer-4 .title-4 input {
   height: 45px;
   line-height: 45px;
-}    
+}
 .layer-4 form.title-4 button {
   height: 45px;
-}    
+}
 .banner-title > p {
   padding: 0 10px;
-} 
+}
 .testimonial-title {
   margin-bottom: 50px;
 }
@@ -163,78 +163,78 @@
 }
 .about-top-inner {
   margin-bottom: 20px;
-}  
+}
 .about-image > img {
   width: 100%;
-}    
+}
 .about-image {
   margin-bottom: 20px;
-}    
+}
 .checkout-widget {
   margin-top: 20px;
-}   
+}
 .contact-form-left > input:last-child {
   margin-bottom: 20px;
 }
 .create-account-form {
   min-height: 360px;
-}   
+}
 .form-row > input {
   font-size: 12px;
   padding-left: 10px;
-}    
+}
 .shop-select select {
   padding-left: 10px;
-}    
+}
 .order-notes textarea {
   font-size: 12px;
   font-weight: 400;
   padding: 10px;
-}    
+}
 .shop-tab-pill li#left, .shop-tab-pill li#left-top {
   margin-right: 10px;
-}    
+}
 .product-size-deatils {
   margin-right: 20px;
-}    
+}
 .widget-buttom input {
   width: 100%;
-}   
+}
 .price-slider-amount input:last-child {
   margin-bottom: 0;
-}    
+}
 .tag-list li {
   width: 74px;
-}        
+}
 .seller-img {
   float: none;
   text-align: center;
   width: 100%;
-}    
+}
 .seller-details {
   padding: 0;
   width: 100%;
-}    
+}
 .breadcrumbs {
   padding: 110px 0;
-}    
+}
 .single-product-image-inner .product-tabs img {
   width: 118px;
-}   
+}
 .product-tabs li {
   margin-right: 15px;
   margin-top: 15px;
-}    
+}
 .single-product-details > h2 {
   font-size: 30px;
-}    
+}
 .availability > span , .single-product-details > p {
   margin-bottom: 10px;
-}   
+}
 .single-product-price > h2 {
   font-size: 22px;
   margin-bottom: 20px;
-}    
+}
 #quantity-wanted-p input {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   border: medium none !important;
@@ -242,78 +242,82 @@
   line-height: 32px;
   text-align: center;
   width: 45px;
-}    
+}
 .product-attributes span a {
   margin-top: 0;
-}    
+}
 .add-to-wishlist {
   margin-bottom: 30px;
   padding-bottom: 30px;
-}    
+}
 #product-comments-block-extra {
   margin-top: 25px;
-}   
+}
 .p-details-tab {
   margin-top: 40px;
-}    
+}
 .section-padding {
   padding: 60px 0;
-}    
+}
 .shopingcart-bottom-area .right-shoping-cart {
   margin-left: 0;
   padding: 10px 15px;
-}    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
- 
+.news-bottom-area {
+  padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
 /* small mobile :320px. */
 @media (max-width: 767px) {
-.container {width:300px} 
+.container {width:300px}
 .mobile-menu-area {
   display: block;
-}    
+}
 .banner-title > p {
   padding: 0;
 }
@@ -324,19 +328,19 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   padding: 16px 0;
-} 
+}
 .add-to-cart-product {
   top: 60px;
-}    
+}
 .header-logo > a {
   padding: 15px 0;
-}    
+}
 .header-right li {
   padding: 15px 5px;
-}    
+}
 .nivo-caption {
   top: 10px;
-}  
+}
 .layer-1 h2.title-1 {
   font-size: 25px;
 }
@@ -351,13 +355,13 @@
   height: 30px;
   line-height: 22px;
   width: 35px;
-}    
+}
 .nivo-controlNav {
   display: none;
-} 
+}
 .layer-3 a.title-3 {
   padding: 8px 40px;
-}    
+}
 .layer-4 .title-4 input {
   height: 30px;
   line-height: 30px;
@@ -370,29 +374,29 @@
 }
 .nivo-directionNav a {
   top: 35%;
-}   
+}
 .preview-1 a.nivo-prevNav {
   left: 5px;
-}  
+}
 .preview-1 a.nivo-nextNav {
   right: 5px;
-}    
+}
 .shop-info-area {
   background: rgba(0, 0, 0, 0) url("img/shop-info-bg.jpg") no-repeat scroll center center;
   display: none;
   padding: 0;
-}    
+}
 .section-title::before {
   height: 54px;
   right: 54px;
-}    
+}
 .section-title::after {
   height: 54px;
   left: 54px;
-}   
+}
 .section-title {
   font-size: 16px;
-}    
+}
 .indicator-style.owl-theme .owl-controls .owl-buttons div.owl-next {
   right: 5px;
 }
@@ -411,15 +415,15 @@
 .testimonial-area {
   padding-bottom: 50px;
   padding-top: 50px;
-} 
+}
 .counter-info::before {
   bottom: 25px;
   left: 11px;
   width: 80%;
-}   
+}
 .counter-info > h3 {
   font-size: 16px;
-}    
+}
 .fcount span.counter {
   font-size: 40px;
 }
@@ -432,7 +436,7 @@
 }
 .search-box input {
   width: 100%;
-}    
+}
 .search-box input {
   height: 35px;
   padding-left: 14px;
@@ -445,10 +449,10 @@
 }
 .single-footer.footer-newsletter > form {
   margin-bottom: 20px;
-}  
+}
 .footer-bottom-right {
   display: none;
-} 
+}
 .footer-bottom-left > p {
   text-align: center;
 }
@@ -498,7 +502,7 @@
 }
 .shop-tab-pill ul li a span {
   display: none;
-} 
+}
 .shop-tab-pill li#left, .shop-tab-pill li#left-top {
   margin-right: 10px;
 }
@@ -528,7 +532,7 @@
 .single-product-price > h2 {
   margin-bottom: 30px;
   font-size: 25px;
-} 
+}
 #quantity-wanted-p input {
   height: 36px;
   line-height: 32px;
@@ -588,9 +592,9 @@
 
 
 
-  
+
 }
- 
+
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .container {width:450px}
@@ -623,4 +627,3 @@
   padding: 10px 30px;
 }
 }
- 

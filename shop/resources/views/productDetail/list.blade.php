@@ -75,7 +75,7 @@
 
                                         @endphp
                                         <tr class="odd gradeX">
-                                            <td>{{$prd->id}}</td>
+                                            <td>{{$i}}</td>
 
                                             @php
                                         if (isset($search)){
@@ -109,7 +109,6 @@
                                                         {{--                                                     <input type="submit" value="Delete" class="btn btn-danger "><i class="fas fa-trash-alt"></i></input>--}}
                                                     </form>
                                             </td>
-                                            <td><a href="{{route('add.cart',['id'=>$prd->id])}}"><span class="input-group-text" id="inputGroup-sizing-lg">
                         <i class="mdi mdi-cart-plus"></i>
                     </span></a></td>
                                         </tr>

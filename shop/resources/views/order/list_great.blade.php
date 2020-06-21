@@ -34,15 +34,15 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Điện thoại</th>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Ngày đặt</th>
-                                    <th>Thành tiền</th>
-                                    <th>Trạng thái</th>
-                                    <th>Ghi Chú</th>
+                                    <th>Date Of Shipment</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Note</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>

@@ -43,7 +43,7 @@ $countInActive = $countAll- $countActive;
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>No.</th>
                                         <th>Name</th>
                                         <th>Email id </th>
                                         <th>Mobile Number</th>

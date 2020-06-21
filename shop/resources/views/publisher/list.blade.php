@@ -17,7 +17,7 @@ $countAll = \App\Publisher::all()->count();
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        Reg Language
+                        Reg Publisher
                     </div>
                     <button class="btn btn-warning float-left" >All  <span class="badge badge-secondary">{{$countAll}}</span></button>
                     <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
@@ -27,7 +27,7 @@ $countAll = \App\Publisher::all()->count();
                             <input type="hidden" name="_method" value="put">
                             <div>
                                 <label for="Search">Search:</label>
-                                <input type="text" name="search">
+                                <input type="text" name="search" placeholder="Name">
                             </div>
                         </form>
                     </div>

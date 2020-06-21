@@ -55,7 +55,7 @@ $countAll = \App\Subscribe::all()->count();
                                     @endphp
                                     @foreach($lsMail as $mail)
                                     <tr class="odd gradeX">
-                                        <td>{{$mail->id}}</td>
+                                        <td>{{$i}}</td>
                                         @php
                                         if (isset($search)){
                                         $mail->email =  Hightlight::show($search,$mail->email);

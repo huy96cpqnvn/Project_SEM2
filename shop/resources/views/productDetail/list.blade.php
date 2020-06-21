@@ -45,13 +45,13 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Review  </th>
+                                        <th>No</th>
+                                        <th>Name</th>                         
                                         <th>Product </th>
                                         <th>Author </th>
                                         <th>Language </th>
                                         <th>Publisher</th>
+                                        <th>Amount</th>
                                         <th>Discount</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -85,11 +85,11 @@
                                         @endphp
 
                                             <td>{!!$prd->name!!}</td>
-                                            <td>{{$prd->review}}</td>
                                             <td>{{$prd->product['name']}}</td>
                                             <td>{{$prd->author['name']}}</td>
                                             <td>{{$prd->language['name']}}</td>
                                             <td>{{$prd->publisher['name']}}</td>
+                                            <td>{{$prd->amount}}</td>
                                             <td>{{$prd->discount}}</td>
                                             <td>
                                                 <form method="POST" action="{{route('proDetail_management.change',$prd->id)}}"

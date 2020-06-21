@@ -55,7 +55,7 @@ $countAll = \App\Tag::all()->count();
                                     @endphp
                                     @foreach($lsTag as $tag)
                                     <tr class="odd gradeX">
-                                        <td>{{$tag->id}}</td>
+                                        <td>{{$i}}</td>
                                         @php
                                         if (isset($search)){
                                         $tag->name =  Hightlight::show($search,$tag->name);

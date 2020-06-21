@@ -17,7 +17,7 @@ $countAll = \App\Author::all()->count();
                 <div class="panel panel-default">
 
                     <div class="panel-heading">
-                        Reg Product
+                        Reg Author
                     </div>
                     <button class="btn btn-warning float-left"  ">All  <span class="badge badge-secondary">{{$countAll}}</span></button>
                     <div class="float-right" style="padding-top: 15px ;padding-bottom: 15px" >
@@ -49,7 +49,7 @@ $countAll = \App\Author::all()->count();
                                     @foreach($lsAuthor as $aut)
 
                                     <tr class="odd gradeX">
-                                        <td>{{$aut->id}}</td>
+                                        <td>{{$i}}</td>
                                         @php
                                         if (isset($search)){
                                         $aut->name =  Hightlight::show($search,$aut->name);

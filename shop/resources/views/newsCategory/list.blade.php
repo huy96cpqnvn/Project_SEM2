@@ -55,7 +55,7 @@ $countAll = \App\NewsCategory::all()->count();
                                     @endphp
                                     @foreach($lsCategory as $cate)
                                     <tr class="odd gradeX">
-                                        <td>{{$cate->id}}</td>
+                                        <td>{{$i}}</td>
                                         @php
                                         if (isset($search)){
                                         $cate->name =  Hightlight::show($search,$cate->name);

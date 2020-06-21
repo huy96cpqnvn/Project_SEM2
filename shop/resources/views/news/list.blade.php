@@ -71,7 +71,7 @@ $countInActive = $countAll- $countActive;
 
                                     @endphp
                                     <tr class="odd gradeX">
-                                        <td>{{$news->id}}</td>
+                                        <td>{{$i}}</td>
 
                                         @php
                                         if (isset($search)){

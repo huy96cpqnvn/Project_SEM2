@@ -37,7 +37,7 @@
             </div>
 
             <div class="">
-              {{$allNews->content}}
+              <?php echo $allNews->content; ?>
             </div>
         </div>
 

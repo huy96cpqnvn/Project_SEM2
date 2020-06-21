@@ -1,3 +1,6 @@
+@php
+use \Illuminate\Support\Facades\Auth as Auth;
+@endphp
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -385,7 +388,7 @@
                                         <li>
                                             <a href="{{asset('dashboard')}}"> <i class="mdi mdi-ballot"></i> Dashboard </a>
                                         </li>
-
+                                       @if(Auth::check())
                                         <li class="dropdown-footer">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -397,6 +400,9 @@
                                         @csrf
                                     </form>
                                         </li>
+                                        @else
+                                        <li><a class="dropdown-item" href="{{ route('login') }}">login</a></li>
+                                        @endif
                                     </ul>
 
                                 </li>
@@ -413,9 +419,9 @@
 
                 <footer class="footer mt-auto">
                     <div class="copyright bg-white">
-                        
+
                     </div>
-                   
+
                 </footer>
 
             </div>

@@ -57,9 +57,9 @@
 												</tr>
 											@else
 											@php
-		
+
 												$order = Order::find($oder['id']);
-		
+
 											   $order->delete();
 											@endphp
 											@endif
@@ -76,16 +76,16 @@
 												$curentStatus ='Đang chuyển hàng ' ;
 										  }elseif ($oder['status'] ==4){
 												$curentStatus ='Đã thanh toán ' ;
-		
+
 										  }elseif ($oder['status'] ==5){
 												$curentStatus ='Bị từ chối ' ;
 										  }
-		
+
 										@endphp
-		
+
 										<input type="button" class="btn btn-primary" value="{{$curentStatus}}"/>
 									</div>
-		
+
 								<div class="panel-body" style="font-size: 12px;">
 									<div class="table-responsive">
 										<table class="table table-hover">
@@ -106,7 +106,7 @@
 											$i = 0;
 											@endphp
 												@foreach($data as $row)
-		
+
 													<tr>
 														<td>{{$i}}</td>
 														<td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>
@@ -146,10 +146,10 @@
 							@if($oder['status'] ==0)
 							<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
 							@else
-		
+
 							  <div style="float: left">
 								  <a  href="{{asset('order')}}" class="btn btn-dark" >Quay Về </a>
-		
+
 							  </div>
 							@endif
 						</form>
@@ -163,12 +163,11 @@
 									<option value="3">Đang Chuyển Hàng</option>
 									<option value="4">Đã Thanh Toán</option>
 									<option value="5">Bị Từ Chối</option>
-	
+
 								</select> --}}
-								<button type="submit" class="btn btn-success" value="3">Đang Chuyển Hàng</button>
-								<button type="submit" class="btn btn-secondary" value="4">Đã Thanh Toán</button>
-								<button type="submit" class="btn btn-danger" value="5">Bị Từ Chối</button>
-								<button type="submit" class="btn btn-primary">Update</button>
+								<button type="submit" class="btn btn-success" value="3" name="selectStatus">Đang Chuyển Hàng</button>
+								<button type="submit" class="btn btn-secondary" value="4" name="selectStatus">Đã Thanh Toán</button>
+								<button type="submit" class="btn btn-danger" value="5" name="selectStatus">Bị Từ Chối</button>
 						</form>
 
 				@endif

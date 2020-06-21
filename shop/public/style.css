@@ -1511,6 +1511,12 @@ p.form-row-phone {
 /*----------------------------------------*/
 /*  17.	Shop Page CSS
 /*----------------------------------------*/
+.price-slider-amount select {
+  display:inline-block;
+  width:50%;
+  float: left;
+  vertical-align: top;
+}
 .shop-widget , .shopping-cart-area , .shop-widget a {
   color: #666666;
 }

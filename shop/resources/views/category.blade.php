@@ -82,7 +82,7 @@
                                             </div>
 
                                             <div class="widget-buttom" style="margin-top: 20px ;text-align: center" >
-                                                <button class="btn btn-default" type="submit">Filter</button>
+                                                <button style="margin-top:17px;" class="btn btn-default" type="submit">Filter</button>
                                             </div>
 
                                         </form>
@@ -98,16 +98,6 @@
                     <div class="shop-tab-list">
                         <div class="shop-tab-pill pull-right">
                             <ul>
-                                {{-- <li class="product-size-deatils">
-                                    <div class="show-label">
-                                        <label><i class="fa fa-sort-amount-asc"></i>Sort by : </label>
-                                        <select>
-                                            <option value="position" selected="selected">Position</option>
-                                            <option value="Name">Name</option>
-                                            <option value="Price">Price</option>
-                                        </select>
-                                    </div>
-                                </li>	 --}}
                                 <li class="shop-pagination">{{$data->links()}}</li>
                             </ul>
                         </div>

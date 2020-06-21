@@ -243,25 +243,39 @@ class FrontendController extends Controller {
         $allCategory = Category::all();
         $allNews = News::all();
         $allNewsCategory = NewsCategory::all();
+        $curentNewcate = NewsCategory::find($id);
 
         $allTag = Tag::all();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+        if($id != null) {
+            $data = DB::table(DB::raw('news'))
+            ->select('news.*')
+            ->join('news_categories', 'news_categories.id', '=', 'news.category_id')
+            ->where('news.category_id', $id)
+            ->paginate(9);
+        } else {
+            $data = DB::table(DB::raw('news'))->paginate(9);
+        }
+        
 
-        $data = DB::table(DB::raw('news'))
-        ->select('news.*')
-        ->join('news_categories', 'news_categories.id', '=', 'news.category_id')
-        ->where('news_categories.id', $id)
-        ->paginate(9);
-
-
-        return view('news')->with(['allCategory' => $allCategory, 'allNews' => $allNews, 'allNewsCategory' => $allNewsCategory,'allTag' => $allTag,'saleProductdt' => $saleProductdt,  'data' => $data]);
+ 
+        return view('news')->with(['curentNewcate' => $curentNewcate,
+                                    'allCategory' => $allCategory, 
+                                    'allNews' => $allNews, 
+                                    'allNewsCategory' => $allNewsCategory,
+                                    'allTag' => $allTag,
+                                    'saleProductdt' => $saleProductdt, 
+                                    'data' => $data]);
     }
 
     public function snew($id) {
 
-        $allNews = News::all();
+        
+        $allNews = News::find($id);
+        $pro = $allNews->category_id;
+        $newrelate = News::where('category_id', $pro)->take(6)->get();
         $allCategory = Category::all();
-        return view('snew')->with(['allNews' => $allNews, 'allCategory' => $allCategory]);
+        return view('snew')->with(['allNews' => $allNews, 'allCategory' => $allCategory, 'newrelate' => $newrelate]);
     }
 
 

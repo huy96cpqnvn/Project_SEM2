@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- Breadcrumbs Area Start -->
-<!-- <div class="breadcrumbs-area">
+<div class="breadcrumbs-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -18,26 +18,26 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- Breadcrumbs Area Start -->
 <!-- Single News Area Start -->
 <div class="single-news-area section-padding">
     <div class="container">
          <div class="row">
             <div class="">
-              <p><h2><b>{{$new->title}}</b></h2></p>
+              <p><h2><b>{{$allNews->title}}</b></h2></p>
             </div>
 
             <div class="">
-              {{$new->created_at}}
+              {{$allNews->created_at}}
             </div>
 
             <div class="">
-              <b>{{$new->summary}}</b>
+              <b>{{$allNews->summary}}</b>
             </div>
 
             <div class="">
-              {{$new->content}}
+              {{$allNews->content}}
             </div>
         </div>
 
@@ -53,14 +53,14 @@
     <div class="container">
         <div class="row">
             <div class="blog-list indicator-style">
-                @foreach ($allNews as $item)
+                @foreach ($newrelate as $item)
                 <div class="col-md-3">
                     <div class="single-blog">
                         <a href="#">
-                            <img src="{{$item->cover}}" alt="">
+                            <img src="{{asset($item->cover)}}" alt="">
                         </a>
                         <div class="blog-info text-center">
-                            <a href="#"><h2>{{$item->title}}</h2></a>
+                            <a href="#">{{$item->title}}</a>
                             <div class="blog-info-bottom">
                                 <span class="blog-date">{{date('d/M/Y h:m:s', strtotime($item->created_at))}}</span>
                             </div>

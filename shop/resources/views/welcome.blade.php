@@ -32,7 +32,7 @@
             </div>
             <!-- layer 2 -->
             <div class="layer-2">
-                <p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="title-2"></p>
             </div>
             <!-- layer 4 -->
             <div class="layer-4">

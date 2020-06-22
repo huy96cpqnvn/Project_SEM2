@@ -96,9 +96,9 @@
                                             </div>
                                             <div class="banner-bottom text-center">
                                                 <div class="banner-bottom-title">
-                                                    <a href="{{asset("snew.html/$news->id")}}">{{$news->title}}</a>
                                                     <p>{{$news->created_at}}</p>
-                                                    <p>{{$news->summary}}</p>
+                                                    <a href="{{asset("snew.html/$news->id")}}">{{$news->title}}</a>
+
                                                 </div>
                                             </div>
                                         </div>

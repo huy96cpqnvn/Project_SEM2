@@ -43,6 +43,26 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
     Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
 });
 
+
+
+
+
+
+Route::get('order/confirm', 'OrderController@confirm')->name('order.confirm');
+Route::get('order/change_status/{order_id}', 'OrderController@changeStatus')->name('changestatus.order');
+Route::resource('order_detail', 'OrderDetailController');
+
+Route::get('/add_cart/{id}', 'OrderDetailController@addCart')->name('add.cart');
+Route::put('order/update/{id?}/{qty?}-{dk?}','OrderDetailController@updateCart')->name('order.updateCart');
+Route::get('login_admin', 'Admin_userController@getLogin')->name('login.admin');
+Route::get('message', 'Admin_userController@getLogin')->name('message_for_login');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
+
+Route::resource('profile', 'ProfileController');
+
+
+Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');
 Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
     Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
@@ -103,25 +123,6 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/mes_management', 'MessageController');
     Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');
+    Route::resource('order', 'OrderController');
 
 });
-
-
-
-
-Route::get('order/confirm', 'OrderController@confirm')->name('order.confirm');
-Route::get('order/change_status/{order_id}', 'OrderController@changeStatus')->name('changestatus.order');
-Route::resource('order', 'OrderController');
-Route::resource('order_detail', 'OrderDetailController');
-
-Route::get('/add_cart/{id}', 'OrderDetailController@addCart')->name('add.cart');
-Route::put('order/update/{id?}/{qty?}-{dk?}','OrderDetailController@updateCart')->name('order.updateCart');
-Route::get('login_admin', 'Admin_userController@getLogin')->name('login.admin');
-Route::get('message', 'Admin_userController@getLogin')->name('message_for_login');
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
-
-Route::resource('profile', 'ProfileController');
-
-
-Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');

@@ -16,11 +16,15 @@ class OrderController extends Controller
     public function getdetail($id)
     {
         $oder = Order::where('id',$id)->first();
-        $data = DB::table('order_details')
-            ->join('product_details','order_details.productDetail_id','=', 'product_details.id')
+        $data = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
+            'order_details.productDetail_id','order_details.orderAmount','order_details.price',
+            'order_details.totalprice','order_details.deleted_at','order_details.created_at')
+            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
             ->where('order_id',$id)
        //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
+
+
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }
     public function postdetail($id)
@@ -177,6 +181,17 @@ class OrderController extends Controller
         //   ->groupBy('order_details.id','order_details.productDetail_id')
         ->get();
 
+    if($status == 4) {
+        $orderDetails =  OrderDetail::find($order_id);
+
+        if ( $orderDetails != null){
+                $prodetai = ProductDetail::find($orderDetails['productDetail_id']);
+                $prodetai['amount'] =  $prodetai['amount'] -   $orderDetails['orderAmount'];
+
+                $prodetai->save();
+
+        }
+    }
 
     return view('order.detail')->with(['data'=>$data,'oder'=>$oder,'curentStatus'=>$status]);
     }

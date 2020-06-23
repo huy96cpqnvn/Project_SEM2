@@ -1,6 +1,7 @@
 @extends('layouts.backend')
 @section('content')
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title">
       <span class="glyphicon glyphicon-home"><a href="#" title=""> Home</a></span>
       <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="#" title=""> Đặt hàng</a>
@@ -81,6 +82,7 @@
                   </label>
                 </div>
                   <br>
+                  {{\Gloudemans\Shoppingcart\Facades\Cart::destroy()}}
                 <button type="submit" class="btn btn-danger pull-left"> Thanh toán qua VNPAY  </button> &nbsp;
               </form>
               @endif

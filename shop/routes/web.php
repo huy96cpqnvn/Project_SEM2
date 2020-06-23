@@ -41,6 +41,9 @@ Auth::routes();
 Route::post('subscribe', 'FrontendController@subscribe');
 Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi logout, truy cập lại trang vừa r thì sẽ vào phần login
     Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
+    Route::resource('profile', 'ProfileController');
+    Route::get('order/user/{id}', 'OrderController@user')->name('order.user');
+
 });
 
 
@@ -59,7 +62,6 @@ Route::get('message', 'Admin_userController@getLogin')->name('message_for_login'
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
 
-Route::resource('profile', 'ProfileController');
 
 
 Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');
@@ -102,6 +104,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::resource('/product_management', 'ProductController');
     Route::get('pro_search/{search?}', 'ProductController@process')->name('product_management.process');
 
+    Route::get('admin/donhang/delorder/{id}', 'OrderController@getdelOrder')->where('id','[0-9]+');
     Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])->where('id','[0-9]+');
     Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');
     Route::get('admin/donhang/deldetail/{id}/{orderStatus}', 'OrderDetailController@getdelDetail')->where('id','[0-9]+');
@@ -123,7 +126,6 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::resource('/mes_management', 'MessageController');
     Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');
 
+    Route::resource('order', 'OrderController');
 });
-Route::get('admin/donhang/delorder/{id}', 'OrderController@getdelOrder')->where('id','[0-9]+');
 
-Route::resource('order', 'OrderController');

@@ -49,31 +49,26 @@
                                 <tbody>
                                 @php
                                     $i = 0;
+use Illuminate\Support\Facades\Auth;
                                 @endphp
-                                @foreach($data as $row)
 
-                                        <tr>
+                                    <tr>
                                         <td>{{$i+1}}</td>
-                                        <td>{!!$row->user['name']!!}</td>
-                                        <td>{!!$row->user['address']!!}</td>
-                                        <td>{!!$row->user['phone']!!}</td>
-                                        <td>{!!$row->user['email']!!}</td>
-                                        <td>{!!$row->created_at!!}</td>
-                                        <td>{!!$row->totalprice!!} Vnd</td>
+                                        <td>{{Auth::user()['name']}}</td>
+                                        <td>{{Auth::user()['address']}}</td>
+                                        <td>{{Auth::user()['phone']}}</td>
+                                        <td>{{Auth::user()['email']}}</td>
+                                        <td>{{Auth::user()['created_at']}}</td>
+                                        <td>{{Auth::user()['totalprice']}} Vnd</td>
+
                                         <td>
-                                            @if($row->status ==0)
+                                            @php
+                                    dd();
+                                    @endphp
                                                 <span style="color:#d35400;">Chưa xác nhận</span>
-                                            @elseif($row->status ==1)
-                                                <span style="color:#27ae60;"> Đã xác nhận</span>
-                                            @elseif($row->status ==3)
-                                                <span style="color:#27ae60;"> Đang chuyển hàng</span>
-                                            @elseif($row->status ==4)
-                                                <span style="color:#27ae60;"> Đã thanh toán </span>
-                                            @elseif($row->status ==5)
-                                                <span style="color:#27ae60;">Bị từ chối</span>
-                                            @endif
+
                                         </td>
-                                        <td>{!!$row->note!!}</td>
+                                        <td>note</td>
 
                                         <td>
                                             <a href="{!!url('admin/donhang/detail/'.$row->id)!!}" title="Chi tiết">Chi tiết  </a> &nbsp;
@@ -81,10 +76,9 @@
                                         </td>
                                     </tr>
 
-                                        @php
-                                    $i++;
+                                    @php
+                                        $i++;
                                     @endphp
-                                @endforeach
 
                                 </tbody>
                             </table>

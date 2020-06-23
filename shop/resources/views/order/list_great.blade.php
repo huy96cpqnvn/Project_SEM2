@@ -51,7 +51,9 @@
                                     $i = 0;
                                 @endphp
                                 @foreach($data as $row)
-                                    <tr>
+                                    @if (Auth::check() && Auth::user()['level'] == 'admin')
+
+                                        <tr>
                                         <td>{{$i+1}}</td>
                                         <td>{!!$row->user['name']!!}</td>
                                         <td>{!!$row->user['address']!!}</td>
@@ -79,10 +81,44 @@
                                             <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         </td>
                                     </tr>
-                                    @php
+                                    @endif
+
+                                        @php
                                     $i++;
                                     @endphp
                                 @endforeach
+                                @if (Auth::check() && Auth::user()['level'] == 'user')
+                                    <tr>
+                                        <td>{{$i+1}}</td>
+                                        <td>{{Auth::user()['name']}}</td>
+                                        <td>{{Auth::user()['address']}}</td>
+                                        <td>{{Auth::user()['phone']}}</td>
+                                        <td>{{Auth::user()['email']}}</td>
+                                        <td>{{Auth::user()['created_at']}}</td>
+                                        <td>{{Auth::user()['totalprice']}} Vnd</td>
+
+
+                                        <td>
+                                            @if($row->status ==0)
+                                                <span style="color:#d35400;">Chưa xác nhận</span>
+                                            @elseif($row->status ==1)
+                                                <span style="color:#27ae60;"> Đã xác nhận</span>
+                                            @elseif($row->status ==3)
+                                                <span style="color:#27ae60;"> Đang chuyển hàng</span>
+                                            @elseif($row->status ==4)
+                                                <span style="color:#27ae60;"> Đã thanh toán </span>
+                                            @elseif($row->status ==5)
+                                                <span style="color:#27ae60;">Bị từ chối</span>
+                                            @endif
+                                        </td>
+                                        <td>{!!$row->note!!}</td>
+
+                                        <td>
+                                            <a href="{!!url('admin/donhang/detail/'.$row->id)!!}" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                            <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                                        </td>
+                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>

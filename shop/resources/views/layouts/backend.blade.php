@@ -95,7 +95,7 @@ use \Illuminate\Support\Facades\Auth as Auth;
                         <ul class="nav sidebar-inner" id="sidebar-menu">
 
 
-
+                            @if (Auth::check() && Auth::user()->level == 'admin')
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                                    aria-expanded="false" aria-controls="dashboard">
@@ -313,8 +313,7 @@ use \Illuminate\Support\Facades\Auth as Auth;
                             </li>
 
                             <!-- End Orders -->
-
-
+                            @endif
                         </ul>
 
                     </div>

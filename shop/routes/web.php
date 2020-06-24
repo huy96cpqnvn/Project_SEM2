@@ -44,7 +44,7 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
     Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
     Route::resource('profile', 'ProfileController');
     Route::get('order/user/{id}', 'OrderController@user')->name('order.user');
-//    Route::get('order/user/detail/{id}', 'OrderController@userDetail')->name('order.user');
+    Route::get('order/user/detail/{oderId}/{userId}', 'OrderController@userDetail')->name('order.user-detail');
 
 });
 

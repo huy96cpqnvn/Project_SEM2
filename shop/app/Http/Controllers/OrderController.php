@@ -204,6 +204,18 @@ public function user($id_user){
 
     foreach ($orders as $key => $oder){
         $orderDetail = OrderDetail::where('order_id',$oder['id'])->get();
+    }
+    return view('order.user.list')->with([
+        'orders'=>$orders,
+        'allCategory'=>$allCategory,
+    ]);
+}
+public function userDetail($oderId,$userId){
+    $orders = Order::where('user_id',$userId)->get();
+    $allCategory = Category::all();
+
+    foreach ($orders as $key => $oder){
+        $orderDetail = OrderDetail::where('order_id',$oder['id'])->get();
         $datas[$key] = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
             'order_details.productDetail_id','order_details.orderAmount','order_details.price',
             'order_details.totalprice','order_details.deleted_at','order_details.created_at')
@@ -212,12 +224,12 @@ public function user($id_user){
             //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
     }
-    return view('order.user.list')->with([
+    return view('order.user.detail_user')->with([
         'orders'=>$orders,
         'allCategory'=>$allCategory,
         'datas'=>$datas
     ]);
-}
 
+}
 
 }

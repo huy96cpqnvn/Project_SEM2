@@ -10,6 +10,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Category;
 
 class OrderController extends Controller
 {
@@ -41,6 +42,7 @@ class OrderController extends Controller
     public function confirm(Request $request)
     {
 //        $oder = Order::where('id',$id)->first();
+        $allCategory = Category::all();
 
         $id = $_GET['user_id'];
         $totalPrice =doubleval($_GET['totalPrice']);
@@ -78,7 +80,7 @@ class OrderController extends Controller
         Cart::destroy();
         $data = Order::select()->where('user_id','=',$id);
 
-        return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
+        return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !', 'allCategory' => $allCategory]);
     }
     public function getdelOrder($id){
 

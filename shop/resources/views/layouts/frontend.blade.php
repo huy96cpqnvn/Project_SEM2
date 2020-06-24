@@ -104,6 +104,7 @@
                                         @endif --}}
                                     @else
                                         <li class="nav-item dropdown">
+											
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                             </a>
@@ -117,8 +118,10 @@
 
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
-                                                </form>
-                                            </div>
+												</form>
+												<a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}">Lịch sử mua hàng</a>
+											</div>
+											
                                         </li>
                                     @endguest
                                 </li>
@@ -218,7 +221,7 @@
 		                        <ul class="footer-list">
 		                            <li><a href="{{asset('profile')}}">My Account</a></li>
 		                            <li><a href="{{route('login') }}">Login</a></li>
-		                            {{-- <li><a href="order_detail">My Cart</a></li> --}}
+		                            <li><a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}">Lịch sử mua hàng</a></li>
 		                        </ul>
 		                    </div>
 		                </div>

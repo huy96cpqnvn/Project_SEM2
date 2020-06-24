@@ -19,6 +19,7 @@ Route::get('/filter_price}', 'FrontendController@filterPriceCate')->name('filter
 Route::post('detail_comment', 'FrontendController@detail_comment');
 
 
+
 Route::get('/single.html/{id}', 'FrontendController@single');
 // Route::resource('/cart', 'OrderDetailController');
 Route::get('/about', 'FrontendController@about');

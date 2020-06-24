@@ -108,6 +108,7 @@ body {
 
 .dropdown-menu {
   top:66%;
+  min-width:180px;
 }
 
 .header-area {
@@ -492,6 +493,11 @@ body {
 .single-p-banner .col-md-3 , .blog-list .col-md-3 , .team-list .col-md-3 , .related-product-area .col-md-3 {
   width: 100%;
 }
+._confirm {
+  margin-top: 0 !important;
+  padding-top: 155px;;
+}
+
 .online-banner-area {
   margin-bottom: 80px;
   margin-top: 26px;
@@ -1524,6 +1530,20 @@ p.form-row-phone {
   background: #f6f6f6 none repeat scroll 0 0;
   padding: 25px 0;
 }
+
+.check_out_order tr td,
+.done_order tr td{
+  padding:15px 10px;
+}
+
+.check_out_order tr:last-child td,
+.done_order tr:last-child td {
+  font-weight: 600;
+}
+.check_out_order .product-remove .fa-remove:before {
+  display: none;
+}
+
 .sidebar-title {
   font-size: 16px;
   margin-bottom: 25px;

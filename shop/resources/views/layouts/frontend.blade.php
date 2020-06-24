@@ -83,7 +83,7 @@
 									                  </li>
                                     <li><a href="{{asset('/about')}}">ABOUT</a></li>
 									<li><a href="{{asset('/contact')}}">CONTACT</a></li>
-									
+
                                 </ul>
                             </nav>
                         </div>
@@ -105,7 +105,7 @@
                                         @endif --}}
                                     @else
                                         <li class="nav-item dropdown">
-											
+
                                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                             </a>
@@ -120,7 +120,7 @@
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
 												</form>
-												
+
 											</div>
 
                                         </li>
@@ -164,6 +164,11 @@
                                                 Kiểm tra giỏ
                                                 <i class="fa fa-chevron-right"></i>
                                             </a>
+
+                                        </div>
+                                              <div class="cart-checkout">
+                                            <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
+
                                         </div>
                                     </div>
                                 </li>

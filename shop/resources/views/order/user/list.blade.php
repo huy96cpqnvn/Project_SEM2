@@ -65,10 +65,63 @@ use Illuminate\Support\Facades\Auth;
                                 </tbody>
                             </table>
                             <div class="panel-heading">
-                                Danh sách đơn đặt hàng
+                               Lịch sử đặt hàng
                             </div>
-                            <a href="" title="Chi tiết">Chi tiết  </a> &nbsp;
-                            <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                            @php
+                            $i = 1;
+                            @endphp
+                            <div class="table-responsive">
+                            <table class="table table-hover">
+                            <thead>
+                             <tr>
+                                 <th>STT</th>
+                                 <th>Trạng thái</th>
+                                 <th>Tổng tiền</th>
+                                 <th>Ngày đặt</th>
+                                 <th>Phương thức thanh toán</th>
+                                 <th>Thao tác</th>
+                             </tr>
+                            </thead>
+                                <tbody>
+                                @foreach($orders as $order)
+                                    <?php
+                                     if($order['status'] == 0 ){
+                                         $status = 'Chưa xác nhận';
+                                     }elseif($order['status'] == 1 ){
+                                         $status = 'Đã xác nhận';
+
+                                     }elseif($order['status'] == 3 ){
+                                         $status = 'Đang chuyển hàng';
+
+                                     }elseif($order['status'] == 4 ){
+                                         $status = 'Đã thanh toán ';
+
+                                     }else($order['status'] == 5){
+                                         $status = 'Bị từ chối'
+                                     }
+
+                                    ?>
+
+                                    <tr>
+                                    <td>{{$i}}</td>
+                                    <td> {{$status}}</td>
+                                    <td> {{$order['totalprice']}}</td>
+                                    <td> {{$order['created_at']}}</td>
+                                    <td> {{$order['paymentMethod']}}</td>
+                                    <td>
+                                        <a href="" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                        @if($order['status'] ==0)
+                                        <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                                        @endif
+                                    </td>
+
+                                </tr>
+                                    <?php $i++ ?>
+                                @endforeach
+
+                                </tbody>
+                            </table>
+                            </div>
                         </div>
 {{--                        {!! $data->render() !!}--}}
                     </div>

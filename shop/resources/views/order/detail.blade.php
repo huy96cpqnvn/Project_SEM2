@@ -106,7 +106,7 @@
 													<th> Số lượng </th>
 													<th>Giá bán</th>
 													<th>Trạng thái</th>
-													<th>Action</th>
+													<th>Thao tác</th>
 												</tr>
 											</thead>
 											<tbody>

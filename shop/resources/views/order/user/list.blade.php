@@ -40,7 +40,7 @@
                                 </thead>
                                 <tbody>
                                 @php
-use Illuminate\Support\Facades\Auth;
+                                use Illuminate\Support\Facades\Auth;
                                 @endphp
 
                                     <tr>
@@ -67,6 +67,29 @@ use Illuminate\Support\Facades\Auth;
                             <div class="panel-heading">
                                 Danh sách đơn đặt hàng
                             </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>SL</th>
+                                        <th>Phương thức mua hàng</th>
+                                        <th>Ngày order</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($order as $item)
+                                    <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td>{{$item->paymentMethod}}</td>
+                                        <td>{{$item->totalprice}}</td>
+                                        <td>{{$item->date}}</td>
+                                
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+
+                            </table>
+
                             <a href="" title="Chi tiết">Chi tiết  </a> &nbsp;
                             <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                         </div>

@@ -136,7 +136,7 @@
                                             <div class="cart-product">
                                                 <div class="cart-product-image">
                                                     <a href="single-product.html">
-                                                        <img src="{{$row->cover}}" alt="">
+                                                        <img src="{{asset($row->cover)}}" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="cart-product-info">

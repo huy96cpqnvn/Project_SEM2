@@ -82,7 +82,8 @@
 									                  <li><a href="{{asset("news.html")}}">NEWS</a>
 									                  </li>
                                     <li><a href="{{asset('/about')}}">ABOUT</a></li>
-                                    <li><a href="{{asset('/contact')}}">CONTACT</a></li>
+									<li><a href="{{asset('/contact')}}">CONTACT</a></li>
+									
                                 </ul>
                             </nav>
                         </div>
@@ -119,9 +120,9 @@
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                     @csrf
 												</form>
-												<a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}">Lịch sử mua hàng</a>
+												
 											</div>
-											
+
                                         </li>
                                     @endguest
                                 </li>
@@ -221,7 +222,7 @@
 		                        <ul class="footer-list">
 		                            <li><a href="{{asset('profile')}}">My Account</a></li>
 		                            <li><a href="{{route('login') }}">Login</a></li>
-		                            <li><a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}">Lịch sử mua hàng</a></li>
+		                            <li><a href="{{asset('order/user/{id}')}}">Lịch sử mua hàng</a></li>
 		                        </ul>
 		                    </div>
 		                </div>

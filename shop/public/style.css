@@ -2570,6 +2570,19 @@ h3.widget-title-modal {
   margin-bottom: 5px;
 }
 
+.myaccount-link-list .panel-heading {
+  text-align: center;
+}
+
+.myaccount-link-list .panel-heading p {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.order-history fieldset > div {
+  padding:5px 0;
+}
+
 /*----------------------------------------*/
 /*  23.	scrollUp CSS
 /*----------------------------------------*/

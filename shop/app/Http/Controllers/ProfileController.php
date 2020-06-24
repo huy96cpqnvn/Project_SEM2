@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Category;
 
 class ProfileController extends Controller
 {
@@ -13,8 +14,9 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('profile');
+    {   
+        $allCategory = Category::all();
+        return view('profile')->with(['allCategory' => $allCategory]);
     }
 
     /**

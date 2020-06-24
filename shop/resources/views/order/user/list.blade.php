@@ -109,7 +109,7 @@
                                     <td> {{$order['created_at']}}</td>
                                     <td> {{$order['paymentMethod']}}</td>
                                     <td>
-                                        <a href="{{url('order/user/detail/'.$order['id'].'/'.Auth::user()['id'])}}" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                        <a href="{{url('order/user/detail/'.$order['id'].'/'.Auth::user()['id'].'/'.$status)}}" title="Chi tiết">Chi tiết  </a> &nbsp;
                                         @if($order['status'] ==0)
                                         <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         @endif

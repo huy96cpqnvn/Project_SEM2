@@ -48,7 +48,6 @@
                                         <th>Review</th>
                                         <th>Số lượng </th>
                                         <th>Giá bán</th>
-                                        <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
                                     </thead>
@@ -59,18 +58,18 @@
                                     @foreach($datas as $data)
                                     @foreach($data as $row)
                                         <tr>
-                                            <td>{{$i}}</td>
+
+                                                <td>{{$i}}</td>
                                             <td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>
                                             <td>{!!$row->name!!}</td>
                                             <td>{!!$row->review!!}</td>
                                             <td>{!! $row->orderAmount!!} </td>
                                             <td>{!! number_format($row->price) !!} Vnđ</td>
                                             <td>
-                                               {{$row->status}}
-                                            </td>
-                                            <td>
 {{--                                                <a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>--}}
+                                                @if($orderStatus == 'Chưa xác nhận')
                                                 <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @php
@@ -86,28 +85,16 @@
                             </div>
                         </div>
                     </div>
-                        <button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
 
                         <div style="float: left">
-                            <a  href="{{asset('order')}}" class="btn btn-dark" >Quay Về </a>
+                            <a  href="{{asset('order')}}" class="btn btn-info" >Quay Về </a>
 
                         </div>
 
                 </form>
 
 
-                    <form action="" method="get">
-                        @csrf
-                        {{-- <select name="selectStatus" id="" class="dropdown" >
-                            <option value="3">Đang Chuyển Hàng</option>
-                            <option value="4">Đã Thanh Toán</option>
-                            <option value="5">Bị Từ Chối</option>
 
-                        </select> --}}
-                        <button type="submit" class="btn btn-secondary" value="3" name="selectStatus">Đang Chuyển Hàng</button>
-                        <button type="submit" class="btn btn-success" value="4" name="selectStatus">Đã Thanh Toán</button>
-                        <button type="submit" class="btn btn-danger" value="5" name="selectStatus">Bị Từ Chối</button>
-                    </form>
 
 
 

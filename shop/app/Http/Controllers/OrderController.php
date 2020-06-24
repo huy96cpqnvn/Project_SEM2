@@ -210,7 +210,7 @@ public function user($id_user){
         'allCategory'=>$allCategory,
     ]);
 }
-public function userDetail($oderId,$userId){
+public function userDetail($oderId,$userId,$orderStatus){
     $orders = Order::where('user_id',$userId)->get();
     $allCategory = Category::all();
 
@@ -227,7 +227,8 @@ public function userDetail($oderId,$userId){
     return view('order.user.detail_user')->with([
         'orders'=>$orders,
         'allCategory'=>$allCategory,
-        'datas'=>$datas
+        'datas'=>$datas,
+        'orderStatus'=>$orderStatus
     ]);
 
 }

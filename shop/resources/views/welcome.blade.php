@@ -82,7 +82,7 @@
                         <a href="single.html/{{$prodetail->id}}">
                             <img src="{{$prodetail->cover}}" alt="">
                         </a>
-                        <div class="price"><span>{{$prodetail->price}}</div>
+                        <div class="price"><span>{{$prodetail->price}} đ</div>
                         <div class="banner-bottom text-center">
                             <a href="single.html/{{$prodetail->id}}">{{$prodetail->name}}</a>
                         </div>
@@ -178,7 +178,7 @@
                                             <div class="product-wrapper">
                                                 <a href="single.html/{{$item->id}}" class="single-banner-image-wrapper">
                                                     <img alt="" src="{{$item->cover}}">
-                                                    <div class="price">{{$item->price}}<span>Đ</span></div>
+                                                    <div class="price"><span>{{$item->price}} đ</span></div>
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">

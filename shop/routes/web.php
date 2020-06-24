@@ -66,6 +66,7 @@ Route::get('auth_login', 'Admin_userController@getLogin')->name('login.admin');
 
 
 Route::get('frontendsearch/{search?}','FrontendController@search')->name('frontend.search');
+
 Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('/user_management', 'Admin_userController@index')->name('user_management.index');
     Route::get('/user_management/add', 'Admin_userController@add')->name('user_management.add');
@@ -126,6 +127,11 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/mes_management', 'MessageController');
     Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');
+    
+    Route::resource('/comment_management', 'CommentController');
+    Route::get('comment_search/{search?}', 'CommentController@process')->name('comment_management.process');
+    Route::get('comment_status={status?}', 'CommentController@status')->name('comment.status');
+    Route::post('/comment_management/change/{id}', 'CommentController@change')->name('comment_management.change');
 
     Route::resource('order', 'OrderController');
 });

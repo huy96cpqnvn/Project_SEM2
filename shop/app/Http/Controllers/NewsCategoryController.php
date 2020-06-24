@@ -14,7 +14,7 @@ class NewsCategoryController extends Controller
      */
    public function index()
     {
-        $lsCate = NewsCategory::paginate(1);
+        $lsCate = NewsCategory::all();
         return view('newsCategory.list')->with(['lsCategory' => $lsCate]);
     }
 

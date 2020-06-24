@@ -97,7 +97,7 @@
                                         </div>
 
                                         <select name="level" id="" class="form-control">
-                                            <option value="User">User</option>
+                                            <option value="user">User</option>
                                         </select>
 
                                     </div>

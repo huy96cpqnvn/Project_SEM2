@@ -297,11 +297,11 @@
                 @foreach ($new as $item)
                 <div class="col-md-3">
                     <div class="single-blog">
-                        <a href="#">
+                        <a href="{{asset("snew.html/$item->id")}}">
                             <img src="{{$item->cover}}" alt="">
                         </a>
                         <div class="blog-info text-center">
-                            <a href="#"><h2>{{$item->title}}</h2></a>
+                            <a href="{{asset("snew.html/$item->id")}}"><h2>{{$item->title}}</h2></a>
                             <div class="blog-info-bottom">
                                 <span class="blog-date">{{date('d/M/Y h:m:s', strtotime($item->created_at))}}</span>
                             </div>

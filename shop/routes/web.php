@@ -45,6 +45,8 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
     Route::resource('profile', 'ProfileController');
     Route::get('order/user/{id}', 'OrderController@user')->name('order.user');
     Route::get('order/user/detail/{oderId}/{userId}/{orderStatus}', 'OrderController@userDetail')->name('order.user-detail');
+    Route::get('user/donhang/detail/{orderDetaiId}',['as'  =>'getdetail','uses' => 'OrderDetailController@getDetailUser'])
+        ->where('id','[0-9]+')->name('getdetail.user');
 
 });
 

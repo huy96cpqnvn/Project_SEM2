@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Order;
 use App\OrderDetail;
 use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrderDetailController extends Controller
 {
@@ -149,4 +151,17 @@ class OrderDetailController extends Controller
         }
 
     }
+    public function getDetailUser($orderDetaiId){
+        $oderDetail = OrderDetail::where('id',$orderDetaiId)->first();
+        $allCategory = Category::all();
+
+            if ($oderDetail !=null){
+                $oderDetail->delete();
+            }
+            return view('order.user.detail_user')
+                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$orderDetaiId.' !',
+                    'datas'=>[],'allCategory'=>$allCategory]);
+        }
+
+
 }

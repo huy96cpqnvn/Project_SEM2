@@ -216,10 +216,11 @@ public function userDetail($oderId,$userId,$orderStatus){
 
     foreach ($orders as $key => $oder){
         $orderDetail = OrderDetail::where('order_id',$oder['id'])->get();
-        $datas[$key] = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
-            'order_details.productDetail_id','order_details.orderAmount','order_details.price',
-            'order_details.totalprice','order_details.deleted_at','order_details.created_at')
-            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
+        $datas[$key] = DB::table('order_details')->select('order_details.*', 'product_details.name',
+            'product_details.product_id','product_details.cover','product_details.review',
+            'product_details.detail','product_details.price','product_details.status','product_details.status'
+            ,'product_details.author_id','product_details.user_id','product_details.discount','product_details.created_at')
+            ->join('product_details','order_details.productDetail_id','=', 'product_details.id')
             ->where('order_id',$oder['id'])
             //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();

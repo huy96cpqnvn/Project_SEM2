@@ -68,7 +68,7 @@
                                             <td>
 {{--                                                <a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>--}}
                                                 @if($orderStatus == 'Chưa xác nhận')
-                                                <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+                                                <a href="{{url('user/donhang/detail/'.$row->id)}}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
                                                 @endif
                                             </td>
                                         </tr>
@@ -87,7 +87,7 @@
                     </div>
 
                         <div style="float: left">
-                            <a  href="{{asset('order')}}" class="btn btn-info" >Quay Về </a>
+                            <a  href="{{URL::previous()}}" class="btn btn-info" >Quay Về </a>
 
                         </div>
 

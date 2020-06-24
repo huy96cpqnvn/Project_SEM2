@@ -10,9 +10,9 @@
         </div><!--/.row-->
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel-heading">
-                    Danh sách đơn đặt hàng
-                </div>
+{{--                <div class="panel-heading">--}}
+{{--                    Danh sách đơn đặt hàng--}}
+{{--                </div>--}}
                 <div class="panel panel-default">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -34,33 +34,22 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Date Of Shipment</th>
-                                    <th>Total Price</th>
-                                    <th>Status</th>
-                                    <th>Note</th>
-                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @php
-                                    $i = 0;
 use Illuminate\Support\Facades\Auth;
                                 @endphp
 
                                     <tr>
-                                        <td>{{$i+1}}</td>
                                         <td>{{Auth::user()['name']}}</td>
                                         <td>{{Auth::user()['address']}}</td>
                                         <td>{{Auth::user()['phone']}}</td>
                                         <td>{{Auth::user()['email']}}</td>
-                                        <td>{{Auth::user()['created_at']}}</td>
-                                        <td>{{Auth::user()['totalprice']}} Vnd</td>
-
                                         <td>
                                             @php
                                     dd();

@@ -199,25 +199,16 @@ class OrderController extends Controller
     }
 
 public function user($id_user){
-    $orders = Order::where('user_id',$id_user)->get();
+    $order = Order::where('user_id',$id_user)->get();
     $allCategory = Category::all();
 
-    foreach ($orders as $key => $od){
+    foreach ($order as $od){
         $orderDetail = OrderDetail::where('order_id',$od['id'])->get();
-        $datas[$key] = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
-            'order_details.productDetail_id','order_details.orderAmount','order_details.price',
-            'order_details.totalprice','order_details.deleted_at','order_details.created_at')
-            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
-            ->where('order_id',$od['id'])
-            ->get();
 
     }
-
-
     return view('order.user.list')->with([
-        'orders'=>$orders,
-        'allCategory'=>$allCategory,
-        'datas'=>$datas
+        'order'=>$order,
+        'allCategory'=>$allCategory
     ]);
 }
 

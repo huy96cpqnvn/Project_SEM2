@@ -167,7 +167,7 @@
                                         </div>
                                         <div class="cart-checkout">
                                             @if(\Illuminate\Support\Facades\Auth::check())
-                                                <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
+                                                <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}">Xem lịch sử mua hàng<i class="fa fa-chevron-right"></i></a>
 
                                             @endif
                                         </div>

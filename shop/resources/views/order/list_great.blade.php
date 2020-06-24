@@ -51,7 +51,8 @@
                                     $i = 0;
                                 @endphp
                                 @foreach($data as $row)
-                                    <tr>
+
+                                        <tr>
                                         <td>{{$i+1}}</td>
                                         <td>{!!$row->user['name']!!}</td>
                                         <td>{!!$row->user['address']!!}</td>
@@ -79,10 +80,12 @@
                                             <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         </td>
                                     </tr>
-                                    @php
+
+                                        @php
                                     $i++;
                                     @endphp
                                 @endforeach
+
                                 </tbody>
                             </table>
                         </div>

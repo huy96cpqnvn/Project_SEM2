@@ -214,7 +214,10 @@ class FrontendController extends Controller {
         }
 
 
-        return view('category')->with(['allCategory' => $allCategory, 'curentProdut' => $curentProdut, 'curentCate' => $curentCate, 'allProduct' => $allProduct, 'data' => $data, 'saleProductdt' => $saleProductdt]);
+        return view('category')->with(['allCategory' => $allCategory, 'curentProdut' => $curentProdut, 'curentCate'
+        => $curentCate, 'allProduct' => $allProduct, 'data' => $data, 'saleProductdt' => $saleProductdt,'flag'=>true,
+        'price'=>$price , 'category'=>$cate
+        ]);
     }
 
     public function search(Request $request) {
@@ -256,21 +259,21 @@ class FrontendController extends Controller {
         } else {
             $data = DB::table(DB::raw('news'))->paginate(9);
         }
-        
 
- 
+
+
         return view('news')->with(['curentNewcate' => $curentNewcate,
-                                    'allCategory' => $allCategory, 
-                                    'allNews' => $allNews, 
+                                    'allCategory' => $allCategory,
+                                    'allNews' => $allNews,
                                     'allNewsCategory' => $allNewsCategory,
                                     'allTag' => $allTag,
-                                    'saleProductdt' => $saleProductdt, 
+                                    'saleProductdt' => $saleProductdt,
                                     'data' => $data]);
     }
 
     public function snew($id) {
 
-        
+
         $allNews = News::find($id);
         $pro = $allNews->category_id;
         $newrelate = News::where('category_id', $pro)->take(6)->get();

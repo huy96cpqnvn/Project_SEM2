@@ -43,10 +43,31 @@
 													<th>Điện thoại</th>
 													<th>Ngày đặt</th>
 													<th>Tổng tiền</th>
+													<th>Trạng thái đơn hàng</th>
 												</tr>
 											</thead>
 											<tbody>
-											@if( isset($data) && count($data) >0)
+                                            @php
+                                                use App\ProductDetail;if ($oder['status'] ==0){
+                                                        $curentStatus ='Chưa xác nhận' ;
+                                                        $class = 'warning';
+                                                  }elseif ($oder['status'] ==1){
+                                                        $curentStatus ='Đã xác nhận' ;
+                                                        $class = 'info';
+                                                  }elseif ($oder['status'] ==3){
+                                                        $curentStatus ='Đang chuyển hàng ' ;
+                                                        $class = 'secondary';
+                                                  }elseif ($oder['status'] ==4){
+                                                        $curentStatus ='Đã thanh toán ' ;
+                                                        $class = 'success';
+
+                                                  }elseif ($oder['status'] ==5){
+                                                        $curentStatus ='Bị từ chối ' ;
+                                                        $class = 'danger';
+                                                  }
+                                            @endphp
+
+                                            @if( isset($data) && count($data) >0)
 												<tr>
 													<td>{!!$oder['id']!!}</td>
 													<td>{!!$oder->user['name']!!}</td>
@@ -54,6 +75,9 @@
 													<td>{!!$oder->user->phone!!}</td>
 													<td>{!!$oder->created_at!!}</td>
 													<td>{!! number_format($oder->totalprice) !!} Vnđ</td>
+                                                    <td>
+                                                        <input type="button" class="btn btn-<?php echo$class ?>" value="{{$curentStatus}}"/>
+                                                    </td>
 												</tr>
 											@else
 											@php
@@ -67,23 +91,7 @@
 										</table>
 									</div>
 									<div style="float: center">
-										@php
-										use App\ProductDetail;if ($oder['status'] ==0){
-												$curentStatus ='Chưa xác nhận' ;
-										  }elseif ($oder['status'] ==1){
-												$curentStatus ='Đã xác nhận' ;
-										  }elseif ($oder['status'] ==3){
-												$curentStatus ='Đang chuyển hàng ' ;
-										  }elseif ($oder['status'] ==4){
-												$curentStatus ='Đã thanh toán ' ;
 
-										  }elseif ($oder['status'] ==5){
-												$curentStatus ='Bị từ chối ' ;
-										  }
-
-										@endphp
-
-										<input type="button" class="btn btn-primary" value="{{$curentStatus}}"/>
 									</div>
 
 								<div class="panel-body" style="font-size: 12px;">
@@ -127,16 +135,19 @@
 													</tr>
 													@php
 													$i++;
+
 													@endphp
-												@if($oder['status'] ==4)
-													@php
-													$prodetai =  ProductDetail::find($row->id);
-													if ( $prodetai != null){
-													$prodetai['amount'] =  $prodetai['amount'] -   $row->orderAmount;
-													$prodetai->save();
-													}
-													@endphp
-												@endif
+
+{{--												@if($oder['status'] ==4)--}}
+{{--													@php--}}
+{{--													$prodetai =  ProductDetail::find($row->id);--}}
+
+{{--													if ( $prodetai != null){--}}
+{{--													$prodetai['amount'] =  $prodetai['amount'] -   $row->orderAmount;--}}
+{{--													$prodetai->save();--}}
+{{--													}--}}
+{{--													@endphp--}}
+{{--												@endif--}}
 												@endforeach
 											</tbody>
 										</table>
@@ -158,15 +169,14 @@
 				@if($oder['status'] !=0)
 						<form action="{{route('changestatus.order',$oder['id'])}}" method="get">
 							@csrf
-								<label for="selectStatus" style="margin-left: 15px">Choose Status:</label>
 								{{-- <select name="selectStatus" id="" class="dropdown" >
 									<option value="3">Đang Chuyển Hàng</option>
 									<option value="4">Đã Thanh Toán</option>
 									<option value="5">Bị Từ Chối</option>
 
 								</select> --}}
-								<button type="submit" class="btn btn-success" value="3" name="selectStatus">Đang Chuyển Hàng</button>
-								<button type="submit" class="btn btn-secondary" value="4" name="selectStatus">Đã Thanh Toán</button>
+								<button type="submit" class="btn btn-secondary" value="3" name="selectStatus">Đang Chuyển Hàng</button>
+								<button type="submit" class="btn btn-success" value="4" name="selectStatus">Đã Thanh Toán</button>
 								<button type="submit" class="btn btn-danger" value="5" name="selectStatus">Bị Từ Chối</button>
 						</form>
 

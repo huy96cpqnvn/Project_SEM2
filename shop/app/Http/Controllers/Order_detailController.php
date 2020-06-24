@@ -6,6 +6,7 @@ use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 
 class Order_detailController extends Controller
 {
@@ -16,7 +17,10 @@ class Order_detailController extends Controller
      */
     public function index()
     {
-        return view('order.list');
+        $allCategory = Category::all();
+        return view('order.list')->with([
+            'allCategory'=>$allCategory
+        ]);
     }
 
     /**
@@ -133,12 +137,14 @@ class Order_detailController extends Controller
     public function getoder()
     {
 
+        $allCategory = Category::all();
         if (Auth::guest()) {
             return redirect('login');
         } else {
 
             return view ('orderdetails.oder')
-                ->with('slug','Xác nhận');
+                ->with('slug','Xác nhận')->with(['allCategory' => $allCategory]);
         }
+         
     }
 }

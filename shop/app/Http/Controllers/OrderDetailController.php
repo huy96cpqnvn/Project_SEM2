@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\OrderDetail;
 use App\ProductDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -17,7 +18,11 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        return view('order.list');
+        $allCategory = Category::all();
+
+        return view('order.list')->with([
+            'allCategory'=>$allCategory
+        ]);
     }
 
     /**

@@ -10,17 +10,22 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Category;
 
 class OrderController extends Controller
 {
     public function getdetail($id)
     {
         $oder = Order::where('id',$id)->first();
-        $data = DB::table('order_details')
-            ->join('product_details','order_details.productDetail_id','=', 'product_details.id')
+        $data = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
+            'order_details.productDetail_id','order_details.orderAmount','order_details.price',
+            'order_details.totalprice','order_details.deleted_at','order_details.created_at')
+            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
             ->where('order_id',$id)
        //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
+
+
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }
     public function postdetail($id)
@@ -37,6 +42,7 @@ class OrderController extends Controller
     public function confirm(Request $request)
     {
 //        $oder = Order::where('id',$id)->first();
+        $allCategory = Category::all();
 
         $id = $_GET['user_id'];
         $totalPrice =doubleval($_GET['totalPrice']);
@@ -74,7 +80,7 @@ class OrderController extends Controller
         Cart::destroy();
         $data = Order::select()->where('user_id','=',$id);
 
-        return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !']);
+        return view('order.confirm')->with(['data'=>$data,'flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi !', 'allCategory' => $allCategory]);
     }
     public function getdelOrder($id){
 
@@ -177,11 +183,34 @@ class OrderController extends Controller
         //   ->groupBy('order_details.id','order_details.productDetail_id')
         ->get();
 
+    if($status == 4) {
+        $orderDetails =  OrderDetail::find($order_id);
+
+        if ( $orderDetails != null){
+                $prodetai = ProductDetail::find($orderDetails['productDetail_id']);
+                $prodetai['amount'] =  $prodetai['amount'] -   $orderDetails['orderAmount'];
+
+                $prodetai->save();
+
+        }
+    }
 
     return view('order.detail')->with(['data'=>$data,'oder'=>$oder,'curentStatus'=>$status]);
     }
 
+public function user($id_user){
+    $order = Order::where('user_id',$id_user)->get();
+    $allCategory = Category::all();
 
+    foreach ($order as $od){
+        $orderDetail = OrderDetail::where('order_id',$od['id'])->get();
+
+    }
+    return view('order.user.list')->with([
+        'order'=>$order,
+        'allCategory'=>$allCategory
+    ]);
+}
 
 
 }

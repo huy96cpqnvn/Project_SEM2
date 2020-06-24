@@ -98,7 +98,11 @@
                     <div class="shop-tab-list">
                         <div class="shop-tab-pill pull-right">
                             <ul>
-                                <li class="shop-pagination">{{$data->links()}}</li>
+                                @if(isset($flag) && $flag ==true)
+                                <li class="shop-pagination">{{$data->appends(['price' => $price, 'category' => $category])->links()}}</li>
+                                @else
+                                    <li class="shop-pagination">{{$data->links()}}</li>
+                                @endif
                             </ul>
                         </div>
                     </div>

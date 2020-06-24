@@ -1,12 +1,12 @@
-@extends('layouts.backend')
+@extends('layouts.frontend')
 @section('content')
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    {{-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="panel-title">
             <span class="glyphicon glyphicon-home"><a href="#" title=""> Home</a></span>
             <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="#" title=""> Đặt hàng</a>
             <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span> <a href="#" title="">slug</a>
-        </h3>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
+        </h3> --}}
+        {{-- <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <div class="panel panel-success" style="min-height: 1760px;">
@@ -64,14 +64,6 @@
                                                         <input type="hidden" name="_method" value="put" />
                                                         <button class="glyphicon glyphicon-plus-sign" >--</button>
                                                     </form>
-{{--                                                    <a href=""><span class="glyphicon glyphicon-minus">tru</span></a>--}}
-
-                                                    {{--                                                    <form  method="post" action="{{route('order.update',$row->id,$row->qty,'-up')}}">--}}
-{{--                                                        @csrf--}}
-{{--                                                        <input type="hidden" name="_method" value="PUT" />--}}
-{{--                                                        <button class="glyphicon glyphicon-plus-sign" >--</button>--}}
-{{--                                                    </form>--}}
-
                                             </td>
                                             <td>
                                                 <form method="post" action="{{route('order_detail.destroy',$row->id)}}">
@@ -99,7 +91,6 @@
                                 @php
                                 use Illuminate\Support\Facades\Auth as Auth;
                                 @endphp
-                                <div></div>
                                 @if(Cart::count() !=0)
                                     @if (Auth::guest())
                                         <div class="input-group">
@@ -132,102 +123,160 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding">
-            <!-- panel inffo 1 -->
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center">Sản phẩm tương tự</h3>
-                </div>
-                <div class="panel-body no-padding">
-                    <?php
-                    $books = DB::table('products')
-                       ->join('categories', 'products.category_id', '=', 'categories.id')
-                        ->join('product_details', 'product_details.product_id', '=', 'products.id')
-                        ->where('products.category_id','=',1)
-                        ->select('products.*','product_details.*')
-                        ->orderBy('products.created_at', 'desc')
-                        ->paginate(2);
+        </div> --}}
+    {{-- </div> --}}
 
-                    ?>
-                    @foreach($books as $row)
-{{--                            <a class="cart_quantity_up" href='{{url("cart?product_id=$row->id&increment=1")}}'> + </a>--}}
-{{--                            <a class="cart_quantity_down" href='{{url("cart?product_id=$row->id&decrease=1")}}'> - </a>--}}
 
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-                            <div class="thumbnail mobile">
-                                <div class="bt">
-                                    <div class="image-m pull-left">
-                                        <img class="img-responsive" src="{{asset('images/'.$row->cover)}}" alt="{!!$row->name!!}">
-                                        <div>{!!$row->name!!}---------</div>
-                                    </div>
-                                    <div class="intro pull-right">
-                                        <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
-{{--                                        <li>{!!$row->review!!}</li>--}}
-{{--                                        <span class="label label-info">Khuyễn mãi</span>--}}
-{{--                                        @if ($row->promo1!='')--}}
-{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{$row->promo1!!}</li>--}}
-{{--                                        @elseif($row->promo2!='')--}}
-{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo2!!}</li>--}}
-{{--                                        @elseif ($row->promo3!='')--}}
-{{--                                            <li><span class="glyphicon glyphicon-ok-sign"></span>!$row->promo3!!}</li>--}}
-{{--                                        @endif--}}
-{{--                                        <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>--}}
-                                    </div><!-- /div introl -->
-                                </div> <!-- /div bt -->
-                                <div class="ct">
-                                    <a href="" title="Chi tiết">
-                                        <span class="label label-info">Ưu đãi khi mua</span>
-{{--                                        @if ($row->promo1!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{!row->promo1!!}</li>
-{{--                                        @elseif($row->promo2!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{$row->promo2!!}</li>
-{{--                                        @elseif ($row->promo3!='')--}}
-                                            <li><span class="glyphicon glyphicon-ok-sign"></span>{$row->promo3!!}</li>
-{{--                                        @endif--}}
-                                        <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li>
-                                        <span class="label label-warning">Cấu Hình Nổi bật</span>
-                                        <li><strong>CPU</strong> : <i> </i></li>
-                                        <li><strong>Màn Hình</strong> : <i></i></li>
-                                        <li><strong>Camera</strong> : Trước  <i></i> Sau <i>$row->cam2!!}</i></li>
-                                        <li><strong>HĐH</strong> :<i> $row->os!!} </i> <strong> Bộ nhớ trong</strong> :<i> $row->storage!!} </i></li>
-                                        <li><strong>Pin</strong> :<i> $row->pin!!}</i></li>
-                                    </a>
-                                </div>
-                                <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>
-                                <a href="{!!url('gio-hang/addcart/'.$row->id)!!}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
-                            </div> <!-- / div thumbnail -->
-                        </div>  <!-- /div col-4 -->
-                    @endforeach
-
+<div class="breadcrumbs-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <h2>SHOPPING CART</h2> 
+                    <ul class="breadcrumbs-list">
+                        <li>
+                            <a title="Return to Home" href="{{asset('/')}}">Home</a>
+                        </li>
+                        <li>Shopping Cart</li>
+                    </ul>
                 </div>
-            </div> <!-- /panel info 2  quản cáo 1          -->
-
-            <!-- panel info 2  quản cáo 1          -->
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center">Sự kiện HOT</h3>
-                </div>
-                <div class="panel-body no-padding">
-                    <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc1.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-                    <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc2.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-                    <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc3.png')!!}" alt="" width="100%" height="100%"> </a>
-                    <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc4.png')!!}" alt="" width="100%" height="100%"> </a>
-                    <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc5.png')!!}" alt="" width="100%" height="100%"> </a>
-                </div>
-            </div> <!-- /panel info 2  quản cáo 1          -->
-
-            <!-- fan pages myweb -->
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Fans Pages</h3>
-                </div>
-                <div class="panel-body">
-                    Hãy <a href="#" title="">Like</a> facebook của MyWeb để cập nhật tin mới nhất
-                </div>
-            </div> <!-- /fan pages myweb -->
+            </div>
         </div>
     </div>
+</div> 
+<!-- Breadcrumbs Area Start --> 
+<!-- Cart Area Start -->
+<div class="shopping-cart-area section-padding">
+    <div class="container">
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @elseif (Session()->has('flash_level'))
+            <div class="alert alert-success">
+                <ul>
+                    {!! Session::get('flash_massage') !!}
+                </ul>
+            </div>
+        @endif
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wishlist-table-area table-responsive">
+                    <table class="check_out_order">
+                        <thead>
+                            <tr>
+
+                                <th class="product-remove">Xóa</th>
+                                <th class="product-edit">STT</th>
+                                <th class="product-image">Ảnh</th>
+                                <th class="t-product-name">Tên sản phẩm</th>
+                                <th class="product-unit-price">Giá</th>
+                                <th class="product-quantity">SL</th>
+                                <th class="product-subtotal">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php $i=1 ; @endphp
+                            @foreach(Cart::content() as  $key => $row)
+                                <tr>
+                                    <td class="product-remove">
+                                        <form method="post" action="{{route('order_detail.destroy',$row->id)}}">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            <button class="fa fa-remove"><i class="flaticon-delete"></i></button>
+                                            
+                                        </form>
+                                    </td>
+                                    <td class="product-edit">
+                                        <span>
+                                            {{$i}}
+                                        </span>
+                                    </td>
+
+                                    <td class="product-image">
+                                        <img src="{{asset($row->options['img'])}}" alt="{{$row->name}}" width="80" height="50">
+                                    </td>
+                                    <td class="t-product-name">
+                                        <span>
+                                            {!!$row->name!!}
+                                        </span>
+                                    </td>
+                                    <td class="product-unit-price">
+                                            <span>{!! number_format($row->price) !!} Vnd</span>
+                                    </td>
+                                    <td class="product-quantity product-cart-details">
+                                        <p>@if (($row->qty) >1)
+                                            <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-down')!!}"><span class="glyphicon glyphicon-minus"></span></a>
+                                        @else
+                                            <a href="#"><span class="glyphicon glyphicon-minus"></span></a>
+                                        @endif
+
+                                            <form action="{!!url('order/update/'.$row->rowId.'/'.$row->qty.'-up')!!}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="put" />
+                                                <button class="glyphicon glyphicon-plus-sign" >+</button>
+                                            </form>
+                                            <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly">
+                                            <form action="{!!url('order/update/'.$row->rowId.'/'.$row->qty.'-down')!!}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="put" />
+                                                <button class="glyphicon glyphicon-plus-sign" >-</button>
+                                            </form>
+                                        </p>
+                                    </td>
+                                    <td class="product-quantity">
+                                        <p>{!! number_format($row->qty * $row->price) !!} Vnd</p>
+                                    </td>
+                                </tr>
+                                @php $i++ ; @endphp
+                            @endforeach
+                            <tr>
+                                <td colspan="5" class="product-unit-price">Tổng Cộng: </td>
+                                <td class="product-unit-price">{!!Cart::count()!!}</td>
+                                <td class="product-unit-price">{!!Cart::subtotal()!!} Vnd</td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </div>	
+                <div class="shopingcart-bottom-area col-md-12 col-lg-12">
+                    @php
+                    use Illuminate\Support\Facades\Auth as Auth;
+                    @endphp
+                    @if(Cart::count() !=0)
+                        @if (Auth::guest())
+                            <div class="input-group">
+                                <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
+                                    <option value="cod">COD (thanh toán khi nhận hàng)</option>
+                                    <option value="paypal">Paypal (Thanh toán qua Paypal)</option>
+                                </select>
+                            </div>
+                            <a class="btn btn-large btn-warning pull-left" href="{!!url('/login')!!}" >Tiến hàng thanh toán</a>
+                        @else
+                            <form action="{{route('getoder.get')}}" method="get" accept-charset="utf-8">
+                                <div class="input-group">
+                                    <label for="paymethod">Chọn phương thức thanh toán</label>
+                                    <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
+                                        <option value="">Hãy chọn phương thức thanh toán</option>
+                                        <option value="paypal">Thanh toán trực tuyến ( VNPAY  )</option>
+                                        <option value="cod"> Thanh toán khi nhận hàng ( COD )</option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-right">Tiếp tục mua hàng</a>
+                                <button type="submit" class="btn btn-danger pull-left">Tiến hành thanh toán</button>
+                                </form>
+                        @endif
+                    @endif
+                </div>	                
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Cart Area End -->
 
     <!-- ===================================================================================/news ============================== -->
 @endsection

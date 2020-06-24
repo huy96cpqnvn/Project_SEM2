@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.frontend')
 @section('content')
     <!-- main content - noi dung chinh trong chu -->
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -10,9 +10,7 @@
         </div><!--/.row-->
         <div class="row">
             <div class="col-lg-12">
-{{--                <div class="panel-heading">--}}
-{{--                    Danh sách đơn đặt hàng--}}
-{{--                </div>--}}
+
                 <div class="panel panel-default">
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
@@ -51,28 +49,28 @@ use Illuminate\Support\Facades\Auth;
                                         <td>{{Auth::user()['phone']}}</td>
                                         <td>{{Auth::user()['email']}}</td>
                                         <td>
-                                            @php
-                                    dd();
-                                    @endphp
-                                                <span style="color:#d35400;">Chưa xác nhận</span>
+
+
+{{--                                                <span style="color:#d35400;">Chưa xác nhận</span>--}}
 
                                         </td>
-                                        <td>note</td>
 
-                                        <td>
-                                            <a href="{!!url('admin/donhang/detail/'.$row->id)!!}" title="Chi tiết">Chi tiết  </a> &nbsp;
-                                            <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
-                                        </td>
+
+{{--                                            <a href="{{url('admin/donhang/detail/'}}" title="Chi tiết">Chi tiết  </a> &nbsp;--}}
+{{--                                            <a href="{{url('admin/donhang/delorder/'}}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>--}}
+
                                     </tr>
 
-                                    @php
-                                        $i++;
-                                    @endphp
 
                                 </tbody>
                             </table>
+                            <div class="panel-heading">
+                                Danh sách đơn đặt hàng
+                            </div>
+                            <a href="" title="Chi tiết">Chi tiết  </a> &nbsp;
+                            <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                         </div>
-                        {!! $data->render() !!}
+{{--                        {!! $data->render() !!}--}}
                     </div>
                 </div>
             </div>

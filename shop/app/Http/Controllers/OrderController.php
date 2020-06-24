@@ -200,12 +200,15 @@ class OrderController extends Controller
 
 public function user($id_user){
     $order = Order::where('user_id',$id_user)->get();
+    $allCategory = Category::all();
+
     foreach ($order as $od){
         $orderDetail = OrderDetail::where('order_id',$od['id'])->get();
 
     }
     return view('order.user.list')->with([
-        'order'=>$order
+        'order'=>$order,
+        'allCategory'=>$allCategory
     ]);
 }
 

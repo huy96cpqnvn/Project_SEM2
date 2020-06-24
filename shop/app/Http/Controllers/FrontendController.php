@@ -75,6 +75,7 @@ class FrontendController extends Controller {
         $comment->name = $request->name;
         $comment->email = $request->email;
         $comment->content = $request->content;
+        $comment->status = 1;
         $comment->save();
         return redirect()->back();
       }

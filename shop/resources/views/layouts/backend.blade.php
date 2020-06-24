@@ -160,6 +160,14 @@ use \Illuminate\Support\Facades\Auth as Auth;
 
                                             </a>
                                         </li>
+                                        
+                                        <li >
+                                            <a class="sidenav-item-link" href="{{asset('comment_management')}}">
+                                                <span class="nav-text">Comment</span>
+
+
+                                            </a>
+                                        </li>
 
 
                                     </div>

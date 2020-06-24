@@ -1,5 +1,8 @@
 @extends('layouts.frontend')
 @section('content')
+    @php
+        use Illuminate\Support\Facades\Auth as Auth;
+    @endphp
     <!-- main content - noi dung chinh trong chu -->
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
@@ -39,9 +42,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @php
-use Illuminate\Support\Facades\Auth;
-                                @endphp
 
                                     <tr>
                                         <td>{{Auth::user()['name']}}</td>
@@ -109,7 +109,7 @@ use Illuminate\Support\Facades\Auth;
                                     <td> {{$order['created_at']}}</td>
                                     <td> {{$order['paymentMethod']}}</td>
                                     <td>
-                                        <a href="" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                        <a href="{{url('order/user/detail/'.$order['id'].'/'.Auth::user()['id'])}}" title="Chi tiết">Chi tiết  </a> &nbsp;
                                         @if($order['status'] ==0)
                                         <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         @endif

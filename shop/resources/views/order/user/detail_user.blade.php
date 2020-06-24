@@ -46,7 +46,7 @@
                                         <th>Hình ảnh</th>
                                         <th>Tên sản phẩm</th>
                                         <th>Review</th>
-                                        <th> Số lượng </th>
+                                        <th>Số lượng </th>
                                         <th>Giá bán</th>
                                         <th>Trạng thái</th>
                                         <th>Thao tác</th>
@@ -54,10 +54,10 @@
                                     </thead>
                                     <tbody>
                                     @php
-                                        $i = 0;
+                                        $i = 1;
                                     @endphp
+                                    @foreach($datas as $data)
                                     @foreach($data as $row)
-
                                         <tr>
                                             <td>{{$i}}</td>
                                             <td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>
@@ -66,14 +66,11 @@
                                             <td>{!! $row->orderAmount!!} </td>
                                             <td>{!! number_format($row->price) !!} Vnđ</td>
                                             <td>
-                                                @if($row->status ==1)
-                                                    <span style="color:blue;">Còn hàng</span>
-                                                @else
-                                                    <span style="color:#27ae60;"> Tạm hết</span>
-                                                @endif
+                                               {{$row->status}}
                                             </td>
                                             <td>
-                                                <a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+{{--                                                <a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>--}}
+                                                <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
                                             </td>
                                         </tr>
                                         @php
@@ -81,36 +78,25 @@
 
                                         @endphp
 
-                                        {{--												@if($oder['status'] ==4)--}}
-                                        {{--													@php--}}
-                                        {{--													$prodetai =  ProductDetail::find($row->id);--}}
 
-                                        {{--													if ( $prodetai != null){--}}
-                                        {{--													$prodetai['amount'] =  $prodetai['amount'] -   $row->orderAmount;--}}
-                                        {{--													$prodetai->save();--}}
-                                        {{--													}--}}
-                                        {{--													@endphp--}}
-                                        {{--												@endif--}}
+                                    @endforeach
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    @if($oder['status'] ==0)
                         <button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
-                    @else
 
                         <div style="float: left">
                             <a  href="{{asset('order')}}" class="btn btn-dark" >Quay Về </a>
 
                         </div>
-                    @endif
+
                 </form>
 
 
-                @if($oder['status'] !=0)
-                    <form action="{{route('changestatus.order',$oder['id'])}}" method="get">
+                    <form action="" method="get">
                         @csrf
                         {{-- <select name="selectStatus" id="" class="dropdown" >
                             <option value="3">Đang Chuyển Hàng</option>
@@ -123,7 +109,7 @@
                         <button type="submit" class="btn btn-danger" value="5" name="selectStatus">Bị Từ Chối</button>
                     </form>
 
-                @endif
+
 
             </div>
         </div><!--/.row-->

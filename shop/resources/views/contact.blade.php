@@ -3,7 +3,7 @@
 @section('content')
 <!-- Map Area Start -->
 <div class="map-area" style="padding-top: 100px;">
-    <div id="googleMap" style="width:100%;height:445px;"></div>
+    <div id="googleMap" style="width:100%;height:445px;"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7448.267014620704!2d105.77827898208807!3d21.0273433958073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b3260b1a8b%3A0x862052392e3f478e!2zOCBUw7RuIFRo4bqldCBUaHV54bq_dCwgTeG7uSDEkMOsbmgsIFThu6sgTGnDqm0sIEjDoCBO4buZaSAxMDAwMCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1592991571300!5m2!1svi!2s" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
 </div>
 <!-- Map Area End -->	
 <!-- Address Information Area Start -->
@@ -123,7 +123,7 @@
 <script src="lib/home.js" type="text/javascript"></script>
 <!-- Google Map js -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMrdj9B1JYMqx1cYHqMxoZuEXydwyQmWo&callback=initMap&language=en"></script>
-<script>
+<!--<script>
     function initMap() {
        var myOptions = {
            zoom: 15,
@@ -144,7 +144,7 @@
        infowindow.open(map, marker);
    }
    google.maps.event.addDomListener(window, 'load', initMap);
-</script>		
+</script>		-->
 <!-- main js -->
 <script src="js/main.js"></script>
 @endsection

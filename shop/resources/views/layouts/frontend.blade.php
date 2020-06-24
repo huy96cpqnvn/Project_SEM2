@@ -164,14 +164,12 @@
                                                 Kiểm tra giỏ
                                                 <i class="fa fa-chevron-right"></i>
                                             </a>
-
                                         </div>
                                         <div class="cart-checkout">
-                                            <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
+                                            @if(\Illuminate\Support\Facades\Auth::check())
+                                                <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
 
-
-                                        </div>
-                                              <div class="cart-checkout">
+                                            @endif
                                         </div>
                                     </div>
                                 </li>
@@ -230,7 +228,6 @@
 		                        <ul class="footer-list">
 		                            <li><a href="{{asset('profile')}}">My Account</a></li>
 		                            <li><a href="{{route('login') }}">Login</a></li>
-		                            <li><a href="{{asset('order/user/{id}')}}">Lịch sử mua hàng</a></li>
 		                        </ul>
 		                    </div>
 		                </div>

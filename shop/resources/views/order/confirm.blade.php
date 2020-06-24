@@ -9,6 +9,7 @@
       <div class="row">
           <div class="banner-list">
               <div class="col-md-12 col-sm-12">
+
                     <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
                     <a href="{{url('')}}"><button class="btn btn-primary pull-right" style="margin-right: 15px;">Mua tiếp</button></a>
               </div>

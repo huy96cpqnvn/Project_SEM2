@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function() { //sử dụng để sau khi 
     Route::get('dat-hang','Order_detailController@getoder')->name('getoder.get');
     Route::resource('profile', 'ProfileController');
     Route::get('order/user/{id}', 'OrderController@user')->name('order.user');
+//    Route::get('order/user/detail/{id}', 'OrderController@userDetail')->name('order.user');
 
 });
 
@@ -127,7 +128,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
 
     Route::resource('/mes_management', 'MessageController');
     Route::get('mes_search/{search?}', 'MessageController@process')->name('message_management.process');
-    
+
     Route::resource('/comment_management', 'CommentController');
     Route::get('comment_search/{search?}', 'CommentController@process')->name('comment_management.process');
     Route::get('comment_status={status?}', 'CommentController@status')->name('comment.status');

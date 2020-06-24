@@ -198,23 +198,17 @@ class OrderController extends Controller
     return view('order.detail')->with(['data'=>$data,'oder'=>$oder,'curentStatus'=>$status]);
     }
 
-public function user($id){
-    $order = Order::where('user_id', $id)->get();
-    // $invoice = Order::where('id', Auth::user()->id)->get();
+public function user($id_user){
+    $order = Order::where('user_id',$id_user)->get();
     $allCategory = Category::all();
 
-    // $data = DB::table('orders')
-    //     ->join('orders','orders.user_id','=','users.id')
-    //     ->where('users',$user_id)
-    //     ->get();
-    // foreach ($order as $od){
-    //     $orderDetail = OrderDetail::where('order_id',$od['id'])->get();
+    foreach ($order as $od){
+        $orderDetail = OrderDetail::where('order_id',$od['id'])->get();
 
-    // }
+    }
     return view('order.user.list')->with([
         'order'=>$order,
         'allCategory'=>$allCategory
-        // 'data' => $data
     ]);
 }
 

@@ -28,7 +28,7 @@ class FrontendController extends Controller {
         $lsProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(3)->get();
         $arrProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
-        $comment = Comment::orderBy('created_at', 'DESC')->take(3)->get();
+        $comment = Comment::where('status', '1')->orderBy('created_at', 'DESC')->take(3)->get();
         $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
         $allCategory = Category::all();
         $allNewcate = NewsCategory::all();

@@ -121,10 +121,12 @@
                        <div class="col-md-6">
                            <div class="about-inner">
                                <div class="about-title">
-                                   <h2>Phương thức thanh toán</h2>
+                                   <h2>PHƯƠNG THỨC THANH TOÁN</h2>
                                </div>
                                <div class="about-content">
-                                   <p>Thanh toán bằng thẻ ATM nội địa/ Internet Banking/ Visa/Master/JCB/ ZaloPay</p>
+                                   <p>Thanh toán bằng thẻ ATM nội địa/ Internet Banking/ Visa/Master/JCB/ ZaloPay, thanh toán bằng ví điện tử VNPay hoặc thanh toán trực tiếp khi nhận hàng (COD). </p>
+                                   
+                                   
 
                                </div>
                            </div>

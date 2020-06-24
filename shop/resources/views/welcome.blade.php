@@ -51,7 +51,7 @@
             </div>
             <!-- layer 2 -->
             <div class="layer-2">
-                <p class="title-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="title-2"></p>
             </div>
             <!-- layer 4 -->
             <div class="layer-4">
@@ -72,7 +72,7 @@
     <div class="container">
         <div class="banner-title text-center">
             <h2>ONLINE <span>BOOK STORE</span></h2>
-            <p>The Online Books Guide is the biggest big store and the biggest books library in the world that has alot of the popular and the most top category books presented here. Top Authors are here just subscribe your email address and get updated with us.</p>
+            <p>The Writer Books store is the biggest store and the biggest books library in the world that has a lot of the popular and the most top category books presented here. Top Authors are here just subscribe your email address and get updated with us.</p>
         </div>
         <div class="row">
             @foreach($lsProductdt as $prodetail)
@@ -109,7 +109,7 @@
                     </div>
                     <div class="shop-info-content">
                         <h2>PHƯƠNG THỨC VẬN CHUYỂN</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+                        <p>Đa dạng về phương thức vận chuyển bao gồm dịch vụ chuyển phát nhanh bằng đường hàng không và đường bộ.</p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>
@@ -120,8 +120,8 @@
                         <i class="flaticon-money"></i>
                     </div>
                     <div class="shop-info-content">
-                        <h2>Phương thức thanh toán</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+                        <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+                        <p>Đa dạng, bao gồm: thanh toán online qua ví điện tử, thẻ ATM nội địa hoặc thanh toán trực tiếp khi nhận hàng.</p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="shop-info-content">
                         <h2>CHÍNH SÁCH ĐỔI / TRẢ</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+                        <p>Liên hệ, hỗ trợ khách hàng nhanh nhất và tốt nhất có thể, áp dụng chính sách đổi trả thuận tiện cho khách hàng.</p>
                         <a href="{{asset('/about')}}">READ MORE</a>
                     </div>
                 </div>

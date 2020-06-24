@@ -187,19 +187,19 @@
 		                        <a href="{{asset('/')}}">
 		                            <img src="img/logo-2.png" alt="">
 		                        </a>
-		                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+		                        <p>Hệ thống nhà sách uy tín, chất lượng hàng đầu Việt Nam.</p>
 		                        <ul class="footer-contact">
 		                            <li>
 		                                <i class="flaticon-location"></i>
-		                                450 fifth Avenue, 34th floor. NYC
+		                                8 Tôn Thất Thuyết, Hà Nội. VN
 		                            </li>
 		                            <li>
 		                                <i class="flaticon-technology"></i>
-		                                (+800) 123 4567 890
+		                                (+84)0243 123 456
 		                            </li>
 		                            <li>
 		                                <i class="flaticon-web"></i>
-		                                info@bookstore.com
+		                                writer@gmail.com
 		                            </li>
 		                        </ul>
 		                    </div>
@@ -241,7 +241,7 @@
 		                <div class="col-md-3 col-sm-8">
 		                    <div class="single-footer footer-newsletter">
 		                        <h2 class="footer-title">Our Newsletter</h2>
-		                        <p>Consectetur adipisicing elit se do eiusm od tempor incididunt ut labore et dolore magnas aliqua.</p>
+		                        <p>Hãy để lại cho chúng tôi Email của bạn để nhận được các thông tin mới nhất về sản phẩm của chúng tôi.</p>
 		                        <form action="subscribe" method="post">
                                     @csrf
 		                            <div>

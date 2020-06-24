@@ -167,8 +167,6 @@
 
                                         </div>
                                               <div class="cart-checkout">
-                                            <a href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}"><button class="btn btn-primary pull-right" >Xem lịch sử mua hàng</button></a>
-
                                         </div>
                                     </div>
                                 </li>

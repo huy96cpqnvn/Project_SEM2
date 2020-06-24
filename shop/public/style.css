@@ -470,11 +470,14 @@ body {
   right: -50px !important;
   top: -13px !important;
   padding: 40px 45px 8px;
-  background: #32b5f3;
+  background: #fff;
   transform: rotate(45deg);
+  border-bottom: 1px solid;
 }
 .price span {
   font-size: 16px;
+  color: #ff0000;
+  font-weight: 600;
 
 }
 .single-banner > a , .product-image > a  , .product-tabs a , .left-item > a , .tag-list a  , .check-out-area .panel-default > .panel-heading h4.panel-title a , .single-team-member > a , .footer-left > a , .single-blog > a{
@@ -566,10 +569,10 @@ body {
   border: 1px solid #32b5f3;
 }
 .shop-info-content > a {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: 1px solid #ffffff;
+  background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
+  border: 1px solid #ff0000;
   border-radius: 30px;
-  color: #ffffff;
+  color: #ff0000;
   overflow: hidden;
   padding: 5px 25px;
 }

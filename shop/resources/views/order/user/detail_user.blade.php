@@ -87,7 +87,7 @@
                     </div>
 
                         <div style="float: left">
-                            <a  href="{{URL::previous()}}" class="btn btn-info" >Quay Về </a>
+                            <a  href="{{route('order.user',\Illuminate\Support\Facades\Auth::user()['id'])}}" class="btn btn-info" >Quay Về </a>
 
                         </div>
 

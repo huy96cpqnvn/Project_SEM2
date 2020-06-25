@@ -84,7 +84,9 @@
                             </thead>
                                 <tbody>
                                 @foreach($orders as $order)
+
                                     <?php
+
                                      if($order['status'] == 0 ){
                                          $status = 'Chưa xác nhận';
                                      }elseif($order['status'] == 1 ){
@@ -99,8 +101,9 @@
                                      }else($order['status'] == 5){
                                          $status = 'Bị từ chối'
                                      }
-
                                     ?>
+                                        @if(count($order->OrderDetail) !=0)
+
 
                                     <tr>
                                     <td>{{$i}}</td>
@@ -111,13 +114,15 @@
                                     <td>
                                         <a href="{{url('order/user/detail/'.$order['id'].'/'.Auth::user()['id'].'/'.$status)}}" title="Chi tiết">Chi tiết  </a> &nbsp;
                                         @if($order['status'] ==0)
-                                        <a href=""  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                                        <a href="{{route('user.delorder',$order['id'])}}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
                                         @endif
                                     </td>
 
                                 </tr>
                                     <?php $i++ ?>
+                                        @endif
                                 @endforeach
+
 
                                 </tbody>
                             </table>

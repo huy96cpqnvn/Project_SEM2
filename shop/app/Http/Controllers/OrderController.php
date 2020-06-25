@@ -233,5 +233,9 @@ public function userDetail($oderId,$userId,$orderStatus){
     ]);
 
 }
-
+public function userDelOrder($orderId){
+        $order = Order::find($orderId);
+        $order->delete();
+    return redirect()->back();
+}
 }

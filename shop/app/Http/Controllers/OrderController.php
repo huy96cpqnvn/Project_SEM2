@@ -93,7 +93,7 @@ class OrderController extends Controller
             $order->delete();
             return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đã hủy hủy  đơn hàng số: $id !"]);
 
-        
+
 
     }
     /**

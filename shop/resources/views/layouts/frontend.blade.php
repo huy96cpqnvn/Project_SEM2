@@ -83,6 +83,9 @@
 									                  </li>
                                     <li><a href="{{asset('/about')}}">ABOUT</a></li>
 									<li><a href="{{asset('/contact')}}">CONTACT</a></li>
+                                    @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()['level']=='admin' )
+									<li><a href="{{asset('/dashboard')}}">MANAGER</a></li>
+                                    @endif
 
                                 </ul>
                             </nav>

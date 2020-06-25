@@ -29,7 +29,7 @@ class FrontendController extends Controller {
         $arrProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
         $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(12)->get();
         $comment = Comment::where('status', '1')->orderBy('created_at', 'DESC')->take(3)->get();
-        $new = News::where('status', '1')->orderBy('created_at', 'ASC')->take(6)->get();
+        $new = News::where('status', '1')->orderBy('created_at', 'DESC')->take(6)->get();
         $allCategory = Category::all();
         $allNewcate = NewsCategory::all();
         $lsUser = User::all();
@@ -101,7 +101,7 @@ class FrontendController extends Controller {
         $curentProdut = Product::find($product_id);
 
         $allProduct = Product::where('category_id', $id)->get();
-        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
         if ($product_id != null) {
@@ -110,6 +110,7 @@ class FrontendController extends Controller {
             ->join('products', 'products.id', '=', 'product_details.product_id')
             ->join('categories', 'categories.id', '=', 'products.category_id')
             ->where('products.id', $product_id)
+            ->orderBy('created_at', 'DESC')
             ->paginate(9);
         } else {
             $data = DB::table(DB::raw('product_details'))
@@ -117,6 +118,7 @@ class FrontendController extends Controller {
                     ->join('products', 'products.id', '=', 'product_details.product_id')
                     ->join('categories', 'categories.id', '=', 'products.category_id')
                     ->where('categories.id', $id)
+                    ->orderBy('created_at', 'DESC')
                     ->paginate(9);
         }
 
@@ -136,7 +138,7 @@ class FrontendController extends Controller {
         $curentProdut = Product::find($product_id);
 
         $allProduct = Product::where('category_id', $id)->get();
-        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(2)->get();
         $cate_name = "";
         $product_name = "";
         if ($price == 0 && $cate != 'Category') {
@@ -249,15 +251,16 @@ class FrontendController extends Controller {
         $curentNewcate = NewsCategory::find($id);
 
         $allTag = Tag::all();
-        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'ASC')->take(2)->get();
+        $saleProductdt = ProductDetail::where('status', '1')->orderBy('created_at', 'DESC')->take(2)->get();
         if($id != null) {
             $data = DB::table(DB::raw('news'))
             ->select('news.*')
             ->join('news_categories', 'news_categories.id', '=', 'news.category_id')
             ->where('news.category_id', $id)
+            ->orderBy('created_at', 'DESC')
             ->paginate(9);
         } else {
-            $data = DB::table(DB::raw('news'))->paginate(9);
+            $data = DB::table(DB::raw('news'))->orderBy('created_at', 'DESC')->paginate(9);
         }
 
 

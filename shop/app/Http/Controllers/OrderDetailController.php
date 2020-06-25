@@ -135,28 +135,30 @@ class OrderDetailController extends Controller
         return redirect()->back()->with('success', 'Thêm '.$product['name'].' Vào Giỏ Hàng Thành Công');
     }
     //
-    public function getdelDetail($idDetai ,$oderStatus)
+    public function getdelDetail($idDetai ,$oderStatus,$count,$orderId)
     {
+        $id = $idDetai;
+
         $oder = OrderDetail::where('id',$idDetai)->first();
-        dd($oder->toArray());
-        if ( $oderStatus ==1) {
-            return redirect()->back()
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy sản phẩm số  $idDetai vì đã được xác nhận!']);
-        }
-        if ( $oderStatus ==0) {
+      //  dd($oder->toArray());
+//        if ( $oderStatus ==1) {
+//            return redirect()->back()
+//                ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy sản phẩm số  $idDetai vì đã được xác nhận!']);
+//        }
+
             if ($oder !=null){
                 $oder->delete();
             }
-            if ($oder ==null){
-                return  redirect('order');
-            }else{
-                return redirect("admin/donhang/detail/ $idDetai")
-                    ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
+            if ($count ==0) {
+                return redirect('order');
+            }else {
+                return redirect("admin/donhang/detail/$orderId")
+                    ->with(['flash_level' => 'result_msg', 'flash_massage' => 'Đã hủy bỏ sản phẩm số:  ' . $id . ' !']);
 
             }
         }
 
-    }
+
     public function getDetailUser($orderDetaiId){
         $oderDetail = OrderDetail::where('id',$orderDetaiId)->first();
         $allCategory = Category::all();

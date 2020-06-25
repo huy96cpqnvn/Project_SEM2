@@ -25,7 +25,7 @@ class OrderController extends Controller
             ->where('order_id',$id)
             //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
-        return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
+        return view('order.detail')->with(['data'=>$data,'oder'=>$oder,'orderId'=>$id]);
     }
     public function postdetail($id)
     {

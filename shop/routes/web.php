@@ -114,7 +114,7 @@ Route::group(['middleware'=>'CheckRole'],function (){
     Route::get('admin/donhang/detail/{id}',['as'  =>'getdetail','uses' => 'OrderController@getdetail'])
         ->where('id','[0-9]+')->name('admin.delDetail');
     Route::post('admin/donhang/detail/{id}',['as' =>'postdetail','uses' => 'OrderController@postdetail'])->where('id','[0-9]+');
-    Route::get('admin/donhang/deldetail/{id}/{orderStatus}', 'OrderDetailController@getdelDetail')->where('id','[0-9]+');
+    Route::get('admin/donhang/deldetail/{id}/{orderStatus}/{count}/{orderId}', 'OrderDetailController@getdelDetail')->where('id','[0-9]+');
     Route::resource('/language_management', 'LanguageController');
     Route::get('lang_search/{search?}', 'LanguageController@process')->name('language_management.process');
 

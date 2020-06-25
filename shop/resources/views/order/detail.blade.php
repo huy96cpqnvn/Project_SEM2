@@ -80,12 +80,12 @@
                                                     </td>
 												</tr>
 											@else
-											@php
+{{--											@php--}}
 
-												$order = Order::find($oder['id']);
+{{--												$order = Order::find($oder['id']);--}}
 
-											   $order->delete();
-											@endphp
+{{--											   $order->delete();--}}
+{{--											@endphp--}}
 											@endif
 											</tbody>
 										</table>
@@ -131,10 +131,11 @@
 														</td>
 														<td>
                                                             <?php
+
                                                             ?>
                                                             @if($oder['status'] ==0)
-															<a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa"
-                                                               onclick="return confirm('Xóa danh mục này ?')">Remove</a>
+															<a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status']).'/'.count($data).'/'.$orderId!!}"  title="Xóa"
+                                                               onclick="return confirm('Xóa danh mục này ??')">Remove</a>
                                                                 @endif
 														</td>
 													</tr>
@@ -159,14 +160,15 @@
 									</div>
 								</div>
 							</div>
-							@if($oder['status'] ==0)
-							<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger"> Xác nhận đơn hàng </button>
+                            <div style="float: left">
+                                <a  href="{{asset('order')}}" class="btn btn-dark" >Quay Về </a>
+
+                            </div>
+							@if($oder['status'] ==0 && count($data) >0)
+							<button type="submit" onclick="return xacnhan('Xác nhận đơn hàng này ?')"  class="btn btn-danger" style="float: left"> Xác nhận đơn hàng </button>
 							@else
 
-							  <div style="float: left">
-								  <a  href="{{asset('order')}}" class="btn btn-dark" >Quay Về </a>
 
-							  </div>
 							@endif
 						</form>
 

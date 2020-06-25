@@ -85,14 +85,15 @@ class OrderController extends Controller
     public function getdelOrder($id){
 
         $order = Order::find($id);
-        if ($order['status'] ==1){
-            return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Không thể hủy  đơn hàng số: $id vì đã được xác nhận!'"]);
+//        if ($order['status'] ==1){
+//            return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>
+//                " Không thể hủy  đơn hàng số: $id vì đã được xác nhận!'"]);
 
-        }else  {
+
             $order->delete();
             return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đã hủy hủy  đơn hàng số: $id !"]);
 
-        }
+        
 
     }
     /**

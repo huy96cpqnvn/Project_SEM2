@@ -51,6 +51,7 @@
                                     $i = 0;
                                 @endphp
                                 @foreach($data as $row)
+                                    @if(count($row->OrderDetail) !=0)
 
                                         <tr>
                                         <td>{{$i+1}}</td>
@@ -77,13 +78,21 @@
 
                                         <td>
                                             <a href="{!!url('admin/donhang/detail/'.$row->id)!!}" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                            @if($row->status ==0)
                                             <a href="{!!url('admin/donhang/delorder/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                                            @endif
                                         </td>
                                     </tr>
 
                                         @php
                                     $i++;
                                     @endphp
+                                    @else
+                                        <?php
+                                        $row->delete();
+
+                                        ?>
+                                    @endif
                                 @endforeach
 
                                 </tbody>

@@ -131,7 +131,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="breadcrumbs">
-                   <h2>Lịch sử mua hàng</h2> 
+                   <h2>Lịch sử mua hàng</h2>
                    <ul class="breadcrumbs-list">
                         <li>
                             <a title="Return to Home" href="{{asset('/')}}">Home</a>
@@ -142,8 +142,8 @@
             </div>
         </div>
     </div>
-</div> 
-<!-- Breadcrumbs Area Start --> 
+</div>
+<!-- Breadcrumbs Area Start -->
 <!-- Shop Area Start -->
 <div class="shopping-area section-padding">
     <div class="container">
@@ -167,7 +167,7 @@
                                     <p>Email : <b>{{Auth::user()['email']}}</b></p>
                                 </li>
                             </ul>
-                        </aside> 
+                        </aside>
                      </div>
                  </div>
             </div>
@@ -232,6 +232,10 @@
                                     </td>
                                 </tr>
                                 <?php $i++ ?>
+                                @else
+                                    <?php
+                                    $order->delete();
+                                    ?>
                                 @endif
                             @endforeach
                         </tbody>

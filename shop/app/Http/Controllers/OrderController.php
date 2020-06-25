@@ -17,15 +17,14 @@ class OrderController extends Controller
     public function getdetail($id)
     {
         $oder = Order::where('id',$id)->first();
-        $data = DB::table('product_details')->select('product_details.*', 'order_details.order_id',
-            'order_details.productDetail_id','order_details.orderAmount','order_details.price',
-            'order_details.totalprice','order_details.deleted_at','order_details.created_at')
-            ->join('order_details','order_details.productDetail_id','=', 'product_details.id')
+        $data= DB::table('order_details')->select('order_details.*', 'product_details.name',
+            'product_details.product_id','product_details.cover','product_details.review',
+            'product_details.detail','product_details.price','product_details.status','product_details.status'
+            ,'product_details.author_id','product_details.user_id','product_details.discount','product_details.created_at')
+            ->join('product_details','order_details.productDetail_id','=', 'product_details.id')
             ->where('order_id',$id)
-       //   ->groupBy('order_details.id','order_details.productDetail_id')
+            //   ->groupBy('order_details.id','order_details.productDetail_id')
             ->get();
-
-
         return view('order.detail')->with(['data'=>$data,'oder'=>$oder]);
     }
     public function postdetail($id)
@@ -85,14 +84,15 @@ class OrderController extends Controller
     public function getdelOrder($id){
 
         $order = Order::find($id);
-        if ($order['status'] ==1){
-            return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Không thể hủy  đơn hàng số: $id vì đã được xác nhận!'"]);
+//        if ($order['status'] ==1){
+//            return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>
+//                " Không thể hủy  đơn hàng số: $id vì đã được xác nhận!'"]);
 
-        }else  {
+
             $order->delete();
             return redirect('order')->with(['flash_level'=>'result_msg','flash_massage'=>" Đã hủy hủy  đơn hàng số: $id !"]);
 
-        }
+
 
     }
     /**
@@ -177,8 +177,8 @@ class OrderController extends Controller
     $oder = Order::where('id',$order_id)->first();
     $oder->status = $status;
     $oder->save();
-    $data = DB::table('product_details')
-        ->join('order_details','product_details.id','=','order_details.productDetail_id')
+    $data = DB::table('order_details')
+        ->join('product_details','product_details.id','=','order_details.productDetail_id')
         ->where('order_id',$order_id)
         //   ->groupBy('order_details.id','order_details.productDetail_id')
         ->get();

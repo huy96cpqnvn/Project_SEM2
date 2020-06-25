@@ -138,6 +138,7 @@ class OrderDetailController extends Controller
     public function getdelDetail($idDetai ,$oderStatus)
     {
         $oder = OrderDetail::where('id',$idDetai)->first();
+        dd($oder->toArray());
         if ( $oderStatus ==1) {
             return redirect()->back()
                 ->with(['flash_level'=>'result_msg','flash_massage'=>'Không thể hủy sản phẩm số  $idDetai vì đã được xác nhận!']);
@@ -146,8 +147,13 @@ class OrderDetailController extends Controller
             if ($oder !=null){
                 $oder->delete();
             }
-            return redirect('order')
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
+            if ($oder ==null){
+                return  redirect('order');
+            }else{
+                return redirect("admin/donhang/detail/ $idDetai")
+                    ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
+
+            }
         }
 
     }

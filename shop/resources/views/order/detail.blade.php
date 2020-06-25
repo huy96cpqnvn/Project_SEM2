@@ -132,8 +132,10 @@
 														<td>
                                                             <?php
                                                             ?>
+                                                            @if($oder['status'] ==0)
 															<a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa"
                                                                onclick="return confirm('Xóa danh mục này ?')">Remove</a>
+                                                                @endif
 														</td>
 													</tr>
 													@php

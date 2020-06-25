@@ -177,8 +177,8 @@ class OrderController extends Controller
     $oder = Order::where('id',$order_id)->first();
     $oder->status = $status;
     $oder->save();
-    $data = DB::table('product_details')
-        ->join('order_details','product_details.id','=','order_details.productDetail_id')
+    $data = DB::table('order_details')
+        ->join('product_details','product_details.id','=','order_details.productDetail_id')
         ->where('order_id',$order_id)
         //   ->groupBy('order_details.id','order_details.productDetail_id')
         ->get();

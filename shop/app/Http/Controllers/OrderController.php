@@ -173,6 +173,7 @@ class OrderController extends Controller
     } public function changeStatus($order_id , Request $request )
     {
 
+
         $status = $request->selectStatus;
     $oder = Order::where('id',$order_id)->first();
     $oder->status = $status;
@@ -184,10 +185,10 @@ class OrderController extends Controller
         ->get();
 
     if($status == 4) {
-        $orderDetails =  OrderDetail::find($order_id);
-
+        $orderDetails =  OrderDetail::where('order_id',$order_id)->first();
         if ( $orderDetails != null){
-                $prodetai = ProductDetail::find($orderDetails['productDetail_id']);
+                $prodetai = ProductDetail::where('id',$orderDetails['productDetail_id'])->first();
+
                 $prodetai['amount'] =  $prodetai['amount'] -   $orderDetails['orderAmount'];
 
                 $prodetai->save();

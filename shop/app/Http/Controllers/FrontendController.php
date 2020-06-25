@@ -36,10 +36,9 @@ class FrontendController extends Controller {
         $lsProduct = ProductDetail::all();
         $lsNews = News::all();
         $lsOrder = Order::all();
-
-
         return view('welcome')->with(['lsProductdt' => $lsProductdt, 'arrProductdt' => $arrProductdt,
-                    'saleProductdt' => $saleProductdt, 'comment' => $comment,
+                    'saleProductdt' => $saleProductdt, 
+                    'comment' => $comment,
                     'new' => $new,
                     'allCategory' => $allCategory,
                     'lsUser' => $lsUser,

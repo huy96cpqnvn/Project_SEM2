@@ -220,7 +220,7 @@
                     <div class="single-testimonial">
                        <img src="img/testimonial/1.jpg" alt="">
                        <div class="testmonial-info clearfix">
-                       <p>{{$comm->content}}</p> 
+                            <p>{{$comm->content}}</p> 
                            <div class="testimonial-author text-center">
                                <h3>{{$comm->name}}</h3>
                             </div>

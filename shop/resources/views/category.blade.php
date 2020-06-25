@@ -115,7 +115,7 @@
                                             <div class="product-wrapper">
                                                 <a href="{{asset("single.html/$pr->id")}}" class="single-banner-image-wrapper">
                                                     <img alt="" src="{{asset($pr->cover)}}">
-                                                    <div class="price">{{$pr->price}}</div>
+                                                    <div class="price"><span>{{$pr->price}}</span></div>
                                                 </a>
                                                 <div class="product-description">
                                                     <div class="functional-buttons">

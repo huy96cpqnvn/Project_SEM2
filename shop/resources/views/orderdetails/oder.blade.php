@@ -187,7 +187,7 @@
                   <table class="done_order">
                       <thead>
                           <tr>
-                              <th class="product-edit">STT</th>
+                              <th class="product-edit">ID</th>
                               <th class="product-image">Ảnh</th>
                               <th class="t-product-name">Tên sản phẩm</th>
                               <th class="product-unit-price">Giá</th>

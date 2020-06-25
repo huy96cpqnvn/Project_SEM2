@@ -1,16 +1,16 @@
 @extends('layouts.frontend')
 @section('content')
-    @php
+    {{-- @php
         use Illuminate\Support\Facades\Auth as Auth;
     @endphp
-    <!-- main content - noi dung chinh trong chu -->
+
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <div class="row">
             <ol class="breadcrumb">
                 <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
                 <li class="active"><h1 style="text-align: center;color: red">Đơn đặt hàng</h1></li>
             </ol>
-        </div><!--/.row-->
+        </div>
         <div class="row">
             <div class="col-lg-12">
 
@@ -48,17 +48,6 @@
                                         <td>{{Auth::user()['address']}}</td>
                                         <td>{{Auth::user()['phone']}}</td>
                                         <td>{{Auth::user()['email']}}</td>
-                                        <td>
-
-
-{{--                                                <span style="color:#d35400;">Chưa xác nhận</span>--}}
-
-                                        </td>
-
-
-{{--                                            <a href="{{url('admin/donhang/detail/'}}" title="Chi tiết">Chi tiết  </a> &nbsp;--}}
-{{--                                            <a href="{{url('admin/donhang/delorder/'}}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>--}}
-
                                     </tr>
 
 
@@ -85,23 +74,22 @@
                                 <tbody>
                                 @foreach($orders as $order)
 
-                                    <?php
+                                   // <?php
 
-                                     if($order['status'] == 0 ){
-                                         $status = 'Chưa xác nhận';
-                                     }elseif($order['status'] == 1 ){
-                                         $status = 'Đã xác nhận';
+                                     //if($order['status'] == 0 ){
+                                        // $status = 'Chưa xác nhận';
+                                    // }elseif($order['status'] == 1 ){
+                                       //  $status = 'Đã xác nhận';
 
-                                     }elseif($order['status'] == 3 ){
-                                         $status = 'Đang chuyển hàng';
+                                     //}elseif($order['status'] == 3 ){
+                                    //     $status = 'Đang chuyển hàng';
+                                   //  }elseif($order['status'] == 4 ){
+                                   //      $status = 'Đã thanh toán ';
 
-                                     }elseif($order['status'] == 4 ){
-                                         $status = 'Đã thanh toán ';
-
-                                     }else($order['status'] == 5){
-                                         $status = 'Bị từ chối'
-                                     }
-                                    ?>
+                                    // }else($order['status'] == 5){
+                                   //     $status = 'Bị từ chối'
+                                    // }
+                                    //?>
                                         @if(count($order->OrderDetail) !=0)
 
 
@@ -128,11 +116,130 @@
                             </table>
                             </div>
                         </div>
-{{--                        {!! $data->render() !!}--}}
                     </div>
                 </div>
             </div>
-        </div><!--/.row-->
-    </div>	<!--/.main-->
-    <!-- =====================================main content - noi dung chinh trong chu -->
+        </div>
+    </div> --}}
+
+
+    @php
+    use Illuminate\Support\Facades\Auth as Auth;
+@endphp
+<div class="breadcrumbs-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                   <h2>Lịch sử mua hàng</h2> 
+                   <ul class="breadcrumbs-list">
+                        <li>
+                            <a title="Return to Home" href="{{asset('/')}}">Home</a>
+                        </li>
+                        <li>Lịch sử mua hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- Breadcrumbs Area Start --> 
+<!-- Shop Area Start -->
+<div class="shopping-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="shop-widget">
+                    <div class="shop-widget-top">
+                        <aside class="widget widget-categories">
+                            <h2 class="sidebar-title text-center">Thông tin khách hàng</h2>
+                            <ul class="sidebar-menu" style="padding: 0 5px">
+                                <li>
+                                    <p>Name : <b>{{Auth::user()['name']}}</b></p>
+                                </li>
+                                <li>
+                                    <p>Address : <b>{{Auth::user()['address']}}</b></p>
+                                </li>
+                                <li>
+                                    <p>Phone : <b>{{Auth::user()['phone']}}</b></p>
+                                </li>
+                                <li>
+                                    <p>Email : <b>{{Auth::user()['email']}}</b></p>
+                                </li>
+                            </ul>
+                        </aside> 
+                     </div>
+                 </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <div class="wishlist-right-area table-responsive">
+                    <h3>Lịch sử đặt hàng</h3>
+                    @php
+                        $i = 1;
+                    @endphp
+                    <table class="wish-list-table">
+                        <thead>
+                            <tr>
+                                <th class="t-product-name">STT</th>
+                                <th class="product-details-comment">Trạng thái</th>
+                                <th class="product-price-cart">Tổng tiền</th>
+                                <th class="w-product-remove">Ngày đặt</th>
+                                <th>Phương thức thanh toán</th>
+                                <th>Chi tiết/Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($orders as $order)
+                                <?php
+
+                                    if($order['status'] == 0 ){
+                                        $status = 'Chưa xác nhận';
+                                    }elseif($order['status'] == 1 ){
+                                        $status = 'Đã xác nhận';
+
+                                    }elseif($order['status'] == 3 ){
+                                        $status = 'Đang chuyển hàng';
+
+                                    }elseif($order['status'] == 4 ){
+                                        $status = 'Đã thanh toán ';
+
+                                    }else($order['status'] == 5){
+                                        $status = 'Bị từ chối'
+                                    }
+                                ?>
+                                @if(count($order->OrderDetail) !=0)
+                                <tr>
+                                    <td class="product-image">
+                                        <span>{{$i}}</span>
+                                    </td>
+                                    <td class="product-details">
+                                        <span>{{$status}}</span>
+                                    </td>
+                                    <td class="product-cart">
+                                        <span>{{$order['totalprice']}} đ</span>
+                                    </td>
+                                    <td class="product-remove">
+                                        <span>{{$order['created_at']}}</span>
+                                    </td>
+                                    <td>
+                                        <span>{{$order['paymentMethod']}}</span>
+                                    </td>
+                                    <td>
+                                        <a href="{{url('order/user/detail/'.$order['id'].'/'.Auth::user()['id'].'/'.$status)}}" title="Chi tiết">Chi tiết  </a> &nbsp;
+                                        @if($order['status'] ==0)
+                                        <a href="{{route('user.delorder',$order['id'])}}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"> Hủy bỏ</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <?php $i++ ?>
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
 @endsection

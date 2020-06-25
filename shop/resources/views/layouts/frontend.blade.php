@@ -135,7 +135,7 @@
                                         @foreach (Cart::content() as $row)
                                             <div class="cart-product">
                                                 <div class="cart-product-image">
-                                                    <a href="single-product.html">
+                                                    <a href="single.html/{{$item->id}}">
                                                         <img src="{{asset($row->cover)}}" alt="">
                                                     </a>
                                                 </div>
@@ -143,7 +143,7 @@
                                                     <p>
                                                         <span>{{$row->qty}}</span>
                                                         x
-                                                        <a href="single-product.html">{{$row->name}}</a>
+                                                        <a href="single.html/{{$item->id}}">{{$row->name}}</a>
                                                     </p>
                                                     <span class="cart-price">{{$row->price}} Đ</span>
                                                 </div>

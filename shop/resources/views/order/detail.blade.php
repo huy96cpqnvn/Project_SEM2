@@ -71,10 +71,10 @@
 												<tr>
 													<td>{!!$oder['id']!!}</td>
 													<td>{!!$oder->user['name']!!}</td>
-													<td>{!!$oder->user->address!!}</td>
-													<td>{!!$oder->user->phone!!}</td>
-													<td>{!!$oder->created_at!!}</td>
-													<td>{!! number_format($oder->totalprice) !!} Vnđ</td>
+													<td>{!!$oder->user['address']!!}</td>
+													<td>{!!$oder->user['phone']!!}</td>
+													<td>{!!$oder['created_at']!!}</td>
+													<td>{!! number_format($oder['totalprice']) !!} Vnđ</td>
                                                     <td>
                                                         <input type="button" class="btn btn-<?php echo$class ?>" value="{{$curentStatus}}"/>
                                                     </td>
@@ -116,7 +116,7 @@
 												@foreach($data as $row)
 
 													<tr>
-														<td>{{$i}}</td>
+														<td>{{$i+1}}</td>
 														<td> <img  src="{{asset($row->cover)}}"  alt="iphone" width="50" height="40"></td>
 														<td>{!!$row->name!!}</td>
 														<td>{!!$row->review!!}</td>
@@ -130,7 +130,10 @@
 															@endif
 														</td>
 														<td>
-															<a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">remove</span> </a>
+                                                            <?php
+                                                            ?>
+															<a href="{!!url('admin/donhang/deldetail/'.$row->id,$oder['status'])!!}"  title="Xóa"
+                                                               onclick="return confirm('Xóa danh mục này ?')">Remove</a>
 														</td>
 													</tr>
 													@php

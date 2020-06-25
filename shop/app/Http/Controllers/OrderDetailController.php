@@ -146,8 +146,13 @@ class OrderDetailController extends Controller
             if ($oder !=null){
                 $oder->delete();
             }
-            return redirect('order')
-                ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
+            if ($oder ==null){
+                return  redirect('order');
+            }else{
+                return redirect("admin/donhang/detail/ $idDetai")
+                    ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã hủy bỏ sản phẩm số:  '.$idDetai.' !']);
+
+            }
         }
 
     }
